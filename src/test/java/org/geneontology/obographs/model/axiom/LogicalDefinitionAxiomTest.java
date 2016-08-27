@@ -25,21 +25,25 @@ import org.junit.Test;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 
-public class EquivalentNodesSetTest {
+public class LogicalDefinitionAxiomTest {
 
+    private static final String DC = "A:1";
+    
     @Test
     public void test() throws JsonProcessingException {
-        EquivalentNodesSet ens = build();
-        assertEquals(2, ens.getNodeIds().size());
+        LogicalDefinitionAxiom lda = build();
+        assertEquals(DC, lda.getDefinedClassId());
     }
     
  
     
-    public static EquivalentNodesSet build() {
+    public static LogicalDefinitionAxiom build() {
         String[] ids = {"X:1", "X:2"};
         Set<String> nodeIds = new HashSet<>(
                 Arrays.asList(ids));
-        return new EquivalentNodesSet.Builder().nodeIds(nodeIds).representativeNodeId(ids[0]).build();
+        Set<ExistentialRestrictionExpression> rs = 
+                Collections.singleton(ExistentialRestrictionAxiomTest.build());
+        return new LogicalDefinitionAxiom.Builder().definedClassId(DC).genusIds(nodeIds).restrictions(rs).build();
         
     }
 

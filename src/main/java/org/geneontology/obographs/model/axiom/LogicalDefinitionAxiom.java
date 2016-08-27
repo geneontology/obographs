@@ -71,14 +71,18 @@ public class LogicalDefinitionAxiom extends AbstractAxiom {
             return this;
         }
 
-        public Builder representativeNodeId(Set<String> genusIds) {
+        public Builder genusIds(Set<String> genusIds) {
             this.genusIds = genusIds;
             return this;
         }
 
-        public Builder nodeIds(Set<ExistentialRestrictionExpression> restrictions) {
+        public Builder restrictions(Set<ExistentialRestrictionExpression> restrictions) {
             this.restrictions = restrictions;
             return this;
+        }
+        
+        public LogicalDefinitionAxiom build() {
+            return new LogicalDefinitionAxiom(this);
         }
     }
 

@@ -3,6 +3,7 @@ package org.geneontology.obographs.model;
 import java.util.List;
 
 import org.geneontology.obographs.model.axiom.EquivalentNodesSet;
+import org.geneontology.obographs.model.axiom.LogicalDefinitionAxiom;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
@@ -24,7 +25,8 @@ public class Graph {
 		meta = builder.meta;
 		nodes = builder.nodes;
 		edges = builder.edges;
-		equivalentNodesSets = builder.equivalentNodesSets;
+        equivalentNodesSets = builder.equivalentNodesSets;
+        logicalDefinitionAxioms = builder.logicalDefinitionAxioms;
 	}
 
 	private final List<Node> nodes;
@@ -33,6 +35,7 @@ public class Graph {
 	private final String lbl;
     private final Meta meta;
     private final List<EquivalentNodesSet> equivalentNodesSets;
+    private final List<LogicalDefinitionAxiom> logicalDefinitionAxioms;
 	
 	
 	
@@ -90,6 +93,15 @@ public class Graph {
 
 
 
+    /**
+     * @return the logicalDefinitionAxioms
+     */
+    public List<LogicalDefinitionAxiom> getLogicalDefinitionAxioms() {
+        return logicalDefinitionAxioms;
+    }
+
+
+
     public static class Builder {
 
         @JsonProperty
@@ -104,6 +116,8 @@ public class Graph {
         private List<Edge> edges;
         @JsonProperty
         private List<EquivalentNodesSet> equivalentNodesSets;
+        @JsonProperty
+        private List<LogicalDefinitionAxiom> logicalDefinitionAxioms;
         
         public Builder id(String id) {
             this.id = id;
@@ -129,6 +143,10 @@ public class Graph {
         }
         public Builder equivalentNodesSet(List<EquivalentNodesSet> equivalentNodesSets) {
             this.equivalentNodesSets = equivalentNodesSets;
+            return this;
+        }
+        public Builder logicalDefinitionAxioms(List<LogicalDefinitionAxiom> logicalDefinitionAxioms) {
+            this.logicalDefinitionAxioms = logicalDefinitionAxioms;
             return this;
         }
 

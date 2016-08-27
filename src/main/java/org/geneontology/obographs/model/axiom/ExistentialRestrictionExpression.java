@@ -64,6 +64,10 @@ public class ExistentialRestrictionExpression extends AbstractExpression {
             return this;
         }
 
+        public ExistentialRestrictionExpression build() {
+            return new ExistentialRestrictionExpression(this);
+        }
+
     }
 
 

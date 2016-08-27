@@ -25,22 +25,25 @@ import org.junit.Test;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 
-public class EquivalentNodesSetTest {
+public class ExistentialRestrictionAxiomTest {
+
+    private static final String REL = "part_of";
+    private static final String FILLER = "Z:1";
+
 
     @Test
     public void test() throws JsonProcessingException {
-        EquivalentNodesSet ens = build();
-        assertEquals(2, ens.getNodeIds().size());
+        ExistentialRestrictionExpression r = build();
+        assertEquals(REL, r.getPropertyId());
+        assertEquals(FILLER, r.getFillerId());
     }
-    
- 
-    
-    public static EquivalentNodesSet build() {
-        String[] ids = {"X:1", "X:2"};
-        Set<String> nodeIds = new HashSet<>(
-                Arrays.asList(ids));
-        return new EquivalentNodesSet.Builder().nodeIds(nodeIds).representativeNodeId(ids[0]).build();
-        
+
+
+
+    public static ExistentialRestrictionExpression build() {
+
+        return new ExistentialRestrictionExpression.Builder().propertyId(REL).fillerId(FILLER).build();
+
     }
 
 
