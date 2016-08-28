@@ -1,0 +1,144 @@
+{
+  "type" : "object",
+  "id" : "urn:jsonschema:org:geneontology:obographs:model:GraphDocument",
+  "properties" : {
+    "graphs" : {
+      "type" : "array",
+      "items" : {
+        "type" : "object",
+        "id" : "urn:jsonschema:org:geneontology:obographs:model:Graph",
+        "properties" : {
+          "nodes" : {
+            "type" : "array",
+            "items" : {
+              "type" : "object",
+              "id" : "urn:jsonschema:org:geneontology:obographs:model:Node",
+              "properties" : {
+                "id" : {
+                  "type" : "string"
+                },
+                "meta" : {
+                  "type" : "object",
+                  "id" : "urn:jsonschema:org:geneontology:obographs:model:Meta",
+                  "properties" : {
+                    "pred" : {
+                      "type" : "string"
+                    },
+                    "val" : {
+                      "type" : "string"
+                    },
+                    "meta" : {
+                      "type" : "object",
+                      "$ref" : "urn:jsonschema:org:geneontology:obographs:model:Meta"
+                    }
+                  }
+                },
+                "lbl" : {
+                  "type" : "string"
+                }
+              }
+            }
+          },
+          "edges" : {
+            "type" : "array",
+            "items" : {
+              "type" : "object",
+              "id" : "urn:jsonschema:org:geneontology:obographs:model:Edge",
+              "properties" : {
+                "subj" : {
+                  "type" : "string"
+                },
+                "pred" : {
+                  "type" : "string"
+                },
+                "obj" : {
+                  "type" : "string"
+                },
+                "meta" : {
+                  "type" : "object",
+                  "$ref" : "urn:jsonschema:org:geneontology:obographs:model:Meta"
+                }
+              }
+            }
+          },
+          "id" : {
+            "type" : "string"
+          },
+          "lbl" : {
+            "type" : "string"
+          },
+          "meta" : {
+            "type" : "object",
+            "$ref" : "urn:jsonschema:org:geneontology:obographs:model:Meta"
+          },
+          "equivalentNodesSets" : {
+            "type" : "array",
+            "items" : {
+              "type" : "object",
+              "id" : "urn:jsonschema:org:geneontology:obographs:model:axiom:EquivalentNodesSet",
+              "properties" : {
+                "meta" : {
+                  "type" : "object",
+                  "$ref" : "urn:jsonschema:org:geneontology:obographs:model:Meta"
+                },
+                "representativeNodeId" : {
+                  "type" : "string"
+                },
+                "nodeIds" : {
+                  "type" : "array",
+                  "items" : {
+                    "type" : "string"
+                  }
+                }
+              }
+            }
+          },
+          "logicalDefinitionAxioms" : {
+            "type" : "array",
+            "items" : {
+              "type" : "object",
+              "id" : "urn:jsonschema:org:geneontology:obographs:model:axiom:LogicalDefinitionAxiom",
+              "properties" : {
+                "meta" : {
+                  "type" : "object",
+                  "$ref" : "urn:jsonschema:org:geneontology:obographs:model:Meta"
+                },
+                "definedClassId" : {
+                  "type" : "string"
+                },
+                "restrictions" : {
+                  "type" : "array",
+                  "items" : {
+                    "type" : "object",
+                    "id" : "urn:jsonschema:org:geneontology:obographs:model:axiom:ExistentialRestrictionExpression",
+                    "properties" : {
+                      "propertyId" : {
+                        "type" : "string"
+                      },
+                      "fillerId" : {
+                        "type" : "string"
+                      }
+                    }
+                  }
+                },
+                "genusId" : {
+                  "type" : "array",
+                  "items" : {
+                    "type" : "string"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "meta" : {
+      "type" : "object",
+      "$ref" : "urn:jsonschema:org:geneontology:obographs:model:Meta"
+    },
+    "@context" : {
+      "type" : "any"
+    }
+  }
+}

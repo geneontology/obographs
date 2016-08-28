@@ -1,0 +1,16 @@
+{
+  "type" : "object",
+  "id" : "urn:jsonschema:org:geneontology:obographs:model:Meta",
+  "properties" : {
+    "pred" : {
+      "type" : "string"
+    },
+    "val" : {
+      "type" : "string"
+    },
+    "meta" : {
+      "type" : "object",
+      "$ref" : "urn:jsonschema:org:geneontology:obographs:model:Meta"
+    }
+  }
+}

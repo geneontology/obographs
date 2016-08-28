@@ -21,7 +21,7 @@ public class GraphDocumentTest {
     public void test() throws JsonProcessingException {
         GraphDocument d = build();
         Graph g = d.getGraphs().get(0);
-        assertEquals(1, g.getNodes().size());
+        assertEquals(2, g.getNodes().size());
         assertEquals(1, g.getEdges().size());
         assertEquals(1, d.getGraphs().size());
 

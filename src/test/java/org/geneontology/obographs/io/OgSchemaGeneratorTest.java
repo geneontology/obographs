@@ -7,20 +7,23 @@ import org.apache.commons.io.FileUtils;
 import org.geneontology.obographs.io.OgSchemaGenerator;
 import org.geneontology.obographs.model.Graph;
 import org.geneontology.obographs.model.GraphDocument;
+import org.geneontology.obographs.model.Meta;
 import org.junit.Test;
 
 public class OgSchemaGeneratorTest {
 
 	@Test
 	public void test() throws IOException {
-		String s = OgSchemaGenerator.makeSchema(GraphDocument.class);
 		//System.out.println(s);
-		writeSchema("bbop-graph-schema.json", s);
-
+        writeSchema(GraphDocument.class, "obographs-schema.json");
+        writeSchema(Graph.class, "subschemas/obographs-graph-schema.json");
+        writeSchema(Meta.class, "subschemas/obographs-meta-schema.json");
 	}
 	
-	protected void writeSchema(String fn, String info) throws IOException {
-		FileUtils.writeStringToFile(new File("target/"+fn), info);
+	protected void writeSchema(Class c, String fn) throws IOException {
+        String s = OgSchemaGenerator.makeSchema(c);
+        FileUtils.writeStringToFile(new File("target/"+fn), s);
+        FileUtils.writeStringToFile(new File("schema/"+fn), s);
 	}
 
 }

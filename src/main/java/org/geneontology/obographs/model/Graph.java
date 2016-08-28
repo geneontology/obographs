@@ -133,6 +133,8 @@ public class Graph {
             this.meta = meta;
             return this;
         }
+        
+        // TODO: test for uniqueness
         public Builder nodes(List<Node> nodes) {
             this.nodes = nodes;
             return this;

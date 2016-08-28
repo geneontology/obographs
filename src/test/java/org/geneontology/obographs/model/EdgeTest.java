@@ -8,7 +8,7 @@ import org.junit.Test;
 public class EdgeTest {
 
 	static String subj = "X:1";
-	static String pred = "part-of";
+	static String pred = "part_of";
 	static String obj = "X:2";
 
 	@Test
@@ -20,7 +20,7 @@ public class EdgeTest {
 	}
 	
 	public static Edge build() {
-		return new Edge.Builder().subj(subj).pred(pred).obj(obj).build();
+		return new Edge.Builder().subj(NodeTest.id).pred(pred).obj(NodeTest.parent_id).build();
 	}
 
 }
