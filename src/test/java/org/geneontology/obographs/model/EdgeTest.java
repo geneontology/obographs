@@ -7,16 +7,14 @@ import org.junit.Test;
 
 public class EdgeTest {
 
-	static String subj = "X:1";
 	static String pred = "part_of";
-	static String obj = "X:2";
 
 	@Test
 	public void test() {
 		Edge e = build();
-		assertEquals(subj, e.getSubj());
+		assertEquals(NodeTest.id, e.getSubj());
 		assertEquals(pred, e.getPred());
-		assertEquals(obj, e.getObj());
+		assertEquals(NodeTest.parent_id, e.getObj());
 	}
 	
 	public static Edge build() {
