@@ -166,7 +166,7 @@ the former suited to cases where we have multiple ontologies with overlapping
 
 ## Comparison with BBOP-Graphs
 
-See [https://github.com/berkeleybop/bbop-graph](bbop-graph)
+See [bbop-graph](https://github.com/berkeleybop/bbop-graph)
 
 ## Comparison with SciGraph
 
