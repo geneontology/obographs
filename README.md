@@ -1,6 +1,6 @@
 [![Build Status](https://travis-ci.org/geneontology/obographs.svg?branch=master)](https://travis-ci.org/geneontology/obographs)
-[![Maven Central](https://maven-badges.herokuapp.com/maven-central/org.geneontology/geneontology-api/badge.svg)](https://maven-badges.herokuapp.com/maven-central/org.geneontology/geneontology-api)
-[![Javadoc](https://javadoc-emblem.rhcloud.com/doc/org.geneontology/geneontology-api/badge.svg)](http://www.javadoc.io/doc/org.geneontology/geneontology-api)
+[![Maven Central](https://maven-badges.herokuapp.com/maven-central/org.geneontology/obographs/badge.svg)](https://maven-badges.herokuapp.com/maven-central/org.geneontology/obographs)
+[![Javadoc](https://javadoc-emblem.rhcloud.com/doc/org.geneontology/obographs/badge.svg)](http://www.javadoc.io/doc/org.geneontology/obographs)
 
 # OBO Graphs : Developer-friendly graph-oriented ontology JSON/YAML
 
@@ -179,19 +179,19 @@ mvn install
 ./bin/ogger  src/test/resources/basic.obo 
 ```
 
-# Including geneontology-api in your code:
+# Including obographs in your code:
 ## Maven
 ```xml
 <dependency>
     <groupId>org.geneontology</groupId>
-    <artifactId>geneontology-api</artifactId>
+    <artifactId>obographs</artifactId>
     <version>${project.version}</version>
 </dependency>
 ```
 
 ## Gradle
 ```groovy
-compile 'org.geneontology:geneontology-api:${project.version}'
+compile 'org.geneontology:obographs:${project.version}'
 ```
 
 ## Installing a development snapshot
