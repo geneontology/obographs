@@ -46,6 +46,25 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.github.jsonldjava.core.Context;
 
 
+/**
+ * Implements OWL to OG translation
+ * ===
+ * 
+ * See <a href="https://github.com/geneontology/obographs/blob/master/README-owlmapping.md">OWL Mapping spec</a>
+ * 
+ * <br/>
+ * Status: _currently incomplete_
+ * <br/>
+ * 
+ * @see "[SPEC](https://github.com/geneontology/obographs/blob/master/README-owlmapping.md)"
+ * 
+ * TODO:
+ *  * Generate Meta objects
+ *  * Synonyms
+ * 
+ * @author cjm
+ *
+ */
 public class FromOwl {
 
     public static final String SUBCLASS_OF = "is_a";
@@ -53,6 +72,9 @@ public class FromOwl {
     private PrefixHelper prefixHelper;
     private Context context;
 
+    /**
+     * 
+     */
     public FromOwl() {
         prefixHelper = new PrefixHelper();
         context = prefixHelper.getContext();
@@ -61,6 +83,7 @@ public class FromOwl {
     /**
      * @param baseOntology
      * @return GraphDocument where each graph is an ontology in the ontology closure
+     * @see <a href="https://github.com/geneontology/obographs/blob/master/README-owlmapping.md">OWL Mapping spec</a>
      */
     public GraphDocument generateGraphDocument(OWLOntology baseOntology) {
         List<Graph> graphs = new ArrayList<>();
@@ -72,7 +95,7 @@ public class FromOwl {
 
     /**
      * @param ontology
-     * @return Graph corresponding to ontology
+     * @return Graph generated from ontology
      */
     public Graph generateGraph(OWLOntology ontology) {
 
@@ -157,7 +180,7 @@ public class FromOwl {
 
                                 Set<OWLClassExpression> ixs =
                                         ((OWLObjectIntersectionOf)anonX).getOperands();
-                                
+
                                 List<String> genusClassIds = new ArrayList<>();
                                 List<ExistentialRestrictionExpression> restrs = new ArrayList<>();
                                 boolean isLDA = true;
@@ -172,9 +195,9 @@ public class FromOwl {
                                         isLDA = false;
                                         break;
                                     }
-                                    
+
                                 }
-                                
+
                                 if (isLDA) {
                                     LogicalDefinitionAxiom lda =
                                             new LogicalDefinitionAxiom.Builder().

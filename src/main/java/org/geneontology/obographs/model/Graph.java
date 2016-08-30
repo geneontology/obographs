@@ -14,77 +14,91 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  * 
  * Note: there is no assumption that either nodes or edges are unique to a graph
  * 
+ * ## Basic OBO Graphs
+ * 
+ * ![Node UML](node-bog.png)
+ *  * 
+ * @startuml node-bog.png
+ * class Graph
+ * class Node
+ * class Edge
+ * 
+ * Graph-->Node : 0..*
+ * Graph-->Edge : 0..*
+ * @enduml
+
+ * 
  * @author cjm
  *
  */
 public class Graph {
-	
-	private Graph(Builder builder) {
-		id = builder.id;
-		lbl = builder.lbl;
-		meta = builder.meta;
-		nodes = builder.nodes;
-		edges = builder.edges;
+
+    private Graph(Builder builder) {
+        id = builder.id;
+        lbl = builder.lbl;
+        meta = builder.meta;
+        nodes = builder.nodes;
+        edges = builder.edges;
         equivalentNodesSets = builder.equivalentNodesSets;
         logicalDefinitionAxioms = builder.logicalDefinitionAxioms;
-	}
+    }
 
-	private final List<Node> nodes;
-	private final List<Edge> edges;
-	private final String id;
-	private final String lbl;
+    private final List<Node> nodes;
+    private final List<Edge> edges;
+    private final String id;
+    private final String lbl;
     private final Meta meta;
     private final List<EquivalentNodesSet> equivalentNodesSets;
     private final List<LogicalDefinitionAxiom> logicalDefinitionAxioms;
-	
-	
-	
+
+
+
     /**
-	 * @return the nodes
-	 */
-	public List<Node> getNodes() {
-		return nodes;
-	}
+     * @return the nodes
+     */
+    public List<Node> getNodes() {
+        return nodes;
+    }
 
 
 
-	/**
-	 * @return the edges
-	 */
-	public List<Edge> getEdges() {
-		return edges;
-	}
+    /**
+     * @return the edges
+     */
+    public List<Edge> getEdges() {
+        return edges;
+    }
 
 
 
-	/**
-	 * @return the id
-	 */
-	public String getId() {
-		return id;
-	}
+    /**
+     * @return the id
+     */
+    public String getId() {
+        return id;
+    }
 
 
 
-	/**
-	 * @return the lbl
-	 */
-	public String getLbl() {
-		return lbl;
-	}
+    /**
+     * @return the lbl
+     */
+    public String getLbl() {
+        return lbl;
+    }
 
 
 
-	/**
-	 * @return the meta
-	 */
-	public Meta getMeta() {
-		return meta;
-	}
+    /**
+     * @return the meta
+     */
+    public Meta getMeta() {
+        return meta;
+    }
 
 
 
-	/**
+    /**
      * @return the equivalentNodesSet
      */
     public List<EquivalentNodesSet> getEquivalentNodesSets() {
@@ -118,7 +132,7 @@ public class Graph {
         private List<EquivalentNodesSet> equivalentNodesSets;
         @JsonProperty
         private List<LogicalDefinitionAxiom> logicalDefinitionAxioms;
-        
+
         public Builder id(String id) {
             this.id = id;
             return this;
@@ -133,7 +147,7 @@ public class Graph {
             this.meta = meta;
             return this;
         }
-        
+
         // TODO: test for uniqueness
         public Builder nodes(List<Node> nodes) {
             this.nodes = nodes;
@@ -153,8 +167,8 @@ public class Graph {
         }
 
         public Graph build() {
-        	return new Graph(this);
+            return new Graph(this);
         }
     }
-    
+
 }

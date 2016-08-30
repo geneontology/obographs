@@ -172,9 +172,20 @@ See [README-owlmapping.md](README-owlmapping.md) for mor details
 
 See [bbop-graph](https://github.com/berkeleybop/bbop-graph)
 
+ * Top-level object in a bbop-graph is a `graph` object; in obographs a `GraphDocument` is a holder for multiple graphs
+ * `meta` objects are underspecified in bbop-graphs
+
 ## Comparison with SciGraph
 
 See [Neo4jMapping](https://github.com/SciGraph/SciGraph/wiki/Neo4jMapping)
+
+The mapping is similar, particularly with respect to how SubClassOf
+axioms map to edges. However, for SciGraph, more advanced axioms such
+as EquivalenceAxioms are mapped to graph edges. In obographs, anything
+outside the BOG pattern is mapped to a custom object.
+
+Note also that SciGraph returns bbop-graph objects by default from
+graph query operations.
 
 ## Running the converter
 
@@ -182,6 +193,9 @@ See [Neo4jMapping](https://github.com/SciGraph/SciGraph/wiki/Neo4jMapping)
 mvn install
 ./bin/ogger  src/test/resources/basic.obo 
 ```
+
+Note that the conversion will be rolled into tools like ROBOT
+obviating the need for this.
 
 ## Including obographs in your code:
 
@@ -207,4 +221,6 @@ When developing against an unreleased snapshot version of the API, you can use M
 mvn -Dgpg.skip install
 ```
 
+## Javascript
 
+See [bbo-graph](https://github.com/berkeleybop/bbop-graph)

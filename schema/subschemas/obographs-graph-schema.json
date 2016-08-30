@@ -206,6 +206,12 @@
           "definedClassId" : {
             "type" : "string"
           },
+          "genusIds" : {
+            "type" : "array",
+            "items" : {
+              "type" : "string"
+            }
+          },
           "restrictions" : {
             "type" : "array",
             "items" : {
@@ -219,12 +225,6 @@
                   "type" : "string"
                 }
               }
-            }
-          },
-          "genusId" : {
-            "type" : "array",
-            "items" : {
-              "type" : "string"
             }
           }
         }

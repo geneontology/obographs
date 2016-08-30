@@ -60,6 +60,17 @@ edges:
    obj: D
 ```
 
+## Meta objects
+
+Meta objects can be placed at multiple levels:
+
+ 1. GraphDocument
+ 2. Graph
+ 3. Node
+ 4. Edge
+ 5. Axiom
+
+Note for the final two, the Meta object corresponds to _reification_ in RDF/OWL
 
 ## LogicalDefinitionAxioms
 
