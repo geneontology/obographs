@@ -1,4 +1,4 @@
-ontology: test
+id: logical_definition_test
 
 [Term]
 id: UBERON:0002398 ! manus
@@ -6,6 +6,8 @@ name: manus
 def: "." []
 is_a: UBERON:0002470 ! autopod region
 relationship: part_of UBERON:0002102 ! forelimb
+intersection_of: UBERON:0002470 ! autopod region
+intersection_of: part_of UBERON:0002102 ! forelimb
 
 [Term]
 id: UBERON:0002470 ! autopod region
@@ -17,6 +19,7 @@ id: UBERON:0002102 ! forelimb
 name: forelimb
 is_a: UBERON:0002101 ! limb
 
+
 [Term]
 id: UBERON:0002101 ! limb
 name: limb
@@ -24,3 +27,4 @@ name: limb
 [Typedef]
 id: part_of
 xref: BFO:0000050
+

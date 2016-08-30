@@ -2,6 +2,7 @@ package org.geneontology.obographs.model.axiom;
 
 import static org.junit.Assert.*;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashMap;
@@ -39,10 +40,10 @@ public class LogicalDefinitionAxiomTest {
     
     public static LogicalDefinitionAxiom build() {
         String[] ids = {"X:1", "X:2"};
-        Set<String> nodeIds = new HashSet<>(
+        List<String> nodeIds = new ArrayList<>(
                 Arrays.asList(ids));
-        Set<ExistentialRestrictionExpression> rs = 
-                Collections.singleton(ExistentialRestrictionAxiomTest.build());
+        List<ExistentialRestrictionExpression> rs = 
+                Collections.singletonList(ExistentialRestrictionAxiomTest.build());
         return new LogicalDefinitionAxiom.Builder().definedClassId(DC).genusIds(nodeIds).restrictions(rs).build();
         
     }

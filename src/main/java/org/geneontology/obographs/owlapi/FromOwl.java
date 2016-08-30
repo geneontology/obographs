@@ -6,6 +6,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 import org.geneontology.obographs.io.PrefixHelper;
 import org.geneontology.obographs.model.Edge;
@@ -15,7 +16,9 @@ import org.geneontology.obographs.model.Meta;
 import org.geneontology.obographs.model.Node;
 import org.geneontology.obographs.model.Node.Builder;
 import org.geneontology.obographs.model.Node.RDFTYPES;
+import org.geneontology.obographs.model.axiom.EquivalentNodesSet;
 import org.geneontology.obographs.model.axiom.ExistentialRestrictionExpression;
+import org.geneontology.obographs.model.axiom.LogicalDefinitionAxiom;
 import org.geneontology.obographs.model.meta.DefinitionPropertyValue;
 import org.geneontology.obographs.model.meta.XrefPropertyValue;
 import org.semanticweb.owlapi.model.IRI;
@@ -29,8 +32,10 @@ import org.semanticweb.owlapi.model.OWLClass;
 import org.semanticweb.owlapi.model.OWLClassExpression;
 import org.semanticweb.owlapi.model.OWLDeclarationAxiom;
 import org.semanticweb.owlapi.model.OWLEntity;
+import org.semanticweb.owlapi.model.OWLEquivalentClassesAxiom;
 import org.semanticweb.owlapi.model.OWLLiteral;
 import org.semanticweb.owlapi.model.OWLLogicalAxiom;
+import org.semanticweb.owlapi.model.OWLObjectIntersectionOf;
 import org.semanticweb.owlapi.model.OWLObjectProperty;
 import org.semanticweb.owlapi.model.OWLObjectSomeValuesFrom;
 import org.semanticweb.owlapi.model.OWLOntology;
@@ -73,17 +78,24 @@ public class FromOwl {
 
         List<Edge> edges = new ArrayList<>();
         List<Node> nodes = new ArrayList<>();
+        List<EquivalentNodesSet> ensets = new ArrayList<>();
+        List<LogicalDefinitionAxiom> ldas = new ArrayList<>();
         Set<String> nodeIds = new HashSet<>();
         Map<String,RDFTYPES> nodeTypeMap = new HashMap<>();
         Map<String,String> nodeLabelMap = new HashMap<>();
         Map<String,DefinitionPropertyValue> nodeDefinitionMap = new HashMap<>();
+
+        // Each node can be built from multiple axioms; use a builder for each nodeId
         Map<String,Meta.Builder> nodeMetaBuilderMap = new HashMap<>();
+
+
         Set<OWLAxiom> untranslatedAxioms = new HashSet<>();
 
+        // iterate over all axioms and push to relevant builders
         for (OWLAxiom ax : ontology.getAxioms()) {
 
             Meta meta = getAnnotations(ax);
-            
+
             if (ax instanceof OWLDeclarationAxiom) {
                 OWLDeclarationAxiom dax = ((OWLDeclarationAxiom)ax);
                 OWLEntity e = dax.getEntity();
@@ -92,7 +104,10 @@ public class FromOwl {
                 }
             }
             else if (ax instanceof OWLLogicalAxiom) {
+
                 if (ax instanceof OWLSubClassOfAxiom) {
+                    // SUBCLASS
+
                     OWLSubClassOfAxiom sca = (OWLSubClassOfAxiom)ax;
                     OWLClassExpression subc = sca.getSubClass();
                     OWLClassExpression supc = sca.getSuperClass();
@@ -102,7 +117,7 @@ public class FromOwl {
                     else {
                         String subj = getClassId((OWLClass) subc);
                         setNodeType(subj, RDFTYPES.CLASS, nodeTypeMap);
-                        
+
                         if (supc.isAnonymous()) {
                             ExistentialRestrictionExpression r = getRestriction(supc);
                             edges.add(getEdge(subj, r.getPropertyId(), r.getFillerId()));
@@ -113,8 +128,75 @@ public class FromOwl {
                         }
                     }
                 }
+                else if (ax instanceof OWLEquivalentClassesAxiom) {
+                    // EQUIVALENT
+
+                    OWLEquivalentClassesAxiom eca = (OWLEquivalentClassesAxiom)ax;
+                    List<OWLClassExpression> xs = eca.getClassExpressionsAsList();
+                    List<OWLClassExpression> anonXs = 
+                            xs.stream().filter(x -> x.isAnonymous()).collect(Collectors.toList());
+                    List<OWLClassExpression> namedXs = 
+                            xs.stream().filter(x -> !x.isAnonymous()).collect(Collectors.toList());
+                    Set<String> xClassIds = 
+                            namedXs.stream().map(x -> getClassId((OWLClass)x)).collect(Collectors.toSet());
+                    if (anonXs.size() == 0) {
+                        // EquivalentNodesSet
+
+                        // all classes in equivalence axiom are named
+                        // TODO: merge pairwise assertions into a clique
+                        EquivalentNodesSet enset = 
+                                new EquivalentNodesSet.Builder().nodeIds(xClassIds).build();
+                        ensets.add(enset);
+                    }
+                    else {
+                        if (anonXs.size() == 1 && namedXs.size() == 1) {
+
+                            OWLClassExpression anonX = anonXs.get(0);
+                            if (anonX instanceof OWLObjectIntersectionOf) {
+                                // LDA
+
+                                Set<OWLClassExpression> ixs =
+                                        ((OWLObjectIntersectionOf)anonX).getOperands();
+                                
+                                List<String> genusClassIds = new ArrayList<>();
+                                List<ExistentialRestrictionExpression> restrs = new ArrayList<>();
+                                boolean isLDA = true;
+                                for (OWLClassExpression ix : ixs) {
+                                    if (!ix.isAnonymous()) {
+                                        genusClassIds.add(getClassId((OWLClass)ix));
+                                    }
+                                    else if (ix instanceof OWLObjectSomeValuesFrom) {
+                                        restrs.add(getRestriction(ix));
+                                    }
+                                    else {
+                                        isLDA = false;
+                                        break;
+                                    }
+                                    
+                                }
+                                
+                                if (isLDA) {
+                                    LogicalDefinitionAxiom lda =
+                                            new LogicalDefinitionAxiom.Builder().
+                                            definedClassId(getClassId((OWLClass) namedXs.get(0))).
+                                            genusIds(genusClassIds).
+                                            restrictions(restrs).
+                                            build();
+                                    ldas.add(lda);
+                                }
+                            }
+                        }
+                        else {
+
+                        }
+                    }
+                }
+                else {
+                    untranslatedAxioms.add(ax);
+                }
             }
             else {
+                // NON-LOGICAL AXIOMS
                 if (ax instanceof OWLAnnotationAssertionAxiom) {
                     OWLAnnotationAssertionAxiom aaa = (OWLAnnotationAssertionAxiom)ax;
                     OWLAnnotationProperty p = aaa.getProperty();
@@ -173,7 +255,12 @@ public class FromOwl {
             }
             nodes.add(nb.build());
         }
-        return new Graph.Builder().nodes(nodes).edges(edges).build();
+        return new Graph.Builder().
+                nodes(nodes).
+                edges(edges).
+                equivalentNodesSet(ensets).
+                logicalDefinitionAxioms(ldas).
+                build();
     }
 
 

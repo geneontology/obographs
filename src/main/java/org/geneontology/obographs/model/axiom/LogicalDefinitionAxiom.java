@@ -1,5 +1,6 @@
 package org.geneontology.obographs.model.axiom;
 
+import java.util.List;
 import java.util.Set;
 
 import org.geneontology.obographs.model.Meta;
@@ -24,8 +25,8 @@ public class LogicalDefinitionAxiom extends AbstractAxiom {
     }
 
     private final String definedClassId;
-    private final Set<String> genusIds;
-    private final Set<ExistentialRestrictionExpression> restrictions;
+    private final List<String> genusIds;
+    private final List<ExistentialRestrictionExpression> restrictions;
 
 
 
@@ -41,7 +42,7 @@ public class LogicalDefinitionAxiom extends AbstractAxiom {
     /**
      * @return the nodeIds
      */
-    public Set<String> getGenusId() {
+    public List<String> getGenusIds() {
         return genusIds;
     }
 
@@ -50,7 +51,7 @@ public class LogicalDefinitionAxiom extends AbstractAxiom {
     /**
      * @return the restrictions
      */
-    public Set<ExistentialRestrictionExpression> getRestrictions() {
+    public List<ExistentialRestrictionExpression> getRestrictions() {
         return restrictions;
     }
 
@@ -60,9 +61,9 @@ public class LogicalDefinitionAxiom extends AbstractAxiom {
         @JsonProperty
         private String definedClassId;
         @JsonProperty
-        private Set<String> genusIds;
+        private List<String> genusIds;
         @JsonProperty
-        private Set<ExistentialRestrictionExpression> restrictions;
+        private List<ExistentialRestrictionExpression> restrictions;
         @JsonProperty
         private Meta meta;
 
@@ -71,12 +72,12 @@ public class LogicalDefinitionAxiom extends AbstractAxiom {
             return this;
         }
 
-        public Builder genusIds(Set<String> genusIds) {
+        public Builder genusIds(List<String> genusIds) {
             this.genusIds = genusIds;
             return this;
         }
 
-        public Builder restrictions(Set<ExistentialRestrictionExpression> restrictions) {
+        public Builder restrictions(List<ExistentialRestrictionExpression> restrictions) {
             this.restrictions = restrictions;
             return this;
         }

@@ -35,6 +35,8 @@ adding complexity to the core.
 
 For more examples, see [examples/](examples)
 
+If you are familiar with OWL, skip straight to the [OWL mapping specification](README-owlmapping.md) 
+
 ## Motivation
 
 Currently if a developer needs to add ontologies into a software
@@ -155,7 +157,7 @@ subset above.
 Currently the spec does not provide a complete translation of all OWL
 axioms. This will be driven by comments on the spec.
 
-Currently two axiom patterns defined:
+Currently two axiom patterns are defined:
 
  * equivalenceSet
  * logicalDefinitionAxiom
@@ -163,6 +165,8 @@ Currently two axiom patterns defined:
 Note that these do not necessarily correspond 1:1 to OWL axiom
 types. The two above are different forms of equivalent classes axiom,
 the former suited to cases where we have multiple ontologies with overlapping
+
+See [README-owlmapping.md](README-owlmapping.md) for mor details
 
 ## Comparison with BBOP-Graphs
 
@@ -179,8 +183,9 @@ mvn install
 ./bin/ogger  src/test/resources/basic.obo 
 ```
 
-# Including obographs in your code:
-## Maven
+## Including obographs in your code:
+
+### Maven
 ```xml
 <dependency>
     <groupId>org.geneontology</groupId>
@@ -189,16 +194,17 @@ mvn install
 </dependency>
 ```
 
-## Gradle
+### Gradle
 ```groovy
 compile 'org.geneontology:obographs:${project.version}'
 ```
 
-## Installing a development snapshot
+### Installing a development snapshot
+
 When developing against an unreleased snapshot version of the API, you can use Maven to install it in your local m2 repository:
 
 ```
 mvn -Dgpg.skip install
 ```
 
-# Using it
+

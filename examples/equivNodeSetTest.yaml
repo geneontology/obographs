@@ -1,0 +1,75 @@
+---
+graphs:
+- nodes:
+  - id: "http://purl.obolibrary.org/obo/NCIT_C3088"
+    meta:
+      definition:
+        val: "A malignant tumor arising from the endothelial cells of the blood vessels.\
+          \  Microscopically, it is characterized by frequently open vascular anastomosing\
+          \ and branching channels.  The malignant cells that line the vascular channels\
+          \ are spindle or epithelioid and often display hyperchromatic nuclei.  Angiosarcomas\
+          \ most frequently occur in the skin and breast.  Patients with long-standing\
+          \ lymphedema are at increased risk of developing angiosarcoma."
+        xrefs: []
+    type: "CLASS"
+    lbl: "Angiosarcoma"
+  - id: "http://purl.obolibrary.org/obo/NCIT_C121671"
+    meta:
+      definition:
+        val: "An angiosarcoma that arises from the soft tissues, usually in the deep\
+          \ muscles of the lower extremities, retroperitoneum, mediastinum, and mesentery."
+        xrefs: []
+    type: "CLASS"
+    lbl: "Angiosarcoma of Soft Tissue"
+  - id: "http://purl.obolibrary.org/obo/Orphanet_263413"
+    type: "CLASS"
+    lbl: "Angiosarcoma"
+  - id: "http://www.geneontology.org/formats/oboInOwl#hasExactSynonym"
+    lbl: "has_exact_synonym"
+  - id: "http://www.geneontology.org/formats/oboInOwl#inSubset"
+    lbl: "in_subset"
+  - id: "http://www.geneontology.org/formats/oboInOwl#hasDbXref"
+    lbl: "database_cross_reference"
+  - id: "http://purl.obolibrary.org/obo/IAO_0000115"
+    lbl: "definition"
+  - id: "http://purl.obolibrary.org/obo/DOID_0001816"
+    meta:
+      definition:
+        val: "A malignant Vascular tumor that results_in rapidly proliferating, extensively\
+          \ infiltrating anaplastic cells derived_from blood vessels and derived_from\
+          \ the lining of irregular blood-filled spaces."
+        xrefs:
+        - "url:http://emedicine.medscape.com/article/276512-overview"
+        - "url:http://en.wikipedia.org/wiki/Hemangiosarcoma"
+        - "url:http://www.ncbi.nlm.nih.gov/pubmed/23327728"
+    type: "CLASS"
+    lbl: "angiosarcoma"
+  - id: "http://www.geneontology.org/formats/oboInOwl#hasAlternativeId"
+    lbl: "has_alternative_id"
+  edges:
+  - subj: "http://purl.obolibrary.org/obo/NCIT_C3088"
+    pred: "is_a"
+    obj: "http://purl.obolibrary.org/obo/NCIT_C9118"
+  - subj: "http://purl.obolibrary.org/obo/DOID_0001816"
+    pred: "is_a"
+    obj: "http://purl.obolibrary.org/obo/DOID_1115"
+  - subj: "http://purl.obolibrary.org/obo/NCIT_C3088"
+    pred: "is_a"
+    obj: "http://purl.obolibrary.org/obo/NCIT_C8538"
+  - subj: "http://purl.obolibrary.org/obo/NCIT_C121671"
+    pred: "is_a"
+    obj: "http://purl.obolibrary.org/obo/NCIT_C3088"
+  - subj: "http://purl.obolibrary.org/obo/Orphanet_263413"
+    pred: "is_a"
+    obj: "http://purl.obolibrary.org/obo/Orphanet_3394"
+  - subj: "http://purl.obolibrary.org/obo/NCIT_C121671"
+    pred: "is_a"
+    obj: "http://purl.obolibrary.org/obo/NCIT_C9306"
+  equivalentNodesSets:
+  - nodeIds:
+    - "http://purl.obolibrary.org/obo/NCIT_C3088"
+    - "http://purl.obolibrary.org/obo/DOID_0001816"
+  - nodeIds:
+    - "http://purl.obolibrary.org/obo/Orphanet_263413"
+    - "http://purl.obolibrary.org/obo/DOID_0001816"
+  logicalDefinitionAxioms: []
