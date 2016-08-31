@@ -20,6 +20,8 @@ import org.geneontology.obographs.model.axiom.EquivalentNodesSet;
 import org.geneontology.obographs.model.axiom.ExistentialRestrictionExpression;
 import org.geneontology.obographs.model.axiom.LogicalDefinitionAxiom;
 import org.geneontology.obographs.model.meta.DefinitionPropertyValue;
+import org.geneontology.obographs.model.meta.SynonymPropertyValue;
+import org.geneontology.obographs.model.meta.SynonymPropertyValue.SCOPES;
 import org.geneontology.obographs.model.meta.XrefPropertyValue;
 import org.semanticweb.owlapi.model.IRI;
 import org.semanticweb.owlapi.model.OWLAnnotation;
@@ -98,6 +100,8 @@ public class FromOwl {
      * @return Graph generated from ontology
      */
     public Graph generateGraph(OWLOntology ontology) {
+        
+        SynonymVocabulary synonymVocabulary = new SynonymVocabulary();
 
         List<Edge> edges = new ArrayList<>();
         List<Node> nodes = new ArrayList<>();
@@ -106,7 +110,6 @@ public class FromOwl {
         Set<String> nodeIds = new HashSet<>();
         Map<String,RDFTYPES> nodeTypeMap = new HashMap<>();
         Map<String,String> nodeLabelMap = new HashMap<>();
-        Map<String,DefinitionPropertyValue> nodeDefinitionMap = new HashMap<>();
 
         // Each node can be built from multiple axioms; use a builder for each nodeId
         Map<String,Meta.Builder> nodeMetaBuilderMap = new HashMap<>();
@@ -226,33 +229,51 @@ public class FromOwl {
                     OWLAnnotationSubject s = aaa.getSubject();
                     if (s instanceof IRI) {
 
-
                         String subj = getNodeId((IRI)s);
 
                         OWLAnnotationValue v = aaa.getValue();
+                        String lv = null;
+                        if (v instanceof OWLLiteral) {
+                            lv = ((OWLLiteral)v).getLiteral();
+                        }
+                        IRI pIRI = p.getIRI();
                         if (p.isLabel()) {
-                            if (v instanceof OWLLiteral) {
-                                OWLLiteral lit = (OWLLiteral)v;
-
+                            if (lv != null) {
                                 nodeIds.add(subj);
-                                nodeLabelMap.put(subj, lit.getLiteral());
+                                nodeLabelMap.put(subj, lv);
                             }
                         }
-                        else if (isDefinitionProperty(p.getIRI())) {
-                            if (v instanceof OWLLiteral) {
-                                OWLLiteral lit = (OWLLiteral)v;
+                        else if (isDefinitionProperty(pIRI)) {
+                            if (lv != null) {
                                 DefinitionPropertyValue def = 
                                         new DefinitionPropertyValue.Builder().
-                                        val(lit.getLiteral()).
+                                        val(lv).
                                         xrefs(meta.getXrefsValues()).
                                         build();
 
                                 Meta.Builder nb = put(nodeMetaBuilderMap, subj);
                                 nb.definition(def);
                                 nodeIds.add(subj);
-                                nodeDefinitionMap.put(subj, def);
                             }
 
+                        }
+                        else if (synonymVocabulary.contains(pIRI.toString())) {
+                            //System.err.println(aaa);
+                            SCOPES scope = synonymVocabulary.get(pIRI.toString());
+                            //System.err.println(pIRI+" --> "+scope);
+                            if (lv != null) {
+                                SynonymPropertyValue syn = new SynonymPropertyValue.Builder().
+                                        scope(scope).
+                                        val(lv).
+                                        xrefs(meta.getXrefsValues()).
+                                        build();
+                                Meta.Builder nb = put(nodeMetaBuilderMap, subj);
+                                nb.addSynonym(syn);
+                                nodeIds.add(subj);
+                            }
+                        }
+                        else {
+                            untranslatedAxioms.add(aaa);
                         }
 
                     }

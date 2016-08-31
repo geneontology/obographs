@@ -43,10 +43,10 @@ public class SynonymPropertyValue extends AbstractPropertyValue implements Prope
         public Builder scope(SCOPES scope) {
             PREDS pred = PREDS.hasRelatedSynonym;
             switch (scope) {
-            case EXACT: pred = PREDS.hasExactSynonym;
-            case RELATED: pred = PREDS.hasRelatedSynonym;
-            case BROAD: pred = PREDS.hasBroadSynonym;
-            case NARROW: pred = PREDS.hasNarrowSynonym;
+            case EXACT: pred = PREDS.hasExactSynonym; break;
+            case RELATED: pred = PREDS.hasRelatedSynonym; break;
+            case BROAD: pred = PREDS.hasBroadSynonym; break;
+            case NARROW: pred = PREDS.hasNarrowSynonym; break;
 
             }
             super.pred(pred.toString());

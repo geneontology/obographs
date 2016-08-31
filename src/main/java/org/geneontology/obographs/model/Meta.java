@@ -1,5 +1,6 @@
 package org.geneontology.obographs.model;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -151,6 +152,13 @@ public class Meta {
             this.synonyms = synonyms;
             return this;
         }
+        public Builder addSynonym(SynonymPropertyValue syn) {
+            if (this.synonyms == null)
+                this.synonyms = new ArrayList<>();
+            this.synonyms.add(syn);
+            return this;         
+        }
+
         public Builder xrefs(List<XrefPropertyValue> xrefs) {
             this.xrefs = xrefs;
             return this;
