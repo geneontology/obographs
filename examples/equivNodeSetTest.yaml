@@ -11,6 +11,39 @@ graphs:
           \ most frequently occur in the skin and breast.  Patients with long-standing\
           \ lymphedema are at increased risk of developing angiosarcoma."
         xrefs: []
+      synonyms:
+      - pred: "hasExactSynonym"
+        val: "Hemangiosarcoma"
+        xrefs: []
+        exact: true
+      - pred: "hasExactSynonym"
+        val: "HEMANGIOSARCOMA, MALIGNANT"
+        xrefs: []
+        exact: true
+      - pred: "hasExactSynonym"
+        val: "angiosarcoma"
+        xrefs: []
+        exact: true
+      - pred: "hasExactSynonym"
+        val: "Hemangiosarcoma"
+        xrefs: []
+        exact: true
+      - pred: "hasExactSynonym"
+        val: "Angiosarcoma"
+        xrefs: []
+        exact: true
+      - pred: "hasExactSynonym"
+        val: "hemangiosarcoma"
+        xrefs: []
+        exact: true
+      - pred: "hasExactSynonym"
+        val: "Malignant Angioendothelioma"
+        xrefs: []
+        exact: true
+      - pred: "hasExactSynonym"
+        val: "Malignant Hemangioendothelioma"
+        xrefs: []
+        exact: true
     type: "CLASS"
     lbl: "Angiosarcoma"
   - id: "http://purl.obolibrary.org/obo/NCIT_C121671"
@@ -19,6 +52,11 @@ graphs:
         val: "An angiosarcoma that arises from the soft tissues, usually in the deep\
           \ muscles of the lower extremities, retroperitoneum, mediastinum, and mesentery."
         xrefs: []
+      synonyms:
+      - pred: "hasExactSynonym"
+        val: "Angiosarcoma of Soft Tissue"
+        xrefs: []
+        exact: true
     type: "CLASS"
     lbl: "Angiosarcoma of Soft Tissue"
   - id: "http://purl.obolibrary.org/obo/Orphanet_263413"
@@ -42,6 +80,11 @@ graphs:
         - "url:http://emedicine.medscape.com/article/276512-overview"
         - "url:http://en.wikipedia.org/wiki/Hemangiosarcoma"
         - "url:http://www.ncbi.nlm.nih.gov/pubmed/23327728"
+      synonyms:
+      - pred: "hasExactSynonym"
+        val: "hemangiosarcoma"
+        xrefs: []
+        exact: true
     type: "CLASS"
     lbl: "angiosarcoma"
   - id: "http://www.geneontology.org/formats/oboInOwl#hasAlternativeId"
