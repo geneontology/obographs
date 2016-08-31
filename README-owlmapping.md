@@ -74,7 +74,7 @@ Note for the final two, the Meta object corresponds to _reification_ in RDF/OWL
 
 ## LogicalDefinitionAxioms
 
-All logical definitions go in a logicalDefinitionAxioms array object, placed immediately under the graph object
+All logical definitions go in a logicalDefinitionAxioms array object, placed immediately under the meta object
 
 Given:
 
@@ -98,3 +98,30 @@ We translate to:
     - propertyId: Pm 
       fillerId: Dm
 ```
+
+
+## Synonyms
+
+All synonyms go in a `synonyms` array object, placed immediately under the meta object
+
+We specify the mapping in terms of OBO syntax as this is more compact
+
+Given:
+
+```
+id: C
+synonym: "VAL" SCOPE [XREF1, ..., XREFn]
+```
+
+
+We translate to:
+
+```
+      synonyms:
+      - pred: "PRED"
+        val: "VAL"
+        xrefs: [XREF1, ..., XREFn]
+```
+
+where the mapping between SCOPE (e.g. EXACT, NARROW, ...) and PRED is defined by [the OBO to OWL annotatio vocabulary translation](http://owlcollab.github.io/oboformat/doc/obo-syntax.html#5.8)
+
