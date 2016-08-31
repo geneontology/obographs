@@ -4,6 +4,8 @@ import java.util.List;
 
 import org.geneontology.obographs.model.meta.DefinitionPropertyValue.Builder;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 
 public class SynonymPropertyValue extends AbstractPropertyValue implements PropertyValue {
 
@@ -24,6 +26,7 @@ public class SynonymPropertyValue extends AbstractPropertyValue implements Prope
         super(builder);
     }
 
+    @JsonIgnore
     public boolean isExact() {
         return getPred().equals(PREDS.hasExactSynonym.toString());
     }

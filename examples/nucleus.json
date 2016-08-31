@@ -13,8 +13,7 @@
         "synonyms" : [ {
           "pred" : "hasExactSynonym",
           "val" : "cell nucleus",
-          "xrefs" : [ ],
-          "exact" : true
+          "xrefs" : [ ]
         } ]
       },
       "type" : "CLASS",
@@ -32,18 +31,15 @@
         "synonyms" : [ {
           "pred" : "hasExactSynonym",
           "val" : "cellular component",
-          "xrefs" : [ ],
-          "exact" : true
+          "xrefs" : [ ]
         }, {
           "pred" : "hasRelatedSynonym",
           "val" : "subcellular entity",
-          "xrefs" : [ "NIF_Subcellular:nlx_subcell_100315" ],
-          "exact" : false
+          "xrefs" : [ "NIF_Subcellular:nlx_subcell_100315" ]
         }, {
           "pred" : "hasExactSynonym",
           "val" : "cell or subcellular entity",
-          "xrefs" : [ ],
-          "exact" : true
+          "xrefs" : [ ]
         } ]
       },
       "type" : "CLASS",
@@ -68,13 +64,11 @@
         "synonyms" : [ {
           "pred" : "hasExactSynonym",
           "val" : "cellular subcomponent",
-          "xrefs" : [ "NIF_Subcellular:sao628508602" ],
-          "exact" : true
+          "xrefs" : [ "NIF_Subcellular:sao628508602" ]
         }, {
           "pred" : "hasRelatedSynonym",
           "val" : "protoplast",
-          "xrefs" : [ "GOC:mah" ],
-          "exact" : false
+          "xrefs" : [ "GOC:mah" ]
         } ]
       },
       "type" : "CLASS",
@@ -89,8 +83,7 @@
         "synonyms" : [ {
           "pred" : "hasExactSynonym",
           "val" : "intracellular membrane-enclosed organelle",
-          "xrefs" : [ ],
-          "exact" : true
+          "xrefs" : [ ]
         } ]
       },
       "type" : "CLASS",
@@ -129,23 +122,19 @@
         "synonyms" : [ {
           "pred" : "hasRelatedSynonym",
           "val" : "protoplast",
-          "xrefs" : [ "GOC:mah" ],
-          "exact" : false
+          "xrefs" : [ "GOC:mah" ]
         }, {
           "pred" : "hasRelatedSynonym",
           "val" : "nucleocytoplasm",
-          "xrefs" : [ "GOC:mah" ],
-          "exact" : false
+          "xrefs" : [ "GOC:mah" ]
         }, {
           "pred" : "hasExactSynonym",
           "val" : "internal to cell",
-          "xrefs" : [ ],
-          "exact" : true
+          "xrefs" : [ ]
         }, {
           "pred" : "hasExactSynonym",
           "val" : "protoplasm",
-          "xrefs" : [ ],
-          "exact" : true
+          "xrefs" : [ ]
         } ]
       },
       "type" : "CLASS",
@@ -173,8 +162,7 @@
         "synonyms" : [ {
           "pred" : "hasExactSynonym",
           "val" : "membrane-enclosed organelle",
-          "xrefs" : [ ],
-          "exact" : true
+          "xrefs" : [ ]
         } ]
       },
       "type" : "CLASS",

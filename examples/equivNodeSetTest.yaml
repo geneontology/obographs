@@ -15,35 +15,27 @@ graphs:
       - pred: "hasExactSynonym"
         val: "Hemangiosarcoma"
         xrefs: []
-        exact: true
       - pred: "hasExactSynonym"
         val: "HEMANGIOSARCOMA, MALIGNANT"
         xrefs: []
-        exact: true
       - pred: "hasExactSynonym"
         val: "angiosarcoma"
         xrefs: []
-        exact: true
       - pred: "hasExactSynonym"
         val: "Hemangiosarcoma"
         xrefs: []
-        exact: true
       - pred: "hasExactSynonym"
         val: "Angiosarcoma"
         xrefs: []
-        exact: true
       - pred: "hasExactSynonym"
         val: "hemangiosarcoma"
         xrefs: []
-        exact: true
       - pred: "hasExactSynonym"
         val: "Malignant Angioendothelioma"
         xrefs: []
-        exact: true
       - pred: "hasExactSynonym"
         val: "Malignant Hemangioendothelioma"
         xrefs: []
-        exact: true
     type: "CLASS"
     lbl: "Angiosarcoma"
   - id: "http://purl.obolibrary.org/obo/NCIT_C121671"
@@ -56,7 +48,6 @@ graphs:
       - pred: "hasExactSynonym"
         val: "Angiosarcoma of Soft Tissue"
         xrefs: []
-        exact: true
     type: "CLASS"
     lbl: "Angiosarcoma of Soft Tissue"
   - id: "http://purl.obolibrary.org/obo/Orphanet_263413"
@@ -84,7 +75,6 @@ graphs:
       - pred: "hasExactSynonym"
         val: "hemangiosarcoma"
         xrefs: []
-        exact: true
     type: "CLASS"
     lbl: "angiosarcoma"
   - id: "http://www.geneontology.org/formats/oboInOwl#hasAlternativeId"

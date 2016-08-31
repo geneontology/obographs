@@ -17,7 +17,6 @@ graphs:
       - pred: "hasExactSynonym"
         val: "cell nucleus"
         xrefs: []
-        exact: true
     type: "CLASS"
     lbl: "nucleus"
   - id: "http://www.geneontology.org/formats/oboInOwl#hasDbXref"
@@ -37,16 +36,13 @@ graphs:
       - pred: "hasExactSynonym"
         val: "cellular component"
         xrefs: []
-        exact: true
       - pred: "hasRelatedSynonym"
         val: "subcellular entity"
         xrefs:
         - "NIF_Subcellular:nlx_subcell_100315"
-        exact: false
       - pred: "hasExactSynonym"
         val: "cell or subcellular entity"
         xrefs: []
-        exact: true
     type: "CLASS"
     lbl: "cellular_component"
   - id: "http://purl.obolibrary.org/obo/GO_0044424"
@@ -72,12 +68,10 @@ graphs:
         val: "cellular subcomponent"
         xrefs:
         - "NIF_Subcellular:sao628508602"
-        exact: true
       - pred: "hasRelatedSynonym"
         val: "protoplast"
         xrefs:
         - "GOC:mah"
-        exact: false
     type: "CLASS"
     lbl: "cell part"
   - id: "http://purl.obolibrary.org/obo/GO_0043231"
@@ -93,7 +87,6 @@ graphs:
       - pred: "hasExactSynonym"
         val: "intracellular membrane-enclosed organelle"
         xrefs: []
-        exact: true
     type: "CLASS"
     lbl: "intracellular membrane-bounded organelle"
   - id: "http://www.geneontology.org/formats/oboInOwl#SynonymTypeProperty"
@@ -126,20 +119,16 @@ graphs:
         val: "protoplast"
         xrefs:
         - "GOC:mah"
-        exact: false
       - pred: "hasRelatedSynonym"
         val: "nucleocytoplasm"
         xrefs:
         - "GOC:mah"
-        exact: false
       - pred: "hasExactSynonym"
         val: "internal to cell"
         xrefs: []
-        exact: true
       - pred: "hasExactSynonym"
         val: "protoplasm"
         xrefs: []
-        exact: true
     type: "CLASS"
     lbl: "intracellular"
   - id: "http://purl.obolibrary.org/obo/GO_0005623"
@@ -166,7 +155,6 @@ graphs:
       - pred: "hasExactSynonym"
         val: "membrane-enclosed organelle"
         xrefs: []
-        exact: true
     type: "CLASS"
     lbl: "membrane-bounded organelle"
   - id: "http://purl.obolibrary.org/obo/GO_0043226"

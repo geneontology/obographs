@@ -10,43 +10,35 @@
         "synonyms" : [ {
           "pred" : "hasExactSynonym",
           "val" : "Hemangiosarcoma",
-          "xrefs" : [ ],
-          "exact" : true
+          "xrefs" : [ ]
         }, {
           "pred" : "hasExactSynonym",
           "val" : "HEMANGIOSARCOMA, MALIGNANT",
-          "xrefs" : [ ],
-          "exact" : true
+          "xrefs" : [ ]
         }, {
           "pred" : "hasExactSynonym",
           "val" : "angiosarcoma",
-          "xrefs" : [ ],
-          "exact" : true
+          "xrefs" : [ ]
         }, {
           "pred" : "hasExactSynonym",
           "val" : "Hemangiosarcoma",
-          "xrefs" : [ ],
-          "exact" : true
+          "xrefs" : [ ]
         }, {
           "pred" : "hasExactSynonym",
           "val" : "Angiosarcoma",
-          "xrefs" : [ ],
-          "exact" : true
+          "xrefs" : [ ]
         }, {
           "pred" : "hasExactSynonym",
           "val" : "hemangiosarcoma",
-          "xrefs" : [ ],
-          "exact" : true
+          "xrefs" : [ ]
         }, {
           "pred" : "hasExactSynonym",
           "val" : "Malignant Angioendothelioma",
-          "xrefs" : [ ],
-          "exact" : true
+          "xrefs" : [ ]
         }, {
           "pred" : "hasExactSynonym",
           "val" : "Malignant Hemangioendothelioma",
-          "xrefs" : [ ],
-          "exact" : true
+          "xrefs" : [ ]
         } ]
       },
       "type" : "CLASS",
@@ -61,8 +53,7 @@
         "synonyms" : [ {
           "pred" : "hasExactSynonym",
           "val" : "Angiosarcoma of Soft Tissue",
-          "xrefs" : [ ],
-          "exact" : true
+          "xrefs" : [ ]
         } ]
       },
       "type" : "CLASS",
@@ -93,8 +84,7 @@
         "synonyms" : [ {
           "pred" : "hasExactSynonym",
           "val" : "hemangiosarcoma",
-          "xrefs" : [ ],
-          "exact" : true
+          "xrefs" : [ ]
         } ]
       },
       "type" : "CLASS",
