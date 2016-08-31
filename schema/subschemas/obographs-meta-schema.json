@@ -82,9 +82,6 @@
           "meta" : {
             "type" : "object",
             "$ref" : "urn:jsonschema:org:geneontology:obographs:model:Meta"
-          },
-          "exact" : {
-            "type" : "boolean"
           }
         }
       }
