@@ -344,7 +344,7 @@ public class FromOwl {
 
 
     private Edge getEdge(String subj, String pred, String obj) {
-        return new Edge.Builder().subj(subj).pred(pred).obj(obj).build();
+        return new Edge.Builder().sub(subj).pred(pred).obj(obj).build();
     }
 
     private ExistentialRestrictionExpression getRestriction(

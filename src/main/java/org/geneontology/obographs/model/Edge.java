@@ -11,13 +11,13 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class Edge implements NodeOrEdge {
 	
 	private Edge(Builder builder) {
-		subj = builder.subj;
+		sub = builder.sub;
 		pred = builder.pred;
 		obj = builder.obj;
 		meta = builder.meta;
 	}
 
-	private final String subj;
+	private final String sub;
 	private final String pred;
 	private final String obj;
 	private final Meta meta;
@@ -27,8 +27,8 @@ public class Edge implements NodeOrEdge {
     /**
 	 * @return the subj
 	 */
-	public String getSubj() {
-		return subj;
+	public String getSub() {
+		return sub;
 	}
 
 
@@ -63,7 +63,7 @@ public class Edge implements NodeOrEdge {
 	public static class Builder {
 
         @JsonProperty
-        private String subj;
+        private String sub;
         @JsonProperty
         private String pred;
         @JsonProperty
@@ -72,8 +72,8 @@ public class Edge implements NodeOrEdge {
         @JsonProperty
         private Meta meta;
         
-        public Builder subj(String subj) {
-            this.subj = subj;
+        public Builder sub(String subj) {
+            this.sub = subj;
             return this;
         }
         public Builder obj(String obj) {
