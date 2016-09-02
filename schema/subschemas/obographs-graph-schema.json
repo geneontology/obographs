@@ -142,7 +142,7 @@
         "type" : "object",
         "id" : "urn:jsonschema:org:geneontology:obographs:model:Edge",
         "properties" : {
-          "subj" : {
+          "sub" : {
             "type" : "string"
           },
           "pred" : {
