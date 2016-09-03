@@ -13,6 +13,9 @@ graphs:
           \ types, RNA metabolism or DNA replication may be absent."
         xrefs:
         - "GOC:go_curators"
+      xrefs:
+      - val: "Wikipedia:Cell_nucleus"
+      - val: "NIF_Subcellular:sao1702920020"
       synonyms:
       - pred: "hasExactSynonym"
         val: "cell nucleus"
@@ -32,6 +35,9 @@ graphs:
         xrefs:
         - "GOC:go_curators"
         - "NIF_Subcellular:sao-1337158144"
+      xrefs:
+      - val: "NIF_Subcellular:sao1337158144"
+      - val: "NIF_Subcellular:sao-1337158144"
       synonyms:
       - pred: "hasExactSynonym"
         val: "cellular component"
@@ -63,6 +69,8 @@ graphs:
           \ unit of all organisms."
         xrefs:
         - "GOC:jl"
+      xrefs:
+      - val: "NIF_Subcellular:sao628508602"
       synonyms:
       - pred: "hasExactSynonym"
         val: "cellular subcomponent"
@@ -92,6 +100,9 @@ graphs:
   - id: "http://www.geneontology.org/formats/oboInOwl#SynonymTypeProperty"
     lbl: "synonym_type_property"
   - id: "http://purl.obolibrary.org/obo/BFO_0000050"
+    meta:
+      xrefs:
+      - val: "BFO:0000050"
     lbl: "part of"
   - id: "http://www.geneontology.org/formats/oboInOwl#shorthand"
     lbl: "shorthand"
@@ -114,6 +125,8 @@ graphs:
           \ the nucleus and cytoplasm."
         xrefs:
         - "ISBN:0198506732"
+      xrefs:
+      - val: "Wikipedia:Intracellular"
       synonyms:
       - pred: "hasRelatedSynonym"
         val: "protoplast"
@@ -139,6 +152,9 @@ graphs:
           \ the cell wall and cell envelope."
         xrefs:
         - "GOC:go_curators"
+      xrefs:
+      - val: "Wikipedia:Cell_(biology)"
+      - val: "NIF_Subcellular:sao1813327414"
     type: "CLASS"
     lbl: "cell"
   - id: "http://purl.obolibrary.org/obo/go/subsets/nucleus#systematic_synonym"
@@ -151,6 +167,8 @@ graphs:
           \ plastids, vacuoles, and vesicles. Excludes the plasma membrane."
         xrefs:
         - "GOC:go_curators"
+      xrefs:
+      - val: "NIF_Subcellular:sao414196390"
       synonyms:
       - pred: "hasExactSynonym"
         val: "membrane-enclosed organelle"
@@ -166,6 +184,9 @@ graphs:
           \ pirellulosomes. Excludes the plasma membrane."
         xrefs:
         - "GOC:go_curators"
+      xrefs:
+      - val: "NIF_Subcellular:sao1539965131"
+      - val: "Wikipedia:Organelle"
     type: "CLASS"
     lbl: "organelle"
   - id: "http://purl.obolibrary.org/obo/GO_0043229"

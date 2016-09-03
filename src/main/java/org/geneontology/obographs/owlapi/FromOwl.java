@@ -257,6 +257,18 @@ public class FromOwl {
                             }
 
                         }
+                        else if (isHasXrefProperty(pIRI)) {
+                            if (lv != null) {
+                                XrefPropertyValue xref = 
+                                        new XrefPropertyValue.Builder().
+                                        val(lv).build();
+
+                                Meta.Builder nb = put(nodeMetaBuilderMap, subj);
+                                nb.addXref(xref);
+                                nodeIds.add(subj);
+                            }
+
+                        }
                         else if (synonymVocabulary.contains(pIRI.toString())) {
                             //System.err.println(aaa);
                             SCOPES scope = synonymVocabulary.get(pIRI.toString());

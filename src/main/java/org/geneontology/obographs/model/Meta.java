@@ -158,6 +158,12 @@ public class Meta {
             this.synonyms.add(syn);
             return this;         
         }
+        public Builder addXref(XrefPropertyValue xref) {
+            if (this.xrefs == null)
+                this.xrefs = new ArrayList<>();
+            this.xrefs.add(xref);
+            return this; 
+        }
 
         public Builder xrefs(List<XrefPropertyValue> xrefs) {
             this.xrefs = xrefs;
@@ -169,6 +175,7 @@ public class Meta {
         public Meta build() {
             return new Meta(this);
         }
+  
     }
 
 }

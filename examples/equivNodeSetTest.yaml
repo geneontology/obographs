@@ -51,6 +51,9 @@ graphs:
     type: "CLASS"
     lbl: "Angiosarcoma of Soft Tissue"
   - id: "http://purl.obolibrary.org/obo/Orphanet_263413"
+    meta:
+      xrefs:
+      - val: "MedDRA:10002476"
     type: "CLASS"
     lbl: "Angiosarcoma"
   - id: "http://www.geneontology.org/formats/oboInOwl#hasExactSynonym"
@@ -71,6 +74,16 @@ graphs:
         - "url:http://emedicine.medscape.com/article/276512-overview"
         - "url:http://en.wikipedia.org/wiki/Hemangiosarcoma"
         - "url:http://www.ncbi.nlm.nih.gov/pubmed/23327728"
+      xrefs:
+      - val: "SCTID:33176006"
+      - val: "UMLS:C0018923"
+      - val: "Orphanet:263413"
+      - val: "SCTID:39000009"
+      - val: "MESH:D006394"
+      - val: "UMLS:C0854893"
+      - val: "SCTID:403977003"
+      - val: "NCIT:C9275"
+      - val: "NCIT:C3088"
       synonyms:
       - pred: "hasExactSynonym"
         val: "hemangiosarcoma"

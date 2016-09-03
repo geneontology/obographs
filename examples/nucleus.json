@@ -10,6 +10,11 @@
           "val" : "A membrane-bounded organelle of eukaryotic cells in which chromosomes are housed and replicated. In most cells, the nucleus contains all of the cell's chromosomes except the organellar chromosomes, and is the site of RNA synthesis and processing. In some species, or in specialized cell types, RNA metabolism or DNA replication may be absent.",
           "xrefs" : [ "GOC:go_curators" ]
         },
+        "xrefs" : [ {
+          "val" : "Wikipedia:Cell_nucleus"
+        }, {
+          "val" : "NIF_Subcellular:sao1702920020"
+        } ],
         "synonyms" : [ {
           "pred" : "hasExactSynonym",
           "val" : "cell nucleus",
@@ -28,6 +33,11 @@
           "val" : "The part of a cell or its extracellular environment in which a gene product is located. A gene product may be located in one or more parts of a cell and its location may be as specific as a particular macromolecular complex, that is, a stable, persistent association of macromolecules that function together.",
           "xrefs" : [ "GOC:go_curators", "NIF_Subcellular:sao-1337158144" ]
         },
+        "xrefs" : [ {
+          "val" : "NIF_Subcellular:sao1337158144"
+        }, {
+          "val" : "NIF_Subcellular:sao-1337158144"
+        } ],
         "synonyms" : [ {
           "pred" : "hasExactSynonym",
           "val" : "cellular component",
@@ -61,6 +71,9 @@
           "val" : "Any constituent part of a cell, the basic structural and functional unit of all organisms.",
           "xrefs" : [ "GOC:jl" ]
         },
+        "xrefs" : [ {
+          "val" : "NIF_Subcellular:sao628508602"
+        } ],
         "synonyms" : [ {
           "pred" : "hasExactSynonym",
           "val" : "cellular subcomponent",
@@ -93,6 +106,11 @@
       "lbl" : "synonym_type_property"
     }, {
       "id" : "http://purl.obolibrary.org/obo/BFO_0000050",
+      "meta" : {
+        "xrefs" : [ {
+          "val" : "BFO:0000050"
+        } ]
+      },
       "lbl" : "part of"
     }, {
       "id" : "http://www.geneontology.org/formats/oboInOwl#shorthand",
@@ -119,6 +137,9 @@
           "val" : "The living contents of a cell; the matter contained within (but not including) the plasma membrane, usually taken to exclude large vacuoles and masses of secretory or ingested material. In eukaryotes it includes the nucleus and cytoplasm.",
           "xrefs" : [ "ISBN:0198506732" ]
         },
+        "xrefs" : [ {
+          "val" : "Wikipedia:Intracellular"
+        } ],
         "synonyms" : [ {
           "pred" : "hasRelatedSynonym",
           "val" : "protoplast",
@@ -145,7 +166,12 @@
         "definition" : {
           "val" : "The basic structural and functional unit of all organisms. Includes the plasma membrane and any external encapsulating structures such as the cell wall and cell envelope.",
           "xrefs" : [ "GOC:go_curators" ]
-        }
+        },
+        "xrefs" : [ {
+          "val" : "Wikipedia:Cell_(biology)"
+        }, {
+          "val" : "NIF_Subcellular:sao1813327414"
+        } ]
       },
       "type" : "CLASS",
       "lbl" : "cell"
@@ -159,6 +185,9 @@
           "val" : "Organized structure of distinctive morphology and function, bounded by a single or double lipid bilayer membrane. Includes the nucleus, mitochondria, plastids, vacuoles, and vesicles. Excludes the plasma membrane.",
           "xrefs" : [ "GOC:go_curators" ]
         },
+        "xrefs" : [ {
+          "val" : "NIF_Subcellular:sao414196390"
+        } ],
         "synonyms" : [ {
           "pred" : "hasExactSynonym",
           "val" : "membrane-enclosed organelle",
@@ -173,7 +202,12 @@
         "definition" : {
           "val" : "Organized structure of distinctive morphology and function. Includes the nucleus, mitochondria, plastids, vacuoles, vesicles, ribosomes and the cytoskeleton, and prokaryotic structures such as anammoxosomes and pirellulosomes. Excludes the plasma membrane.",
           "xrefs" : [ "GOC:go_curators" ]
-        }
+        },
+        "xrefs" : [ {
+          "val" : "NIF_Subcellular:sao1539965131"
+        }, {
+          "val" : "Wikipedia:Organelle"
+        } ]
       },
       "type" : "CLASS",
       "lbl" : "organelle"
