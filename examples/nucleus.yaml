@@ -13,6 +13,15 @@ graphs:
           \ types, RNA metabolism or DNA replication may be absent."
         xrefs:
         - "GOC:go_curators"
+      subsets:
+      - "http://purl.obolibrary.org/obo/go/subsets/nucleus#goslim_chembl"
+      - "http://purl.obolibrary.org/obo/go/subsets/nucleus#goslim_generic"
+      - "http://purl.obolibrary.org/obo/go/subsets/nucleus#goslim_pir"
+      - "http://purl.obolibrary.org/obo/go/subsets/nucleus#goslim_candida"
+      - "http://purl.obolibrary.org/obo/go/subsets/nucleus#goslim_yeast"
+      - "http://purl.obolibrary.org/obo/go/subsets/nucleus#goslim_plant"
+      - "http://purl.obolibrary.org/obo/go/subsets/nucleus#goslim_metagenomics"
+      - "http://purl.obolibrary.org/obo/go/subsets/nucleus#goslim_aspergillus"
       xrefs:
       - val: "Wikipedia:Cell_nucleus"
       - val: "NIF_Subcellular:sao1702920020"
@@ -22,6 +31,8 @@ graphs:
         xrefs: []
     type: "CLASS"
     lbl: "nucleus"
+  - id: "http://www.geneontology.org/formats/oboInOwl#hasSynonymType"
+    lbl: "has_synonym_type"
   - id: "http://www.geneontology.org/formats/oboInOwl#hasDbXref"
     lbl: "database_cross_reference"
   - id: "http://purl.obolibrary.org/obo/GO_0005575"
@@ -35,6 +46,16 @@ graphs:
         xrefs:
         - "GOC:go_curators"
         - "NIF_Subcellular:sao-1337158144"
+      subsets:
+      - "http://purl.obolibrary.org/obo/go/subsets/nucleus#goslim_candida"
+      - "http://purl.obolibrary.org/obo/go/subsets/nucleus#goslim_plant"
+      - "http://purl.obolibrary.org/obo/go/subsets/nucleus#goslim_metagenomics"
+      - "http://purl.obolibrary.org/obo/go/subsets/nucleus#goslim_pir"
+      - "http://purl.obolibrary.org/obo/go/subsets/nucleus#gosubset_prok"
+      - "http://purl.obolibrary.org/obo/go/subsets/nucleus#goslim_yeast"
+      - "http://purl.obolibrary.org/obo/go/subsets/nucleus#goslim_generic"
+      - "http://purl.obolibrary.org/obo/go/subsets/nucleus#goslim_chembl"
+      - "http://purl.obolibrary.org/obo/go/subsets/nucleus#goslim_aspergillus"
       xrefs:
       - val: "NIF_Subcellular:sao1337158144"
       - val: "NIF_Subcellular:sao-1337158144"
@@ -60,6 +81,10 @@ graphs:
           \ it includes the nucleus and cytoplasm."
         xrefs:
         - "GOC:jl"
+      subsets:
+      - "http://purl.obolibrary.org/obo/go/subsets/nucleus#gosubset_prok"
+      - "http://purl.obolibrary.org/obo/go/subsets/nucleus#goantislim_grouping"
+      - "http://purl.obolibrary.org/obo/go/subsets/nucleus#gocheck_do_not_annotate"
     type: "CLASS"
     lbl: "intracellular part"
   - id: "http://purl.obolibrary.org/obo/GO_0044464"
@@ -69,6 +94,11 @@ graphs:
           \ unit of all organisms."
         xrefs:
         - "GOC:jl"
+      subsets:
+      - "http://purl.obolibrary.org/obo/go/subsets/nucleus#goantislim_grouping"
+      - "http://purl.obolibrary.org/obo/go/subsets/nucleus#gosubset_prok"
+      - "http://purl.obolibrary.org/obo/go/subsets/nucleus#goslim_pir"
+      - "http://purl.obolibrary.org/obo/go/subsets/nucleus#gocheck_do_not_annotate"
       xrefs:
       - val: "NIF_Subcellular:sao628508602"
       synonyms:
@@ -91,6 +121,9 @@ graphs:
           \ Excludes the plasma membrane."
         xrefs:
         - "GOC:go_curators"
+      subsets:
+      - "http://purl.obolibrary.org/obo/go/subsets/nucleus#goslim_pir"
+      - "http://purl.obolibrary.org/obo/go/subsets/nucleus#gosubset_prok"
       synonyms:
       - pred: "hasExactSynonym"
         val: "intracellular membrane-enclosed organelle"
@@ -125,6 +158,13 @@ graphs:
           \ the nucleus and cytoplasm."
         xrefs:
         - "ISBN:0198506732"
+      subsets:
+      - "http://purl.obolibrary.org/obo/go/subsets/nucleus#goslim_chembl"
+      - "http://purl.obolibrary.org/obo/go/subsets/nucleus#goslim_pir"
+      - "http://purl.obolibrary.org/obo/go/subsets/nucleus#goslim_metagenomics"
+      - "http://purl.obolibrary.org/obo/go/subsets/nucleus#gosubset_prok"
+      - "http://purl.obolibrary.org/obo/go/subsets/nucleus#goslim_generic"
+      - "http://purl.obolibrary.org/obo/go/subsets/nucleus#goslim_plant"
       xrefs:
       - val: "Wikipedia:Intracellular"
       synonyms:
@@ -152,6 +192,11 @@ graphs:
           \ the cell wall and cell envelope."
         xrefs:
         - "GOC:go_curators"
+      subsets:
+      - "http://purl.obolibrary.org/obo/go/subsets/nucleus#gosubset_prok"
+      - "http://purl.obolibrary.org/obo/go/subsets/nucleus#goslim_generic"
+      - "http://purl.obolibrary.org/obo/go/subsets/nucleus#goslim_plant"
+      - "http://purl.obolibrary.org/obo/go/subsets/nucleus#goslim_chembl"
       xrefs:
       - val: "Wikipedia:Cell_(biology)"
       - val: "NIF_Subcellular:sao1813327414"
@@ -167,6 +212,8 @@ graphs:
           \ plastids, vacuoles, and vesicles. Excludes the plasma membrane."
         xrefs:
         - "GOC:go_curators"
+      subsets:
+      - "http://purl.obolibrary.org/obo/go/subsets/nucleus#gosubset_prok"
       xrefs:
       - val: "NIF_Subcellular:sao414196390"
       synonyms:
@@ -184,6 +231,11 @@ graphs:
           \ pirellulosomes. Excludes the plasma membrane."
         xrefs:
         - "GOC:go_curators"
+      subsets:
+      - "http://purl.obolibrary.org/obo/go/subsets/nucleus#goslim_pir"
+      - "http://purl.obolibrary.org/obo/go/subsets/nucleus#gosubset_prok"
+      - "http://purl.obolibrary.org/obo/go/subsets/nucleus#goslim_generic"
+      - "http://purl.obolibrary.org/obo/go/subsets/nucleus#goslim_chembl"
       xrefs:
       - val: "NIF_Subcellular:sao1539965131"
       - val: "Wikipedia:Organelle"
@@ -197,6 +249,9 @@ graphs:
           \ vesicles, ribosomes and the cytoskeleton. Excludes the plasma membrane."
         xrefs:
         - "GOC:go_curators"
+      subsets:
+      - "http://purl.obolibrary.org/obo/go/subsets/nucleus#gosubset_prok"
+      - "http://purl.obolibrary.org/obo/go/subsets/nucleus#goslim_pir"
     type: "CLASS"
     lbl: "intracellular organelle"
   - id: "http://www.geneontology.org/formats/oboInOwl#hasRelatedSynonym"
@@ -247,6 +302,13 @@ graphs:
   - sub: "http://purl.obolibrary.org/obo/GO_0044464"
     pred: "is_a"
     obj: "http://purl.obolibrary.org/obo/GO_0005575"
+  id: "http://purl.obolibrary.org/obo/go/subsets/nucleus.owl"
+  meta:
+    subsets: []
+    xrefs: []
+    basicPropertyValues:
+    - pred: "http://www.geneontology.org/formats/oboInOwl#hasOBOFormatVersion"
+      val: "1.2"
   equivalentNodesSets: []
   logicalDefinitionAxioms:
   - definedClassId: "http://purl.obolibrary.org/obo/GO_0044464"

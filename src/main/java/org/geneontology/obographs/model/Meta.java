@@ -7,12 +7,29 @@ import java.util.stream.Collectors;
 
 import org.geneontology.obographs.model.meta.BasicPropertyValue;
 import org.geneontology.obographs.model.meta.DefinitionPropertyValue;
+import org.geneontology.obographs.model.meta.PropertyValue;
 import org.geneontology.obographs.model.meta.SynonymPropertyValue;
 import org.geneontology.obographs.model.meta.XrefPropertyValue;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+/**
+ * A holder for metadata
+ * 
+ * The information in a Meta object consists sets of {@link PropertyValue} objects,
+ * which associate the Meta object holder with some value via some property.
+ * 
+ * The set of PropertyValue objects can be partitioned into two subsets:
+ * 
+ *  1. PropertyValues corresponding to a specific explicitly modeled property type (e.g synonym)
+ *  2. generic {@link BasicPropertyValue}s - anything property not explicitly modeled
+ *  
+ * 
+ * 
+ * @author cjm
+ *
+ */
 public class Meta {
 
     private Meta(Builder builder) {
@@ -22,6 +39,7 @@ public class Meta {
         synonyms = builder.synonyms;
         xrefs = builder.xrefs;
         basicPropertyValues = builder.basicPropertyValues;
+        version = builder.version;
     }
 
     @JsonProperty private final DefinitionPropertyValue definition;
@@ -30,6 +48,7 @@ public class Meta {
     @JsonProperty private final List<XrefPropertyValue> xrefs;
     @JsonProperty private final List<SynonymPropertyValue> synonyms;
     @JsonProperty private final List<BasicPropertyValue> basicPropertyValues;
+    @JsonProperty private final String version;
 
 
     /**
@@ -120,7 +139,9 @@ public class Meta {
         public DefinitionPropertyValue definition;
         @JsonProperty
         public List<XrefPropertyValue> xrefs;
-
+        @JsonProperty
+        public String version;
+        
 
         public Builder definition(DefinitionPropertyValue definition) {
             this.definition = definition;
@@ -137,6 +158,12 @@ public class Meta {
         }
         public Builder subsets(String[] subsets) {
             this.subsets = Arrays.asList(subsets);
+            return this;
+        }
+        public Builder addSubset(String subset) {
+            if (this.subsets == null)
+                this.subsets(new ArrayList<String>());
+            this.subsets.add(subset);
             return this;
         }
 
@@ -170,6 +197,10 @@ public class Meta {
             return this;
         }
 
+        public Builder version(String version) {
+            this.version = version;
+            return this;
+        }
 
 
         public Meta build() {

@@ -1,5 +1,6 @@
 package org.geneontology.obographs.model.meta;
 
+import java.util.Collection;
 import java.util.List;
 
 import org.geneontology.obographs.model.Meta;
@@ -8,10 +9,6 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 public abstract class AbstractPropertyValue implements PropertyValue {
 	
-
-
-
-
 
 
     protected AbstractPropertyValue(Builder builder) {
@@ -96,6 +93,8 @@ public abstract class AbstractPropertyValue implements PropertyValue {
             this.meta = meta;
             return this;
         }
+
+ 
 
     }
     

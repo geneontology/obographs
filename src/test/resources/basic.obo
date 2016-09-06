@@ -1,4 +1,5 @@
 ontology: test
+remark: test manus ontology
 
 [Term]
 id: UBERON:0002398 ! manus

@@ -39,7 +39,7 @@ subset: goslim_plant  ! Plant GO slim
 subset: goslim_yeast  ! Yeast GO slim
 subset: gosubset_prok  ! Prokaryotic GO subset
 synonym: "cell or subcellular entity" EXACT []
-synonym: "cellular component" EXACT []
+synonym: "cellular component" EXACT systematic_synonym []
 synonym: "subcellular entity" RELATED [NIF_Subcellular:nlx_subcell_100315]
 xref: NIF_Subcellular:sao-1337158144
 xref: NIF_Subcellular:sao1337158144
@@ -89,7 +89,7 @@ subset: goslim_metagenomics  ! Metagenomics GO slim
 subset: goslim_pir  ! PIR GO slim
 subset: goslim_plant  ! Plant GO slim
 subset: goslim_yeast  ! Yeast GO slim
-synonym: "cell nucleus" EXACT []
+synonym: "cell nucleus" EXACT systematic_synonym []
 xref: NIF_Subcellular:sao1702920020
 xref: Wikipedia:Cell_nucleus
 is_a: GO:0043231  ! intracellular membrane-bounded organelle

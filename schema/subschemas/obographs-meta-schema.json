@@ -57,6 +57,9 @@
           "meta" : {
             "type" : "object",
             "$ref" : "urn:jsonschema:org:geneontology:obographs:model:Meta"
+          },
+          "lbl" : {
+            "type" : "string"
           }
         }
       }
@@ -110,6 +113,9 @@
           }
         }
       }
+    },
+    "version" : {
+      "type" : "string"
     }
   }
 }

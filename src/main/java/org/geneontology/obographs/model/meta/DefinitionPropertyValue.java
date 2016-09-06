@@ -5,6 +5,13 @@ import java.util.List;
 import org.geneontology.obographs.model.meta.AbstractPropertyValue.Builder;
 
 
+/**
+ * A {@link PropertyValue} that represents a textual definition of an ontology class or
+ * property
+ * 
+ * @author cjm
+ *
+ */
 public class DefinitionPropertyValue extends AbstractPropertyValue implements PropertyValue {
     
     private DefinitionPropertyValue(Builder builder) {

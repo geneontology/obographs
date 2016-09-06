@@ -10,6 +10,7 @@ import org.geneontology.obographs.model.meta.DefinitionPropertyValue;
 import org.geneontology.obographs.model.meta.SynonymPropertyValue;
 import org.geneontology.obographs.model.meta.SynonymPropertyValueTest;
 import org.geneontology.obographs.model.meta.XrefPropertyValue;
+import org.geneontology.obographs.model.meta.XrefPropertyValueTest;
 import org.junit.Test;
 
 public class MetaTest {
@@ -30,21 +31,18 @@ public class MetaTest {
         assertEquals(1, m.getDefinition().getXrefs().size());       
         assertEquals(2, m.getSubsets().size());   
         assertEquals(1, m.getXrefs().size());   
-        assertEquals(xrefVal, m.getXrefs().get(0).getVal());   
+        assertEquals(XrefPropertyValueTest.val, m.getXrefs().get(0).getVal());   
+        assertEquals(XrefPropertyValueTest.lbl, m.getXrefs().get(0).getLbl());   
     }
 
     public static Meta build() {
 
         SynonymPropertyValue s = SynonymPropertyValueTest.build();
+        XrefPropertyValue xref = XrefPropertyValueTest.build();
         DefinitionPropertyValue def = new DefinitionPropertyValue.
                 Builder().
                 val(defval).
                 xrefs(Arrays.asList(defXrefs)).
-                build();
-        XrefPropertyValue xref = new XrefPropertyValue.
-                Builder().
-                val(xrefVal).
-                //xrefs(Arrays.asList(defXrefs)).
                 build();
         return new Meta.Builder().
                 definition(def).

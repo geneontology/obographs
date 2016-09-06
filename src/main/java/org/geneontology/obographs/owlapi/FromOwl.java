@@ -19,6 +19,7 @@ import org.geneontology.obographs.model.Node.RDFTYPES;
 import org.geneontology.obographs.model.axiom.EquivalentNodesSet;
 import org.geneontology.obographs.model.axiom.ExistentialRestrictionExpression;
 import org.geneontology.obographs.model.axiom.LogicalDefinitionAxiom;
+import org.geneontology.obographs.model.meta.BasicPropertyValue;
 import org.geneontology.obographs.model.meta.DefinitionPropertyValue;
 import org.geneontology.obographs.model.meta.SynonymPropertyValue;
 import org.geneontology.obographs.model.meta.SynonymPropertyValue.SCOPES;
@@ -41,6 +42,7 @@ import org.semanticweb.owlapi.model.OWLObjectIntersectionOf;
 import org.semanticweb.owlapi.model.OWLObjectProperty;
 import org.semanticweb.owlapi.model.OWLObjectSomeValuesFrom;
 import org.semanticweb.owlapi.model.OWLOntology;
+import org.semanticweb.owlapi.model.OWLOntologyID;
 import org.semanticweb.owlapi.model.OWLPropertyExpression;
 import org.semanticweb.owlapi.model.OWLSubClassOfAxiom;
 
@@ -100,7 +102,7 @@ public class FromOwl {
      * @return Graph generated from ontology
      */
     public Graph generateGraph(OWLOntology ontology) {
-        
+
         SynonymVocabulary synonymVocabulary = new SynonymVocabulary();
 
         List<Edge> edges = new ArrayList<>();
@@ -269,10 +271,17 @@ public class FromOwl {
                             }
 
                         }
+                        else if (isInSubsetProperty(pIRI)) {
+                           
+ 
+                                Meta.Builder nb = put(nodeMetaBuilderMap, subj);
+                                nb.addSubset(v.toString());
+                                nodeIds.add(subj);
+                            
+
+                        }
                         else if (synonymVocabulary.contains(pIRI.toString())) {
-                            //System.err.println(aaa);
                             SCOPES scope = synonymVocabulary.get(pIRI.toString());
-                            //System.err.println(pIRI+" --> "+scope);
                             if (lv != null) {
                                 SynonymPropertyValue syn = new SynonymPropertyValue.Builder().
                                         scope(scope).
@@ -311,7 +320,18 @@ public class FromOwl {
             }
             nodes.add(nb.build());
         }
+        String gid = null;
+        String version = null;
+        OWLOntologyID ontId = ontology.getOntologyID();
+        if (ontId != null) {
+            gid = getNodeId(ontId.getOntologyIRI().orNull());
+            //version = ontId.getVersionIRI().orNull().toString();
+        }
+
+        Meta meta = getAnnotations(ontology.getAnnotations());
         return new Graph.Builder().
+                id(gid).
+                meta(meta).
                 nodes(nodes).
                 edges(edges).
                 equivalentNodesSet(ensets).
@@ -338,19 +358,37 @@ public class FromOwl {
      * @return
      */
     private Meta getAnnotations(OWLAxiom ax) {
+        return(getAnnotations(ax.getAnnotations()));
+    }
+    private Meta getAnnotations(Set<OWLAnnotation> anns) {
         List<XrefPropertyValue> xrefs = new ArrayList<>();
-        for (OWLAnnotation ann : ax.getAnnotations()) {
+        List<BasicPropertyValue> bpvs = new ArrayList<>();
+        List<String> inSubsets = new ArrayList<>();
+        for (OWLAnnotation ann : anns) {
             OWLAnnotationProperty p = ann.getProperty();
             OWLAnnotationValue v = ann.getValue();
+            String val = v instanceof IRI ? ((IRI)v).toString() : ((OWLLiteral)v).getLiteral();
             if (isHasXrefProperty(p.getIRI())) {
-                String val = v instanceof IRI ? ((IRI)v).toString() : ((OWLLiteral)v).getLiteral();
                 xrefs.add(new XrefPropertyValue.Builder().val(val).build());
             }
+            else if (isInSubsetProperty(p.getIRI())) {
+                inSubsets.add(new String(val));
+            }
+            else if (isHasSynonymTypeProperty(p.getIRI())) {
+                inSubsets.add(new String(val));
+            }
             else {
-                // TODO
+                bpvs.add(new BasicPropertyValue.Builder().
+                        pred(getPropertyId(p)).
+                        val(val).
+                        build());
             }
         }
-        return new Meta.Builder().xrefs(xrefs).build();
+        return new Meta.Builder().
+                basicPropertyValues(bpvs).
+                subsets(inSubsets).
+                xrefs(xrefs).
+                build();
     }
 
 
@@ -383,6 +421,9 @@ public class FromOwl {
     private String getPropertyId(OWLObjectProperty p) {
         return p.getIRI().toString();
     }
+    private String getPropertyId(OWLAnnotationProperty p) {
+        return p.getIRI().toString();
+    }
     private String getClassId(OWLClass c) {
         return c.getIRI().toString();
     }
@@ -397,5 +438,13 @@ public class FromOwl {
 
     public boolean isHasXrefProperty(IRI iri) {
         return iri.toString().equals("http://www.geneontology.org/formats/oboInOwl#hasDbXref");
+    }
+
+    public boolean isInSubsetProperty(IRI iri) {
+        return iri.toString().equals("http://www.geneontology.org/formats/oboInOwl#inSubset");
+    }
+    
+    public boolean isHasSynonymTypeProperty(IRI iri) {
+        return iri.toString().equals("http://www.geneontology.org/formats/oboInOwl#hasSynonymType");
     }
 }
