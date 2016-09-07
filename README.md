@@ -194,8 +194,12 @@ mvn install
 ./bin/ogger  src/test/resources/basic.obo 
 ```
 
-Note that the conversion will be rolled into tools like ROBOT
-obviating the need for this.
+Note that the conversion [will be rolled into tools like ROBOT](https://github.com/geneontology/obographs/issues/5)
+obviating the need for this. We can also make it such that the JSON is available from a standard PURL, e.g.
+
+ * http://purl.obolibrary.org/obo/envo.obo
+ * http://purl.obolibrary.org/obo/envo.owl
+ * http://purl.obolibrary.org/obo/envo.json NEW
 
 ## Including obographs in your code:
 
@@ -223,4 +227,4 @@ mvn -Dgpg.skip install
 
 ## Javascript
 
-See [bbo-graph](https://github.com/berkeleybop/bbop-graph)
+See [bbop-graph](https://github.com/berkeleybop/bbop-graph)
