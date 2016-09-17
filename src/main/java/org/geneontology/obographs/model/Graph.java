@@ -2,6 +2,7 @@ package org.geneontology.obographs.model;
 
 import java.util.List;
 
+import org.geneontology.obographs.model.axiom.DomainRangeAxiom;
 import org.geneontology.obographs.model.axiom.EquivalentNodesSet;
 import org.geneontology.obographs.model.axiom.LogicalDefinitionAxiom;
 
@@ -41,6 +42,7 @@ public class Graph {
         edges = builder.edges;
         equivalentNodesSets = builder.equivalentNodesSets;
         logicalDefinitionAxioms = builder.logicalDefinitionAxioms;
+        domainRangeAxioms = builder.domainRangeAxioms;
     }
 
     private final List<Node> nodes;
@@ -50,6 +52,7 @@ public class Graph {
     private final Meta meta;
     private final List<EquivalentNodesSet> equivalentNodesSets;
     private final List<LogicalDefinitionAxiom> logicalDefinitionAxioms;
+    private final List<DomainRangeAxiom> domainRangeAxioms;
 
 
 
@@ -116,6 +119,15 @@ public class Graph {
 
 
 
+    /**
+     * @return the domainRangeAxioms
+     */
+    public List<DomainRangeAxiom> getDomainRangeAxioms() {
+        return domainRangeAxioms;
+    }
+
+
+
     public static class Builder {
 
         @JsonProperty
@@ -132,6 +144,8 @@ public class Graph {
         private List<EquivalentNodesSet> equivalentNodesSets;
         @JsonProperty
         private List<LogicalDefinitionAxiom> logicalDefinitionAxioms;
+        @JsonProperty
+        private List<DomainRangeAxiom> domainRangeAxioms;
 
         public Builder id(String id) {
             this.id = id;
@@ -163,6 +177,10 @@ public class Graph {
         }
         public Builder logicalDefinitionAxioms(List<LogicalDefinitionAxiom> logicalDefinitionAxioms) {
             this.logicalDefinitionAxioms = logicalDefinitionAxioms;
+            return this;
+        }
+        public Builder domainRangeAxioms(List<DomainRangeAxiom> domainRangeAxioms) {
+            this.domainRangeAxioms = domainRangeAxioms;
             return this;
         }
 

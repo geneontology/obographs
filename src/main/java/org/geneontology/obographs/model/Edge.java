@@ -20,8 +20,7 @@ public class Edge implements NodeOrEdge {
 	private final String sub;
 	private final String pred;
 	private final String obj;
-	private final Meta meta;
-	
+    private final Meta meta;	
 	
 	
     /**

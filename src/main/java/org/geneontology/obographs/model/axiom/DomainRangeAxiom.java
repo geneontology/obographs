@@ -47,6 +47,8 @@ public class DomainRangeAxiom extends AbstractAxiom {
 
 
     /**
+     * For multiple domains, this is treated as intersection
+     * 
      * @return the domainClassIds
      */
     public Set<String> getDomainClassIds() {
@@ -57,6 +59,8 @@ public class DomainRangeAxiom extends AbstractAxiom {
 
 
     /**
+    * For multiple ranges, this is treated as intersection
+     * 
      * @return the rangeClassIds
      */
     public Set<String> getRangeClassIds() {
@@ -65,6 +69,12 @@ public class DomainRangeAxiom extends AbstractAxiom {
 
 
     /**
+     * Set of edges representing `X SubClassOf P only Y` axioms.
+     * 
+     * Note that these are not in the main graph.edges object, as the edge
+     * graph is intended to be an existential graph. Most applications that do
+     * not perform a reasoning function have no use for universal axioms.
+     * 
      * @return the allValuesFromEdges
      */
     public Set<Edge> getAllValuesFromEdges() {

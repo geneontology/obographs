@@ -70,15 +70,19 @@
       "lbl" : "Angiosarcoma"
     }, {
       "id" : "http://www.geneontology.org/formats/oboInOwl#hasExactSynonym",
+      "type" : "PROPERTY",
       "lbl" : "has_exact_synonym"
     }, {
       "id" : "http://www.geneontology.org/formats/oboInOwl#inSubset",
+      "type" : "PROPERTY",
       "lbl" : "in_subset"
     }, {
       "id" : "http://www.geneontology.org/formats/oboInOwl#hasDbXref",
+      "type" : "PROPERTY",
       "lbl" : "database_cross_reference"
     }, {
       "id" : "http://purl.obolibrary.org/obo/IAO_0000115",
+      "type" : "PROPERTY",
       "lbl" : "definition"
     }, {
       "id" : "http://purl.obolibrary.org/obo/DOID_0001816",
@@ -117,6 +121,7 @@
       "lbl" : "angiosarcoma"
     }, {
       "id" : "http://www.geneontology.org/formats/oboInOwl#hasAlternativeId",
+      "type" : "PROPERTY",
       "lbl" : "has_alternative_id"
     } ],
     "edges" : [ {
@@ -155,6 +160,7 @@
     }, {
       "nodeIds" : [ "http://purl.obolibrary.org/obo/Orphanet_263413", "http://purl.obolibrary.org/obo/DOID_0001816" ]
     } ],
-    "logicalDefinitionAxioms" : [ ]
+    "logicalDefinitionAxioms" : [ ],
+    "domainRangeAxioms" : [ ]
   } ]
 }

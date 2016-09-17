@@ -123,5 +123,5 @@ We translate to:
         xrefs: [XREF1, ..., XREFn]
 ```
 
-where the mapping between SCOPE (e.g. EXACT, NARROW, ...) and PRED is defined by [the OBO to OWL annotatio vocabulary translation](http://owlcollab.github.io/oboformat/doc/obo-syntax.html#5.8)
+where the mapping between SCOPE (e.g. EXACT, NARROW, ...) and PRED is defined by [the OBO to OWL annotation vocabulary translation](http://owlcollab.github.io/oboformat/doc/obo-syntax.html#5.8)
 
