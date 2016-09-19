@@ -339,6 +339,7 @@
         "fillerId" : "http://purl.obolibrary.org/obo/GO_0005622"
       } ]
     } ],
-    "domainRangeAxioms" : [ ]
+    "domainRangeAxioms" : [ ],
+    "propertyChainAxioms" : [ ]
   } ]
 }

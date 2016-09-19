@@ -161,6 +161,7 @@
       "nodeIds" : [ "http://purl.obolibrary.org/obo/Orphanet_263413", "http://purl.obolibrary.org/obo/DOID_0001816" ]
     } ],
     "logicalDefinitionAxioms" : [ ],
-    "domainRangeAxioms" : [ ]
+    "domainRangeAxioms" : [ ],
+    "propertyChainAxioms" : [ ]
   } ]
 }

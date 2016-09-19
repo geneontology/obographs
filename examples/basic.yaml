@@ -54,3 +54,4 @@ graphs:
   equivalentNodesSets: []
   logicalDefinitionAxioms: []
   domainRangeAxioms: []
+  propertyChainAxioms: []

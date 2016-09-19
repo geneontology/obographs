@@ -134,3 +134,4 @@ graphs:
     - "http://purl.obolibrary.org/obo/DOID_0001816"
   logicalDefinitionAxioms: []
   domainRangeAxioms: []
+  propertyChainAxioms: []

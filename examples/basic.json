@@ -71,6 +71,7 @@
     },
     "equivalentNodesSets" : [ ],
     "logicalDefinitionAxioms" : [ ],
-    "domainRangeAxioms" : [ ]
+    "domainRangeAxioms" : [ ],
+    "propertyChainAxioms" : [ ]
   } ]
 }

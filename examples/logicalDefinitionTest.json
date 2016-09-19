@@ -78,6 +78,7 @@
         "fillerId" : "http://purl.obolibrary.org/obo/UBERON_0002102"
       } ]
     } ],
-    "domainRangeAxioms" : [ ]
+    "domainRangeAxioms" : [ ],
+    "propertyChainAxioms" : [ ]
   } ]
 }

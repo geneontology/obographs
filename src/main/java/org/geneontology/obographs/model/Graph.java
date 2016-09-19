@@ -5,6 +5,7 @@ import java.util.List;
 import org.geneontology.obographs.model.axiom.DomainRangeAxiom;
 import org.geneontology.obographs.model.axiom.EquivalentNodesSet;
 import org.geneontology.obographs.model.axiom.LogicalDefinitionAxiom;
+import org.geneontology.obographs.model.axiom.PropertyChainAxiom;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
@@ -43,6 +44,7 @@ public class Graph {
         equivalentNodesSets = builder.equivalentNodesSets;
         logicalDefinitionAxioms = builder.logicalDefinitionAxioms;
         domainRangeAxioms = builder.domainRangeAxioms;
+        propertyChainAxioms = builder.propertyChainAxioms;
     }
 
     private final List<Node> nodes;
@@ -53,6 +55,7 @@ public class Graph {
     private final List<EquivalentNodesSet> equivalentNodesSets;
     private final List<LogicalDefinitionAxiom> logicalDefinitionAxioms;
     private final List<DomainRangeAxiom> domainRangeAxioms;
+    private final List<PropertyChainAxiom> propertyChainAxioms;
 
 
 
@@ -128,6 +131,15 @@ public class Graph {
 
 
 
+    /**
+     * @return the propertyChainAxioms
+     */
+    public List<PropertyChainAxiom> getPropertyChainAxioms() {
+        return propertyChainAxioms;
+    }
+
+
+
     public static class Builder {
 
         @JsonProperty
@@ -146,6 +158,8 @@ public class Graph {
         private List<LogicalDefinitionAxiom> logicalDefinitionAxioms;
         @JsonProperty
         private List<DomainRangeAxiom> domainRangeAxioms;
+        @JsonProperty
+        private List<PropertyChainAxiom> propertyChainAxioms;
 
         public Builder id(String id) {
             this.id = id;
@@ -169,6 +183,10 @@ public class Graph {
         }
         public Builder edges(List<Edge> edges) {
             this.edges = edges;
+            return this;
+        }
+        public Builder propertyChainAxioms(List<PropertyChainAxiom> propertyChainAxioms) {
+            this.propertyChainAxioms = propertyChainAxioms;
             return this;
         }
         public Builder equivalentNodesSet(List<EquivalentNodesSet> equivalentNodesSets) {

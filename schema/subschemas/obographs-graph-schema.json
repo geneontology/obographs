@@ -232,6 +232,63 @@
           }
         }
       }
+    },
+    "domainRangeAxioms" : {
+      "type" : "array",
+      "items" : {
+        "type" : "object",
+        "id" : "urn:jsonschema:org:geneontology:obographs:model:axiom:DomainRangeAxiom",
+        "properties" : {
+          "meta" : {
+            "type" : "object",
+            "$ref" : "urn:jsonschema:org:geneontology:obographs:model:Meta"
+          },
+          "predicateId" : {
+            "type" : "string"
+          },
+          "domainClassIds" : {
+            "type" : "array",
+            "items" : {
+              "type" : "string"
+            }
+          },
+          "rangeClassIds" : {
+            "type" : "array",
+            "items" : {
+              "type" : "string"
+            }
+          },
+          "allValuesFromEdges" : {
+            "type" : "array",
+            "items" : {
+              "type" : "object",
+              "$ref" : "urn:jsonschema:org:geneontology:obographs:model:Edge"
+            }
+          }
+        }
+      }
+    },
+    "propertyChainAxioms" : {
+      "type" : "array",
+      "items" : {
+        "type" : "object",
+        "id" : "urn:jsonschema:org:geneontology:obographs:model:axiom:PropertyChainAxiom",
+        "properties" : {
+          "meta" : {
+            "type" : "object",
+            "$ref" : "urn:jsonschema:org:geneontology:obographs:model:Meta"
+          },
+          "predicateId" : {
+            "type" : "string"
+          },
+          "chainPredicateIds" : {
+            "type" : "array",
+            "items" : {
+              "type" : "string"
+            }
+          }
+        }
+      }
     }
   }
 }

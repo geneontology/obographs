@@ -20,6 +20,7 @@ import org.geneontology.obographs.model.axiom.DomainRangeAxiom;
 import org.geneontology.obographs.model.axiom.EquivalentNodesSet;
 import org.geneontology.obographs.model.axiom.ExistentialRestrictionExpression;
 import org.geneontology.obographs.model.axiom.LogicalDefinitionAxiom;
+import org.geneontology.obographs.model.axiom.PropertyChainAxiom;
 import org.geneontology.obographs.model.meta.BasicPropertyValue;
 import org.geneontology.obographs.model.meta.DefinitionPropertyValue;
 import org.geneontology.obographs.model.meta.SynonymPropertyValue;
@@ -54,6 +55,8 @@ import org.semanticweb.owlapi.model.OWLOntologyID;
 import org.semanticweb.owlapi.model.OWLProperty;
 import org.semanticweb.owlapi.model.OWLPropertyExpression;
 import org.semanticweb.owlapi.model.OWLSubClassOfAxiom;
+import org.semanticweb.owlapi.model.OWLSubObjectPropertyOfAxiom;
+import org.semanticweb.owlapi.model.OWLSubPropertyChainOfAxiom;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.github.jsonldjava.core.Context;
@@ -64,10 +67,6 @@ import com.github.jsonldjava.core.Context;
  * ===
  * 
  * See <a href="https://github.com/geneontology/obographs/blob/master/README-owlmapping.md">OWL Mapping spec</a>
- * 
- * <br/>
- * Status: _currently incomplete_
- * <br/>
  * 
  * @see "[SPEC](https://github.com/geneontology/obographs/blob/master/README-owlmapping.md)"
  * 
@@ -81,6 +80,7 @@ import com.github.jsonldjava.core.Context;
 public class FromOwl {
 
     public static final String SUBCLASS_OF = "is_a";
+    public static final String SUBPROPERTY_OF = "subPropertyOf";
 
     private PrefixHelper prefixHelper;
     private Context context;
@@ -127,6 +127,7 @@ public class FromOwl {
         Map<String,RDFTYPES> nodeTypeMap = new HashMap<>();
         Map<String,String> nodeLabelMap = new HashMap<>();
         Map<String,DomainRangeAxiom.Builder> domainRangeBuilderMap = new HashMap<>();
+        List<PropertyChainAxiom> pcas = new ArrayList<>();
 
         // Each node can be built from multiple axioms; use a builder for each nodeId
         Map<String,Meta.Builder> nodeMetaBuilderMap = new HashMap<>();
@@ -195,13 +196,19 @@ public class FromOwl {
                         if (supc.isAnonymous()) {
                             if (supc instanceof OWLObjectSomeValuesFrom) {
                                 ExistentialRestrictionExpression r = getRestriction(supc);
-                                edges.add(getEdge(subj, r.getPropertyId(), r.getFillerId()));
+                                if (r == null) {
+                                    untranslatedAxioms.add(sca);
+                                }
+                                else {
+                                    Edge e = getEdge(subj, r.getPropertyId(), r.getFillerId());
+                                    edges.add(e);
+                                }
                             }
                             else if (supc instanceof OWLObjectAllValuesFrom) {
                                 OWLObjectAllValuesFrom avf = (OWLObjectAllValuesFrom)supc;
                                 DomainRangeAxiom.Builder b = getDRBuilder(avf.getProperty(), domainRangeBuilderMap);
                                 if (avf.getFiller().isAnonymous()) {
-                                    
+
                                 }
                                 else {
                                     Edge e = getEdge(subj, 
@@ -211,7 +218,7 @@ public class FromOwl {
                                 }
                             }
                             else {
-                                
+
                             }
                         }
                         else {
@@ -294,10 +301,43 @@ public class FromOwl {
                         }
                     }
                 }
-                
+
                 else if (ax instanceof OWLObjectPropertyAxiom) {
 
-                    translateObjectPropertyAxiom(ax, domainRangeBuilderMap);
+                    if (ax instanceof OWLSubObjectPropertyOfAxiom) {
+                        OWLSubObjectPropertyOfAxiom spa = (OWLSubObjectPropertyOfAxiom)ax;
+                        if (spa.getSubProperty().isAnonymous()) {
+
+                        }
+                        else if (spa.getSuperProperty().isAnonymous()) {
+                        }
+                        else {
+                            String subj = getPropertyId(spa.getSubProperty().asOWLObjectProperty());
+                            String obj = getPropertyId(spa.getSuperProperty().asOWLObjectProperty());
+                            edges.add(getEdge(subj, SUBPROPERTY_OF, obj));
+                        }
+
+                    }
+                    else if (ax instanceof OWLSubPropertyChainOfAxiom) {
+                        OWLSubPropertyChainOfAxiom spc = (OWLSubPropertyChainOfAxiom)ax;
+                        if (spc.getSuperProperty().isAnonymous()) {
+
+                        }
+                        else {
+                            String p = getPropertyId(spc.getSuperProperty().asOWLObjectProperty());
+                            List<String> cpids = spc.getPropertyChain().stream().map(
+                                    cp -> cp.isAnonymous() ? null : getPropertyId(cp.asOWLObjectProperty())).
+                                    collect(Collectors.toList());
+                            if (cpids.stream().filter(pid -> pid == null).collect(Collectors.toList()).size() == 0) {
+                                pcas.add(new PropertyChainAxiom.Builder().predicateId(p).chainPredicateIds(cpids).build());
+                            }
+                               
+                        }
+                        
+                    }
+                    else {
+                        translateObjectPropertyAxiom(ax, domainRangeBuilderMap);
+                    }
 
                 }
 
@@ -423,6 +463,7 @@ public class FromOwl {
                 equivalentNodesSet(ensets).
                 logicalDefinitionAxioms(ldas).
                 domainRangeAxioms(domainRangeAxioms).
+                propertyChainAxioms(pcas).
                 build();
     }
 
@@ -572,8 +613,8 @@ public class FromOwl {
     }
 
     //    private String shortenIRI(IRI iri) {
-        //        prefixHelper
-        //    }
+    //        prefixHelper
+    //    }
 
     private String getPropertyId(OWLObjectProperty p) {
         return p.getIRI().toString();
