@@ -35,6 +35,8 @@ adding complexity to the core.
 
 For more examples, see [examples/](examples)
 
+For the JSON Schema, see the [schema/](schema) folder
+
 If you are familiar with OWL, skip straight to the [OWL mapping specification](README-owlmapping.md) 
 
 ## Motivation
