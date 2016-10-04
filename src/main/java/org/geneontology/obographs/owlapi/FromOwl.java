@@ -73,9 +73,6 @@ import com.github.jsonldjava.core.Context;
  * 
  * @see "[SPEC](https://github.com/geneontology/obographs/blob/master/README-owlmapping.md)"
  * 
- * TODO:
- *  * Generate Meta objects
- *  * Synonyms
  * 
  * @author cjm
  *
