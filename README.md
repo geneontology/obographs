@@ -154,7 +154,7 @@ correspond to SubPropertyOf axioms)
 Nodes, edges and graphs can have optional `meta` objects for
 additional metadata (or *annotations* in OWL speak).
 
-Here is an example of a meta object for a GO class:
+Here is an example of a meta object for a GO class (show in YAML, for compactness):
 
 ```
   - id: "http://purl.obolibrary.org/obo/GO_0044464"
