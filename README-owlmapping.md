@@ -15,7 +15,6 @@ at the level of the graph document or an individual graph.
 
 All nodes go in a nodes array object, placed immediately under the graph object
 
-TBD: are all named objects translated to nodes or just OWLClasses?
 
 ```
 Class: C
@@ -29,7 +28,7 @@ nodes:
    type: "CLASS"
 ```
 
-TODO
+Analogous rules apply to individuals and properties
 
 ## Edges
 
@@ -60,17 +59,22 @@ edges:
    obj: D
 ```
 
-## Meta objects
+Note that universal restrictions are not added into the main graph
 
-Meta objects can be placed at multiple levels:
+## Handling of universal (all values from) axioms
 
- 1. GraphDocument
- 2. Graph
- 3. Node
- 4. Edge
- 5. Axiom
+These do not pollute the main `edges` list
 
-Note for the final two, the Meta object corresponds to _reification_ in RDF/OWL
+```
+Class: C
+  SubCLassOf: P only D
+
+allValuesFromEdges:
+ - sub: C
+   pred: P
+   obj: D
+```
+
 
 ## LogicalDefinitionAxioms
 
@@ -99,8 +103,109 @@ We translate to:
       fillerId: Dm
 ```
 
+## RBox Axioms
 
-## Synonyms
+### SubPropertyOf Axioms
+
+These treated as graph edges
+
+```
+ObjectProperty: P
+  SubPropertyOf: Q
+
+==>
+
+edges:
+ - subj: P
+   pred: subPropertyOf
+   obj: Q
+```
+
+### InversePropertyOf Axioms
+
+These treated as graph edges
+
+```
+ObjectProperty: P
+  InverseOf: Q
+
+==>
+
+edges:
+ - subj: P
+   pred: inverseOf
+   obj: Q
+```
+
+### Property Chain Axioms
+
+
+```
+ObjectProperty: P
+  SubPropertyChain: P1 o P2  
+
+==>
+
+propertyChainAxioms:
+ - predicateId: P
+   chainPredicateIds: [P1, P2]
+```
+
+### Domain and Range Axioms
+
+
+```
+ObjectProperty: P
+  Domain: D
+  Range: R
+
+==>
+
+domainRangeAxioms:
+ - predicateId: P
+   domainClassIds: [D]
+   rangeClassIds: [R]
+```
+
+
+## Meta objects
+
+Meta objects can be placed at multiple levels:
+
+ 1. GraphDocument
+ 2. Graph
+ 3. Node
+ 4. Edge
+ 5. Axiom
+
+Each element Meta object corresponds to an Annotation in OWL
+
+Note for the final two, the Meta object corresponds to _reification_ in RDF/OWL
+
+The meta object looks like:
+
+```
+meta:
+  definition: DEFINITION
+  subsets: SUBSET-LIST
+  xrefs: XREF-LIST
+  synonyms: SYN-LIST
+  comments: COMMENT-LIST
+  basicPropertyValues: BPV-LIST
+```
+
+See the OBO-Syntax spec for details
+
+### Synonym Meta objects
+
+Example:
+
+```
+      synonyms:
+      - pred: "hasExactSynonym"
+        val: "intracellular membrane-enclosed organelle"
+        xrefs: []
+```
 
 All synonyms go in a `synonyms` array object, placed immediately under the meta object
 

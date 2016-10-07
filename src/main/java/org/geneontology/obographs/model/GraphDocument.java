@@ -7,6 +7,19 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 /**
  * Holds a collection of graphs, plus document-level metadata
  * 
+ * ## Model
+ * 
+ * ![Node UML](graphdocument.png)
+ *  
+ * @startuml graphdocument.png
+ * class GraphDocument
+ * class Graph
+ * class Meta
+ * 
+ * GraphDocument-->Graph : 0..*
+ * GraphDocument-->Meta : 0..*
+ * @enduml
+ * 
  * @author cjm
  *
  */

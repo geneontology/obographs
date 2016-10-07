@@ -1,0 +1,74 @@
+Prefix: : <http://purl.obolibrary.org/obo/T/>
+Ontology: <http://purl.obolibrary.org/obo/T>
+
+## foo
+Class: Person
+Class: Male
+  SubClassOf: Person
+Class: Female
+  SubClassOf: Person
+
+ObjectProperty: genealogically-related-to
+
+ObjectProperty: ancestor-of
+  Characteristics: Transitive
+  SubPropertyOf: genealogically-related-to
+ObjectProperty: descendant-of
+  Characteristics: Transitive
+  InverseOf: ancestor-of
+  SubPropertyOf: genealogically-related-to
+
+ObjectProperty: child-of
+  SubPropertyOf: descendant-of
+ObjectProperty: parent-of
+  InverseOf: child-of
+  SubPropertyOf: ancestor-of
+
+ObjectProperty: father-of
+  SubPropertyOf: parent-of
+  Domain: Male
+ObjectProperty: mother-of
+  SubPropertyOf: parent-of
+  Domain: Female
+
+ObjectProperty: grandparent-of
+  SubPropertyOf: ancestor-of
+  SubPropertyChain: parent-of o parent-of  
+ObjectProperty: grandmother-of
+  SubPropertyOf: grandparent-of
+  SubPropertyChain: mother-of o parent-of  
+ObjectProperty: grandfather-of
+  SubPropertyOf: grandparent-of
+  SubPropertyChain: parent-of o parent-of  
+
+
+## Note: reflexive for purposes of simplicity
+ObjectProperty: sibling-of
+  SubPropertyOf: genealogically-related-to
+  SubPropertyChain: child-of o parent-of
+  
+ObjectProperty: sister-of
+  SubPropertyOf: sibling-of
+  Domain: Female
+ObjectProperty: brother-of
+  SubPropertyOf: sibling-of
+  Domain: Male
+
+Individual: f1
+  Types: Male
+  Facts: father-of b
+  Facts: father-of c
+
+Individual: m1
+  Types: Female
+  Facts: mother-of b
+  Facts: mother-of c
+
+Individual: b
+  Facts: father-of b1
+  Facts: father-of b2
+
+Individual: c
+
+Individual: b1
+Individual: b2

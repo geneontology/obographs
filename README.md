@@ -35,6 +35,8 @@ adding complexity to the core.
 
 For more examples, see [examples/](examples)
 
+For the JSON Schema, see the [schema/](schema) folder
+
 If you are familiar with OWL, skip straight to the [OWL mapping specification](README-owlmapping.md) 
 
 ## Motivation
@@ -148,6 +150,39 @@ Nodes collect all OWL annotations about an entity.
 Typically nodes will be OWL classes, but they can also be OWL
 individuals, or OWL properties (in which case edges can also
 correspond to SubPropertyOf axioms)
+
+Nodes, edges and graphs can have optional `meta` objects for
+additional metadata (or *annotations* in OWL speak).
+
+Here is an example of a meta object for a GO class (show in YAML, for compactness):
+
+```
+  - id: "http://purl.obolibrary.org/obo/GO_0044464"
+    meta:
+      definition:
+        val: "Any constituent part of a cell, the basic structural and functional\
+          \ unit of all organisms."
+        xrefs:
+        - "GOC:jl"
+      subsets:
+      - "http://purl.obolibrary.org/obo/go/subsets/nucleus#goantislim_grouping"
+      - "http://purl.obolibrary.org/obo/go/subsets/nucleus#gosubset_prok"
+      - "http://purl.obolibrary.org/obo/go/subsets/nucleus#goslim_pir"
+      - "http://purl.obolibrary.org/obo/go/subsets/nucleus#gocheck_do_not_annotate"
+      xrefs:
+      - val: "NIF_Subcellular:sao628508602"
+      synonyms:
+      - pred: "hasExactSynonym"
+        val: "cellular subcomponent"
+        xrefs:
+        - "NIF_Subcellular:sao628508602"
+      - pred: "hasRelatedSynonym"
+        val: "protoplast"
+        xrefs:
+        - "GOC:mah"
+    type: "CLASS"
+    lbl: "cell part"
+```
 
 ## Expressive OBO Graphs (ExOGs)
 

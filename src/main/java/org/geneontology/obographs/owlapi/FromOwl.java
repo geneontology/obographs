@@ -34,17 +34,20 @@ import org.semanticweb.owlapi.model.OWLAnnotationSubject;
 import org.semanticweb.owlapi.model.OWLAnnotationValue;
 import org.semanticweb.owlapi.model.OWLAxiom;
 import org.semanticweb.owlapi.model.OWLClass;
+import org.semanticweb.owlapi.model.OWLClassAssertionAxiom;
 import org.semanticweb.owlapi.model.OWLClassExpression;
 import org.semanticweb.owlapi.model.OWLDeclarationAxiom;
 import org.semanticweb.owlapi.model.OWLEntity;
 import org.semanticweb.owlapi.model.OWLEquivalentClassesAxiom;
 import org.semanticweb.owlapi.model.OWLIndividual;
+import org.semanticweb.owlapi.model.OWLInverseObjectPropertiesAxiom;
 import org.semanticweb.owlapi.model.OWLLiteral;
 import org.semanticweb.owlapi.model.OWLLogicalAxiom;
 import org.semanticweb.owlapi.model.OWLNamedIndividual;
 import org.semanticweb.owlapi.model.OWLObjectAllValuesFrom;
 import org.semanticweb.owlapi.model.OWLObjectIntersectionOf;
 import org.semanticweb.owlapi.model.OWLObjectProperty;
+import org.semanticweb.owlapi.model.OWLObjectPropertyAssertionAxiom;
 import org.semanticweb.owlapi.model.OWLObjectPropertyAxiom;
 import org.semanticweb.owlapi.model.OWLObjectPropertyDomainAxiom;
 import org.semanticweb.owlapi.model.OWLObjectPropertyExpression;
@@ -70,9 +73,6 @@ import com.github.jsonldjava.core.Context;
  * 
  * @see "[SPEC](https://github.com/geneontology/obographs/blob/master/README-owlmapping.md)"
  * 
- * TODO:
- *  * Generate Meta objects
- *  * Synonyms
  * 
  * @author cjm
  *
@@ -81,6 +81,7 @@ public class FromOwl {
 
     public static final String SUBCLASS_OF = "is_a";
     public static final String SUBPROPERTY_OF = "subPropertyOf";
+    public static final String INVERSE_OF = "inverseOf";
 
     private PrefixHelper prefixHelper;
     private Context context;
@@ -230,6 +231,41 @@ public class FromOwl {
                         untranslatedAxioms.add(sca);
                     }
                 }
+                else if (ax instanceof OWLClassAssertionAxiom) {
+                    OWLClassAssertionAxiom ca = (OWLClassAssertionAxiom)ax;
+
+                    String subj = getIndividualId(ca.getIndividual());
+                    String pred = "type";
+                    String obj;
+                    OWLClassExpression cx = ca.getClassExpression();
+                    if (cx.isAnonymous()) {
+                        untranslatedAxioms.add(ca);
+                        continue;
+                    }
+                    else {
+                        obj = getClassId(cx.asOWLClass());
+                    }
+                    edges.add(getEdge(subj, pred, obj));
+                    nodeIds.add(subj); // always include
+                    nodeIds.add(obj); // always include
+
+                }
+                 else if (ax instanceof OWLObjectPropertyAssertionAxiom) {
+                    OWLObjectPropertyAssertionAxiom opa = (OWLObjectPropertyAssertionAxiom)ax;
+
+                    String subj = getIndividualId(opa.getSubject());
+                    String obj = getIndividualId(opa.getObject());
+                    if (opa.getProperty().isAnonymous()) {
+                        untranslatedAxioms.add(opa);
+                    }
+                    else {
+                        String pred = getPropertyId(opa.getProperty().asOWLObjectProperty());
+
+                        edges.add(getEdge(subj, pred, obj));
+                    }
+                    nodeIds.add(subj); // always include subject node of an OPA
+
+                }
                 else if (ax instanceof OWLEquivalentClassesAxiom) {
                     // EQUIVALENT
 
@@ -318,6 +354,20 @@ public class FromOwl {
                         }
 
                     }
+                    else if (ax instanceof OWLInverseObjectPropertiesAxiom) {
+                        OWLInverseObjectPropertiesAxiom ipa = (OWLInverseObjectPropertiesAxiom)ax;
+                        if (ipa.getFirstProperty().isAnonymous()) {
+
+                        }
+                        else if (ipa.getSecondProperty().isAnonymous()) {
+                        }
+                        else {
+                            String p1 = getPropertyId(ipa.getFirstProperty().asOWLObjectProperty());
+                            String p2 = getPropertyId(ipa.getSecondProperty().asOWLObjectProperty());
+                            edges.add(getEdge(p1, INVERSE_OF, p2));
+                        }
+
+                    }
                     else if (ax instanceof OWLSubPropertyChainOfAxiom) {
                         OWLSubPropertyChainOfAxiom spc = (OWLSubPropertyChainOfAxiom)ax;
                         if (spc.getSuperProperty().isAnonymous()) {
@@ -331,9 +381,9 @@ public class FromOwl {
                             if (cpids.stream().filter(pid -> pid == null).collect(Collectors.toList()).size() == 0) {
                                 pcas.add(new PropertyChainAxiom.Builder().predicateId(p).chainPredicateIds(cpids).build());
                             }
-                               
+
                         }
-                        
+
                     }
                     else {
                         translateObjectPropertyAxiom(ax, domainRangeBuilderMap);
@@ -628,8 +678,11 @@ public class FromOwl {
     private String getPropertyId(OWLProperty p) {
         return p.getIRI().toString();
     }
-    private String getIndividualId(OWLNamedIndividual i) {
-        return i.getIRI().toString();
+    private String getIndividualId(OWLIndividual owlIndividual) {
+        if (owlIndividual instanceof OWLNamedIndividual)
+            return owlIndividual.asOWLNamedIndividual().getIRI().toString();
+        else
+            return owlIndividual.asOWLAnonymousIndividual().getID().toString(); // TODO - documet blank nodes
     }
 
     private String getNodeId(IRI s) {
