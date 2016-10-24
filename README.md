@@ -33,7 +33,7 @@ relationships like `forelimb SubClassOf limb`:
 Additional optional fields allow increased expressivity, without
 adding complexity to the core.
 
-For more examples, see [examples/](examples)
+For more examples, see [examples/](examples) in this repo - or for real-world examples, [this drive](https://drive.google.com/drive/u/0/folders/0B8kRPmmvPJU3blBSQXZSb0tyaDA). Soon we hope to have this incorporated into release tools and visible at standard PURLs.
 
 For the JSON Schema, see the [schema/](schema) folder
 
