@@ -61,6 +61,25 @@ edges:
 
 Note that universal restrictions are not added into the main graph
 
+Value restrictions are treated in an analogous fashion to existentials (this pattern should be rare for most bio-ontologies):
+
+```
+Class: C
+  SubClassOf: P value J
+
+==>
+
+edges:
+ - subj: C
+   pred: P
+   obj: J
+```
+
+STATUS: UNIMPLEMETED
+
+See https://github.com/geneontology/obographs/issues/7#issuecomment-260735549
+
+
 ## Handling of universal (all values from) axioms
 
 These do not pollute the main `edges` list
@@ -166,6 +185,64 @@ domainRangeAxioms:
    domainClassIds: [D]
    rangeClassIds: [R]
 ```
+
+## ABox Axioms
+
+For examples, see [abox.owl](src/test/resources/abox.owl) and its translation [abox.json](examples/abox.json)
+
+### ObjectPropertyAssertion Axioms (Facts)
+
+These treated as graph edges
+
+```
+Individual: I
+  Facts: P J
+
+==>
+
+edges:
+ - subj: I
+   pred: P
+   obj: J
+```
+
+TODO: Negative ObjectPropertyAssertions
+
+### ClassAssertion Axioms (type axioms)
+
+When the class expression is a named class, these are also treated as graph edges
+
+```
+Individual: I
+  Types: C
+
+==>
+
+edges:
+ - subj: I
+   pred: type
+   obj: C
+```
+
+When the class expression is a simple existential restriction, this is also treated as a graph edge
+
+```
+Individual: I
+  Types: P some D
+
+==>
+
+edges:
+ - subj: I
+   pred: P
+   obj: D
+```
+
+STATUS: UNIMPLEMETED
+
+See https://github.com/geneontology/obographs/issues/7#issuecomment-260735549
+
+
 
 
 ## Meta objects
