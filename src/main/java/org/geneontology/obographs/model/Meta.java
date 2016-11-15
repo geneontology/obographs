@@ -179,6 +179,13 @@ public class Meta {
             this.basicPropertyValues = basicPropertyValues;
             return this;
         }
+        public Builder addBasicPropertyValue(BasicPropertyValue pv) {
+            if (this.basicPropertyValues == null)
+                this.basicPropertyValues = new ArrayList<>();
+            this.basicPropertyValues.add(pv);
+            return this;         
+        }
+ 
         public Builder synonyms(List<SynonymPropertyValue> synonyms) {
             this.synonyms = synonyms;
             return this;

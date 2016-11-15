@@ -445,6 +445,11 @@ public class FromOwl {
                             }
 
                         }
+                        else if (isOboInOwlIdProperty(pIRI)) {
+
+                            // skip
+
+                        }
                         else if (isInSubsetProperty(pIRI)) {
 
 
@@ -468,7 +473,16 @@ public class FromOwl {
                             }
                         }
                         else {
-                            untranslatedAxioms.add(aaa);
+                            Meta.Builder nb = put(nodeMetaBuilderMap, subj);
+                            String val = v instanceof IRI ? ((IRI)v).toString() : ((OWLLiteral)v).getLiteral();
+                            
+                            BasicPropertyValue pv = new BasicPropertyValue.Builder().
+                                    pred(getPropertyId(p)).
+                                    val(val).
+                                    build();
+                            
+                            nb.addBasicPropertyValue(pv);
+                            nodeIds.add(subj);
                         }
 
                     }
@@ -718,4 +732,9 @@ public class FromOwl {
     public boolean isHasSynonymTypeProperty(IRI iri) {
         return iri.toString().equals("http://www.geneontology.org/formats/oboInOwl#hasSynonymType");
     }
+    
+    public boolean isOboInOwlIdProperty(IRI iri) {
+        return iri.toString().equals("http://www.geneontology.org/formats/oboInOwl#id");
+    }
+
 }
