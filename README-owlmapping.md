@@ -196,6 +196,8 @@ meta:
 
 See the OBO-Syntax spec for details
 
+If the meta object is at the level of a Graph (Ontology) then it may optionally have a version field, correspondig to the owl versionIRI
+
 ### Synonym Meta objects
 
 Example:

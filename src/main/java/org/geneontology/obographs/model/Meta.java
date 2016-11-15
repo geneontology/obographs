@@ -119,10 +119,14 @@ public class Meta {
 
 
 
-
-
-
-
+    /**
+     * this is typically only set for meta objects at the level of a graph/ontology
+     * 
+     * @return the version
+     */
+    public String getVersion() {
+        return version;
+    }
 
 
     public static class Builder {

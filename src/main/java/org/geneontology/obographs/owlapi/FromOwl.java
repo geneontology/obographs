@@ -499,10 +499,11 @@ public class FromOwl {
         OWLOntologyID ontId = ontology.getOntologyID();
         if (ontId != null) {
             gid = getNodeId(ontId.getOntologyIRI().orNull());
-            //version = ontId.getVersionIRI().orNull().toString();
+            if (ontId.getVersionIRI().isPresent())
+                version = getNodeId(ontId.getVersionIRI().orNull());
         }
 
-        Meta meta = getAnnotations(ontology.getAnnotations());
+        Meta meta = getAnnotations(ontology.getAnnotations(), version);
         List<DomainRangeAxiom> domainRangeAxioms = 
                 domainRangeBuilderMap.values().stream().map(b -> b.build()).collect(Collectors.toList());
         return new Graph.Builder().
@@ -584,6 +585,10 @@ public class FromOwl {
         return(getAnnotations(ax.getAnnotations()));
     }
     private Meta getAnnotations(Set<OWLAnnotation> anns) {
+        return getAnnotations(anns, null);
+    }
+    private Meta getAnnotations(Set<OWLAnnotation> anns, String version) {
+            
         List<XrefPropertyValue> xrefs = new ArrayList<>();
         List<BasicPropertyValue> bpvs = new ArrayList<>();
         List<String> inSubsets = new ArrayList<>();
@@ -607,11 +612,14 @@ public class FromOwl {
                         build());
             }
         }
-        return new Meta.Builder().
-                basicPropertyValues(bpvs).
-                subsets(inSubsets).
-                xrefs(xrefs).
-                build();
+        org.geneontology.obographs.model.Meta.Builder b = new Meta.Builder();
+        if (version != null) {
+            b.version(version);
+        }
+        return b.basicPropertyValues(bpvs).
+         subsets(inSubsets).
+         xrefs(xrefs).
+         build();
     }
 
     private Edge getEdge(String subj, String pred, String obj) {
@@ -685,6 +693,12 @@ public class FromOwl {
             return owlIndividual.asOWLAnonymousIndividual().getID().toString(); // TODO - documet blank nodes
     }
 
+    /**
+     * TODO: optionally compact the IRI using a prefix map
+     * 
+     * @param s
+     * @return Id or IRI
+     */
     private String getNodeId(IRI s) {
         return s.toString();
     }
