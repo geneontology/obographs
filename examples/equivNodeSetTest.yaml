@@ -70,6 +70,16 @@ graphs:
   - id: "http://purl.obolibrary.org/obo/IAO_0000115"
     type: "PROPERTY"
     lbl: "definition"
+  - id: "http://purl.obolibrary.org/obo/DOID_267"
+    meta:
+      basicPropertyValues:
+      - pred: "http://www.w3.org/2002/07/owl#deprecated"
+        val: "true"
+      - pred: "http://purl.obolibrary.org/obo/IAO_0100001"
+        val: "http://purl.obolibrary.org/obo/DOID_0001816"
+      - pred: "http://purl.obolibrary.org/obo/IAO_0000231"
+        val: "http://purl.obolibrary.org/obo/IAO_0000227"
+    type: "CLASS"
   - id: "http://purl.obolibrary.org/obo/DOID_0001816"
     meta:
       definition:
@@ -96,11 +106,26 @@ graphs:
       - pred: "hasExactSynonym"
         val: "hemangiosarcoma"
         xrefs: []
+      basicPropertyValues:
+      - pred: "http://www.geneontology.org/formats/oboInOwl#hasAlternativeId"
+        val: "DOID:4508"
+      - pred: "http://www.geneontology.org/formats/oboInOwl#hasAlternativeId"
+        val: "DOID:267"
     type: "CLASS"
     lbl: "angiosarcoma"
   - id: "http://www.geneontology.org/formats/oboInOwl#hasAlternativeId"
     type: "PROPERTY"
     lbl: "has_alternative_id"
+  - id: "http://purl.obolibrary.org/obo/DOID_4508"
+    meta:
+      basicPropertyValues:
+      - pred: "http://purl.obolibrary.org/obo/IAO_0100001"
+        val: "http://purl.obolibrary.org/obo/DOID_0001816"
+      - pred: "http://www.w3.org/2002/07/owl#deprecated"
+        val: "true"
+      - pred: "http://purl.obolibrary.org/obo/IAO_0000231"
+        val: "http://purl.obolibrary.org/obo/IAO_0000227"
+    type: "CLASS"
   edges:
   - sub: "http://purl.obolibrary.org/obo/NCIT_C3088"
     pred: "is_a"
