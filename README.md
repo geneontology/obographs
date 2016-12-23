@@ -82,7 +82,8 @@ The basic form is:
 "graphs": [
   {
      "nodes" : [...],
-     "edges" : [...],
+     "edges" : [
+     ],
   },
   ...
 ]
@@ -199,7 +200,12 @@ Currently two axiom patterns are defined:
 
 Note that these do not necessarily correspond 1:1 to OWL axiom
 types. The two above are different forms of equivalent classes axiom,
-the former suited to cases where we have multiple ontologies with overlapping (... truncated sentence)
+the former suited to cases where we have multiple ontologies with the same
+concept represented using a different URI in each (for example, a DOID:nnn
+URI and a Orphanet:nnn URI with a direct equivalence axiom between them).
+
+The latter is for so called 'cross-product' or 'genus-differentia' definitions
+found in most well-behaved bio-ontologies.
 
 See [README-owlmapping.md](README-owlmapping.md) for mor details
 
