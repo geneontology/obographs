@@ -60,7 +60,7 @@ their own assumptions (e.g. BRAIN).
 ## Overview
 
 OBO Graphs (OGs) are a graph-oriented way of representing ontologies
-or portions of ontologies in a developer-friendly JSON (or YAML). A
+or portions of ontologies in a developer-friendly JSON (or YAML) format. A
 typical consumer may be a Python developer using ontologies to enhance
 an analysis tool, database search/infrastructure etc.
 
@@ -88,8 +88,8 @@ The basic form is:
 ]
 ```
 
-Here is an example of a subgraph of Uberon consisting of two nodes and one
-part-of edge:
+Here is an example of a subgraph of Uberon consisting of four nodes, two 
+part-of and two is_a edges:
 
 
 ```
@@ -199,7 +199,7 @@ Currently two axiom patterns are defined:
 
 Note that these do not necessarily correspond 1:1 to OWL axiom
 types. The two above are different forms of equivalent classes axiom,
-the former suited to cases where we have multiple ontologies with overlapping
+the former suited to cases where we have multiple ontologies with overlapping (... truncated sentence)
 
 See [README-owlmapping.md](README-owlmapping.md) for mor details
 
