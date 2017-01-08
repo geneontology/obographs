@@ -40,6 +40,7 @@ public class Meta {
         xrefs = builder.xrefs;
         basicPropertyValues = builder.basicPropertyValues;
         version = builder.version;
+        deprecated = builder.deprecated;
     }
 
     @JsonProperty private final DefinitionPropertyValue definition;
@@ -49,6 +50,7 @@ public class Meta {
     @JsonProperty private final List<SynonymPropertyValue> synonyms;
     @JsonProperty private final List<BasicPropertyValue> basicPropertyValues;
     @JsonProperty private final String version;
+    @JsonProperty private final Boolean deprecated;
 
 
     /**
@@ -145,6 +147,8 @@ public class Meta {
         public List<XrefPropertyValue> xrefs;
         @JsonProperty
         public String version;
+        @JsonProperty
+        public Boolean deprecated;
         
 
         public Builder definition(DefinitionPropertyValue definition) {
@@ -210,6 +214,11 @@ public class Meta {
 
         public Builder version(String version) {
             this.version = version;
+            return this;
+        }
+
+        public Builder deprecated(Boolean deprecated) {
+            this.deprecated = deprecated;
             return this;
         }
 

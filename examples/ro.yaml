@@ -6248,8 +6248,7 @@ graphs:
         val: "Likely to be obsoleted. See:\nhttps://docs.google.com/document/d/1QMhs9J-P_q3o_rDh-IX4ZEnz0PnXrzLRVkI3vvz8NEQ/edit"
       - pred: "http://purl.obolibrary.org/obo/IAO_0000117"
         val: "Chris Mungall"
-      - pred: "http://www.w3.org/2002/07/owl#deprecated"
-        val: "true"
+      deprecated: true
     type: "PROPERTY"
     lbl: "obsolete has indirect input"
   - id: "http://purl.obolibrary.org/obo/RO_0002522"
@@ -6274,25 +6273,6 @@ graphs:
   - id: "http://www.geneontology.org/formats/oboInOwl#inSubset"
     type: "PROPERTY"
     lbl: "in_subset"
-  - id: "http://purl.obolibrary.org/obo/RO_0002402"
-    meta:
-      definition:
-        val: "p has direct input c iff c is a participanti n p, c is present at the\
-          \ end of p, and c is not present at the beginning of c. "
-        xrefs: []
-      basicPropertyValues:
-      - pred: "http://www.w3.org/2002/07/owl#deprecated"
-        val: "true"
-      - pred: "http://purl.obolibrary.org/obo/IAO_0000118"
-        val: "directly produces"
-      - pred: "http://purl.obolibrary.org/obo/IAO_0000117"
-        val: "Chris Mungall"
-      - pred: "http://purl.obolibrary.org/obo/IAO_0000112"
-        val: "translation SubClassOf has_direct_output some protein"
-      - pred: "http://purl.obolibrary.org/obo/IAO_0000114"
-        val: "http://purl.obolibrary.org/obo/IAO_0000428"
-    type: "PROPERTY"
-    lbl: "obsolete has direct output"
   - id: "http://purl.obolibrary.org/obo/RO_0002523"
     meta:
       definition:
@@ -6307,6 +6287,24 @@ graphs:
         val: "Chris Mungall"
     type: "PROPERTY"
     lbl: "is bound by sequence of"
+  - id: "http://purl.obolibrary.org/obo/RO_0002402"
+    meta:
+      definition:
+        val: "p has direct input c iff c is a participanti n p, c is present at the\
+          \ end of p, and c is not present at the beginning of c. "
+        xrefs: []
+      basicPropertyValues:
+      - pred: "http://purl.obolibrary.org/obo/IAO_0000118"
+        val: "directly produces"
+      - pred: "http://purl.obolibrary.org/obo/IAO_0000117"
+        val: "Chris Mungall"
+      - pred: "http://purl.obolibrary.org/obo/IAO_0000112"
+        val: "translation SubClassOf has_direct_output some protein"
+      - pred: "http://purl.obolibrary.org/obo/IAO_0000114"
+        val: "http://purl.obolibrary.org/obo/IAO_0000428"
+      deprecated: true
+    type: "PROPERTY"
+    lbl: "obsolete has direct output"
   - id: "http://purl.obolibrary.org/obo/RO_0002524"
     meta:
       definition:
@@ -6329,12 +6327,11 @@ graphs:
       basicPropertyValues:
       - pred: "http://www.w3.org/2000/01/rdf-schema#comment"
         val: "Likely to be obsoleted. See:\nhttps://docs.google.com/document/d/1QMhs9J-P_q3o_rDh-IX4ZEnz0PnXrzLRVkI3vvz8NEQ/edit"
-      - pred: "http://www.w3.org/2002/07/owl#deprecated"
-        val: "true"
       - pred: "http://purl.obolibrary.org/obo/IAO_0000117"
         val: "Chris Mungall"
       - pred: "http://purl.obolibrary.org/obo/IAO_0000114"
         val: "http://purl.obolibrary.org/obo/IAO_0000428"
+      deprecated: true
     type: "PROPERTY"
     lbl: "obsolete has indirect output"
   - id: "http://purl.obolibrary.org/obo/RO_0002408"
@@ -9441,9 +9438,7 @@ graphs:
         val: "A continuant  that is either dependent on one or other independent continuant\
           \  bearers or inheres in or is borne by other entities."
         xrefs: []
-      basicPropertyValues:
-      - pred: "http://www.w3.org/2002/07/owl#deprecated"
-        val: "true"
+      deprecated: true
     type: "CLASS"
     lbl: "obsolete dependent continuant"
   - id: "http://purl.obolibrary.org/obo/RO_0002088"
@@ -11854,12 +11849,12 @@ graphs:
     - "http://purl.obolibrary.org/obo/BFO_0000004"
   - predicateId: "http://purl.obolibrary.org/obo/RO_0002207"
     allValuesFromEdges:
-    - sub: "http://purl.obolibrary.org/obo/CL_0000000"
-      pred: "http://purl.obolibrary.org/obo/RO_0002207"
-      obj: "http://purl.obolibrary.org/obo/CL_0000000"
     - sub: "http://purl.obolibrary.org/obo/CARO_0010000"
       pred: "http://purl.obolibrary.org/obo/RO_0002207"
       obj: "http://purl.obolibrary.org/obo/CARO_0010000"
+    - sub: "http://purl.obolibrary.org/obo/CL_0000000"
+      pred: "http://purl.obolibrary.org/obo/RO_0002207"
+      obj: "http://purl.obolibrary.org/obo/CL_0000000"
   - predicateId: "http://purl.obolibrary.org/obo/RO_0002009"
     domainClassIds:
     - "http://purl.obolibrary.org/obo/CL_0000000"

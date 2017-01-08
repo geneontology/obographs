@@ -427,7 +427,7 @@ public class FromOwl {
                                         xrefs(meta.getXrefsValues()).
                                         build();
 
-                                Meta.Builder nb = put(nodeMetaBuilderMap, subj);
+                                Meta.Builder nb = getMetaBuilder(nodeMetaBuilderMap, subj);
                                 nb.definition(def);
                                 nodeIds.add(subj);
                             }
@@ -439,11 +439,17 @@ public class FromOwl {
                                         new XrefPropertyValue.Builder().
                                         val(lv).build();
 
-                                Meta.Builder nb = put(nodeMetaBuilderMap, subj);
+                                Meta.Builder nb = getMetaBuilder(nodeMetaBuilderMap, subj);
                                 nb.addXref(xref);
                                 nodeIds.add(subj);
                             }
 
+                        }
+                        else if (p.isDeprecated()) {
+                            if (aaa.isDeprecatedIRIAssertion()) {
+                                Meta.Builder nb = getMetaBuilder(nodeMetaBuilderMap, subj);
+                                nb.deprecated(true);
+                            }
                         }
                         else if (isOboInOwlIdProperty(pIRI)) {
 
@@ -453,7 +459,7 @@ public class FromOwl {
                         else if (isInSubsetProperty(pIRI)) {
 
 
-                            Meta.Builder nb = put(nodeMetaBuilderMap, subj);
+                            Meta.Builder nb = getMetaBuilder(nodeMetaBuilderMap, subj);
                             nb.addSubset(v.toString());
                             nodeIds.add(subj);
 
@@ -467,13 +473,13 @@ public class FromOwl {
                                         val(lv).
                                         xrefs(meta.getXrefsValues()).
                                         build();
-                                Meta.Builder nb = put(nodeMetaBuilderMap, subj);
+                                Meta.Builder nb = getMetaBuilder(nodeMetaBuilderMap, subj);
                                 nb.addSynonym(syn);
                                 nodeIds.add(subj);
                             }
                         }
                         else {
-                            Meta.Builder nb = put(nodeMetaBuilderMap, subj);
+                            Meta.Builder nb = getMetaBuilder(nodeMetaBuilderMap, subj);
                             String val = v instanceof IRI ? ((IRI)v).toString() : ((OWLLiteral)v).getLiteral();
                             
                             BasicPropertyValue pv = new BasicPropertyValue.Builder().
@@ -583,7 +589,7 @@ public class FromOwl {
         nodeTypeMap.put(id, t);
     }
 
-    private Meta.Builder put(Map<String, Meta.Builder> nodeMetaBuilderMap, String id) {
+    private Meta.Builder getMetaBuilder(Map<String, Meta.Builder> nodeMetaBuilderMap, String id) {
         if (!nodeMetaBuilderMap.containsKey(id))
             nodeMetaBuilderMap.put(id, new Meta.Builder());
         return nodeMetaBuilderMap.get(id);
@@ -606,11 +612,16 @@ public class FromOwl {
         List<XrefPropertyValue> xrefs = new ArrayList<>();
         List<BasicPropertyValue> bpvs = new ArrayList<>();
         List<String> inSubsets = new ArrayList<>();
+        boolean isDeprecated = false;
         for (OWLAnnotation ann : anns) {
             OWLAnnotationProperty p = ann.getProperty();
+           
             OWLAnnotationValue v = ann.getValue();
             String val = v instanceof IRI ? ((IRI)v).toString() : ((OWLLiteral)v).getLiteral();
-            if (isHasXrefProperty(p.getIRI())) {
+            if (ann.isDeprecatedIRIAnnotation()) {
+                isDeprecated = true;
+            }
+            else if (isHasXrefProperty(p.getIRI())) {
                 xrefs.add(new XrefPropertyValue.Builder().val(val).build());
             }
             else if (isInSubsetProperty(p.getIRI())) {
@@ -630,10 +641,14 @@ public class FromOwl {
         if (version != null) {
             b.version(version);
         }
-        return b.basicPropertyValues(bpvs).
-         subsets(inSubsets).
-         xrefs(xrefs).
-         build();
+        Meta.Builder builder = 
+                b.basicPropertyValues(bpvs).
+                subsets(inSubsets).
+                xrefs(xrefs);
+        if (isDeprecated)
+            builder.deprecated(true);
+        
+        return builder.build();
     }
 
     private Edge getEdge(String subj, String pred, String obj) {
