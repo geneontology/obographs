@@ -451,6 +451,10 @@ public class FromOwl {
                                 nb.deprecated(true);
                             }
                         }
+                        else if (p.isComment()) {
+                            Meta.Builder nb = getMetaBuilder(nodeMetaBuilderMap, subj);
+                            nb.addComment(lv.toString());                         
+                        }
                         else if (isOboInOwlIdProperty(pIRI)) {
 
                             // skip

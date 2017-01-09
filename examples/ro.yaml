@@ -277,18 +277,17 @@ graphs:
         val: "S dubious_for_taxon T if it is probably the case that no instances of\
           \ S can be found in any instance of T."
         xrefs: []
+      comments:
+      - "This relation lacks a strong logical interpretation, but can be used in place\
+        \ of never_in_taxon where it is desirable to state that the definition of\
+        \ the class is too strict for the taxon under consideration, but placing a\
+        \ never_in_taxon link would result in a chain of inconsistencies that will\
+        \ take ongoing coordinated effort to resolve. Example: metencephalon in teleost"
       basicPropertyValues:
       - pred: "http://purl.obolibrary.org/obo/IAO_0000119"
         val: "http://www.ncbi.nlm.nih.gov/pubmed/22293552"
       - pred: "http://www.w3.org/2000/01/rdf-schema#seeAlso"
         val: "https://github.com/obophenotype/uberon/wiki/Taxon-constraints"
-      - pred: "http://www.w3.org/2000/01/rdf-schema#comment"
-        val: "This relation lacks a strong logical interpretation, but can be used\
-          \ in place of never_in_taxon where it is desirable to state that the definition\
-          \ of the class is too strict for the taxon under consideration, but placing\
-          \ a never_in_taxon link would result in a chain of inconsistencies that\
-          \ will take ongoing coordinated effort to resolve. Example: metencephalon\
-          \ in teleost"
       - pred: "http://purl.obolibrary.org/obo/IAO_0000117"
         val: "https://orcid.org/0000-0002-6601-2165"
     type: "PROPERTY"
@@ -416,6 +415,8 @@ graphs:
           \ between x and y is one of: part of (reflexive), developmentally preceded\
           \ by, derives from, secreted by, expressed."
         xrefs: []
+      comments:
+      - "Connects a biological entity to its taxon of origin."
       subsets:
       - "http://purl.obolibrary.org/obo/ro/subsets#ro-eco"
       basicPropertyValues:
@@ -425,8 +426,6 @@ graphs:
         val: "Chris Mungall"
       - pred: "http://purl.obolibrary.org/obo/IAO_0000117"
         val: "Jennifer Deegan"
-      - pred: "http://www.w3.org/2000/01/rdf-schema#comment"
-        val: "Connects a biological entity to its taxon of origin."
       - pred: "http://purl.obolibrary.org/obo/IAO_0000119"
         val: "http://www.ncbi.nlm.nih.gov/pubmed/20973947"
       - pred: "http://purl.obolibrary.org/obo/IAO_0000119"
@@ -498,14 +497,14 @@ graphs:
           \ if and only if there exists some a such that d1 derived_by_descent_from\
           \ a and d2 derived_by_descent_from a."
         xrefs: []
+      comments:
+      - "VBO calls this homologous_to"
       basicPropertyValues:
       - pred: "http://purl.obolibrary.org/obo/IAO_0000232"
         val: "Consider obsoleting and merging with child relation, 'in homology relationship\
           \ with'"
       - pred: "http://purl.obolibrary.org/obo/IAO_0000114"
         val: "http://purl.obolibrary.org/obo/IAO_0000125"
-      - pred: "http://www.w3.org/2000/01/rdf-schema#comment"
-        val: "VBO calls this homologous_to"
     type: "PROPERTY"
     lbl: "shares ancestor with"
   - id: "http://purl.obolibrary.org/obo/RO_0002159"
@@ -653,15 +652,15 @@ graphs:
           \ and b are material entities. Examples: hybridoma cell line produces monoclonal\
           \ antibody reagent; chondroblast produces avascular GAG-rich matrix."
         xrefs: []
+      comments:
+      - "Note that this definition doesn't quite distinguish the output of a transformation\
+        \ process from a production process, which is related to the identity/granularity\
+        \ issue."
       subsets:
       - "http://purl.obolibrary.org/obo/ro/subsets#ro-eco"
       basicPropertyValues:
       - pred: "http://purl.obolibrary.org/obo/IAO_0000117"
         val: "Melissa Haendel"
-      - pred: "http://www.w3.org/2000/01/rdf-schema#comment"
-        val: "Note that this definition doesn't quite distinguish the output of a\
-          \ transformation process from a production process, which is related to\
-          \ the identity/granularity issue."
       - pred: "http://purl.obolibrary.org/obo/IAO_0000114"
         val: "http://purl.obolibrary.org/obo/IAO_0000125"
     type: "PROPERTY"
@@ -1018,6 +1017,10 @@ graphs:
           \ y both participates in p, and x is the output of p and y is the input\
           \ of p"
         xrefs: []
+      comments:
+      - "This relation groups together various other developmental relations. It is\
+        \ fairly generic, encompassing induction, developmental contribution and direct\
+        \ and transitive develops from"
       basicPropertyValues:
       - pred: "http://purl.obolibrary.org/obo/IAO_0000116"
         val: "false"
@@ -1028,10 +1031,6 @@ graphs:
         val: "http://purl.obolibrary.org/obo/IAO_0000125"
       - pred: "http://purl.obolibrary.org/obo/IAO_0000117"
         val: "Chris Mungall"
-      - pred: "http://www.w3.org/2000/01/rdf-schema#comment"
-        val: "This relation groups together various other developmental relations.\
-          \ It is fairly generic, encompassing induction, developmental contribution\
-          \ and direct and transitive develops from"
     type: "PROPERTY"
     lbl: "developmentally preceded by"
   - id: "http://purl.obolibrary.org/obo/RO_0002379"
@@ -1084,11 +1083,11 @@ graphs:
           \ ends during y iff (α(x) >= α(y) & α(x) <= ω(y)) OR (ω(x) <= ω(y) & ω(x)\
           \ >= α(y))"
         xrefs: []
+      comments:
+      - "The relations here were created based on work originally by Fabian Neuhaus\
+        \ and David Osumi-Sutherland. The work has not yet been vetted and errors\
+        \ in definitions may have occurred during transcription."
       basicPropertyValues:
-      - pred: "http://www.w3.org/2000/01/rdf-schema#comment"
-        val: "The relations here were created based on work originally by Fabian Neuhaus\
-          \ and David Osumi-Sutherland. The work has not yet been vetted and errors\
-          \ in definitions may have occurred during transcription."
       - pred: "http://purl.obolibrary.org/obo/IAO_0000117"
         val: "Chris Mungall"
     type: "PROPERTY"
@@ -1100,13 +1099,13 @@ graphs:
           \ y, and y is a distinct element, the boundary between x and z is largely\
           \ fiat"
         xrefs: []
+      comments:
+      - "A has_fused_element B does not imply that A has_part some B: rather than\
+        \ A has_part some B', where B' that has some evolutionary relationship to\
+        \ B."
       basicPropertyValues:
       - pred: "http://purl.obolibrary.org/obo/IAO_0000119"
         val: "http://www.ncbi.nlm.nih.gov/pubmed/22293552"
-      - pred: "http://www.w3.org/2000/01/rdf-schema#comment"
-        val: "A has_fused_element B does not imply that A has_part some B: rather\
-          \ than A has_part some B', where B' that has some evolutionary relationship\
-          \ to B."
       - pred: "http://purl.obolibrary.org/obo/IAO_0000114"
         val: "http://purl.obolibrary.org/obo/IAO_0000428"
       - pred: "http://purl.obolibrary.org/obo/IAO_0000117"
@@ -1215,13 +1214,13 @@ graphs:
           \ which x starts is after or equivalent to the time point at which y starts.\
           \ Formally: x existence starts during or after y iff α (x) >= α (y)."
         xrefs: []
+      comments:
+      - "The relations here were created based on work originally by Fabian Neuhaus\
+        \ and David Osumi-Sutherland. The work has not yet been vetted and errors\
+        \ in definitions may have occurred during transcription."
       basicPropertyValues:
       - pred: "http://purl.obolibrary.org/obo/IAO_0000117"
         val: "Chris Mungall"
-      - pred: "http://www.w3.org/2000/01/rdf-schema#comment"
-        val: "The relations here were created based on work originally by Fabian Neuhaus\
-          \ and David Osumi-Sutherland. The work has not yet been vetted and errors\
-          \ in definitions may have occurred during transcription."
     type: "PROPERTY"
     lbl: "existence starts during or after"
   - id: "http://purl.obolibrary.org/obo/RO_0002254"
@@ -1329,11 +1328,11 @@ graphs:
         val: "x existence ends during or before y if and only if the time point at\
           \ which x ends is before or equivalent to the time point at which y ends."
         xrefs: []
+      comments:
+      - "The relations here were created based on work originally by Fabian Neuhaus\
+        \ and David Osumi-Sutherland. The work has not yet been vetted and errors\
+        \ in definitions may have occurred during transcription."
       basicPropertyValues:
-      - pred: "http://www.w3.org/2000/01/rdf-schema#comment"
-        val: "The relations here were created based on work originally by Fabian Neuhaus\
-          \ and David Osumi-Sutherland. The work has not yet been vetted and errors\
-          \ in definitions may have occurred during transcription."
       - pred: "http://purl.obolibrary.org/obo/IAO_0000117"
         val: "Chris Mungall"
     type: "PROPERTY"
@@ -1374,15 +1373,15 @@ graphs:
         val: "x distributary_of y if and only if x is capable of channeling the flow\
           \ of a substance to y, where y channels less of the substance than x"
         xrefs: []
+      comments:
+      - "This is both a mereotopological relationship and a relationship defined in\
+        \ connection to processes. It concerns both the connecting structure, and\
+        \ how this structure is disposed to causally affect flow processes"
       subsets:
       - "http://purl.obolibrary.org/obo/ro/subsets#ro-eco"
       basicPropertyValues:
       - pred: "http://purl.obolibrary.org/obo/IAO_0000117"
         val: "Chris Mungall"
-      - pred: "http://www.w3.org/2000/01/rdf-schema#comment"
-        val: "This is both a mereotopological relationship and a relationship defined\
-          \ in connection to processes. It concerns both the connecting structure,\
-          \ and how this structure is disposed to causally affect flow processes"
       - pred: "http://purl.obolibrary.org/obo/IAO_0000114"
         val: "http://purl.obolibrary.org/obo/IAO_0000428"
       - pred: "http://purl.obolibrary.org/obo/IAO_0000118"
@@ -1403,13 +1402,13 @@ graphs:
           \ and ends during y iff α(x) >= α(y) & α(x) <= ω(y) & ω(x) <= ω(y) & ω(x)\
           \ >= α(y)"
         xrefs: []
+      comments:
+      - "The relations here were created based on work originally by Fabian Neuhaus\
+        \ and David Osumi-Sutherland. The work has not yet been vetted and errors\
+        \ in definitions may have occurred during transcription."
       basicPropertyValues:
       - pred: "http://purl.obolibrary.org/obo/IAO_0000117"
         val: "Chris Mungall"
-      - pred: "http://www.w3.org/2000/01/rdf-schema#comment"
-        val: "The relations here were created based on work originally by Fabian Neuhaus\
-          \ and David Osumi-Sutherland. The work has not yet been vetted and errors\
-          \ in definitions may have occurred during transcription."
     type: "PROPERTY"
     lbl: "existence starts and ends during"
   - id: "http://purl.obolibrary.org/obo/RO_0002371"
@@ -1434,13 +1433,13 @@ graphs:
           \ equivalent to the point at which y starts. Formally: x existence ends\
           \ during y iff ω(x) <= ω(y) and ω(x) >= α(y)."
         xrefs: []
+      comments:
+      - "The relations here were created based on work originally by Fabian Neuhaus\
+        \ and David Osumi-Sutherland. The work has not yet been vetted and errors\
+        \ in definitions may have occurred during transcription."
       basicPropertyValues:
       - pred: "http://purl.obolibrary.org/obo/IAO_0000117"
         val: "Chris Mungall"
-      - pred: "http://www.w3.org/2000/01/rdf-schema#comment"
-        val: "The relations here were created based on work originally by Fabian Neuhaus\
-          \ and David Osumi-Sutherland. The work has not yet been vetted and errors\
-          \ in definitions may have occurred during transcription."
     type: "PROPERTY"
     lbl: "existence ends during"
   - id: "http://purl.obolibrary.org/obo/GO_0044464"
@@ -1450,22 +1449,6 @@ graphs:
         val: "http://purl.obolibrary.org/obo/go.owl"
     type: "CLASS"
     lbl: "cell part"
-  - id: "http://purl.obolibrary.org/obo/RO_0002493"
-    meta:
-      definition:
-        val: "x existence ends with y if and only if the time point at which x ends\
-          \ is equivalent to the time point at which y ends. Formally: x existence\
-          \ ends with y iff ω(x) = ω(y)."
-        xrefs: []
-      basicPropertyValues:
-      - pred: "http://www.w3.org/2000/01/rdf-schema#comment"
-        val: "The relations here were created based on work originally by Fabian Neuhaus\
-          \ and David Osumi-Sutherland. The work has not yet been vetted and errors\
-          \ in definitions may have occurred during transcription."
-      - pred: "http://purl.obolibrary.org/obo/IAO_0000117"
-        val: "Chris Mungall"
-    type: "PROPERTY"
-    lbl: "existence ends with"
   - id: "http://purl.obolibrary.org/obo/RO_0002372"
     meta:
       definition:
@@ -1482,6 +1465,22 @@ graphs:
         val: "Chris Mungall"
     type: "PROPERTY"
     lbl: "has muscle origin"
+  - id: "http://purl.obolibrary.org/obo/RO_0002493"
+    meta:
+      definition:
+        val: "x existence ends with y if and only if the time point at which x ends\
+          \ is equivalent to the time point at which y ends. Formally: x existence\
+          \ ends with y iff ω(x) = ω(y)."
+        xrefs: []
+      comments:
+      - "The relations here were created based on work originally by Fabian Neuhaus\
+        \ and David Osumi-Sutherland. The work has not yet been vetted and errors\
+        \ in definitions may have occurred during transcription."
+      basicPropertyValues:
+      - pred: "http://purl.obolibrary.org/obo/IAO_0000117"
+        val: "Chris Mungall"
+    type: "PROPERTY"
+    lbl: "existence ends with"
   - id: "http://purl.obolibrary.org/obo/RO_0002130"
     meta:
       definition:
@@ -1579,16 +1578,16 @@ graphs:
           \ parallel to each other for their entire length and where either the two\
           \ structures are adjacent to each other or one is part of the other."
         xrefs: []
+      comments:
+      - "Example: if we define region of chromosome as any subdivision of a chromosome\
+        \ along its long axis, then we can define a region of chromosome that contains\
+        \ only gene x as 'chromosome region' that coincident_with some 'gene x', where\
+        \ the term gene X corresponds to a genomic sequence."
       subsets:
       - "http://purl.obolibrary.org/obo/ro/subsets#ro-eco"
       basicPropertyValues:
       - pred: "http://purl.obolibrary.org/obo/IAO_0000117"
         val: "David Osumi-Sutherland"
-      - pred: "http://www.w3.org/2000/01/rdf-schema#comment"
-        val: "Example: if we define region of chromosome as any subdivision of a chromosome\
-          \ along its long axis, then we can define a region of chromosome that contains\
-          \ only gene x as 'chromosome region' that coincident_with some 'gene x',\
-          \ where the term gene X corresponds to a genomic sequence."
       - pred: "http://purl.obolibrary.org/obo/IAO_0000116"
         val: "Note from NCEAS meeting: consider changing primary label"
     type: "PROPERTY"
@@ -1695,14 +1694,14 @@ graphs:
           \ Y\n\nhas_boundary: http://purl.obolibrary.org/obo/RO_0002002\nboundary_of:\
           \ http://purl.obolibrary.org/obo/RO_0002000"
         xrefs: []
+      comments:
+      - "A relationship that applies between a continuant and its outer, bounding\
+        \ layer.  Examples include the relationship between a multicellular organism\
+        \ and its integument, between an animal cell and its plasma membrane, and\
+        \ between a membrane bound organelle and its outer/bounding membrane."
       subsets:
       - "http://purl.obolibrary.org/obo/ro/subsets#ro-eco"
       basicPropertyValues:
-      - pred: "http://www.w3.org/2000/01/rdf-schema#comment"
-        val: "A relationship that applies between a continuant and its outer, bounding\
-          \ layer.  Examples include the relationship between a multicellular organism\
-          \ and its integument, between an animal cell and its plasma membrane, and\
-          \ between a membrane bound organelle and its outer/bounding membrane."
       - pred: "http://purl.obolibrary.org/obo/IAO_0000117"
         val: "David Osumi-Sutherland"
     type: "PROPERTY"
@@ -1969,17 +1968,17 @@ graphs:
         val: " Relation between a neuron and an anatomical structure (including cells)\
           \ that it chemically synapses to.\n        "
         xrefs: []
+      comments:
+      - "N1 synapsed_to some N2 \nExpands to:\nN1 SubclassOf ( \n   has_part some\
+        \ (\n      ‘pre-synaptic membrane ; GO:0042734’ that part_of some ( \n\t‘\
+        synapse ; GO:0045202’ that has_part some (\n\t   ‘post-synaptic membrane ;\
+        \ GO:0045211’ that part_of some N2))))"
       basicPropertyValues:
       - pred: "http://purl.obolibrary.org/obo/IAO_0000424"
         val: "<http://purl.obolibrary.org/obo/BFO_0000051> some (<http://purl.obolibrary.org/obo/GO_0042734>\
           \ that part_of some (<http://purl.obolibrary.org/obo/GO_0045202> that <http://purl.obolibrary.org/obo/BFO_0000051>\
           \ some (<http://purl.obolibrary.org/obo/GO_0045211> that <http://purl.obolibrary.org/obo/BFO_0000050>\
           \ some Y?)))"
-      - pred: "http://www.w3.org/2000/01/rdf-schema#comment"
-        val: "N1 synapsed_to some N2 \nExpands to:\nN1 SubclassOf ( \n   has_part\
-          \ some (\n      ‘pre-synaptic membrane ; GO:0042734’ that part_of some (\
-          \ \n\t‘synapse ; GO:0045202’ that has_part some (\n\t   ‘post-synaptic membrane\
-          \ ; GO:0045211’ that part_of some N2))))"
       - pred: "http://purl.obolibrary.org/obo/RO_0001900"
         val: "http://purl.obolibrary.org/obo/RO_0001901"
       - pred: "http://purl.org/spar/cito/citesAsAuthority"
@@ -2107,14 +2106,14 @@ graphs:
         val: "A relation between a motor neuron and a muscle that it synapses to via\
           \ a type III bouton."
         xrefs: []
+      comments:
+      - "Expands to: has_part some ('type III terminal button' that has_part some\
+        \ ('pre-synaptic membrane' that part_of some ('synapse' that has_part some\
+        \ ('post-synaptic membrane' that part_of some ?Y))))"
       basicPropertyValues:
       - pred: "http://purl.obolibrary.org/obo/IAO_0000424"
         val: "BFO_0000051 some (GO_0061177 that BFO_0000051 some (that BFO_0000051\
           \ some (GO_0097467 that BFO_0000051 some ( that BFO_0000050 some ?Y))))"
-      - pred: "http://www.w3.org/2000/01/rdf-schema#comment"
-        val: "Expands to: has_part some ('type III terminal button' that has_part\
-          \ some ('pre-synaptic membrane' that part_of some ('synapse' that has_part\
-          \ some ('post-synaptic membrane' that part_of some ?Y))))"
       - pred: "http://purl.org/spar/cito/citesAsAuthority"
         val: "http://www.ncbi.nlm.nih.gov/pubmed/22402613"
       - pred: "http://purl.obolibrary.org/obo/RO_0001900"
@@ -2197,6 +2196,10 @@ graphs:
         val: "Relation between a muscle and a motor neuron that synapses to it via\
           \ a type III bouton.\n"
         xrefs: []
+      comments:
+      - "Expands to: has_part some ('presynaptic membrane' that part_of some ('synapse'\
+        \ that has_part some ('type III terminal button' that has_part some 'postsynaptic\
+        \ membrane' that part_of some ?Y)))))"
       basicPropertyValues:
       - pred: "http://purl.org/spar/cito/citesAsAuthority"
         val: "http://www.ncbi.nlm.nih.gov/pubmed/22402613"
@@ -2204,10 +2207,6 @@ graphs:
         val: "BFO_0000051 some (GO_0042734 that BFO_0000050 some (GO_0045202 that\
           \ BFO_0000051 some (GO_0097467 that BFO_0000051 some GO_0045211 that BFO_0000050\
           \ some ?Y)))"
-      - pred: "http://www.w3.org/2000/01/rdf-schema#comment"
-        val: "Expands to: has_part some ('presynaptic membrane' that part_of some\
-          \ ('synapse' that has_part some ('type III terminal button' that has_part\
-          \ some 'postsynaptic membrane' that part_of some ?Y)))))"
       - pred: "http://purl.obolibrary.org/obo/RO_0001900"
         val: "http://purl.obolibrary.org/obo/RO_0001901"
     type: "PROPERTY"
@@ -2514,6 +2513,10 @@ graphs:
         val: "Relation between a muscle and a motor neuron that synapses to it via\
           \ a type Is bouton."
         xrefs: []
+      comments:
+      - "Expands to: has_part some ('presynaptic membrane' that part_of some ('synapse'\
+        \ that has_part some ('type Is terminal button' that has_part some 'postsynaptic\
+        \ membrane' that part_of some ?Y)))))"
       basicPropertyValues:
       - pred: "http://purl.org/spar/cito/citesAsAuthority"
         val: "http://www.ncbi.nlm.nih.gov/pubmed/22402613"
@@ -2527,10 +2530,6 @@ graphs:
         val: "http://purl.obolibrary.org/obo/RO_0001901"
       - pred: "http://purl.obolibrary.org/obo/IAO_0000117"
         val: "Marta Costa"
-      - pred: "http://www.w3.org/2000/01/rdf-schema#comment"
-        val: "Expands to: has_part some ('presynaptic membrane' that part_of some\
-          \ ('synapse' that has_part some ('type Is terminal button' that has_part\
-          \ some 'postsynaptic membrane' that part_of some ?Y)))))"
       - pred: "http://purl.obolibrary.org/obo/IAO_0000117"
         val: "David Osumi-Sutherland"
     type: "PROPERTY"
@@ -2843,6 +2842,10 @@ graphs:
         val: "A relation between a motor neuron and a muscle that it synapses to via\
           \ a type II bouton."
         xrefs: []
+      comments:
+      - "Expands to: has_part some ('type II terminal button' that has_part some ('pre-synaptic\
+        \ membrane' that part_of some ('synapse' that has_part some ('post-synaptic\
+        \ membrane' that part_of some ?Y))))"
       basicPropertyValues:
       - pred: "http://purl.obolibrary.org/obo/IAO_0000117"
         val: "David Osumi-Sutherland"
@@ -2850,10 +2853,6 @@ graphs:
         val: "Marta Costa"
       - pred: "http://purl.obolibrary.org/obo/RO_0001900"
         val: "http://purl.obolibrary.org/obo/RO_0001901"
-      - pred: "http://www.w3.org/2000/01/rdf-schema#comment"
-        val: "Expands to: has_part some ('type II terminal button' that has_part some\
-          \ ('pre-synaptic membrane' that part_of some ('synapse' that has_part some\
-          \ ('post-synaptic membrane' that part_of some ?Y))))"
       - pred: "http://purl.obolibrary.org/obo/IAO_0000114"
         val: "http://purl.obolibrary.org/obo/IAO_0000125"
       - pred: "http://purl.obolibrary.org/obo/IAO_0000424"
@@ -2948,6 +2947,10 @@ graphs:
         val: "Relation between a muscle and a motor neuron that synapses to it via\
           \ a type II bouton."
         xrefs: []
+      comments:
+      - "Expands to: has_part some ('presynaptic membrane' that part_of some ('synapse'\
+        \ that has_part some ('type II terminal button' that has_part some 'postsynaptic\
+        \ membrane' that part_of some ?Y)))))"
       basicPropertyValues:
       - pred: "http://purl.obolibrary.org/obo/IAO_0000424"
         val: "BFO_0000051 some (GO_0042734 that BFO_0000050 some (GO_0045202 that\
@@ -2957,10 +2960,6 @@ graphs:
         val: "http://www.ncbi.nlm.nih.gov/pubmed/22402613"
       - pred: "http://purl.obolibrary.org/obo/IAO_0000114"
         val: "http://purl.obolibrary.org/obo/IAO_0000125"
-      - pred: "http://www.w3.org/2000/01/rdf-schema#comment"
-        val: "Expands to: has_part some ('presynaptic membrane' that part_of some\
-          \ ('synapse' that has_part some ('type II terminal button' that has_part\
-          \ some 'postsynaptic membrane' that part_of some ?Y)))))"
       - pred: "http://purl.obolibrary.org/obo/IAO_0000117"
         val: "Marta Costa"
       - pred: "http://purl.obolibrary.org/obo/RO_0001900"
@@ -2975,13 +2974,13 @@ graphs:
         val: "Relation between a muscle and a motor neuron that synapses to it via\
           \ a type Ib bouton."
         xrefs: []
+      comments:
+      - "Expands to: has_part some ('presynaptic membrane' that part_of some ('synapse'\
+        \ that has_part some ('type Ib terminal button' that has_part some 'postsynaptic\
+        \ membrane' that part_of some ?Y)))))"
       basicPropertyValues:
       - pred: "http://purl.obolibrary.org/obo/IAO_0000114"
         val: "http://purl.obolibrary.org/obo/IAO_0000125"
-      - pred: "http://www.w3.org/2000/01/rdf-schema#comment"
-        val: "Expands to: has_part some ('presynaptic membrane' that part_of some\
-          \ ('synapse' that has_part some ('type Ib terminal button' that has_part\
-          \ some 'postsynaptic membrane' that part_of some ?Y)))))"
       - pred: "http://purl.obolibrary.org/obo/IAO_0000424"
         val: "BFO_0000051 some (GO_0042734 that BFO_0000050 some (GO_0045202 that\
           \ BFO_0000051 some (GO_0061176 that BFO_0000051 some GO_0045211 that BFO_0000050\
@@ -3151,32 +3150,6 @@ graphs:
         val: "EHDAA2"
     type: "PROPERTY"
     lbl: "develops in"
-  - id: "http://purl.obolibrary.org/obo/RO_0002105"
-    meta:
-      definition:
-        val: "A relation between a motor neuron and a muscle that it synapses to via\
-          \ a type Ib bouton."
-        xrefs: []
-      basicPropertyValues:
-      - pred: "http://www.w3.org/2000/01/rdf-schema#comment"
-        val: "Expands to: has_part some ('type Ib terminal button' that has_part some\
-          \ ('pre-synaptic membrane' that part_of some ('synapse' that has_part some\
-          \ ('post-synaptic membrane' that part_of some ?Y))))"
-      - pred: "http://purl.obolibrary.org/obo/IAO_0000114"
-        val: "http://purl.obolibrary.org/obo/IAO_0000125"
-      - pred: "http://purl.org/spar/cito/citesAsAuthority"
-        val: "http://www.ncbi.nlm.nih.gov/pubmed/22402613"
-      - pred: "http://purl.obolibrary.org/obo/IAO_0000117"
-        val: "David Osumi-Sutherland"
-      - pred: "http://purl.obolibrary.org/obo/RO_0001900"
-        val: "http://purl.obolibrary.org/obo/RO_0001901"
-      - pred: "http://purl.obolibrary.org/obo/IAO_0000424"
-        val: "BFO_0000051 some (GO_0061176 that BFO_0000051 some (that BFO_0000051\
-          \ some (GO_0045202 that BFO_0000051 some ( that BFO_0000050 some ?Y))))"
-      - pred: "http://purl.obolibrary.org/obo/IAO_0000117"
-        val: "Marta Costa"
-    type: "PROPERTY"
-    lbl: "synapsed_via_type_Ib_bouton_to"
   - id: "http://purl.obolibrary.org/obo/RO_0002589"
     meta:
       definition:
@@ -3193,17 +3166,43 @@ graphs:
         val: "Chris Mungall"
     type: "PROPERTY"
     lbl: "is parasitism"
+  - id: "http://purl.obolibrary.org/obo/RO_0002105"
+    meta:
+      definition:
+        val: "A relation between a motor neuron and a muscle that it synapses to via\
+          \ a type Ib bouton."
+        xrefs: []
+      comments:
+      - "Expands to: has_part some ('type Ib terminal button' that has_part some ('pre-synaptic\
+        \ membrane' that part_of some ('synapse' that has_part some ('post-synaptic\
+        \ membrane' that part_of some ?Y))))"
+      basicPropertyValues:
+      - pred: "http://purl.obolibrary.org/obo/IAO_0000114"
+        val: "http://purl.obolibrary.org/obo/IAO_0000125"
+      - pred: "http://purl.org/spar/cito/citesAsAuthority"
+        val: "http://www.ncbi.nlm.nih.gov/pubmed/22402613"
+      - pred: "http://purl.obolibrary.org/obo/IAO_0000117"
+        val: "David Osumi-Sutherland"
+      - pred: "http://purl.obolibrary.org/obo/RO_0001900"
+        val: "http://purl.obolibrary.org/obo/RO_0001901"
+      - pred: "http://purl.obolibrary.org/obo/IAO_0000424"
+        val: "BFO_0000051 some (GO_0061176 that BFO_0000051 some (that BFO_0000051\
+          \ some (GO_0045202 that BFO_0000051 some ( that BFO_0000050 some ?Y))))"
+      - pred: "http://purl.obolibrary.org/obo/IAO_0000117"
+        val: "Marta Costa"
+    type: "PROPERTY"
+    lbl: "synapsed_via_type_Ib_bouton_to"
   - id: "http://purl.obolibrary.org/obo/RO_0002106"
     meta:
       definition:
         val: "A relation between a motor neuron and a muscle that it synapses to via\
           \ a type Is bouton."
         xrefs: []
+      comments:
+      - "Expands to: has_part some ('type Is terminal button' that has_part some ('pre-synaptic\
+        \ membrane' that part_of some ('synapse' that has_part some ('post-synaptic\
+        \ membrane' that part_of some ?Y))))"
       basicPropertyValues:
-      - pred: "http://www.w3.org/2000/01/rdf-schema#comment"
-        val: "Expands to: has_part some ('type Is terminal button' that has_part some\
-          \ ('pre-synaptic membrane' that part_of some ('synapse' that has_part some\
-          \ ('post-synaptic membrane' that part_of some ?Y))))"
       - pred: "http://purl.obolibrary.org/obo/IAO_0000114"
         val: "http://purl.obolibrary.org/obo/IAO_0000125"
       - pred: "http://purl.org/spar/cito/citesAsAuthority"
@@ -3449,6 +3448,9 @@ graphs:
     lbl: "fasciculates with"
   - id: "http://purl.obolibrary.org/obo/RO_0002222"
     meta:
+      comments:
+      - "A relation that holds between two occurrents. This is a grouping relation\
+        \ that collects together all the Allen relations."
       subsets:
       - "http://purl.obolibrary.org/obo/ro/subsets#ro-eco"
       basicPropertyValues:
@@ -3461,9 +3463,6 @@ graphs:
           \ between occurrents involving the relative timing of their starts and ends."
       - pred: "http://purl.obolibrary.org/obo/IAO_0000114"
         val: "http://purl.obolibrary.org/obo/IAO_0000125"
-      - pred: "http://www.w3.org/2000/01/rdf-schema#comment"
-        val: "A relation that holds between two occurrents. This is a grouping relation\
-          \ that collects together all the Allen relations."
       - pred: "http://purl.obolibrary.org/obo/IAO_0000117"
         val: "Chris Mungall"
     type: "PROPERTY"
@@ -3666,19 +3665,17 @@ graphs:
           \ and a condition (a phenotype or disease) where the entity prevents or\
           \ reduces the severity of a condition."
         xrefs: []
-      basicPropertyValues:
-      - pred: "http://www.w3.org/2000/01/rdf-schema#comment"
-        val: "Genetic variations can span any level of granularity from a full genome\
-          \ or genotype to an individual gene  or sequence alteration.  These variations\
-          \ can be represented at the physical level (DNA/RNA macromolecules or their\
-          \ parts, as in the ChEBI ontology and Molecular Sequence Ontology) or at\
-          \ the abstract level (generically dependent continuant sequence features\
-          \ that are carried by these macromolecules, as in the Sequence Ontology\
-          \ and Genotype Ontology).  The causal relations in this hierarchy can be\
-          \ used in linking either physical or abstract genetic variations to phenotypes\
-          \ or diseases they cause or contribute to. \n\nEnvironments include natural\
-          \ environments or exposures, experimentally applied conditions, or clinical\
-          \ interventions."
+      comments:
+      - "Genetic variations can span any level of granularity from a full genome or\
+        \ genotype to an individual gene  or sequence alteration.  These variations\
+        \ can be represented at the physical level (DNA/RNA macromolecules or their\
+        \ parts, as in the ChEBI ontology and Molecular Sequence Ontology) or at the\
+        \ abstract level (generically dependent continuant sequence features that\
+        \ are carried by these macromolecules, as in the Sequence Ontology and Genotype\
+        \ Ontology).  The causal relations in this hierarchy can be used in linking\
+        \ either physical or abstract genetic variations to phenotypes or diseases\
+        \ they cause or contribute to. \n\nEnvironments include natural environments\
+        \ or exposures, experimentally applied conditions, or clinical interventions."
     type: "PROPERTY"
     lbl: "is preventative for condition"
   - id: "http://purl.obolibrary.org/obo/RO_0002218"
@@ -3854,19 +3851,18 @@ graphs:
           \ and a condition (a phenotype or disease) where the entity has some causal\
           \ or contributing role that influences the condition."
         xrefs: []
+      comments:
+      - "Genetic variations can span any level of granularity from a full genome or\
+        \ genotype to an individual gene  or sequence alteration.  These variations\
+        \ can be represented at the physical level (DNA/RNA macromolecules or their\
+        \ parts, as in the ChEBI ontology and Molecular Sequence Ontology) or at the\
+        \ abstract level (generically dependent continuant sequence features that\
+        \ are carried by these macromolecules, as in the Sequence Ontology and Genotype\
+        \ Ontology).  The causal relations in this hierarchy can be used in linking\
+        \ either physical or abstract genetic variations to phenotypes or diseases\
+        \ they cause or contribute to.\n\nEnvironments include natural environments\
+        \ or exposures, experimentally applied conditions, or clinical interventions."
       basicPropertyValues:
-      - pred: "http://www.w3.org/2000/01/rdf-schema#comment"
-        val: "Genetic variations can span any level of granularity from a full genome\
-          \ or genotype to an individual gene  or sequence alteration.  These variations\
-          \ can be represented at the physical level (DNA/RNA macromolecules or their\
-          \ parts, as in the ChEBI ontology and Molecular Sequence Ontology) or at\
-          \ the abstract level (generically dependent continuant sequence features\
-          \ that are carried by these macromolecules, as in the Sequence Ontology\
-          \ and Genotype Ontology).  The causal relations in this hierarchy can be\
-          \ used in linking either physical or abstract genetic variations to phenotypes\
-          \ or diseases they cause or contribute to.\n\nEnvironments include natural\
-          \ environments or exposures, experimentally applied conditions, or clinical\
-          \ interventions."
       - pred: "http://purl.obolibrary.org/obo/IAO_0000116"
         val: "Note that relationships of phenotypes to organisms/strains that bear\
           \ them, or diseases they are manifest in, should continue to use RO:0002200\
@@ -4321,12 +4317,12 @@ graphs:
           \ in virtue of its replicating or approximating features of the studied\
           \ entity."
         xrefs: []
+      comments:
+      - "The driving use case for this relation was to link a biological model system\
+        \ such as a cell line or model organism to a disease it is used to investigate,\
+        \ in virtue of the model system exhibiting features similar to that of the\
+        \ disease of interest."
       basicPropertyValues:
-      - pred: "http://www.w3.org/2000/01/rdf-schema#comment"
-        val: "The driving use case for this relation was to link a biological model\
-          \ system such as a cell line or model organism to a disease it is used to\
-          \ investigate, in virtue of the model system exhibiting features similar\
-          \ to that of the disease of interest."
       - pred: "http://purl.obolibrary.org/obo/IAO_0000117"
         val: "Matthew Brush"
       - pred: "http://purl.obolibrary.org/obo/IAO_0000116"
@@ -4539,11 +4535,11 @@ graphs:
           \ a substantial portion of the matter of y comes from x, and the start of\
           \ x is coincident with or after the end of y"
         xrefs: []
+      comments:
+      - "TODO - add child relations from DOS"
       basicPropertyValues:
       - pred: "http://purl.obolibrary.org/obo/IAO_0000117"
         val: "has developmental precursor"
-      - pred: "http://www.w3.org/2000/01/rdf-schema#comment"
-        val: "TODO - add child relations from DOS"
       - pred: "http://purl.obolibrary.org/obo/RO_0002575"
         val: "http://purl.obolibrary.org/obo/RO_0002202"
       - pred: "http://purl.obolibrary.org/obo/IAO_0000117"
@@ -4617,6 +4613,8 @@ graphs:
           \ y or (b) there exists some z such that x directly develops from z and\
           \ z develops from y"
         xrefs: []
+      comments:
+      - "This is the transitive form of the develops from relation"
       basicPropertyValues:
       - pred: "http://purl.obolibrary.org/obo/IAO_0000117"
         val: "David Osumi-Sutherland"
@@ -4624,8 +4622,6 @@ graphs:
         val: "Terry Meehan"
       - pred: "http://purl.obolibrary.org/obo/IAO_0000114"
         val: "http://purl.obolibrary.org/obo/IAO_0000125"
-      - pred: "http://www.w3.org/2000/01/rdf-schema#comment"
-        val: "This is the transitive form of the develops from relation"
       - pred: "http://purl.obolibrary.org/obo/IAO_0000117"
         val: "Chris Mungall"
       - pred: "http://purl.obolibrary.org/obo/IAO_0000117"
@@ -5174,6 +5170,10 @@ graphs:
       definition:
         val: "inverse of is evidence for"
         xrefs: []
+      comments:
+      - "x has evidence y iff , x is  an information content entity, material entity\
+        \ or process, and y supports either the existence of x, or the truth value\
+        \ of x."
       subsets:
       - "http://purl.obolibrary.org/obo/RO_0002259"
       - "http://purl.obolibrary.org/obo/ro/subsets#ro-eco"
@@ -5182,10 +5182,6 @@ graphs:
         val: "Chris Mungall"
       - pred: "http://purl.obolibrary.org/obo/IAO_0000119"
         val: "http://www.ncbi.nlm.nih.gov/pubmed/25052702"
-      - pred: "http://www.w3.org/2000/01/rdf-schema#comment"
-        val: "x has evidence y iff , x is  an information content entity, material\
-          \ entity or process, and y supports either the existence of x, or the truth\
-          \ value of x."
     type: "PROPERTY"
     lbl: "has evidence"
   - id: "http://purl.obolibrary.org/obo/RO_0002437"
@@ -5690,12 +5686,12 @@ graphs:
         val: "x 'has habitat' y if and only if: x is an organism, y is a habitat,\
           \ and y can sustain and allow the growth of a population of xs."
         xrefs: []
+      comments:
+      - "A population of xs will possess adaptations (either evolved naturally or\
+        \ via artifical selection) which permit it to exist and grow in y."
       subsets:
       - "http://purl.obolibrary.org/obo/ro/subsets#ro-eco"
       basicPropertyValues:
-      - pred: "http://www.w3.org/2000/01/rdf-schema#comment"
-        val: "A population of xs will possess adaptations (either evolved naturally\
-          \ or via artifical selection) which permit it to exist and grow in y."
       - pred: "http://purl.obolibrary.org/obo/IAO_0000112"
         val: "Hydrozoa (NCBITaxon_6074) SubClassOf 'has habitat' some 'Hydrozoa habitat'\n\
           where\n'Hydrozoa habitat' SubClassOf overlaps some ('marine environment'\
@@ -5712,6 +5708,8 @@ graphs:
     lbl: "has habitat"
   - id: "http://purl.obolibrary.org/obo/RO_0002424"
     meta:
+      comments:
+      - "This is an exploratory relation"
       basicPropertyValues:
       - pred: "http://purl.obolibrary.org/obo/IAO_0000116"
         val: "false"
@@ -5719,8 +5717,6 @@ graphs:
         val: "https://code.google.com/p/phenotype-ontologies/w/edit/PhenotypeModelCompetencyQuestions"
       - pred: "http://purl.obolibrary.org/obo/IAO_0000117"
         val: "Chris Mungall"
-      - pred: "http://www.w3.org/2000/01/rdf-schema#comment"
-        val: "This is an exploratory relation"
     type: "PROPERTY"
     lbl: "differs in"
   - id: "http://purl.obolibrary.org/obo/RO_0002545"
@@ -6241,11 +6237,11 @@ graphs:
     lbl: "has direct input"
   - id: "http://purl.obolibrary.org/obo/RO_0002401"
     meta:
+      comments:
+      - "Likely to be obsoleted. See:\nhttps://docs.google.com/document/d/1QMhs9J-P_q3o_rDh-IX4ZEnz0PnXrzLRVkI3vvz8NEQ/edit"
       basicPropertyValues:
       - pred: "http://purl.obolibrary.org/obo/IAO_0000114"
         val: "http://purl.obolibrary.org/obo/IAO_0000428"
-      - pred: "http://www.w3.org/2000/01/rdf-schema#comment"
-        val: "Likely to be obsoleted. See:\nhttps://docs.google.com/document/d/1QMhs9J-P_q3o_rDh-IX4ZEnz0PnXrzLRVkI3vvz8NEQ/edit"
       - pred: "http://purl.obolibrary.org/obo/IAO_0000117"
         val: "Chris Mungall"
       deprecated: true
@@ -6324,9 +6320,9 @@ graphs:
     lbl: "has subsequence"
   - id: "http://purl.obolibrary.org/obo/RO_0002403"
     meta:
+      comments:
+      - "Likely to be obsoleted. See:\nhttps://docs.google.com/document/d/1QMhs9J-P_q3o_rDh-IX4ZEnz0PnXrzLRVkI3vvz8NEQ/edit"
       basicPropertyValues:
-      - pred: "http://www.w3.org/2000/01/rdf-schema#comment"
-        val: "Likely to be obsoleted. See:\nhttps://docs.google.com/document/d/1QMhs9J-P_q3o_rDh-IX4ZEnz0PnXrzLRVkI3vvz8NEQ/edit"
       - pred: "http://purl.obolibrary.org/obo/IAO_0000117"
         val: "Chris Mungall"
       - pred: "http://purl.obolibrary.org/obo/IAO_0000114"
@@ -6910,10 +6906,10 @@ graphs:
         val: "A relationship between a piece of evidence and an entity that plays\
           \ a role in supporting that evidence."
         xrefs: []
+      comments:
+      - "In the Gene Ontology association model, this corresponds to the With/From\
+        \ field"
       basicPropertyValues:
-      - pred: "http://www.w3.org/2000/01/rdf-schema#comment"
-        val: "In the Gene Ontology association model, this corresponds to the With/From\
-          \ field"
       - pred: "http://purl.obolibrary.org/obo/IAO_0000112"
         val: "An instance of a sequence similarity evidence (ECO:0000044) that uses\
           \ a homologous sequence UniProtKB:P12345 as support."
@@ -7083,6 +7079,8 @@ graphs:
         - "http://dx.doi.org/10.1006/scdb.1999.0338"
         - "http://dx.doi.org/10.1038/nrg2099"
         - "http://purl.obolibrary.org/obo/HOM_0000026"
+      comments:
+      - "The converse of pro-orthologous."
       synonyms:
       - pred: "hasExactSynonym"
         val: "semi-orthologous to"
@@ -7094,8 +7092,6 @@ graphs:
         val: "http://www.ncbi.nlm.nih.gov/pubmed/20116127"
       - pred: "http://purl.org/dc/elements/1.1/creator"
         val: "http://bgee.unil.ch"
-      - pred: "http://www.w3.org/2000/01/rdf-schema#comment"
-        val: "The converse of pro-orthologous."
     type: "PROPERTY"
     lbl: "in semi-orthology relationship with"
   - id: "http://purl.obolibrary.org/obo/RO_HOM0000027"
@@ -7494,6 +7490,8 @@ graphs:
         - "http://dx.doi.org/10.1146/annurev.genet.39.073003.114725"
         - "http://purl.obolibrary.org/obo/HOM_0000017"
         - "http://www.ncbi.nlm.nih.gov/pubmed/5449325"
+      comments:
+      - "The term is sometimes also used for anatomical structures."
       xrefs:
       - val: "ECO:00000060"
       - val: "SO:0000855"
@@ -7510,8 +7508,6 @@ graphs:
         val: "http://bgee.unil.ch"
       - pred: "http://www.w3.org/2000/01/rdf-schema#seeAlso"
         val: "http://purl.obolibrary.org/obo/HOM_0000017"
-      - pred: "http://www.w3.org/2000/01/rdf-schema#comment"
-        val: "The term is sometimes also used for anatomical structures."
     type: "PROPERTY"
     lbl: "in orthology relationship with"
   - id: "http://purl.obolibrary.org/obo/RO_HOM0000018"
@@ -7523,6 +7519,9 @@ graphs:
         - "http://dx.doi.org/10.1016/S0168-9525(00)02005-9"
         - "http://dx.doi.org/10.1146/annurev.genet.39.073003.114725"
         - "http://purl.obolibrary.org/obo/HOM_0000018"
+      comments:
+      - "The term is sometimes also used for anatomical structures (e.g. in case of\
+        \ a symbiosis)."
       synonyms:
       - pred: "hasExactSynonym"
         val: "xenologous to"
@@ -7532,9 +7531,6 @@ graphs:
         val: "http://bgee.unil.ch"
       - pred: "http://www.w3.org/2000/01/rdf-schema#seeAlso"
         val: "http://purl.obolibrary.org/obo/HOM_0000018"
-      - pred: "http://www.w3.org/2000/01/rdf-schema#comment"
-        val: "The term is sometimes also used for anatomical structures (e.g. in case\
-          \ of a symbiosis)."
       - pred: "http://purl.org/dc/elements/1.1/source"
         val: "http://www.ncbi.nlm.nih.gov/pubmed/20116127"
     type: "PROPERTY"
@@ -7832,6 +7828,8 @@ graphs:
         xrefs:
         - "http://dx.doi.org/10.1016/j.jhevol.2006.11.010"
         - "http://purl.obolibrary.org/obo/HOM_0000004"
+      comments:
+      - "Convergence usually implies a notion of adaptation."
       synonyms:
       - pred: "hasRelatedSynonym"
         val: "analogy"
@@ -7843,8 +7841,6 @@ graphs:
         val: "http://www.ncbi.nlm.nih.gov/pubmed/20116127"
       - pred: "http://purl.org/dc/elements/1.1/creator"
         val: "http://bgee.unil.ch"
-      - pred: "http://www.w3.org/2000/01/rdf-schema#comment"
-        val: "Convergence usually implies a notion of adaptation."
     type: "PROPERTY"
     lbl: "in convergence relationship with"
   - id: "http://purl.obolibrary.org/obo/RO_HOM0000005"
@@ -7854,6 +7850,9 @@ graphs:
         xrefs:
         - "http://dx.doi.org/10.1016/j.jhevol.2006.11.010"
         - "http://purl.obolibrary.org/obo/HOM_0000005"
+      comments:
+      - "Can be applied for features present in closely related organisms but not\
+        \ present continuously in all the members of the lineage."
       synonyms:
       - pred: "hasExactSynonym"
         val: "parallel evolution"
@@ -7863,9 +7862,6 @@ graphs:
         val: "http://www.ncbi.nlm.nih.gov/pubmed/20116127"
       - pred: "http://purl.org/dc/elements/1.1/creator"
         val: "http://bgee.unil.ch"
-      - pred: "http://www.w3.org/2000/01/rdf-schema#comment"
-        val: "Can be applied for features present in closely related organisms but\
-          \ not present continuously in all the members of the lineage."
       - pred: "http://www.w3.org/2000/01/rdf-schema#seeAlso"
         val: "http://purl.obolibrary.org/obo/HOM_0000005"
     type: "PROPERTY"
@@ -7880,6 +7876,9 @@ graphs:
         - "http://dx.doi.org/10.1016/S0169-5347(97)01125-7"
         - "http://dx.doi.org/10.1146/annurev.es.20.110189.000411"
         - "http://purl.obolibrary.org/obo/HOM_0000008"
+      comments:
+      - "Applicable only to morphology. A certain degree of ambiguity is accepted\
+        \ between biological homology and parallelism."
       xrefs:
       - val: "ECO:0000067"
       synonyms:
@@ -7892,9 +7891,6 @@ graphs:
       basicPropertyValues:
       - pred: "http://purl.org/dc/elements/1.1/creator"
         val: "http://bgee.unil.ch"
-      - pred: "http://www.w3.org/2000/01/rdf-schema#comment"
-        val: "Applicable only to morphology. A certain degree of ambiguity is accepted\
-          \ between biological homology and parallelism."
       - pred: "http://purl.org/dc/elements/1.1/source"
         val: "http://www.ncbi.nlm.nih.gov/pubmed/20116127"
       - pred: "http://www.w3.org/2000/01/rdf-schema#seeAlso"
@@ -8103,6 +8099,10 @@ graphs:
         - "http://dx.doi.org/10.1007/s00427-003-0301-4"
         - "http://dx.doi.org/10.1186/1742-9994-2-15"
         - "http://purl.obolibrary.org/obo/HOM_0000003"
+      comments:
+      - "Homology and homocracy are not mutually exclusive. The homology relationships\
+        \ of patterning genes may be unresolved and thus may include orthologues and\
+        \ paralogues."
       xrefs:
       - val: "ECO:0000075"
       synonyms:
@@ -8110,10 +8110,6 @@ graphs:
         val: "homocracous to"
         xrefs: []
       basicPropertyValues:
-      - pred: "http://www.w3.org/2000/01/rdf-schema#comment"
-        val: "Homology and homocracy are not mutually exclusive. The homology relationships\
-          \ of patterning genes may be unresolved and thus may include orthologues\
-          \ and paralogues."
       - pred: "http://purl.org/dc/elements/1.1/creator"
         val: "http://bgee.unil.ch"
       - pred: "http://www.w3.org/2000/01/rdf-schema#seeAlso"
@@ -8165,6 +8161,9 @@ graphs:
         - "http://dx.doi.org/10.1002/jmor.1051730307"
         - "http://dx.doi.org/10.1007/BF02814480"
         - "http://purl.obolibrary.org/obo/HOM_0000001"
+      comments:
+      - "This broad definition encompasses all the working definitions proposed so\
+        \ far in the literature."
       synonyms:
       - pred: "hasExactSynonym"
         val: "homologous to"
@@ -8172,9 +8171,6 @@ graphs:
       basicPropertyValues:
       - pred: "http://www.w3.org/2000/01/rdf-schema#seeAlso"
         val: "http://purl.obolibrary.org/obo/HOM_0000001"
-      - pred: "http://www.w3.org/2000/01/rdf-schema#comment"
-        val: "This broad definition encompasses all the working definitions proposed\
-          \ so far in the literature."
       - pred: "http://purl.org/dc/elements/1.1/source"
         val: "http://www.ncbi.nlm.nih.gov/pubmed/20116127"
       - pred: "http://purl.org/dc/elements/1.1/creator"
@@ -8212,6 +8208,9 @@ graphs:
         xrefs:
         - "http://dx.doi.org/10.1073/pnas.0505156102"
         - "http://purl.obolibrary.org/obo/HOM_0000073"
+      comments:
+      - "On a long term, it is hard to distinguish allopolyploidy from whole genome\
+        \ duplication."
       synonyms:
       - pred: "hasExactSynonym"
         val: "homoeologous to"
@@ -8223,9 +8222,6 @@ graphs:
         val: "http://purl.obolibrary.org/obo/HOM_0000073"
       - pred: "http://purl.org/dc/elements/1.1/source"
         val: "http://www.ncbi.nlm.nih.gov/pubmed/20116127"
-      - pred: "http://www.w3.org/2000/01/rdf-schema#comment"
-        val: "On a long term, it is hard to distinguish allopolyploidy from whole\
-          \ genome duplication."
     type: "PROPERTY"
     lbl: "in homoeology relationship with"
   - id: "http://purl.obolibrary.org/obo/RO_HOM0000074"
@@ -8261,6 +8257,9 @@ graphs:
         - "http://dx.doi.org/10.1007/BF02814485"
         - "http://purl.obolibrary.org/obo/HOM_0000071"
         - "ISBN:0123195837"
+      comments:
+      - "Theissen (2005) mentions that some authors may consider homotopy to be distinct\
+        \ from homology, but this is not the standard use."
       synonyms:
       - pred: "hasExactSynonym"
         val: "homotopous to"
@@ -8270,9 +8269,6 @@ graphs:
         val: "http://bgee.unil.ch"
       - pred: "http://www.w3.org/2000/01/rdf-schema#seeAlso"
         val: "http://purl.obolibrary.org/obo/HOM_0000071"
-      - pred: "http://www.w3.org/2000/01/rdf-schema#comment"
-        val: "Theissen (2005) mentions that some authors may consider homotopy to\
-          \ be distinct from homology, but this is not the standard use."
       - pred: "http://purl.org/dc/elements/1.1/source"
         val: "http://www.ncbi.nlm.nih.gov/pubmed/20116127"
     type: "PROPERTY"
@@ -8328,6 +8324,8 @@ graphs:
         xrefs:
         - "http://dx.doi.org/10.1093/nar/gkl1043"
         - "http://purl.obolibrary.org/obo/HOM_0000062"
+      comments:
+      - "This may include examples of orthology, paralogy and xenology."
       synonyms:
       - pred: "hasExactSynonym"
         val: "equivalogous to"
@@ -8339,8 +8337,6 @@ graphs:
         val: "http://bgee.unil.ch"
       - pred: "http://purl.org/dc/elements/1.1/source"
         val: "http://www.ncbi.nlm.nih.gov/pubmed/20116127"
-      - pred: "http://www.w3.org/2000/01/rdf-schema#comment"
-        val: "This may include examples of orthology, paralogy and xenology."
     type: "PROPERTY"
     lbl: "in equivalogy relationship with"
   - id: "http://purl.obolibrary.org/obo/RO_HOM0000063"
@@ -8401,6 +8397,8 @@ graphs:
         xrefs:
         - "http://purl.obolibrary.org/obo/HOM_0000069"
         - "http://www.ncbi.nlm.nih.gov/pubmed/3065587"
+      comments:
+      - "This phenomenon is usually due to gene conversion process."
       synonyms:
       - pred: "hasExactSynonym"
         val: "plerologous to"
@@ -8410,8 +8408,6 @@ graphs:
         val: "http://www.ncbi.nlm.nih.gov/pubmed/20116127"
       - pred: "http://purl.org/dc/elements/1.1/creator"
         val: "http://bgee.unil.ch"
-      - pred: "http://www.w3.org/2000/01/rdf-schema#comment"
-        val: "This phenomenon is usually due to gene conversion process."
       - pred: "http://www.w3.org/2000/01/rdf-schema#seeAlso"
         val: "http://purl.obolibrary.org/obo/HOM_0000069"
     type: "PROPERTY"
@@ -8452,6 +8448,9 @@ graphs:
         - "http://dx.doi.org/10.1146/annurev.genet.39.073003.114725"
         - "http://purl.obolibrary.org/obo/HOM_0000060"
         - "http://www.ensembl.org/info/docs/compara/homology_method.html"
+      comments:
+      - "The genes are actually paralogs but appear to be orthologous due to differential,\
+        \ lineage-specific gene loss."
       synonyms:
       - pred: "hasExactSynonym"
         val: "pseudoorthology"
@@ -8468,9 +8467,6 @@ graphs:
       basicPropertyValues:
       - pred: "http://purl.org/dc/elements/1.1/source"
         val: "http://www.ncbi.nlm.nih.gov/pubmed/20116127"
-      - pred: "http://www.w3.org/2000/01/rdf-schema#comment"
-        val: "The genes are actually paralogs but appear to be orthologous due to\
-          \ differential, lineage-specific gene loss."
       - pred: "http://purl.org/dc/elements/1.1/creator"
         val: "http://bgee.unil.ch"
       - pred: "http://www.w3.org/2000/01/rdf-schema#seeAlso"
@@ -8485,6 +8481,8 @@ graphs:
         xrefs:
         - "http://dx.doi.org/10.1146/annurev.genet.39.073003.114725"
         - "http://purl.obolibrary.org/obo/HOM_0000061"
+      comments:
+      - "These genes may come out as paralogs in a single-genome analysis."
       synonyms:
       - pred: "hasExactSynonym"
         val: "pseudoparalogous to"
@@ -8494,8 +8492,6 @@ graphs:
         val: "http://bgee.unil.ch"
       - pred: "http://www.w3.org/2000/01/rdf-schema#seeAlso"
         val: "http://purl.obolibrary.org/obo/HOM_0000061"
-      - pred: "http://www.w3.org/2000/01/rdf-schema#comment"
-        val: "These genes may come out as paralogs in a single-genome analysis."
       - pred: "http://purl.org/dc/elements/1.1/source"
         val: "http://www.ncbi.nlm.nih.gov/pubmed/20116127"
     type: "PROPERTY"
@@ -8659,6 +8655,8 @@ graphs:
         - "http://dx.doi.org/10.1186/1742-9994-2-15"
         - "http://purl.obolibrary.org/obo/HOM_0000057"
         - "ISBN:0199141118"
+      comments:
+      - "Used for structures in closely related taxa."
       synonyms:
       - pred: "hasRelatedSynonym"
         val: "re-awakening"
@@ -8688,8 +8686,6 @@ graphs:
         val: "http://bgee.unil.ch"
       - pred: "http://www.w3.org/2000/01/rdf-schema#seeAlso"
         val: "http://purl.obolibrary.org/obo/HOM_0000057"
-      - pred: "http://www.w3.org/2000/01/rdf-schema#comment"
-        val: "Used for structures in closely related taxa."
     type: "PROPERTY"
     lbl: "in latent homology relationship with"
   - id: "http://purl.obolibrary.org/obo/RO_HOM0000058"
@@ -8701,6 +8697,10 @@ graphs:
         - "http://dx.doi.org/10.1186/1742-9994-2-15"
         - "http://purl.obolibrary.org/obo/HOM_0000058"
         - "DOI:10.1002/1521-1878(200009)22:9<846::AID-BIES10>3.0.CO;2-R"
+      comments:
+      - "Cannot be used when orthologous patterning gene are organizing obviously\
+        \ non-homologous structures in different organisms due for example to pleiotropic\
+        \ functions of these genes."
       synonyms:
       - pred: "hasExactSynonym"
         val: "generative homology"
@@ -8711,10 +8711,6 @@ graphs:
       basicPropertyValues:
       - pred: "http://www.w3.org/2000/01/rdf-schema#seeAlso"
         val: "http://purl.obolibrary.org/obo/HOM_0000058"
-      - pred: "http://www.w3.org/2000/01/rdf-schema#comment"
-        val: "Cannot be used when orthologous patterning gene are organizing obviously\
-          \ non-homologous structures in different organisms due for example to pleiotropic\
-          \ functions of these genes."
       - pred: "http://purl.org/dc/elements/1.1/creator"
         val: "http://bgee.unil.ch"
       - pred: "http://purl.org/dc/elements/1.1/source"
@@ -8756,13 +8752,13 @@ graphs:
         xrefs:
         - "http://purl.obolibrary.org/obo/HOM_0000050"
         - "http://www.ensembl.org/info/docs/compara/homology_method.html"
+      comments:
+      - "The genes have diverged before a speciation event."
       synonyms:
       - pred: "hasExactSynonym"
         val: "between-species paralogous to"
         xrefs: []
       basicPropertyValues:
-      - pred: "http://www.w3.org/2000/01/rdf-schema#comment"
-        val: "The genes have diverged before a speciation event."
       - pred: "http://purl.org/dc/elements/1.1/creator"
         val: "http://bgee.unil.ch"
       - pred: "http://purl.org/dc/elements/1.1/source"
@@ -8830,6 +8826,8 @@ graphs:
         xrefs:
         - "http://purl.obolibrary.org/obo/HOM_0000043"
         - "ISBN:978-0252068140"
+      comments:
+      - "This term is usually contrasted to apomorphy."
       synonyms:
       - pred: "hasExactSynonym"
         val: "plesiomorphous to"
@@ -8840,8 +8838,6 @@ graphs:
       basicPropertyValues:
       - pred: "http://purl.org/dc/elements/1.1/creator"
         val: "http://bgee.unil.ch"
-      - pred: "http://www.w3.org/2000/01/rdf-schema#comment"
-        val: "This term is usually contrasted to apomorphy."
       - pred: "http://purl.org/dc/elements/1.1/source"
         val: "http://www.ncbi.nlm.nih.gov/pubmed/20116127"
       - pred: "http://www.w3.org/2000/01/rdf-schema#seeAlso"
@@ -8908,6 +8904,8 @@ graphs:
         - "http://dx.doi.org/10.1007/BF02814485"
         - "http://dx.doi.org/10.1038/nature07891"
         - "http://purl.obolibrary.org/obo/HOM_0000044"
+      comments:
+      - "Used for structures in distantly related taxa."
       synonyms:
       - pred: "hasExactSynonym"
         val: "deep homologous to"
@@ -8922,8 +8920,6 @@ graphs:
         val: "deep genetic homology"
         xrefs: []
       basicPropertyValues:
-      - pred: "http://www.w3.org/2000/01/rdf-schema#comment"
-        val: "Used for structures in distantly related taxa."
       - pred: "http://purl.org/dc/elements/1.1/source"
         val: "http://www.ncbi.nlm.nih.gov/pubmed/20116127"
       - pred: "http://www.w3.org/2000/01/rdf-schema#seeAlso"
@@ -9010,6 +9006,11 @@ graphs:
     lbl: "part of"
   - id: "http://purl.obolibrary.org/obo/BFO_0000055"
     meta:
+      comments:
+      - "Paraphrase of elucidation: a relation between a process and a realizable\
+        \ entity, where there is some material entity that is bearer of the realizable\
+        \ entity and participates in the process, and the realizable entity comes\
+        \ to be realized in the course of the process"
       basicPropertyValues:
       - pred: "http://purl.obolibrary.org/obo/IAO_0000112"
         val: "this disease course realizes this disease"
@@ -9022,11 +9023,6 @@ graphs:
           \ entity d & b is a process which has participant d at t & c is a disposition\
           \ or role of which d is bearer_of at t& the type instantiated by b is correlated\
           \ with the type instantiated by c. (axiom label in BFO2 Reference: [059-003])"
-      - pred: "http://www.w3.org/2000/01/rdf-schema#comment"
-        val: "Paraphrase of elucidation: a relation between a process and a realizable\
-          \ entity, where there is some material entity that is bearer of the realizable\
-          \ entity and participates in the process, and the realizable entity comes\
-          \ to be realized in the course of the process"
       - pred: "http://purl.obolibrary.org/obo/IAO_0000112"
         val: "this shattering realizes this fragility"
       - pred: "http://www.w3.org/2000/01/rdf-schema#isDefinedBy"
@@ -9079,6 +9075,11 @@ graphs:
     lbl: "has part"
   - id: "http://purl.obolibrary.org/obo/BFO_0000054"
     meta:
+      comments:
+      - "Paraphrase of elucidation: a relation between a realizable entity and a process,\
+        \ where there is some material entity that is bearer of the realizable entity\
+        \ and participates in the process, and the realizable entity comes to be realized\
+        \ in the course of the process"
       basicPropertyValues:
       - pred: "http://www.w3.org/2000/01/rdf-schema#isDefinedBy"
         val: "http://purl.obolibrary.org/obo/bfo.owl"
@@ -9092,11 +9093,6 @@ graphs:
         val: "is realized by"
       - pred: "http://purl.obolibrary.org/obo/IAO_0000112"
         val: "this investigator role is realized in this investigation"
-      - pred: "http://www.w3.org/2000/01/rdf-schema#comment"
-        val: "Paraphrase of elucidation: a relation between a realizable entity and\
-          \ a process, where there is some material entity that is bearer of the realizable\
-          \ entity and participates in the process, and the realizable entity comes\
-          \ to be realized in the course of the process"
       - pred: "http://purl.obolibrary.org/obo/IAO_0000111"
         val: "realized in"
       - pred: "http://purl.obolibrary.org/obo/IAO_0000600"
@@ -9185,10 +9181,8 @@ graphs:
     lbl: "multi-organism behavior"
   - id: "http://purl.obolibrary.org/obo/BFO_0000060"
     meta:
-      basicPropertyValues:
-      - pred: "http://www.w3.org/2000/01/rdf-schema#comment"
-        val: "accidentally included in BFO 1.2 proposal\n        - should have been\
-          \ BFO_0000062"
+      comments:
+      - "accidentally included in BFO 1.2 proposal\n        - should have been BFO_0000062"
     type: "PROPERTY"
     lbl: "obsolete preceded by"
   - id: "http://purl.obolibrary.org/obo/BFO_0000066"
@@ -9200,6 +9194,10 @@ graphs:
           \ regions s and s’ where & b spatially_projects_onto s at t& c is occupies_spatial_region\
           \ s’ at t& s is a proper_continuant_part_of s’ at t"
         xrefs: []
+      comments:
+      - "Paraphrase of definition: a relation between a process and an independent\
+        \ continuant, in which the process takes place entirely within the independent\
+        \ continuant"
       basicPropertyValues:
       - pred: "http://purl.obolibrary.org/obo/IAO_0000118"
         val: "occurs_in"
@@ -9209,10 +9207,6 @@ graphs:
         val: "unfolds in"
       - pred: "http://purl.obolibrary.org/obo/IAO_0000111"
         val: "occurs in"
-      - pred: "http://www.w3.org/2000/01/rdf-schema#comment"
-        val: "Paraphrase of definition: a relation between a process and an independent\
-          \ continuant, in which the process takes place entirely within the independent\
-          \ continuant"
       - pred: "http://purl.obolibrary.org/obo/IAO_0000118"
         val: "unfolds_in"
     type: "PROPERTY"
@@ -9227,13 +9221,13 @@ graphs:
           \ s’ where & b spatially_projects_onto s at t& c is occupies_spatial_region\
           \ s’ at t& s is a proper_continuant_part_of s’ at t"
         xrefs: []
+      comments:
+      - "Paraphrase of definition: a relation between an independent continuant and\
+        \ a process, in which the process takes place entirely within the independent\
+        \ continuant"
       basicPropertyValues:
       - pred: "http://www.w3.org/2000/01/rdf-schema#isDefinedBy"
         val: "http://purl.obolibrary.org/obo/bfo.owl"
-      - pred: "http://www.w3.org/2000/01/rdf-schema#comment"
-        val: "Paraphrase of definition: a relation between an independent continuant\
-          \ and a process, in which the process takes place entirely within the independent\
-          \ continuant"
       - pred: "http://purl.obolibrary.org/obo/IAO_0000111"
         val: "site of"
     type: "PROPERTY"
@@ -9298,14 +9292,14 @@ graphs:
     lbl: "precedes"
   - id: "http://purl.obolibrary.org/obo/RO_0002091"
     meta:
+      comments:
+      - "X starts_during Y iff: (start(Y) before_or_simultaneous_with start(X)) AND\
+        \ (start(X) before_or_simultaneous_with end(Y))"
       subsets:
       - "http://purl.obolibrary.org/obo/ro/subsets#ro-eco"
       basicPropertyValues:
       - pred: "http://purl.obolibrary.org/obo/IAO_0000118"
         val: "io"
-      - pred: "http://www.w3.org/2000/01/rdf-schema#comment"
-        val: "X starts_during Y iff: (start(Y) before_or_simultaneous_with start(X))\
-          \ AND (start(X) before_or_simultaneous_with end(Y))"
       - pred: "http://purl.obolibrary.org/obo/IAO_0000117"
         val: "David Osumi-Sutherland"
     type: "PROPERTY"
@@ -9315,12 +9309,12 @@ graphs:
     lbl: "quality"
   - id: "http://purl.obolibrary.org/obo/RO_0002092"
     meta:
+      comments:
+      - "X happens_during Y iff: (start(Y) before_or_simultaneous_with start(X)) AND\
+        \ (end(X) before_or_simultaneous_with end(Y))"
       subsets:
       - "http://purl.obolibrary.org/obo/ro/subsets#ro-eco"
       basicPropertyValues:
-      - pred: "http://www.w3.org/2000/01/rdf-schema#comment"
-        val: "X happens_during Y iff: (start(Y) before_or_simultaneous_with start(X))\
-          \ AND (end(X) before_or_simultaneous_with end(Y))"
       - pred: "http://purl.obolibrary.org/obo/IAO_0000118"
         val: "during"
       - pred: "http://purl.obolibrary.org/obo/IAO_0000118"
@@ -9331,14 +9325,14 @@ graphs:
     lbl: "happens during"
   - id: "http://purl.obolibrary.org/obo/RO_0002093"
     meta:
+      comments:
+      - "X ends_during Y iff: ((start(Y) before_or_simultaneous_with end(X)) AND end(X)\
+        \ before_or_simultaneous_with end(Y). "
       subsets:
       - "http://purl.obolibrary.org/obo/ro/subsets#ro-eco"
       basicPropertyValues:
       - pred: "http://purl.obolibrary.org/obo/IAO_0000118"
         val: "o"
-      - pred: "http://www.w3.org/2000/01/rdf-schema#comment"
-        val: "X ends_during Y iff: ((start(Y) before_or_simultaneous_with end(X))\
-          \ AND end(X) before_or_simultaneous_with end(Y). "
       - pred: "http://purl.obolibrary.org/obo/IAO_0000117"
         val: "David Osumi-Sutherland"
       - pred: "http://purl.obolibrary.org/obo/IAO_0000118"
@@ -9369,11 +9363,11 @@ graphs:
     lbl: "realizable entity"
   - id: "http://purl.obolibrary.org/obo/RO_0002090"
     meta:
+      comments:
+      - "X immediately_precedes_Y iff: end(X) simultaneous_with start(Y)"
       subsets:
       - "http://purl.obolibrary.org/obo/ro/subsets#ro-eco"
       basicPropertyValues:
-      - pred: "http://www.w3.org/2000/01/rdf-schema#comment"
-        val: "X immediately_precedes_Y iff: end(X) simultaneous_with start(Y)"
       - pred: "http://purl.obolibrary.org/obo/IAO_0000118"
         val: "ends_at_start_of"
       - pred: "http://purl.obolibrary.org/obo/IAO_0000118"
@@ -9389,37 +9383,37 @@ graphs:
     lbl: "kinase activity"
   - id: "http://purl.obolibrary.org/obo/RO_0002081"
     meta:
+      comments:
+      - "Primitive instance level timing relation between events"
       subsets:
       - "http://purl.obolibrary.org/obo/ro/subsets#ro-eco"
       basicPropertyValues:
       - pred: "http://purl.obolibrary.org/obo/IAO_0000118"
         val: "<="
-      - pred: "http://www.w3.org/2000/01/rdf-schema#comment"
-        val: "Primitive instance level timing relation between events"
       - pred: "http://purl.obolibrary.org/obo/IAO_0000117"
         val: "David Osumi-Sutherland"
     type: "PROPERTY"
     lbl: "before or simultaneous with"
   - id: "http://purl.obolibrary.org/obo/RO_0002082"
     meta:
+      comments:
+      - "t1 simultaneous_with t2 iff:=  t1 before_or_simultaneous_with t2  and not\
+        \ (t1 before t2)"
       subsets:
       - "http://purl.obolibrary.org/obo/ro/subsets#ro-eco"
       basicPropertyValues:
       - pred: "http://purl.obolibrary.org/obo/IAO_0000117"
         val: "David Osumi-Sutherland"
-      - pred: "http://www.w3.org/2000/01/rdf-schema#comment"
-        val: "t1 simultaneous_with t2 iff:=  t1 before_or_simultaneous_with t2  and\
-          \ not (t1 before t2)"
     type: "PROPERTY"
     lbl: "simultaneous with"
   - id: "http://purl.obolibrary.org/obo/RO_0002083"
     meta:
+      comments:
+      - "t1 before t2 iff:=  t1 before_or_simulataneous_with t2  and not (t1 simultaeous_with\
+        \ t2)"
       subsets:
       - "http://purl.obolibrary.org/obo/ro/subsets#ro-eco"
       basicPropertyValues:
-      - pred: "http://www.w3.org/2000/01/rdf-schema#comment"
-        val: "t1 before t2 iff:=  t1 before_or_simulataneous_with t2  and not (t1\
-          \ simultaeous_with t2)"
       - pred: "http://purl.obolibrary.org/obo/IAO_0000117"
         val: "David Osumi-Sutherland"
     type: "PROPERTY"
@@ -9443,15 +9437,14 @@ graphs:
     lbl: "obsolete dependent continuant"
   - id: "http://purl.obolibrary.org/obo/RO_0002088"
     meta:
+      comments:
+      - "Previously had ID  http://purl.obolibrary.org/obo/RO_0002123 in test files\
+        \ in sandpit - but this seems to have been dropped from ro-edit.owl at some\
+        \ point.  No re-use under this ID AFAIK, but leaving note here in case we\
+        \ run in to clashes down the line.  Official ID now chosen from DOS ID range."
       subsets:
       - "http://purl.obolibrary.org/obo/ro/subsets#ro-eco"
       basicPropertyValues:
-      - pred: "http://www.w3.org/2000/01/rdf-schema#comment"
-        val: "Previously had ID  http://purl.obolibrary.org/obo/RO_0002123 in test\
-          \ files in sandpit - but this seems to have been dropped from ro-edit.owl\
-          \ at some point.  No re-use under this ID AFAIK, but leaving note here in\
-          \ case we run in to clashes down the line.  Official ID now chosen from\
-          \ DOS ID range."
       - pred: "http://purl.obolibrary.org/obo/IAO_0000117"
         val: "David Osumi-Sutherland"
     type: "PROPERTY"
@@ -9467,28 +9460,26 @@ graphs:
     lbl: "starts before"
   - id: "http://purl.obolibrary.org/obo/RO_0002084"
     meta:
+      comments:
+      - "Previously had ID  http://purl.obolibrary.org/obo/RO_0002122 in test files\
+        \ in sandpit - but this seems to have been dropped from ro-edit.owl at some\
+        \ point.  No re-use under this ID AFAIK, but leaving note here in case we\
+        \ run in to clashes down the line.  Official ID now chosen from DOS ID range."
       subsets:
       - "http://purl.obolibrary.org/obo/ro/subsets#ro-eco"
       basicPropertyValues:
       - pred: "http://purl.obolibrary.org/obo/IAO_0000117"
         val: "David Osumi-Sutherland"
-      - pred: "http://www.w3.org/2000/01/rdf-schema#comment"
-        val: "Previously had ID  http://purl.obolibrary.org/obo/RO_0002122 in test\
-          \ files in sandpit - but this seems to have been dropped from ro-edit.owl\
-          \ at some point.  No re-use under this ID AFAIK, but leaving note here in\
-          \ case we run in to clashes down the line.  Official ID now chosen from\
-          \ DOS ID range."
     type: "PROPERTY"
     lbl: "during which ends"
   - id: "http://purl.obolibrary.org/obo/RO_0002085"
     meta:
+      comments:
+      - "Previously had ID  http://purl.obolibrary.org/obo/RO_0002124 in test files\
+        \ in sandpit - but this seems to have been dropped from ro-edit.owl at some\
+        \ point.  No re-use under this ID AFAIK, but leaving note here in case we\
+        \ run in to clashes down the line.  Official ID now chosen from DOS ID range."
       basicPropertyValues:
-      - pred: "http://www.w3.org/2000/01/rdf-schema#comment"
-        val: "Previously had ID  http://purl.obolibrary.org/obo/RO_0002124 in test\
-          \ files in sandpit - but this seems to have been dropped from ro-edit.owl\
-          \ at some point.  No re-use under this ID AFAIK, but leaving note here in\
-          \ case we run in to clashes down the line.  Official ID now chosen from\
-          \ DOS ID range."
       - pred: "http://purl.obolibrary.org/obo/IAO_0000117"
         val: "David Osumi-Sutherland"
       - pred: "http://purl.obolibrary.org/obo/IAO_0000118"
@@ -9497,24 +9488,24 @@ graphs:
     lbl: "encompasses"
   - id: "http://purl.obolibrary.org/obo/RO_0002086"
     meta:
+      comments:
+      - "X ends_after Y iff: end(Y) before_or_simultaneous_with end(X)"
       subsets:
       - "http://purl.obolibrary.org/obo/ro/subsets#ro-eco"
       basicPropertyValues:
       - pred: "http://purl.obolibrary.org/obo/IAO_0000117"
         val: "David Osumi-Sutherland"
-      - pred: "http://www.w3.org/2000/01/rdf-schema#comment"
-        val: "X ends_after Y iff: end(Y) before_or_simultaneous_with end(X)"
     type: "PROPERTY"
     lbl: "ends after"
   - id: "http://purl.obolibrary.org/obo/RO_0002087"
     meta:
+      comments:
+      - "X immediately_preceded_by Y iff: end(X) simultaneous_with start(Y)"
       basicPropertyValues:
       - pred: "http://purl.obolibrary.org/obo/IAO_0000117"
         val: "David Osumi-Sutherland"
       - pred: "http://purl.obolibrary.org/obo/IAO_0000118"
         val: "starts_at_end_of"
-      - pred: "http://www.w3.org/2000/01/rdf-schema#comment"
-        val: "X immediately_preceded_by Y iff: end(X) simultaneous_with start(Y)"
     type: "PROPERTY"
     lbl: "immediately preceded by"
   - id: "http://purl.obolibrary.org/obo/PATO_0000051"
@@ -10164,12 +10155,12 @@ graphs:
   - sub: "http://purl.obolibrary.org/obo/RO_0002339"
     pred: "subPropertyOf"
     obj: "http://purl.obolibrary.org/obo/RO_0002344"
-  - sub: "http://purl.obolibrary.org/obo/RO_0002012"
-    pred: "subPropertyOf"
-    obj: "http://purl.obolibrary.org/obo/RO_0002418"
   - sub: "http://purl.obolibrary.org/obo/BFO_0000015"
     pred: "is_a"
     obj: "http://purl.obolibrary.org/obo/BFO_0000003"
+  - sub: "http://purl.obolibrary.org/obo/RO_0002012"
+    pred: "subPropertyOf"
+    obj: "http://purl.obolibrary.org/obo/RO_0002418"
   - sub: "http://purl.obolibrary.org/obo/RO_0002209"
     pred: "subPropertyOf"
     obj: "http://purl.obolibrary.org/obo/RO_0002445"
@@ -10305,12 +10296,12 @@ graphs:
   - sub: "http://purl.obolibrary.org/obo/RO_0002469"
     pred: "subPropertyOf"
     obj: "http://purl.obolibrary.org/obo/RO_0002438"
-  - sub: "http://purl.obolibrary.org/obo/RO_0002578"
-    pred: "subPropertyOf"
-    obj: "http://purl.obolibrary.org/obo/RO_0002412"
   - sub: "http://purl.obolibrary.org/obo/GO_0044456"
     pred: "is_a"
     obj: "http://purl.obolibrary.org/obo/CARO_0000014"
+  - sub: "http://purl.obolibrary.org/obo/RO_0002578"
+    pred: "subPropertyOf"
+    obj: "http://purl.obolibrary.org/obo/RO_0002412"
   - sub: "http://purl.obolibrary.org/obo/RO_0002583"
     pred: "subPropertyOf"
     obj: "http://purl.obolibrary.org/obo/RO_0002487"
@@ -10740,12 +10731,12 @@ graphs:
   - sub: "http://purl.obolibrary.org/obo/RO_0002526"
     pred: "subPropertyOf"
     obj: "http://purl.obolibrary.org/obo/RO_0002514"
-  - sub: "http://purl.obolibrary.org/obo/RO_0002160"
-    pred: "subPropertyOf"
-    obj: "http://purl.obolibrary.org/obo/RO_0002162"
   - sub: "http://purl.obolibrary.org/obo/PATO_0002009"
     pred: "is_a"
     obj: "http://purl.obolibrary.org/obo/PATO_0000052"
+  - sub: "http://purl.obolibrary.org/obo/RO_0002160"
+    pred: "subPropertyOf"
+    obj: "http://purl.obolibrary.org/obo/RO_0002162"
   - sub: "http://purl.obolibrary.org/obo/RO_0002261"
     pred: "subPropertyOf"
     obj: "http://purl.obolibrary.org/obo/RO_0000087"
@@ -10800,12 +10791,12 @@ graphs:
   - sub: "http://purl.obolibrary.org/obo/RO_0002084"
     pred: "inverseOf"
     obj: "http://purl.obolibrary.org/obo/RO_0002093"
-  - sub: "http://purl.obolibrary.org/obo/RO_0002444"
-    pred: "subPropertyOf"
-    obj: "http://purl.obolibrary.org/obo/RO_0002443"
   - sub: "http://purl.obolibrary.org/obo/CARO_0000011"
     pred: "is_a"
     obj: "http://purl.obolibrary.org/obo/CARO_0000006"
+  - sub: "http://purl.obolibrary.org/obo/RO_0002444"
+    pred: "subPropertyOf"
+    obj: "http://purl.obolibrary.org/obo/RO_0002443"
   - sub: "http://purl.obolibrary.org/obo/RO_0001021"
     pred: "inverseOf"
     obj: "http://purl.obolibrary.org/obo/RO_0001023"
@@ -10977,12 +10968,12 @@ graphs:
   - sub: "http://purl.obolibrary.org/obo/RO_0002380"
     pred: "subPropertyOf"
     obj: "http://purl.obolibrary.org/obo/RO_0002375"
-  - sub: "http://purl.obolibrary.org/obo/RO_0002485"
-    pred: "subPropertyOf"
-    obj: "http://purl.obolibrary.org/obo/RO_0002170"
   - sub: "http://purl.obolibrary.org/obo/GO_0044464"
     pred: "is_a"
     obj: "http://purl.obolibrary.org/obo/CARO_0000014"
+  - sub: "http://purl.obolibrary.org/obo/RO_0002485"
+    pred: "subPropertyOf"
+    obj: "http://purl.obolibrary.org/obo/RO_0002170"
   - sub: "http://purl.obolibrary.org/obo/RO_HOM0000002"
     pred: "subPropertyOf"
     obj: "http://purl.obolibrary.org/obo/RO_HOM0000000"
@@ -11849,12 +11840,12 @@ graphs:
     - "http://purl.obolibrary.org/obo/BFO_0000004"
   - predicateId: "http://purl.obolibrary.org/obo/RO_0002207"
     allValuesFromEdges:
-    - sub: "http://purl.obolibrary.org/obo/CARO_0010000"
-      pred: "http://purl.obolibrary.org/obo/RO_0002207"
-      obj: "http://purl.obolibrary.org/obo/CARO_0010000"
     - sub: "http://purl.obolibrary.org/obo/CL_0000000"
       pred: "http://purl.obolibrary.org/obo/RO_0002207"
       obj: "http://purl.obolibrary.org/obo/CL_0000000"
+    - sub: "http://purl.obolibrary.org/obo/CARO_0010000"
+      pred: "http://purl.obolibrary.org/obo/RO_0002207"
+      obj: "http://purl.obolibrary.org/obo/CARO_0010000"
   - predicateId: "http://purl.obolibrary.org/obo/RO_0002009"
     domainClassIds:
     - "http://purl.obolibrary.org/obo/CL_0000000"
