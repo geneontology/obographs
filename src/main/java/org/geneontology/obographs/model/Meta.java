@@ -206,6 +206,12 @@ public class Meta {
             this.xrefs.add(xref);
             return this; 
         }
+        public Builder addComment(String comment) {
+            if (this.comments == null)
+                this.comments = new ArrayList<>();
+            this.comments.add(comment);
+            return this; 
+        }
 
         public Builder xrefs(List<XrefPropertyValue> xrefs) {
             this.xrefs = xrefs;

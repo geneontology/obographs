@@ -1,22 +1,6 @@
 {
   "graphs" : [ {
     "nodes" : [ {
-      "id" : "http://purl.obolibrary.org/obo/go-test#goslim_virus",
-      "meta" : {
-        "basicPropertyValues" : [ {
-          "pred" : "http://www.w3.org/2000/01/rdf-schema#comment",
-          "val" : "Viral GO slim"
-        } ]
-      }
-    }, {
-      "id" : "http://purl.obolibrary.org/obo/go-test#virus_checked",
-      "meta" : {
-        "basicPropertyValues" : [ {
-          "pred" : "http://www.w3.org/2000/01/rdf-schema#comment",
-          "val" : "Viral overhaul terms"
-        } ]
-      }
-    }, {
       "id" : "http://www.geneontology.org/formats/oboInOwl#hasExactSynonym",
       "type" : "PROPERTY",
       "lbl" : "has_exact_synonym"
@@ -46,14 +30,6 @@
       "type" : "CLASS",
       "lbl" : "nucleus"
     }, {
-      "id" : "http://purl.obolibrary.org/obo/go-test#goslim_plant",
-      "meta" : {
-        "basicPropertyValues" : [ {
-          "pred" : "http://www.w3.org/2000/01/rdf-schema#comment",
-          "val" : "Plant GO slim"
-        } ]
-      }
-    }, {
       "id" : "http://www.geneontology.org/formats/oboInOwl#hasSynonymType",
       "type" : "PROPERTY",
       "lbl" : "has_synonym_type"
@@ -68,13 +44,11 @@
           "val" : "Any constituent part of the living contents of a cell; the matter contained within (but not including) the plasma membrane, usually taken to exclude large vacuoles and masses of secretory or ingested material. In eukaryotes it includes the nucleus and cytoplasm.",
           "xrefs" : [ "GOC:jl" ]
         },
+        "comments" : [ "Note that this term is in the subset of terms that should not be used for direct gene product annotation. Instead, select a child term or, if no appropriate child term exists, please request a new term. Direct annotations to this term may be amended during annotation QC." ],
         "subsets" : [ "http://purl.obolibrary.org/obo/go-test#gocheck_do_not_annotate", "http://purl.obolibrary.org/obo/go-test#gosubset_prok", "http://purl.obolibrary.org/obo/go-test#goantislim_grouping" ],
         "basicPropertyValues" : [ {
           "pred" : "http://www.geneontology.org/formats/oboInOwl#hasOBONamespace",
           "val" : "cellular_component"
-        }, {
-          "pred" : "http://www.w3.org/2000/01/rdf-schema#comment",
-          "val" : "Note that this term is in the subset of terms that should not be used for direct gene product annotation. Instead, select a child term or, if no appropriate child term exists, please request a new term. Direct annotations to this term may be amended during annotation QC."
         } ]
       },
       "type" : "CLASS",
@@ -86,6 +60,7 @@
           "val" : "The part of a cell or its extracellular environment in which a gene product is located. A gene product may be located in one or more parts of a cell and its location may be as specific as a particular macromolecular complex, that is, a stable, persistent association of macromolecules that function together.",
           "xrefs" : [ "GOC:go_curators", "NIF_Subcellular:sao-1337158144" ]
         },
+        "comments" : [ "Note that, in addition to forming the root of the cellular component ontology, this term is recommended for use for the annotation of gene products whose cellular component is unknown. Note that when this term is used for annotation, it indicates that no information was available about the cellular component of the gene product annotated as of the date the annotation was made; the evidence code ND, no data, is used to indicate this." ],
         "subsets" : [ "http://purl.obolibrary.org/obo/go-test#goslim_metagenomics", "http://purl.obolibrary.org/obo/go-test#goslim_candida", "http://purl.obolibrary.org/obo/go-test#goslim_yeast", "http://purl.obolibrary.org/obo/go-test#goslim_chembl", "http://purl.obolibrary.org/obo/go-test#goslim_aspergillus", "http://purl.obolibrary.org/obo/go-test#goslim_pir", "http://purl.obolibrary.org/obo/go-test#gosubset_prok", "http://purl.obolibrary.org/obo/go-test#goslim_generic", "http://purl.obolibrary.org/obo/go-test#goslim_plant" ],
         "xrefs" : [ {
           "val" : "NIF_Subcellular:sao1337158144"
@@ -111,21 +86,10 @@
         }, {
           "pred" : "http://www.geneontology.org/formats/oboInOwl#hasOBONamespace",
           "val" : "cellular_component"
-        }, {
-          "pred" : "http://www.w3.org/2000/01/rdf-schema#comment",
-          "val" : "Note that, in addition to forming the root of the cellular component ontology, this term is recommended for use for the annotation of gene products whose cellular component is unknown. Note that when this term is used for annotation, it indicates that no information was available about the cellular component of the gene product annotated as of the date the annotation was made; the evidence code ND, no data, is used to indicate this."
         } ]
       },
       "type" : "CLASS",
       "lbl" : "cellular_component"
-    }, {
-      "id" : "http://purl.obolibrary.org/obo/go-test#goslim_goa",
-      "meta" : {
-        "basicPropertyValues" : [ {
-          "pred" : "http://www.w3.org/2000/01/rdf-schema#comment",
-          "val" : "GOA and proteome slim"
-        } ]
-      }
     }, {
       "id" : "http://purl.obolibrary.org/obo/GO_0044464",
       "meta" : {
@@ -133,6 +97,7 @@
           "val" : "Any constituent part of a cell, the basic structural and functional unit of all organisms.",
           "xrefs" : [ "GOC:jl" ]
         },
+        "comments" : [ "Note that this term is in the subset of terms that should not be used for direct gene product annotation. Instead, select a child term or, if no appropriate child term exists, please request a new term. Direct annotations to this term may be amended during annotation QC." ],
         "subsets" : [ "http://purl.obolibrary.org/obo/go-test#gocheck_do_not_annotate", "http://purl.obolibrary.org/obo/go-test#goslim_pir", "http://purl.obolibrary.org/obo/go-test#gosubset_prok", "http://purl.obolibrary.org/obo/go-test#goantislim_grouping" ],
         "xrefs" : [ {
           "val" : "NIF_Subcellular:sao628508602"
@@ -147,9 +112,6 @@
           "xrefs" : [ "GOC:mah" ]
         } ],
         "basicPropertyValues" : [ {
-          "pred" : "http://www.w3.org/2000/01/rdf-schema#comment",
-          "val" : "Note that this term is in the subset of terms that should not be used for direct gene product annotation. Instead, select a child term or, if no appropriate child term exists, please request a new term. Direct annotations to this term may be amended during annotation QC."
-        }, {
           "pred" : "http://www.geneontology.org/formats/oboInOwl#hasOBONamespace",
           "val" : "cellular_component"
         } ]
@@ -179,14 +141,6 @@
     }, {
       "id" : "http://purl.obolibrary.org/obo/go-test#syngo_official_label",
       "lbl" : "label approved by the SynGO project"
-    }, {
-      "id" : "http://purl.obolibrary.org/obo/go-test#goslim_chembl",
-      "meta" : {
-        "basicPropertyValues" : [ {
-          "pred" : "http://www.w3.org/2000/01/rdf-schema#comment",
-          "val" : "ChEMBL protein targets summary"
-        } ]
-      }
     }, {
       "id" : "http://purl.obolibrary.org/obo/GO_0008372",
       "meta" : {
@@ -237,41 +191,9 @@
       "type" : "PROPERTY",
       "lbl" : "has_obo_format_version"
     }, {
-      "id" : "http://purl.obolibrary.org/obo/go-test#goslim_metagenomics",
-      "meta" : {
-        "basicPropertyValues" : [ {
-          "pred" : "http://www.w3.org/2000/01/rdf-schema#comment",
-          "val" : "Metagenomics GO slim"
-        } ]
-      }
-    }, {
       "id" : "http://purl.obolibrary.org/obo/IAO_0000115",
       "type" : "PROPERTY",
       "lbl" : "definition"
-    }, {
-      "id" : "http://purl.obolibrary.org/obo/go-test#goslim_aspergillus",
-      "meta" : {
-        "basicPropertyValues" : [ {
-          "pred" : "http://www.w3.org/2000/01/rdf-schema#comment",
-          "val" : "Aspergillus GO slim"
-        } ]
-      }
-    }, {
-      "id" : "http://purl.obolibrary.org/obo/go-test#goslim_synapse",
-      "meta" : {
-        "basicPropertyValues" : [ {
-          "pred" : "http://www.w3.org/2000/01/rdf-schema#comment",
-          "val" : "synapse GO slim"
-        } ]
-      }
-    }, {
-      "id" : "http://purl.obolibrary.org/obo/go-test#goslim_yeast",
-      "meta" : {
-        "basicPropertyValues" : [ {
-          "pred" : "http://www.w3.org/2000/01/rdf-schema#comment",
-          "val" : "Yeast GO slim"
-        } ]
-      }
     }, {
       "id" : "http://purl.obolibrary.org/obo/GO_0005622",
       "meta" : {
@@ -340,62 +262,6 @@
       "type" : "CLASS",
       "lbl" : "cell"
     }, {
-      "id" : "http://purl.obolibrary.org/obo/go-test#gosubset_prok",
-      "meta" : {
-        "basicPropertyValues" : [ {
-          "pred" : "http://www.w3.org/2000/01/rdf-schema#comment",
-          "val" : "Prokaryotic GO subset"
-        } ]
-      }
-    }, {
-      "id" : "http://purl.obolibrary.org/obo/go-test#goslim_candida",
-      "meta" : {
-        "basicPropertyValues" : [ {
-          "pred" : "http://www.w3.org/2000/01/rdf-schema#comment",
-          "val" : "Candida GO slim"
-        } ]
-      }
-    }, {
-      "id" : "http://purl.obolibrary.org/obo/go-test#termgenie_unvetted",
-      "meta" : {
-        "basicPropertyValues" : [ {
-          "pred" : "http://www.w3.org/2000/01/rdf-schema#comment",
-          "val" : "Terms created by TermGenie that do not follow a template and require additional vetting by editors"
-        } ]
-      }
-    }, {
-      "id" : "http://purl.obolibrary.org/obo/go-test#goslim_pir",
-      "meta" : {
-        "basicPropertyValues" : [ {
-          "pred" : "http://www.w3.org/2000/01/rdf-schema#comment",
-          "val" : "PIR GO slim"
-        } ]
-      }
-    }, {
-      "id" : "http://purl.obolibrary.org/obo/go-test#gocheck_do_not_annotate",
-      "meta" : {
-        "basicPropertyValues" : [ {
-          "pred" : "http://www.w3.org/2000/01/rdf-schema#comment",
-          "val" : "Term not to be used for direct annotation"
-        } ]
-      }
-    }, {
-      "id" : "http://purl.obolibrary.org/obo/go-test#gocheck_do_not_manually_annotate",
-      "meta" : {
-        "basicPropertyValues" : [ {
-          "pred" : "http://www.w3.org/2000/01/rdf-schema#comment",
-          "val" : "Term not to be used for direct manual annotation"
-        } ]
-      }
-    }, {
-      "id" : "http://purl.obolibrary.org/obo/go-test#goslim_generic",
-      "meta" : {
-        "basicPropertyValues" : [ {
-          "pred" : "http://www.w3.org/2000/01/rdf-schema#comment",
-          "val" : "Generic GO slim"
-        } ]
-      }
-    }, {
       "id" : "http://purl.obolibrary.org/obo/GO_0043227",
       "meta" : {
         "definition" : {
@@ -418,14 +284,6 @@
       },
       "type" : "CLASS",
       "lbl" : "membrane-bounded organelle"
-    }, {
-      "id" : "http://purl.obolibrary.org/obo/go-test#goantislim_grouping",
-      "meta" : {
-        "basicPropertyValues" : [ {
-          "pred" : "http://www.w3.org/2000/01/rdf-schema#comment",
-          "val" : "Grouping classes that can be excluded"
-        } ]
-      }
     }, {
       "id" : "http://purl.obolibrary.org/obo/GO_0043226",
       "meta" : {
@@ -462,14 +320,6 @@
       "type" : "CLASS",
       "lbl" : "intracellular organelle"
     }, {
-      "id" : "http://purl.obolibrary.org/obo/go-test#mf_needs_review",
-      "meta" : {
-        "basicPropertyValues" : [ {
-          "pred" : "http://www.w3.org/2000/01/rdf-schema#comment",
-          "val" : "Catalytic activity terms in need of attention"
-        } ]
-      }
-    }, {
       "id" : "http://www.geneontology.org/formats/oboInOwl#hasRelatedSynonym",
       "type" : "PROPERTY",
       "lbl" : "has_related_synonym"
@@ -485,14 +335,6 @@
       "id" : "http://www.geneontology.org/formats/oboInOwl#hasAlternativeId",
       "type" : "PROPERTY",
       "lbl" : "has_alternative_id"
-    }, {
-      "id" : "http://purl.obolibrary.org/obo/go-test#goslim_pombe",
-      "meta" : {
-        "basicPropertyValues" : [ {
-          "pred" : "http://www.w3.org/2000/01/rdf-schema#comment",
-          "val" : "Fission yeast GO slim"
-        } ]
-      }
     } ],
     "edges" : [ {
       "sub" : "http://purl.obolibrary.org/obo/GO_0043231",
