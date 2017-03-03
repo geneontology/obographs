@@ -11840,12 +11840,12 @@ graphs:
     - "http://purl.obolibrary.org/obo/BFO_0000004"
   - predicateId: "http://purl.obolibrary.org/obo/RO_0002207"
     allValuesFromEdges:
-    - sub: "http://purl.obolibrary.org/obo/CL_0000000"
-      pred: "http://purl.obolibrary.org/obo/RO_0002207"
-      obj: "http://purl.obolibrary.org/obo/CL_0000000"
     - sub: "http://purl.obolibrary.org/obo/CARO_0010000"
       pred: "http://purl.obolibrary.org/obo/RO_0002207"
       obj: "http://purl.obolibrary.org/obo/CARO_0010000"
+    - sub: "http://purl.obolibrary.org/obo/CL_0000000"
+      pred: "http://purl.obolibrary.org/obo/RO_0002207"
+      obj: "http://purl.obolibrary.org/obo/CL_0000000"
   - predicateId: "http://purl.obolibrary.org/obo/RO_0002009"
     domainClassIds:
     - "http://purl.obolibrary.org/obo/CL_0000000"
