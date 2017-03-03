@@ -32,6 +32,7 @@ import org.semanticweb.owlapi.model.OWLAnnotationAssertionAxiom;
 import org.semanticweb.owlapi.model.OWLAnnotationProperty;
 import org.semanticweb.owlapi.model.OWLAnnotationSubject;
 import org.semanticweb.owlapi.model.OWLAnnotationValue;
+import org.semanticweb.owlapi.model.OWLAnonymousIndividual;
 import org.semanticweb.owlapi.model.OWLAxiom;
 import org.semanticweb.owlapi.model.OWLClass;
 import org.semanticweb.owlapi.model.OWLClassAssertionAxiom;
@@ -63,6 +64,7 @@ import org.semanticweb.owlapi.model.OWLSubPropertyChainOfAxiom;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.github.jsonldjava.core.Context;
+import com.google.common.base.Optional;
 
 
 /**
@@ -484,7 +486,16 @@ public class FromOwl {
                         }
                         else {
                             Meta.Builder nb = getMetaBuilder(nodeMetaBuilderMap, subj);
-                            String val = v instanceof IRI ? ((IRI)v).toString() : ((OWLLiteral)v).getLiteral();
+                            String val;
+                            if (v instanceof IRI)
+                                val = ((IRI)v).toString();
+                            else if (v instanceof OWLLiteral)
+                                val = ((OWLLiteral)v).getLiteral();
+                            else if (v instanceof OWLAnonymousIndividual)
+                                val = ((OWLAnonymousIndividual)v).getID().toString();
+                            else
+                                val = null;
+                                
                             
                             BasicPropertyValue pv = new BasicPropertyValue.Builder().
                                     pred(getPropertyId(p)).
@@ -522,9 +533,12 @@ public class FromOwl {
         String version = null;
         OWLOntologyID ontId = ontology.getOntologyID();
         if (ontId != null) {
-            gid = getNodeId(ontId.getOntologyIRI().orNull());
-            if (ontId.getVersionIRI().isPresent())
-                version = getNodeId(ontId.getVersionIRI().orNull());
+            Optional<IRI> iri = ontId.getOntologyIRI();
+            if (iri.isPresent()) {
+                gid = getNodeId(iri.orNull());
+                if (ontId.getVersionIRI().isPresent())
+                    version = getNodeId(ontId.getVersionIRI().orNull());
+            }
         }
 
         Meta meta = getAnnotations(ontology.getAnnotations(), version);
@@ -723,7 +737,7 @@ public class FromOwl {
         if (owlIndividual instanceof OWLNamedIndividual)
             return owlIndividual.asOWLNamedIndividual().getIRI().toString();
         else
-            return owlIndividual.asOWLAnonymousIndividual().getID().toString(); // TODO - documet blank nodes
+            return owlIndividual.asOWLAnonymousIndividual().getID().toString(); // TODO - document blank nodes
     }
 
     /**
