@@ -60,8 +60,6 @@ public class Meta {
         return definition;
     }
 
-
-
     /**
      * @return the comments
      */
@@ -81,7 +79,6 @@ public class Meta {
         return xrefs.stream().map( x -> x.getVal()).collect(Collectors.toList());
     }
 
-
     /**
      * @return the subsets
      */
@@ -89,13 +86,12 @@ public class Meta {
         return subsets;
     }
 
-
-
-
-
-
-
-
+    /**
+     * @return the deprecated
+     */
+    public Boolean getDeprecated() {
+        return deprecated;
+    }
 
     /**
      * @return the synonymPropertyValues
@@ -104,22 +100,12 @@ public class Meta {
         return synonyms;
     }
 
-
-
-
-
-
-
-
-
     /**
      * @return the basicPropertyValues
      */
     public List<BasicPropertyValue> getBasicPropertyValues() {
         return basicPropertyValues;
     }
-
-
 
     /**
      * this is typically only set for meta objects at the level of a graph/ontology
