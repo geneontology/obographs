@@ -193,7 +193,8 @@ public class FromOwl {
                     }
 
                     if (subj != null) {
-
+                        // It is obvious that the subj is a named class, 
+                        // at this point, thus we added it into nodeTypeMap.
                         setNodeType(subj, RDFTYPES.CLASS, nodeTypeMap);
 
                         if (supc.isAnonymous()) {
@@ -225,8 +226,13 @@ public class FromOwl {
                             }
                         }
                         else {
-                            edges.add(getEdge(subj, SUBCLASS_OF, getClassId((OWLClass) supc)));
+                            // It is also obvious that the obj (supc) is a named class
+                            // at this point, thus we added it into nodeTypeMap as well.
+                            String obj = null;
+                            obj = getClassId((OWLClass) supc);
+                            setNodeType(obj, RDFTYPES.CLASS, nodeTypeMap);
 
+                            edges.add(getEdge(subj, SUBCLASS_OF, getClassId((OWLClass) supc)));
                         }
                     }
                     else {
