@@ -232,7 +232,7 @@ public class FromOwl {
                             obj = getClassId((OWLClass) supc);
                             setNodeType(obj, RDFTYPES.CLASS, nodeTypeMap);
 
-                            edges.add(getEdge(subj, SUBCLASS_OF, getClassId((OWLClass) supc)));
+                            edges.add(getEdge(subj, SUBCLASS_OF, obj));
                         }
                     }
                     else {
