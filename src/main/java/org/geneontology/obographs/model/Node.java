@@ -62,13 +62,20 @@ public class Node implements NodeOrEdge {
 
 
 	/**
+     * @return the type
+     */
+    public RDFTYPES getType() {
+        return type;
+    }
+
+
+
+    /**
 	 * @return the meta
 	 */
 	public Meta getMeta() {
 		return meta;
 	}
-
-
 
 	public static class Builder {
 

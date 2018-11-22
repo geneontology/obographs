@@ -33,7 +33,7 @@ relationships like `forelimb SubClassOf limb`:
 Additional optional fields allow increased expressivity, without
 adding complexity to the core.
 
-For more examples, see [examples/](examples)
+For more examples, see [examples/](examples) in this repo - or for real-world examples, [this drive](https://drive.google.com/drive/u/0/folders/0B8kRPmmvPJU3blBSQXZSb0tyaDA). Soon we hope to have this incorporated into release tools and visible at standard PURLs.
 
 For the JSON Schema, see the [schema/](schema) folder
 
@@ -60,7 +60,7 @@ their own assumptions (e.g. BRAIN).
 ## Overview
 
 OBO Graphs (OGs) are a graph-oriented way of representing ontologies
-or portions of ontologies in a developer-friendly JSON (or YAML). A
+or portions of ontologies in a developer-friendly JSON (or YAML) format. A
 typical consumer may be a Python developer using ontologies to enhance
 an analysis tool, database search/infrastructure etc.
 
@@ -82,14 +82,15 @@ The basic form is:
 "graphs": [
   {
      "nodes" : [...],
-     "edges" : [...],
+     "edges" : [
+     ],
   },
   ...
 ]
 ```
 
-Here is an example of a subgraph of Uberon consisting of two nodes and one
-part-of edge:
+Here is an example of a subgraph of Uberon consisting of four nodes, two 
+part-of and two is_a edges:
 
 
 ```
@@ -199,7 +200,12 @@ Currently two axiom patterns are defined:
 
 Note that these do not necessarily correspond 1:1 to OWL axiom
 types. The two above are different forms of equivalent classes axiom,
-the former suited to cases where we have multiple ontologies with overlapping
+the former suited to cases where we have multiple ontologies with the same
+concept represented using a different URI in each (for example, a DOID:nnn
+URI and a Orphanet:nnn URI with a direct equivalence axiom between them).
+
+The latter is for so called 'cross-product' or 'genus-differentia' definitions
+found in most well-behaved bio-ontologies.
 
 See [README-owlmapping.md](README-owlmapping.md) for mor details
 

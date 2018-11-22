@@ -40,6 +40,7 @@ public class Meta {
         xrefs = builder.xrefs;
         basicPropertyValues = builder.basicPropertyValues;
         version = builder.version;
+        deprecated = builder.deprecated;
     }
 
     @JsonProperty private final DefinitionPropertyValue definition;
@@ -49,6 +50,7 @@ public class Meta {
     @JsonProperty private final List<SynonymPropertyValue> synonyms;
     @JsonProperty private final List<BasicPropertyValue> basicPropertyValues;
     @JsonProperty private final String version;
+    @JsonProperty private final Boolean deprecated;
 
 
     /**
@@ -119,10 +121,14 @@ public class Meta {
 
 
 
-
-
-
-
+    /**
+     * this is typically only set for meta objects at the level of a graph/ontology
+     * 
+     * @return the version
+     */
+    public String getVersion() {
+        return version;
+    }
 
 
     public static class Builder {
@@ -141,6 +147,8 @@ public class Meta {
         public List<XrefPropertyValue> xrefs;
         @JsonProperty
         public String version;
+        @JsonProperty
+        public Boolean deprecated;
         
 
         public Builder definition(DefinitionPropertyValue definition) {
@@ -175,6 +183,13 @@ public class Meta {
             this.basicPropertyValues = basicPropertyValues;
             return this;
         }
+        public Builder addBasicPropertyValue(BasicPropertyValue pv) {
+            if (this.basicPropertyValues == null)
+                this.basicPropertyValues = new ArrayList<>();
+            this.basicPropertyValues.add(pv);
+            return this;         
+        }
+ 
         public Builder synonyms(List<SynonymPropertyValue> synonyms) {
             this.synonyms = synonyms;
             return this;
@@ -191,6 +206,12 @@ public class Meta {
             this.xrefs.add(xref);
             return this; 
         }
+        public Builder addComment(String comment) {
+            if (this.comments == null)
+                this.comments = new ArrayList<>();
+            this.comments.add(comment);
+            return this; 
+        }
 
         public Builder xrefs(List<XrefPropertyValue> xrefs) {
             this.xrefs = xrefs;
@@ -199,6 +220,11 @@ public class Meta {
 
         public Builder version(String version) {
             this.version = version;
+            return this;
+        }
+
+        public Builder deprecated(Boolean deprecated) {
+            this.deprecated = deprecated;
             return this;
         }
 

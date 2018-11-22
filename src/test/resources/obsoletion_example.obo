@@ -1,0 +1,20 @@
+ontology: obsoletion_example
+
+[Term]
+id: X:1
+name: x1
+namespace: x
+
+[Term]
+id: X:2
+name: obsolete x2
+is_obsolete: true
+replaced_by: X:1
+namespace: x
+
+[Term]
+id: Y:1
+name: y1
+alt_id: Y:2
+namespace: y
+

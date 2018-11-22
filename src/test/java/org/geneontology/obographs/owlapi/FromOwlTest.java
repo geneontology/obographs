@@ -21,6 +21,12 @@ import org.semanticweb.owlapi.model.OWLOntologyManagerFactory;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 
+/**
+ * TODO - this test generates json from OWL but does not actually test the content returned
+ * 
+ * @author cjm
+ *
+ */
 public class FromOwlTest {
 
     @Test

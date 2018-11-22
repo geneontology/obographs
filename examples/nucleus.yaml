@@ -15,14 +15,14 @@ graphs:
         xrefs:
         - "GOC:go_curators"
       subsets:
-      - "http://purl.obolibrary.org/obo/go/subsets/nucleus#goslim_chembl"
-      - "http://purl.obolibrary.org/obo/go/subsets/nucleus#goslim_generic"
-      - "http://purl.obolibrary.org/obo/go/subsets/nucleus#goslim_pir"
-      - "http://purl.obolibrary.org/obo/go/subsets/nucleus#goslim_candida"
-      - "http://purl.obolibrary.org/obo/go/subsets/nucleus#goslim_yeast"
-      - "http://purl.obolibrary.org/obo/go/subsets/nucleus#goslim_plant"
-      - "http://purl.obolibrary.org/obo/go/subsets/nucleus#goslim_metagenomics"
-      - "http://purl.obolibrary.org/obo/go/subsets/nucleus#goslim_aspergillus"
+      - "http://purl.obolibrary.org/obo/go-test#goslim_aspergillus"
+      - "http://purl.obolibrary.org/obo/go-test#goslim_pir"
+      - "http://purl.obolibrary.org/obo/go-test#goslim_candida"
+      - "http://purl.obolibrary.org/obo/go-test#goslim_metagenomics"
+      - "http://purl.obolibrary.org/obo/go-test#goslim_yeast"
+      - "http://purl.obolibrary.org/obo/go-test#goslim_generic"
+      - "http://purl.obolibrary.org/obo/go-test#goslim_plant"
+      - "http://purl.obolibrary.org/obo/go-test#goslim_chembl"
       xrefs:
       - val: "Wikipedia:Cell_nucleus"
       - val: "NIF_Subcellular:sao1702920020"
@@ -30,6 +30,9 @@ graphs:
       - pred: "hasExactSynonym"
         val: "cell nucleus"
         xrefs: []
+      basicPropertyValues:
+      - pred: "http://www.geneontology.org/formats/oboInOwl#hasOBONamespace"
+        val: "cellular_component"
     type: "CLASS"
     lbl: "nucleus"
   - id: "http://www.geneontology.org/formats/oboInOwl#hasSynonymType"
@@ -38,6 +41,29 @@ graphs:
   - id: "http://www.geneontology.org/formats/oboInOwl#hasDbXref"
     type: "PROPERTY"
     lbl: "database_cross_reference"
+  - id: "http://purl.obolibrary.org/obo/GO_0044424"
+    meta:
+      definition:
+        val: "Any constituent part of the living contents of a cell; the matter contained\
+          \ within (but not including) the plasma membrane, usually taken to exclude\
+          \ large vacuoles and masses of secretory or ingested material. In eukaryotes\
+          \ it includes the nucleus and cytoplasm."
+        xrefs:
+        - "GOC:jl"
+      comments:
+      - "Note that this term is in the subset of terms that should not be used for\
+        \ direct gene product annotation. Instead, select a child term or, if no appropriate\
+        \ child term exists, please request a new term. Direct annotations to this\
+        \ term may be amended during annotation QC."
+      subsets:
+      - "http://purl.obolibrary.org/obo/go-test#gocheck_do_not_annotate"
+      - "http://purl.obolibrary.org/obo/go-test#gosubset_prok"
+      - "http://purl.obolibrary.org/obo/go-test#goantislim_grouping"
+      basicPropertyValues:
+      - pred: "http://www.geneontology.org/formats/oboInOwl#hasOBONamespace"
+        val: "cellular_component"
+    type: "CLASS"
+    lbl: "intracellular part"
   - id: "http://purl.obolibrary.org/obo/GO_0005575"
     meta:
       definition:
@@ -49,16 +75,23 @@ graphs:
         xrefs:
         - "GOC:go_curators"
         - "NIF_Subcellular:sao-1337158144"
+      comments:
+      - "Note that, in addition to forming the root of the cellular component ontology,\
+        \ this term is recommended for use for the annotation of gene products whose\
+        \ cellular component is unknown. Note that when this term is used for annotation,\
+        \ it indicates that no information was available about the cellular component\
+        \ of the gene product annotated as of the date the annotation was made; the\
+        \ evidence code ND, no data, is used to indicate this."
       subsets:
-      - "http://purl.obolibrary.org/obo/go/subsets/nucleus#goslim_candida"
-      - "http://purl.obolibrary.org/obo/go/subsets/nucleus#goslim_plant"
-      - "http://purl.obolibrary.org/obo/go/subsets/nucleus#goslim_metagenomics"
-      - "http://purl.obolibrary.org/obo/go/subsets/nucleus#goslim_pir"
-      - "http://purl.obolibrary.org/obo/go/subsets/nucleus#gosubset_prok"
-      - "http://purl.obolibrary.org/obo/go/subsets/nucleus#goslim_yeast"
-      - "http://purl.obolibrary.org/obo/go/subsets/nucleus#goslim_generic"
-      - "http://purl.obolibrary.org/obo/go/subsets/nucleus#goslim_chembl"
-      - "http://purl.obolibrary.org/obo/go/subsets/nucleus#goslim_aspergillus"
+      - "http://purl.obolibrary.org/obo/go-test#goslim_metagenomics"
+      - "http://purl.obolibrary.org/obo/go-test#goslim_candida"
+      - "http://purl.obolibrary.org/obo/go-test#goslim_yeast"
+      - "http://purl.obolibrary.org/obo/go-test#goslim_chembl"
+      - "http://purl.obolibrary.org/obo/go-test#goslim_aspergillus"
+      - "http://purl.obolibrary.org/obo/go-test#goslim_pir"
+      - "http://purl.obolibrary.org/obo/go-test#gosubset_prok"
+      - "http://purl.obolibrary.org/obo/go-test#goslim_generic"
+      - "http://purl.obolibrary.org/obo/go-test#goslim_plant"
       xrefs:
       - val: "NIF_Subcellular:sao1337158144"
       - val: "NIF_Subcellular:sao-1337158144"
@@ -73,23 +106,13 @@ graphs:
       - pred: "hasExactSynonym"
         val: "cell or subcellular entity"
         xrefs: []
+      basicPropertyValues:
+      - pred: "http://www.geneontology.org/formats/oboInOwl#hasAlternativeId"
+        val: "GO:0008372"
+      - pred: "http://www.geneontology.org/formats/oboInOwl#hasOBONamespace"
+        val: "cellular_component"
     type: "CLASS"
     lbl: "cellular_component"
-  - id: "http://purl.obolibrary.org/obo/GO_0044424"
-    meta:
-      definition:
-        val: "Any constituent part of the living contents of a cell; the matter contained\
-          \ within (but not including) the plasma membrane, usually taken to exclude\
-          \ large vacuoles and masses of secretory or ingested material. In eukaryotes\
-          \ it includes the nucleus and cytoplasm."
-        xrefs:
-        - "GOC:jl"
-      subsets:
-      - "http://purl.obolibrary.org/obo/go/subsets/nucleus#gosubset_prok"
-      - "http://purl.obolibrary.org/obo/go/subsets/nucleus#goantislim_grouping"
-      - "http://purl.obolibrary.org/obo/go/subsets/nucleus#gocheck_do_not_annotate"
-    type: "CLASS"
-    lbl: "intracellular part"
   - id: "http://purl.obolibrary.org/obo/GO_0044464"
     meta:
       definition:
@@ -97,11 +120,16 @@ graphs:
           \ unit of all organisms."
         xrefs:
         - "GOC:jl"
+      comments:
+      - "Note that this term is in the subset of terms that should not be used for\
+        \ direct gene product annotation. Instead, select a child term or, if no appropriate\
+        \ child term exists, please request a new term. Direct annotations to this\
+        \ term may be amended during annotation QC."
       subsets:
-      - "http://purl.obolibrary.org/obo/go/subsets/nucleus#goantislim_grouping"
-      - "http://purl.obolibrary.org/obo/go/subsets/nucleus#gosubset_prok"
-      - "http://purl.obolibrary.org/obo/go/subsets/nucleus#goslim_pir"
-      - "http://purl.obolibrary.org/obo/go/subsets/nucleus#gocheck_do_not_annotate"
+      - "http://purl.obolibrary.org/obo/go-test#gocheck_do_not_annotate"
+      - "http://purl.obolibrary.org/obo/go-test#goslim_pir"
+      - "http://purl.obolibrary.org/obo/go-test#gosubset_prok"
+      - "http://purl.obolibrary.org/obo/go-test#goantislim_grouping"
       xrefs:
       - val: "NIF_Subcellular:sao628508602"
       synonyms:
@@ -113,6 +141,9 @@ graphs:
         val: "protoplast"
         xrefs:
         - "GOC:mah"
+      basicPropertyValues:
+      - pred: "http://www.geneontology.org/formats/oboInOwl#hasOBONamespace"
+        val: "cellular_component"
     type: "CLASS"
     lbl: "cell part"
   - id: "http://purl.obolibrary.org/obo/GO_0043231"
@@ -125,14 +156,28 @@ graphs:
         xrefs:
         - "GOC:go_curators"
       subsets:
-      - "http://purl.obolibrary.org/obo/go/subsets/nucleus#goslim_pir"
-      - "http://purl.obolibrary.org/obo/go/subsets/nucleus#gosubset_prok"
+      - "http://purl.obolibrary.org/obo/go-test#gosubset_prok"
+      - "http://purl.obolibrary.org/obo/go-test#goslim_pir"
       synonyms:
       - pred: "hasExactSynonym"
         val: "intracellular membrane-enclosed organelle"
         xrefs: []
+      basicPropertyValues:
+      - pred: "http://www.geneontology.org/formats/oboInOwl#hasOBONamespace"
+        val: "cellular_component"
     type: "CLASS"
     lbl: "intracellular membrane-bounded organelle"
+  - id: "http://purl.obolibrary.org/obo/go-test#syngo_official_label"
+    lbl: "label approved by the SynGO project"
+  - id: "http://purl.obolibrary.org/obo/GO_0008372"
+    meta:
+      basicPropertyValues:
+      - pred: "http://purl.obolibrary.org/obo/IAO_0100001"
+        val: "http://purl.obolibrary.org/obo/GO_0005575"
+      - pred: "http://purl.obolibrary.org/obo/IAO_0000231"
+        val: "http://purl.obolibrary.org/obo/IAO_0000227"
+      deprecated: true
+    type: "CLASS"
   - id: "http://www.geneontology.org/formats/oboInOwl#SynonymTypeProperty"
     type: "PROPERTY"
     lbl: "synonym_type_property"
@@ -140,6 +185,11 @@ graphs:
     meta:
       xrefs:
       - val: "BFO:0000050"
+      basicPropertyValues:
+      - pred: "http://www.geneontology.org/formats/oboInOwl#shorthand"
+        val: "part_of"
+      - pred: "http://www.geneontology.org/formats/oboInOwl#hasOBONamespace"
+        val: "external"
     type: "PROPERTY"
     lbl: "part of"
   - id: "http://www.geneontology.org/formats/oboInOwl#shorthand"
@@ -154,8 +204,6 @@ graphs:
   - id: "http://www.geneontology.org/formats/oboInOwl#hasOBOFormatVersion"
     type: "PROPERTY"
     lbl: "has_obo_format_version"
-  - id: "http://purl.obolibrary.org/obo/go/subsets/nucleus#syngo_official_label"
-    lbl: "label approved by the SynGO project"
   - id: "http://purl.obolibrary.org/obo/IAO_0000115"
     type: "PROPERTY"
     lbl: "definition"
@@ -169,12 +217,12 @@ graphs:
         xrefs:
         - "ISBN:0198506732"
       subsets:
-      - "http://purl.obolibrary.org/obo/go/subsets/nucleus#goslim_chembl"
-      - "http://purl.obolibrary.org/obo/go/subsets/nucleus#goslim_pir"
-      - "http://purl.obolibrary.org/obo/go/subsets/nucleus#goslim_metagenomics"
-      - "http://purl.obolibrary.org/obo/go/subsets/nucleus#gosubset_prok"
-      - "http://purl.obolibrary.org/obo/go/subsets/nucleus#goslim_generic"
-      - "http://purl.obolibrary.org/obo/go/subsets/nucleus#goslim_plant"
+      - "http://purl.obolibrary.org/obo/go-test#goslim_plant"
+      - "http://purl.obolibrary.org/obo/go-test#goslim_chembl"
+      - "http://purl.obolibrary.org/obo/go-test#gosubset_prok"
+      - "http://purl.obolibrary.org/obo/go-test#goslim_generic"
+      - "http://purl.obolibrary.org/obo/go-test#goslim_metagenomics"
+      - "http://purl.obolibrary.org/obo/go-test#goslim_pir"
       xrefs:
       - val: "Wikipedia:Intracellular"
       synonyms:
@@ -192,8 +240,17 @@ graphs:
       - pred: "hasExactSynonym"
         val: "protoplasm"
         xrefs: []
+      basicPropertyValues:
+      - pred: "http://www.geneontology.org/formats/oboInOwl#hasOBONamespace"
+        val: "cellular_component"
     type: "CLASS"
     lbl: "intracellular"
+  - id: "http://purl.obolibrary.org/obo/go-test#systematic_synonym"
+    meta:
+      basicPropertyValues:
+      - pred: "http://www.geneontology.org/formats/oboInOwl#hasScope"
+        val: "http://www.geneontology.org/formats/oboInOwl#hasExactSynonym"
+    lbl: "Systematic synonym"
   - id: "http://purl.obolibrary.org/obo/GO_0005623"
     meta:
       definition:
@@ -203,17 +260,20 @@ graphs:
         xrefs:
         - "GOC:go_curators"
       subsets:
-      - "http://purl.obolibrary.org/obo/go/subsets/nucleus#gosubset_prok"
-      - "http://purl.obolibrary.org/obo/go/subsets/nucleus#goslim_generic"
-      - "http://purl.obolibrary.org/obo/go/subsets/nucleus#goslim_plant"
-      - "http://purl.obolibrary.org/obo/go/subsets/nucleus#goslim_chembl"
+      - "http://purl.obolibrary.org/obo/go-test#goslim_chembl"
+      - "http://purl.obolibrary.org/obo/go-test#gosubset_prok"
+      - "http://purl.obolibrary.org/obo/go-test#goslim_plant"
+      - "http://purl.obolibrary.org/obo/go-test#goslim_generic"
       xrefs:
       - val: "Wikipedia:Cell_(biology)"
       - val: "NIF_Subcellular:sao1813327414"
+      basicPropertyValues:
+      - pred: "http://purl.obolibrary.org/obo/IAO_0000589"
+        val: "cell and encapsulating structures"
+      - pred: "http://www.geneontology.org/formats/oboInOwl#hasOBONamespace"
+        val: "cellular_component"
     type: "CLASS"
     lbl: "cell"
-  - id: "http://purl.obolibrary.org/obo/go/subsets/nucleus#systematic_synonym"
-    lbl: "Systematic synonym"
   - id: "http://purl.obolibrary.org/obo/GO_0043227"
     meta:
       definition:
@@ -223,13 +283,16 @@ graphs:
         xrefs:
         - "GOC:go_curators"
       subsets:
-      - "http://purl.obolibrary.org/obo/go/subsets/nucleus#gosubset_prok"
+      - "http://purl.obolibrary.org/obo/go-test#gosubset_prok"
       xrefs:
       - val: "NIF_Subcellular:sao414196390"
       synonyms:
       - pred: "hasExactSynonym"
         val: "membrane-enclosed organelle"
         xrefs: []
+      basicPropertyValues:
+      - pred: "http://www.geneontology.org/formats/oboInOwl#hasOBONamespace"
+        val: "cellular_component"
     type: "CLASS"
     lbl: "membrane-bounded organelle"
   - id: "http://purl.obolibrary.org/obo/GO_0043226"
@@ -242,13 +305,16 @@ graphs:
         xrefs:
         - "GOC:go_curators"
       subsets:
-      - "http://purl.obolibrary.org/obo/go/subsets/nucleus#goslim_pir"
-      - "http://purl.obolibrary.org/obo/go/subsets/nucleus#gosubset_prok"
-      - "http://purl.obolibrary.org/obo/go/subsets/nucleus#goslim_generic"
-      - "http://purl.obolibrary.org/obo/go/subsets/nucleus#goslim_chembl"
+      - "http://purl.obolibrary.org/obo/go-test#gosubset_prok"
+      - "http://purl.obolibrary.org/obo/go-test#goslim_generic"
+      - "http://purl.obolibrary.org/obo/go-test#goslim_pir"
+      - "http://purl.obolibrary.org/obo/go-test#goslim_chembl"
       xrefs:
       - val: "NIF_Subcellular:sao1539965131"
       - val: "Wikipedia:Organelle"
+      basicPropertyValues:
+      - pred: "http://www.geneontology.org/formats/oboInOwl#hasOBONamespace"
+        val: "cellular_component"
     type: "CLASS"
     lbl: "organelle"
   - id: "http://purl.obolibrary.org/obo/GO_0043229"
@@ -260,8 +326,11 @@ graphs:
         xrefs:
         - "GOC:go_curators"
       subsets:
-      - "http://purl.obolibrary.org/obo/go/subsets/nucleus#gosubset_prok"
-      - "http://purl.obolibrary.org/obo/go/subsets/nucleus#goslim_pir"
+      - "http://purl.obolibrary.org/obo/go-test#gosubset_prok"
+      - "http://purl.obolibrary.org/obo/go-test#goslim_pir"
+      basicPropertyValues:
+      - pred: "http://www.geneontology.org/formats/oboInOwl#hasOBONamespace"
+        val: "cellular_component"
     type: "CLASS"
     lbl: "intracellular organelle"
   - id: "http://www.geneontology.org/formats/oboInOwl#hasRelatedSynonym"
@@ -283,9 +352,6 @@ graphs:
   - sub: "http://purl.obolibrary.org/obo/GO_0005623"
     pred: "is_a"
     obj: "http://purl.obolibrary.org/obo/GO_0005575"
-  - sub: "http://purl.obolibrary.org/obo/BFO_0000050"
-    pred: "inverseOf"
-    obj: "http://purl.obolibrary.org/obo/go/subsets/nucleus#has_part"
   - sub: "http://purl.obolibrary.org/obo/GO_0005622"
     pred: "is_a"
     obj: "http://purl.obolibrary.org/obo/GO_0044464"
@@ -298,6 +364,9 @@ graphs:
   - sub: "http://purl.obolibrary.org/obo/GO_0043231"
     pred: "is_a"
     obj: "http://purl.obolibrary.org/obo/GO_0043227"
+  - sub: "http://purl.obolibrary.org/obo/BFO_0000050"
+    pred: "inverseOf"
+    obj: "http://purl.obolibrary.org/obo/go-test#has_part"
   - sub: "http://purl.obolibrary.org/obo/GO_0044424"
     pred: "http://purl.obolibrary.org/obo/BFO_0000050"
     obj: "http://purl.obolibrary.org/obo/GO_0005622"
@@ -319,13 +388,14 @@ graphs:
   - sub: "http://purl.obolibrary.org/obo/GO_0044464"
     pred: "is_a"
     obj: "http://purl.obolibrary.org/obo/GO_0005575"
-  id: "http://purl.obolibrary.org/obo/go/subsets/nucleus.owl"
+  id: "http://purl.obolibrary.org/obo/go-test.owl"
   meta:
     subsets: []
     xrefs: []
     basicPropertyValues:
     - pred: "http://www.geneontology.org/formats/oboInOwl#hasOBOFormatVersion"
       val: "1.2"
+    version: "http://purl.obolibrary.org/obo/go-test/releases/2016-10-22/go-test.owl"
   equivalentNodesSets: []
   logicalDefinitionAxioms:
   - definedClassId: "http://purl.obolibrary.org/obo/GO_0044464"

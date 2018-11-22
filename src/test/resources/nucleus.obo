@@ -1,5 +1,6 @@
 format-version: 1.2
-ontology: go/subsets/nucleus
+ontology: go-test
+data-version: releases/2016-10-22
 subsetdef: goantislim_grouping "Grouping classes that can be excluded"
 subsetdef: gocheck_do_not_annotate "Term not to be used for direct annotation"
 subsetdef: gocheck_do_not_manually_annotate "Term not to be used for direct manual annotation"

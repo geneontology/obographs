@@ -32,6 +32,7 @@ import org.semanticweb.owlapi.model.OWLAnnotationAssertionAxiom;
 import org.semanticweb.owlapi.model.OWLAnnotationProperty;
 import org.semanticweb.owlapi.model.OWLAnnotationSubject;
 import org.semanticweb.owlapi.model.OWLAnnotationValue;
+import org.semanticweb.owlapi.model.OWLAnonymousIndividual;
 import org.semanticweb.owlapi.model.OWLAxiom;
 import org.semanticweb.owlapi.model.OWLClass;
 import org.semanticweb.owlapi.model.OWLClassAssertionAxiom;
@@ -60,9 +61,11 @@ import org.semanticweb.owlapi.model.OWLPropertyExpression;
 import org.semanticweb.owlapi.model.OWLSubClassOfAxiom;
 import org.semanticweb.owlapi.model.OWLSubObjectPropertyOfAxiom;
 import org.semanticweb.owlapi.model.OWLSubPropertyChainOfAxiom;
+import org.semanticweb.owlapi.vocab.OWLRDFVocabulary;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.github.jsonldjava.core.Context;
+import com.google.common.base.Optional;
 
 
 /**
@@ -427,7 +430,7 @@ public class FromOwl {
                                         xrefs(meta.getXrefsValues()).
                                         build();
 
-                                Meta.Builder nb = put(nodeMetaBuilderMap, subj);
+                                Meta.Builder nb = getMetaBuilder(nodeMetaBuilderMap, subj);
                                 nb.definition(def);
                                 nodeIds.add(subj);
                             }
@@ -439,16 +442,31 @@ public class FromOwl {
                                         new XrefPropertyValue.Builder().
                                         val(lv).build();
 
-                                Meta.Builder nb = put(nodeMetaBuilderMap, subj);
+                                Meta.Builder nb = getMetaBuilder(nodeMetaBuilderMap, subj);
                                 nb.addXref(xref);
                                 nodeIds.add(subj);
                             }
 
                         }
+                        else if (p.isDeprecated()) {
+                            if (aaa.isDeprecatedIRIAssertion()) {
+                                Meta.Builder nb = getMetaBuilder(nodeMetaBuilderMap, subj);
+                                nb.deprecated(true);
+                            }
+                        }
+                        else if (p.isComment()) {
+                            Meta.Builder nb = getMetaBuilder(nodeMetaBuilderMap, subj);
+                            nb.addComment(lv.toString());                         
+                        }
+                        else if (isOboInOwlIdProperty(pIRI)) {
+
+                            // skip
+
+                        }
                         else if (isInSubsetProperty(pIRI)) {
 
 
-                            Meta.Builder nb = put(nodeMetaBuilderMap, subj);
+                            Meta.Builder nb = getMetaBuilder(nodeMetaBuilderMap, subj);
                             nb.addSubset(v.toString());
                             nodeIds.add(subj);
 
@@ -462,13 +480,31 @@ public class FromOwl {
                                         val(lv).
                                         xrefs(meta.getXrefsValues()).
                                         build();
-                                Meta.Builder nb = put(nodeMetaBuilderMap, subj);
+                                Meta.Builder nb = getMetaBuilder(nodeMetaBuilderMap, subj);
                                 nb.addSynonym(syn);
                                 nodeIds.add(subj);
                             }
                         }
                         else {
-                            untranslatedAxioms.add(aaa);
+                            Meta.Builder nb = getMetaBuilder(nodeMetaBuilderMap, subj);
+                            String val;
+                            if (v instanceof IRI)
+                                val = ((IRI)v).toString();
+                            else if (v instanceof OWLLiteral)
+                                val = ((OWLLiteral)v).getLiteral();
+                            else if (v instanceof OWLAnonymousIndividual)
+                                val = ((OWLAnonymousIndividual)v).getID().toString();
+                            else
+                                val = null;
+                                
+                            
+                            BasicPropertyValue pv = new BasicPropertyValue.Builder().
+                                    pred(getPropertyId(p)).
+                                    val(val).
+                                    build();
+                            
+                            nb.addBasicPropertyValue(pv);
+                            nodeIds.add(subj);
                         }
 
                     }
@@ -498,11 +534,15 @@ public class FromOwl {
         String version = null;
         OWLOntologyID ontId = ontology.getOntologyID();
         if (ontId != null) {
-            gid = getNodeId(ontId.getOntologyIRI().orNull());
-            //version = ontId.getVersionIRI().orNull().toString();
+            Optional<IRI> iri = ontId.getOntologyIRI();
+            if (iri.isPresent()) {
+                gid = getNodeId(iri.orNull());
+                if (ontId.getVersionIRI().isPresent())
+                    version = getNodeId(ontId.getVersionIRI().orNull());
+            }
         }
 
-        Meta meta = getAnnotations(ontology.getAnnotations());
+        Meta meta = getAnnotations(ontology.getAnnotations(), version);
         List<DomainRangeAxiom> domainRangeAxioms = 
                 domainRangeBuilderMap.values().stream().map(b -> b.build()).collect(Collectors.toList());
         return new Graph.Builder().
@@ -568,7 +608,7 @@ public class FromOwl {
         nodeTypeMap.put(id, t);
     }
 
-    private Meta.Builder put(Map<String, Meta.Builder> nodeMetaBuilderMap, String id) {
+    private Meta.Builder getMetaBuilder(Map<String, Meta.Builder> nodeMetaBuilderMap, String id) {
         if (!nodeMetaBuilderMap.containsKey(id))
             nodeMetaBuilderMap.put(id, new Meta.Builder());
         return nodeMetaBuilderMap.get(id);
@@ -584,14 +624,23 @@ public class FromOwl {
         return(getAnnotations(ax.getAnnotations()));
     }
     private Meta getAnnotations(Set<OWLAnnotation> anns) {
+        return getAnnotations(anns, null);
+    }
+    private Meta getAnnotations(Set<OWLAnnotation> anns, String version) {
+            
         List<XrefPropertyValue> xrefs = new ArrayList<>();
         List<BasicPropertyValue> bpvs = new ArrayList<>();
         List<String> inSubsets = new ArrayList<>();
+        boolean isDeprecated = false;
         for (OWLAnnotation ann : anns) {
             OWLAnnotationProperty p = ann.getProperty();
+           
             OWLAnnotationValue v = ann.getValue();
             String val = v instanceof IRI ? ((IRI)v).toString() : ((OWLLiteral)v).getLiteral();
-            if (isHasXrefProperty(p.getIRI())) {
+            if (ann.isDeprecatedIRIAnnotation()) {
+                isDeprecated = true;
+            }
+            else if (isHasXrefProperty(p.getIRI())) {
                 xrefs.add(new XrefPropertyValue.Builder().val(val).build());
             }
             else if (isInSubsetProperty(p.getIRI())) {
@@ -607,11 +656,18 @@ public class FromOwl {
                         build());
             }
         }
-        return new Meta.Builder().
-                basicPropertyValues(bpvs).
+        org.geneontology.obographs.model.Meta.Builder b = new Meta.Builder();
+        if (version != null) {
+            b.version(version);
+        }
+        Meta.Builder builder = 
+                b.basicPropertyValues(bpvs).
                 subsets(inSubsets).
-                xrefs(xrefs).
-                build();
+                xrefs(xrefs);
+        if (isDeprecated)
+            builder.deprecated(true);
+        
+        return builder.build();
     }
 
     private Edge getEdge(String subj, String pred, String obj) {
@@ -682,9 +738,15 @@ public class FromOwl {
         if (owlIndividual instanceof OWLNamedIndividual)
             return owlIndividual.asOWLNamedIndividual().getIRI().toString();
         else
-            return owlIndividual.asOWLAnonymousIndividual().getID().toString(); // TODO - documet blank nodes
+            return owlIndividual.asOWLAnonymousIndividual().getID().toString(); // TODO - document blank nodes
     }
 
+    /**
+     * TODO: optionally compact the IRI using a prefix map
+     * 
+     * @param s
+     * @return Id or IRI
+     */
     private String getNodeId(IRI s) {
         return s.toString();
     }
@@ -704,4 +766,9 @@ public class FromOwl {
     public boolean isHasSynonymTypeProperty(IRI iri) {
         return iri.toString().equals("http://www.geneontology.org/formats/oboInOwl#hasSynonymType");
     }
+    
+    public boolean isOboInOwlIdProperty(IRI iri) {
+        return iri.toString().equals("http://www.geneontology.org/formats/oboInOwl#id");
+    }
+
 }

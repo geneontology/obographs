@@ -11,6 +11,9 @@ graphs:
     meta:
       xrefs:
       - val: "BFO:0000050"
+      basicPropertyValues:
+      - pred: "http://www.geneontology.org/formats/oboInOwl#shorthand"
+        val: "part_of"
     type: "PROPERTY"
   - id: "http://www.geneontology.org/formats/oboInOwl#hasDbXref"
     type: "PROPERTY"

@@ -116,6 +116,9 @@
     },
     "version" : {
       "type" : "string"
+    },
+    "deprecated" : {
+      "type" : "boolean"
     }
   }
 }
