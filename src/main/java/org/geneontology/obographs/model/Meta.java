@@ -1,18 +1,13 @@
 package org.geneontology.obographs.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import org.geneontology.obographs.model.meta.*;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
-
-import org.geneontology.obographs.model.meta.BasicPropertyValue;
-import org.geneontology.obographs.model.meta.DefinitionPropertyValue;
-import org.geneontology.obographs.model.meta.PropertyValue;
-import org.geneontology.obographs.model.meta.SynonymPropertyValue;
-import org.geneontology.obographs.model.meta.XrefPropertyValue;
-
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
  * A holder for metadata
@@ -52,15 +47,12 @@ public class Meta {
     @JsonProperty private final String version;
     @JsonProperty private final Boolean deprecated;
 
-
     /**
      * @return the definition
      */
     public DefinitionPropertyValue getDefinition() {
         return definition;
     }
-
-
 
     /**
      * @return the comments
@@ -78,9 +70,8 @@ public class Meta {
 
     @JsonIgnore
     public List<String> getXrefsValues() {
-        return xrefs.stream().map( x -> x.getVal()).collect(Collectors.toList());
+        return xrefs.stream().map(AbstractPropertyValue::getVal).collect(Collectors.toList());
     }
-
 
     /**
      * @return the subsets
@@ -89,14 +80,6 @@ public class Meta {
         return subsets;
     }
 
-
-
-
-
-
-
-
-
     /**
      * @return the synonymPropertyValues
      */
@@ -104,22 +87,12 @@ public class Meta {
         return synonyms;
     }
 
-
-
-
-
-
-
-
-
     /**
      * @return the basicPropertyValues
      */
     public List<BasicPropertyValue> getBasicPropertyValues() {
         return basicPropertyValues;
     }
-
-
 
     /**
      * this is typically only set for meta objects at the level of a graph/ontology
@@ -130,6 +103,9 @@ public class Meta {
         return version;
     }
 
+    public Boolean getDeprecated() {
+        return deprecated;
+    }
 
     public static class Builder {
 
