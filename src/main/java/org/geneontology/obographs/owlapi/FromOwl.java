@@ -1,71 +1,21 @@
 package org.geneontology.obographs.owlapi;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
-import java.util.stream.Collectors;
-
+import com.github.jsonldjava.core.Context;
 import org.geneontology.obographs.io.PrefixHelper;
-import org.geneontology.obographs.model.Edge;
-import org.geneontology.obographs.model.Graph;
-import org.geneontology.obographs.model.GraphDocument;
-import org.geneontology.obographs.model.Meta;
-import org.geneontology.obographs.model.Node;
+import org.geneontology.obographs.model.*;
 import org.geneontology.obographs.model.Node.Builder;
 import org.geneontology.obographs.model.Node.RDFTYPES;
-import org.geneontology.obographs.model.axiom.DomainRangeAxiom;
-import org.geneontology.obographs.model.axiom.EquivalentNodesSet;
-import org.geneontology.obographs.model.axiom.ExistentialRestrictionExpression;
-import org.geneontology.obographs.model.axiom.LogicalDefinitionAxiom;
-import org.geneontology.obographs.model.axiom.PropertyChainAxiom;
+import org.geneontology.obographs.model.axiom.*;
 import org.geneontology.obographs.model.meta.BasicPropertyValue;
 import org.geneontology.obographs.model.meta.DefinitionPropertyValue;
 import org.geneontology.obographs.model.meta.SynonymPropertyValue;
 import org.geneontology.obographs.model.meta.SynonymPropertyValue.SCOPES;
 import org.geneontology.obographs.model.meta.XrefPropertyValue;
-import org.semanticweb.owlapi.model.IRI;
-import org.semanticweb.owlapi.model.OWLAnnotation;
-import org.semanticweb.owlapi.model.OWLAnnotationAssertionAxiom;
-import org.semanticweb.owlapi.model.OWLAnnotationProperty;
-import org.semanticweb.owlapi.model.OWLAnnotationSubject;
-import org.semanticweb.owlapi.model.OWLAnnotationValue;
-import org.semanticweb.owlapi.model.OWLAnonymousIndividual;
-import org.semanticweb.owlapi.model.OWLAxiom;
-import org.semanticweb.owlapi.model.OWLClass;
-import org.semanticweb.owlapi.model.OWLClassAssertionAxiom;
-import org.semanticweb.owlapi.model.OWLClassExpression;
-import org.semanticweb.owlapi.model.OWLDeclarationAxiom;
-import org.semanticweb.owlapi.model.OWLEntity;
-import org.semanticweb.owlapi.model.OWLEquivalentClassesAxiom;
-import org.semanticweb.owlapi.model.OWLIndividual;
-import org.semanticweb.owlapi.model.OWLInverseObjectPropertiesAxiom;
-import org.semanticweb.owlapi.model.OWLLiteral;
-import org.semanticweb.owlapi.model.OWLLogicalAxiom;
-import org.semanticweb.owlapi.model.OWLNamedIndividual;
-import org.semanticweb.owlapi.model.OWLObjectAllValuesFrom;
-import org.semanticweb.owlapi.model.OWLObjectIntersectionOf;
-import org.semanticweb.owlapi.model.OWLObjectProperty;
-import org.semanticweb.owlapi.model.OWLObjectPropertyAssertionAxiom;
-import org.semanticweb.owlapi.model.OWLObjectPropertyAxiom;
-import org.semanticweb.owlapi.model.OWLObjectPropertyDomainAxiom;
-import org.semanticweb.owlapi.model.OWLObjectPropertyExpression;
-import org.semanticweb.owlapi.model.OWLObjectPropertyRangeAxiom;
-import org.semanticweb.owlapi.model.OWLObjectSomeValuesFrom;
-import org.semanticweb.owlapi.model.OWLOntology;
-import org.semanticweb.owlapi.model.OWLOntologyID;
-import org.semanticweb.owlapi.model.OWLProperty;
-import org.semanticweb.owlapi.model.OWLPropertyExpression;
-import org.semanticweb.owlapi.model.OWLSubClassOfAxiom;
-import org.semanticweb.owlapi.model.OWLSubObjectPropertyOfAxiom;
-import org.semanticweb.owlapi.model.OWLSubPropertyChainOfAxiom;
-import org.semanticweb.owlapi.vocab.OWLRDFVocabulary;
+import org.semanticweb.owlapi.model.*;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.github.jsonldjava.core.Context;
-import com.google.common.base.Optional;
+import java.util.*;
+import java.util.stream.Collectors;
+//import com.google.common.base.Optional;
 
 
 /**
@@ -280,7 +230,7 @@ public class FromOwl {
                             xs.stream().filter(x -> !x.isAnonymous()).collect(Collectors.toList());
                     Set<String> xClassIds = 
                             namedXs.stream().map(x -> getClassId((OWLClass)x)).collect(Collectors.toSet());
-                    if (anonXs.size() == 0) {
+                    if (anonXs.isEmpty()) {
                         // EquivalentNodesSet
 
                         // all classes in equivalence axiom are named
@@ -536,15 +486,15 @@ public class FromOwl {
         if (ontId != null) {
             Optional<IRI> iri = ontId.getOntologyIRI();
             if (iri.isPresent()) {
-                gid = getNodeId(iri.orNull());
+                gid = getNodeId(iri.get());
                 if (ontId.getVersionIRI().isPresent())
-                    version = getNodeId(ontId.getVersionIRI().orNull());
+                    version = getNodeId(ontId.getVersionIRI().get());
             }
         }
 
         Meta meta = getAnnotations(ontology.getAnnotations(), version);
         List<DomainRangeAxiom> domainRangeAxioms = 
-                domainRangeBuilderMap.values().stream().map(b -> b.build()).collect(Collectors.toList());
+                domainRangeBuilderMap.values().stream().map(DomainRangeAxiom.Builder::build).collect(Collectors.toList());
         return new Graph.Builder().
                 id(gid).
                 meta(meta).
