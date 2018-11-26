@@ -1,6 +1,7 @@
 package org.geneontology.obographs.owlapi;
 
 import com.github.jsonldjava.core.Context;
+import com.google.common.base.Optional;
 import org.geneontology.obographs.io.PrefixHelper;
 import org.geneontology.obographs.model.*;
 import org.geneontology.obographs.model.Node.Builder;
@@ -15,7 +16,6 @@ import org.semanticweb.owlapi.model.*;
 
 import java.util.*;
 import java.util.stream.Collectors;
-//import com.google.common.base.Optional;
 
 
 /**
@@ -486,9 +486,9 @@ public class FromOwl {
         if (ontId != null) {
             Optional<IRI> iri = ontId.getOntologyIRI();
             if (iri.isPresent()) {
-                gid = getNodeId(iri.get());
+                gid = getNodeId(iri.orNull());
                 if (ontId.getVersionIRI().isPresent())
-                    version = getNodeId(ontId.getVersionIRI().get());
+                    version = getNodeId(ontId.getVersionIRI().orNull());
             }
         }
 
@@ -594,10 +594,10 @@ public class FromOwl {
                 xrefs.add(new XrefPropertyValue.Builder().val(val).build());
             }
             else if (isInSubsetProperty(p.getIRI())) {
-                inSubsets.add(new String(val));
+                inSubsets.add(val);
             }
             else if (isHasSynonymTypeProperty(p.getIRI())) {
-                inSubsets.add(new String(val));
+                inSubsets.add(val);
             }
             else {
                 bpvs.add(new BasicPropertyValue.Builder().
