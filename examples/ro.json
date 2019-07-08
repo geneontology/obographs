@@ -8704,7 +8704,7 @@
       "meta" : {
         "definition" : {
           "val" : "Convergence that results from co-evolution usually involving an evolutionary arms race.",
-          "xrefs" : [ "http://purl.obolibrary.org/obo/HOM_0000033", "http:://en.wikipedia.org/wiki/Mimicry" ]
+          "xrefs" : [ "http://purl.obolibrary.org/obo/HOM_0000033", "http://en.wikipedia.org/wiki/Mimicry" ]
         },
         "synonyms" : [ {
           "pred" : "hasExactSynonym",
