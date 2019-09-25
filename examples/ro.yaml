@@ -7358,7 +7358,7 @@ graphs:
           \ arms race."
         xrefs:
         - "http://purl.obolibrary.org/obo/HOM_0000033"
-        - "http:://en.wikipedia.org/wiki/Mimicry"
+        - "http://en.wikipedia.org/wiki/Mimicry"
       synonyms:
       - pred: "hasExactSynonym"
         val: "mimicrous to"
