@@ -425,8 +425,18 @@ public class FromOwl {
                         else if (synonymVocabulary.contains(pIRI.toString())) {
                             SCOPES scope = synonymVocabulary.get(pIRI.toString());
                             if (lv != null) {
+                                String synonymType = null;
+                                for (OWLAnnotation a : aaa.getAnnotations()) {
+                                    if (a.getProperty().getIRI().toString().equals(SynonymVocabulary.SYNONYM_TYPE)) {
+                                        synonymType = a.getValue().toString();
+                                    }
+                                    else {
+                                        // TODO: capture these in meta
+                                    }
+                                }
                                 SynonymPropertyValue syn = new SynonymPropertyValue.Builder().
                                         scope(scope).
+                                        synonymType(synonymType).
                                         val(lv).
                                         xrefs(meta.getXrefsValues()).
                                         build();
