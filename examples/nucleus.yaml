@@ -30,6 +30,7 @@ graphs:
       - pred: "hasExactSynonym"
         val: "cell nucleus"
         xrefs: []
+        synonymType: "http://purl.obolibrary.org/obo/go-test#systematic_synonym"
       basicPropertyValues:
       - pred: "http://www.geneontology.org/formats/oboInOwl#hasOBONamespace"
         val: "cellular_component"
@@ -41,29 +42,6 @@ graphs:
   - id: "http://www.geneontology.org/formats/oboInOwl#hasDbXref"
     type: "PROPERTY"
     lbl: "database_cross_reference"
-  - id: "http://purl.obolibrary.org/obo/GO_0044424"
-    meta:
-      definition:
-        val: "Any constituent part of the living contents of a cell; the matter contained\
-          \ within (but not including) the plasma membrane, usually taken to exclude\
-          \ large vacuoles and masses of secretory or ingested material. In eukaryotes\
-          \ it includes the nucleus and cytoplasm."
-        xrefs:
-        - "GOC:jl"
-      comments:
-      - "Note that this term is in the subset of terms that should not be used for\
-        \ direct gene product annotation. Instead, select a child term or, if no appropriate\
-        \ child term exists, please request a new term. Direct annotations to this\
-        \ term may be amended during annotation QC."
-      subsets:
-      - "http://purl.obolibrary.org/obo/go-test#gocheck_do_not_annotate"
-      - "http://purl.obolibrary.org/obo/go-test#gosubset_prok"
-      - "http://purl.obolibrary.org/obo/go-test#goantislim_grouping"
-      basicPropertyValues:
-      - pred: "http://www.geneontology.org/formats/oboInOwl#hasOBONamespace"
-        val: "cellular_component"
-    type: "CLASS"
-    lbl: "intracellular part"
   - id: "http://purl.obolibrary.org/obo/GO_0005575"
     meta:
       definition:
@@ -96,23 +74,47 @@ graphs:
       - val: "NIF_Subcellular:sao1337158144"
       - val: "NIF_Subcellular:sao-1337158144"
       synonyms:
-      - pred: "hasExactSynonym"
-        val: "cellular component"
-        xrefs: []
       - pred: "hasRelatedSynonym"
         val: "subcellular entity"
         xrefs:
         - "NIF_Subcellular:nlx_subcell_100315"
       - pred: "hasExactSynonym"
+        val: "cellular component"
+        xrefs: []
+        synonymType: "http://purl.obolibrary.org/obo/go-test#systematic_synonym"
+      - pred: "hasExactSynonym"
         val: "cell or subcellular entity"
         xrefs: []
       basicPropertyValues:
+      - pred: "http://www.geneontology.org/formats/oboInOwl#hasOBONamespace"
+        val: "cellular_component"
       - pred: "http://www.geneontology.org/formats/oboInOwl#hasAlternativeId"
         val: "GO:0008372"
+    type: "CLASS"
+    lbl: "cellular_component"
+  - id: "http://purl.obolibrary.org/obo/GO_0044424"
+    meta:
+      definition:
+        val: "Any constituent part of the living contents of a cell; the matter contained\
+          \ within (but not including) the plasma membrane, usually taken to exclude\
+          \ large vacuoles and masses of secretory or ingested material. In eukaryotes\
+          \ it includes the nucleus and cytoplasm."
+        xrefs:
+        - "GOC:jl"
+      comments:
+      - "Note that this term is in the subset of terms that should not be used for\
+        \ direct gene product annotation. Instead, select a child term or, if no appropriate\
+        \ child term exists, please request a new term. Direct annotations to this\
+        \ term may be amended during annotation QC."
+      subsets:
+      - "http://purl.obolibrary.org/obo/go-test#gocheck_do_not_annotate"
+      - "http://purl.obolibrary.org/obo/go-test#gosubset_prok"
+      - "http://purl.obolibrary.org/obo/go-test#goantislim_grouping"
+      basicPropertyValues:
       - pred: "http://www.geneontology.org/formats/oboInOwl#hasOBONamespace"
         val: "cellular_component"
     type: "CLASS"
-    lbl: "cellular_component"
+    lbl: "intracellular part"
   - id: "http://purl.obolibrary.org/obo/GO_0044464"
     meta:
       definition:
@@ -181,6 +183,9 @@ graphs:
   - id: "http://www.geneontology.org/formats/oboInOwl#SynonymTypeProperty"
     type: "PROPERTY"
     lbl: "synonym_type_property"
+  - id: "http://www.geneontology.org/formats/oboInOwl#shorthand"
+    type: "PROPERTY"
+    lbl: "shorthand"
   - id: "http://purl.obolibrary.org/obo/BFO_0000050"
     meta:
       xrefs:
@@ -192,9 +197,6 @@ graphs:
         val: "external"
     type: "PROPERTY"
     lbl: "part of"
-  - id: "http://www.geneontology.org/formats/oboInOwl#shorthand"
-    type: "PROPERTY"
-    lbl: "shorthand"
   - id: "http://www.geneontology.org/formats/oboInOwl#inSubset"
     type: "PROPERTY"
     lbl: "in_subset"
@@ -336,12 +338,12 @@ graphs:
   - id: "http://www.geneontology.org/formats/oboInOwl#hasRelatedSynonym"
     type: "PROPERTY"
     lbl: "has_related_synonym"
-  - id: "http://www.geneontology.org/formats/oboInOwl#SubsetProperty"
-    type: "PROPERTY"
-    lbl: "subset_property"
   - id: "http://www.geneontology.org/formats/oboInOwl#hasScope"
     type: "PROPERTY"
     lbl: "has_scope"
+  - id: "http://www.geneontology.org/formats/oboInOwl#SubsetProperty"
+    type: "PROPERTY"
+    lbl: "subset_property"
   - id: "http://www.geneontology.org/formats/oboInOwl#hasAlternativeId"
     type: "PROPERTY"
     lbl: "has_alternative_id"

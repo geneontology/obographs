@@ -204,6 +204,9 @@
           "xrefs" : [ ]
         },
         "basicPropertyValues" : [ {
+          "pred" : "http://www.geneontology.org/formats/oboInOwl#shorthand",
+          "val" : "results_in_maturation_of"
+        }, {
           "pred" : "http://purl.obolibrary.org/obo/IAO_0000117",
           "val" : "Chris Mungall"
         }, {
@@ -218,9 +221,6 @@
         }, {
           "pred" : "http://purl.obolibrary.org/obo/IAO_0000112",
           "val" : "bone maturation (GO:0070977) results_in_maturation_of bone (UBERON:0001474)"
-        }, {
-          "pred" : "http://www.geneontology.org/formats/oboInOwl#shorthand",
-          "val" : "results_in_maturation_of"
         } ]
       },
       "type" : "PROPERTY",
@@ -296,14 +296,14 @@
           "xrefs" : [ ]
         },
         "basicPropertyValues" : [ {
-          "pred" : "http://www.geneontology.org/formats/oboInOwl#shorthand",
-          "val" : "results_in_developmental_progression_of"
-        }, {
           "pred" : "http://www.w3.org/2000/01/rdf-schema#seeAlso",
           "val" : "http://wiki.geneontology.org/index.php/Ontology_extensions"
         }, {
           "pred" : "http://purl.obolibrary.org/obo/IAO_0000116",
           "val" : "This property and its subproperties are being used primarily for the definition of GO developmental processes. The property hierarchy mirrors the core GO hierarchy. In future we may be able to make do with a more minimal set of properties, but due to the way GO is currently structured we require highly specific relations to avoid incorrect entailments. To avoid this, the corresponding genus terms in GO should be declared mutually disjoint."
+        }, {
+          "pred" : "http://www.geneontology.org/formats/oboInOwl#shorthand",
+          "val" : "results_in_developmental_progression_of"
         }, {
           "pred" : "http://purl.obolibrary.org/obo/IAO_0000117",
           "val" : "Chris Mungall"
@@ -363,11 +363,11 @@
           "xrefs" : [ ]
         },
         "basicPropertyValues" : [ {
-          "pred" : "http://www.geneontology.org/formats/oboInOwl#shorthand",
-          "val" : "results_in_development_of"
-        }, {
           "pred" : "http://purl.obolibrary.org/obo/IAO_0000117",
           "val" : "Chris Mungall"
+        }, {
+          "pred" : "http://www.geneontology.org/formats/oboInOwl#shorthand",
+          "val" : "results_in_development_of"
         }, {
           "pred" : "http://purl.obolibrary.org/obo/IAO_0000112",
           "val" : "every flower development (GO:0009908) results in development of some flower (PO:0009046)"
@@ -665,10 +665,10 @@
         },
         "basicPropertyValues" : [ {
           "pred" : "http://purl.obolibrary.org/obo/IAO_0000118",
-          "val" : "ancestral_stucture_of"
+          "val" : "evolutionarily_descended_from"
         }, {
           "pred" : "http://purl.obolibrary.org/obo/IAO_0000118",
-          "val" : "evolutionarily_descended_from"
+          "val" : "ancestral_stucture_of"
         }, {
           "pred" : "http://purl.obolibrary.org/obo/IAO_0000114",
           "val" : "http://purl.obolibrary.org/obo/IAO_0000125"
@@ -676,6 +676,20 @@
       },
       "type" : "PROPERTY",
       "lbl" : "derived by descent from"
+    }, {
+      "id" : "http://purl.obolibrary.org/obo/RO_0003003",
+      "meta" : {
+        "definition" : {
+          "val" : "Holds between protein a (a transcription factor) and DNA element b if and only if a activates the process of transcription of b.",
+          "xrefs" : [ ]
+        },
+        "basicPropertyValues" : [ {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000116",
+          "val" : "Logical axioms to be added after the relevant branch of GO is MIREOTed in"
+        } ]
+      },
+      "type" : "PROPERTY",
+      "lbl" : "increases expression of"
     }, {
       "id" : "http://purl.obolibrary.org/obo/RO_0002157",
       "meta" : {
@@ -691,20 +705,6 @@
       },
       "type" : "PROPERTY",
       "lbl" : "has derived by descendant"
-    }, {
-      "id" : "http://purl.obolibrary.org/obo/RO_0003003",
-      "meta" : {
-        "definition" : {
-          "val" : "Holds between protein a (a transcription factor) and DNA element b if and only if a activates the process of transcription of b.",
-          "xrefs" : [ ]
-        },
-        "basicPropertyValues" : [ {
-          "pred" : "http://purl.obolibrary.org/obo/IAO_0000116",
-          "val" : "Logical axioms to be added after the relevant branch of GO is MIREOTed in"
-        } ]
-      },
-      "type" : "PROPERTY",
-      "lbl" : "increases expression of"
     }, {
       "id" : "http://purl.obolibrary.org/obo/RO_0002150",
       "meta" : {
@@ -1385,6 +1385,9 @@
           "pred" : "http://purl.obolibrary.org/obo/RO_0001900",
           "val" : "http://purl.obolibrary.org/obo/RO_0001901"
         }, {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000426",
+          "val" : "(forall (?x ?y) \n\t(iff \n\t\t(has_fasciculating_neuron_projection ?x ?y)\n\t\t(exists (?nps ?npbs)\t\t\n\t\t\t(and \n\t\t\t\t(\"neuron projection bundle ; CARO_0001001\" ?x)\n\t\t\t\t(\"neuron projection ; GO0043005\" ?y)\n\t\t\t\t(\"neuron projection segment ; CARO_0001502\" ?nps)\n\t\t\t\t(\"neuron projection bundle segment ; CARO_0001500\" ?npbs)\n\t\t\t\t(part_of ?nps ?y)\n\t\t\t\t(part_of ?npbs ?x)\n\t\t\t\t(part_of ?nps ?npbs)\n\t\t\t\t(forall (?npbss)\n\t\t\t\t\t(if\n\t\t\t\t\t\t(and \n\t\t\t\t\t\t\t(\"neuron projection bundle subsegment ; CARO_0001501\" ?npbss)\n\t\t\t\t\t\t\t(part_of ?npbss ?npbs) \n\t\t\t\t\t\t)\n\t\t\t\t\t\t(overlaps ?nps ?npbss)\n\t\t\t\t\t))))))\n\n\n"
+        }, {
           "pred" : "http://purl.obolibrary.org/obo/IAO_0000117",
           "val" : "David Osumi-Sutherland"
         }, {
@@ -1396,9 +1399,6 @@
         }, {
           "pred" : "http://purl.obolibrary.org/obo/IAO_0000114",
           "val" : "http://purl.obolibrary.org/obo/IAO_0000125"
-        }, {
-          "pred" : "http://purl.obolibrary.org/obo/IAO_0000426",
-          "val" : "(forall (?x ?y) \n\t(iff \n\t\t(has_fasciculating_neuron_projection ?x ?y)\n\t\t(exists (?nps ?npbs)\t\t\n\t\t\t(and \n\t\t\t\t(\"neuron projection bundle ; CARO_0001001\" ?x)\n\t\t\t\t(\"neuron projection ; GO0043005\" ?y)\n\t\t\t\t(\"neuron projection segment ; CARO_0001502\" ?nps)\n\t\t\t\t(\"neuron projection bundle segment ; CARO_0001500\" ?npbs)\n\t\t\t\t(part_of ?nps ?y)\n\t\t\t\t(part_of ?npbs ?x)\n\t\t\t\t(part_of ?nps ?npbs)\n\t\t\t\t(forall (?npbss)\n\t\t\t\t\t(if\n\t\t\t\t\t\t(and \n\t\t\t\t\t\t\t(\"neuron projection bundle subsegment ; CARO_0001501\" ?npbss)\n\t\t\t\t\t\t\t(part_of ?npbss ?npbs) \n\t\t\t\t\t\t)\n\t\t\t\t\t\t(overlaps ?nps ?npbss)\n\t\t\t\t\t))))))\n\n\n"
         } ]
       },
       "type" : "PROPERTY",
@@ -1888,20 +1888,6 @@
       "type" : "PROPERTY",
       "lbl" : "cell expresses"
     }, {
-      "id" : "http://purl.obolibrary.org/obo/RO_0002488",
-      "meta" : {
-        "definition" : {
-          "val" : "x existence starts during y if and only if the time point at which x starts is after or equivalent to the time point at which y starts and before or equivalent to the time point at which y ends. Formally: x existence starts during y iff α(x) >= α(y) & α(x) <= ω(y).",
-          "xrefs" : [ ]
-        },
-        "basicPropertyValues" : [ {
-          "pred" : "http://purl.obolibrary.org/obo/IAO_0000117",
-          "val" : "Chris Mungall"
-        } ]
-      },
-      "type" : "PROPERTY",
-      "lbl" : "existence starts during"
-    }, {
       "id" : "http://purl.obolibrary.org/obo/RO_0002004",
       "meta" : {
         "definition" : {
@@ -1915,6 +1901,20 @@
       },
       "type" : "PROPERTY",
       "lbl" : "tracheates"
+    }, {
+      "id" : "http://purl.obolibrary.org/obo/RO_0002488",
+      "meta" : {
+        "definition" : {
+          "val" : "x existence starts during y if and only if the time point at which x starts is after or equivalent to the time point at which y starts and before or equivalent to the time point at which y ends. Formally: x existence starts during y iff α(x) >= α(y) & α(x) <= ω(y).",
+          "xrefs" : [ ]
+        },
+        "basicPropertyValues" : [ {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000117",
+          "val" : "Chris Mungall"
+        } ]
+      },
+      "type" : "PROPERTY",
+      "lbl" : "existence starts during"
     }, {
       "id" : "http://purl.obolibrary.org/obo/RO_0002246",
       "meta" : {
@@ -4036,6 +4036,9 @@
           "pred" : "http://purl.obolibrary.org/obo/IAO_0000118",
           "val" : "fasciculates with"
         }, {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000426",
+          "val" : "(forall (?x ?y) \n\t(iff \n\t\t(fasciculates_with ?x ?y)\n\t\t(exists (?nps ?npbs)\n\t\t\t(and \n\t\t\t\t(\"neuron ; CL_0000540\" ?x)\n\t\t\t\t(\"neuron projection bundle ; CARO_0001001\" ?y) \n\t\t\t\t(\"neuron projection segment ; CARO_0001502\" ?nps)\n\t\t\t\t(\"neuron projection bundle segment ; CARO_0001500' \" ?npbs)\n\t\t\t\t(part_of ?npbs ?y) \t\t\t\n\t\t\t\t(part_of ?nps ?x)\n\t\t\t\t(part_of ?nps ?npbs)\n\t\t\t\t(forall (?npbss)\n\t\t\t\t\t(if\n\t\t\t\t\t\t(and \n\t\t\t\t\t\t\t(\"neuron projection bundle subsegment ; CARO_0001501\" ?npbss)\n\t\t\t\t\t\t\t(part_of ?npbss ?npbs) \n\t\t\t\t\t\t)\n\t\t\t\t\t\t(overlaps ?nps ?npbss)\n\t\t\t\t\t))))))"
+        }, {
           "pred" : "http://purl.org/spar/cito/citesAsAuthority",
           "val" : "http://www.ncbi.nlm.nih.gov/pubmed/22402613"
         }, {
@@ -4044,9 +4047,6 @@
         }, {
           "pred" : "http://purl.obolibrary.org/obo/IAO_0000117",
           "val" : "David Osumi-Sutherland"
-        }, {
-          "pred" : "http://purl.obolibrary.org/obo/IAO_0000426",
-          "val" : "(forall (?x ?y) \n\t(iff \n\t\t(fasciculates_with ?x ?y)\n\t\t(exists (?nps ?npbs)\n\t\t\t(and \n\t\t\t\t(\"neuron ; CL_0000540\" ?x)\n\t\t\t\t(\"neuron projection bundle ; CARO_0001001\" ?y) \n\t\t\t\t(\"neuron projection segment ; CARO_0001502\" ?nps)\n\t\t\t\t(\"neuron projection bundle segment ; CARO_0001500' \" ?npbs)\n\t\t\t\t(part_of ?npbs ?y) \t\t\t\n\t\t\t\t(part_of ?nps ?x)\n\t\t\t\t(part_of ?nps ?npbs)\n\t\t\t\t(forall (?npbss)\n\t\t\t\t\t(if\n\t\t\t\t\t\t(and \n\t\t\t\t\t\t\t(\"neuron projection bundle subsegment ; CARO_0001501\" ?npbss)\n\t\t\t\t\t\t\t(part_of ?npbss ?npbs) \n\t\t\t\t\t\t)\n\t\t\t\t\t\t(overlaps ?nps ?npbss)\n\t\t\t\t\t))))))"
         }, {
           "pred" : "http://purl.obolibrary.org/obo/IAO_0000114",
           "val" : "http://purl.obolibrary.org/obo/IAO_0000125"
@@ -6644,13 +6644,13 @@
       "type" : "PROPERTY",
       "lbl" : "involved in regulation of"
     }, {
-      "id" : "http://purl.obolibrary.org/obo/GO_0008150",
-      "type" : "CLASS",
-      "lbl" : "biological_process"
-    }, {
       "id" : "http://purl.obolibrary.org/obo/RO_0002549",
       "type" : "PROPERTY",
       "lbl" : "start, weeks post birth"
+    }, {
+      "id" : "http://purl.obolibrary.org/obo/GO_0008150",
+      "type" : "CLASS",
+      "lbl" : "biological_process"
     }, {
       "id" : "http://purl.obolibrary.org/obo/RO_0002429",
       "meta" : {
@@ -8417,12 +8417,12 @@
           "xrefs" : [ "http://dx.doi.org/10.1146/annurev.es.20.110189.000411", "http://purl.obolibrary.org/obo/HOM_0000027" ]
         },
         "synonyms" : [ {
-          "pred" : "hasExactSynonym",
-          "val" : "serial homologous to",
-          "xrefs" : [ ]
-        }, {
           "pred" : "hasRelatedSynonym",
           "val" : "homonomy",
+          "xrefs" : [ ]
+        }, {
+          "pred" : "hasExactSynonym",
+          "val" : "serial homologous to",
           "xrefs" : [ ]
         } ],
         "basicPropertyValues" : [ {
@@ -8495,6 +8495,32 @@
       "type" : "PROPERTY",
       "lbl" : "in approximate one to one relationship with"
     }, {
+      "id" : "http://purl.obolibrary.org/obo/RO_0000301",
+      "meta" : {
+        "definition" : {
+          "val" : "A relation that holds between a neuron that is synapsed_to another neuron or a neuron that is connected indirectly to another by a chain of neurons, each synapsed_to the next.",
+          "xrefs" : [ ]
+        },
+        "basicPropertyValues" : [ {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000114",
+          "val" : "http://purl.obolibrary.org/obo/IAO_0000125"
+        }, {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000426",
+          "val" : "(forall (?x ?y) \n\t(iff \n\t\t(upstream_neural_circuit_path  ?x ?y)\n\t\t(and\n\t\t\t(\"neuron ; CL_0000540\" ?x)\n\t\t\t(\"neuron ; CL_0000540\" ?y)\n\t\t\t(synapsed_to ?x ?y))))\n\n\n(forall (...s ?x ?y ?z) \n\t(iff \n\t\t(upstream_neural_circuit_path ...s ?x ?y ?z )\n\t\t(and\n\t\t\t(upstream_neural_circuit_path ...s ?x ?y)\n\t\t\t(\"neuron ; CL_0000540\" ?z)\n\t\t\t(synapsed_to ?y ?z))))\n\t\t\t\n(forall (?x ?y) \n\t(iff \n\t\t(upstream_in_neural_circuit_with ?x ?y)\n\t\t(exists (...s)\n\t\t\t(upstream_neural_circuit_path  ?x ...s ?y))))"
+        }, {
+          "pred" : "http://purl.obolibrary.org/obo/RO_0001900",
+          "val" : "http://purl.obolibrary.org/obo/RO_0001901"
+        }, {
+          "pred" : "http://purl.org/spar/cito/citesAsAuthority",
+          "val" : "http://www.ncbi.nlm.nih.gov/pubmed/22402613"
+        }, {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000117",
+          "val" : "David Osumi-Sutherland"
+        } ]
+      },
+      "type" : "PROPERTY",
+      "lbl" : "upstream in neural circuit with"
+    }, {
       "id" : "http://purl.obolibrary.org/obo/RO_HOM0000032",
       "meta" : {
         "definition" : {
@@ -8503,11 +8529,11 @@
         },
         "synonyms" : [ {
           "pred" : "hasExactSynonym",
-          "val" : "neotenous to",
+          "val" : "juvenilization",
           "xrefs" : [ ]
         }, {
           "pred" : "hasExactSynonym",
-          "val" : "juvenilization",
+          "val" : "neotenous to",
           "xrefs" : [ ]
         } ],
         "basicPropertyValues" : [ {
@@ -8524,32 +8550,6 @@
       "type" : "PROPERTY",
       "lbl" : "in neoteny relationship with"
     }, {
-      "id" : "http://purl.obolibrary.org/obo/RO_0000301",
-      "meta" : {
-        "definition" : {
-          "val" : "A relation that holds between a neuron that is synapsed_to another neuron or a neuron that is connected indirectly to another by a chain of neurons, each synapsed_to the next.",
-          "xrefs" : [ ]
-        },
-        "basicPropertyValues" : [ {
-          "pred" : "http://purl.obolibrary.org/obo/IAO_0000114",
-          "val" : "http://purl.obolibrary.org/obo/IAO_0000125"
-        }, {
-          "pred" : "http://purl.obolibrary.org/obo/RO_0001900",
-          "val" : "http://purl.obolibrary.org/obo/RO_0001901"
-        }, {
-          "pred" : "http://purl.org/spar/cito/citesAsAuthority",
-          "val" : "http://www.ncbi.nlm.nih.gov/pubmed/22402613"
-        }, {
-          "pred" : "http://purl.obolibrary.org/obo/IAO_0000117",
-          "val" : "David Osumi-Sutherland"
-        }, {
-          "pred" : "http://purl.obolibrary.org/obo/IAO_0000426",
-          "val" : "(forall (?x ?y) \n\t(iff \n\t\t(upstream_neural_circuit_path  ?x ?y)\n\t\t(and\n\t\t\t(\"neuron ; CL_0000540\" ?x)\n\t\t\t(\"neuron ; CL_0000540\" ?y)\n\t\t\t(synapsed_to ?x ?y))))\n\n\n(forall (...s ?x ?y ?z) \n\t(iff \n\t\t(upstream_neural_circuit_path ...s ?x ?y ?z )\n\t\t(and\n\t\t\t(upstream_neural_circuit_path ...s ?x ?y)\n\t\t\t(\"neuron ; CL_0000540\" ?z)\n\t\t\t(synapsed_to ?y ?z))))\n\t\t\t\n(forall (?x ?y) \n\t(iff \n\t\t(upstream_in_neural_circuit_with ?x ?y)\n\t\t(exists (...s)\n\t\t\t(upstream_neural_circuit_path  ?x ...s ?y))))"
-        } ]
-      },
-      "type" : "PROPERTY",
-      "lbl" : "upstream in neural circuit with"
-    }, {
       "id" : "http://purl.obolibrary.org/obo/RO_0002603",
       "meta" : {
         "definition" : {
@@ -8563,6 +8563,32 @@
       },
       "type" : "PROPERTY",
       "lbl" : "is approximately equivalent to"
+    }, {
+      "id" : "http://purl.obolibrary.org/obo/RO_0000300",
+      "meta" : {
+        "definition" : {
+          "val" : "A relation that holds between two neurons connected directly via a synapse, or indirectly via a series of synaptically connected neurons.",
+          "xrefs" : [ ]
+        },
+        "basicPropertyValues" : [ {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000426",
+          "val" : "(forall (?x ?y) \n\t(iff \n\t\t(neural_circuit_path  ?x ?y)\n\t\t(and\n\t\t\t(\"neuron ; CL_0000540\" ?x)\n\t\t\t(\"neuron ; CL_0000540\" ?y)\n\t\t\t(or \n\t\t\t\t(synapsed_by ?x ?y) \n\t\t\t\t(synapsed_to ?x ?y))))) \n\n(forall (...s ?x ?y ?z) \n\t(iff \n\t\t(neural_circuit_path  ...s ?x ?y ?z)\n\t\t(and\n\t\t\t(neural_circuit_path  ...s ?x ?y)\n\t\t\t(\"neuron ; CL_0000540\" ?z)\n\t\t\t(or \n\t\t\t\t(synapsed_by ?y ?z) \n\t\t\t\t(synapsed_to ?y ?z))))) \n\n(forall (?x ?y) \n\t(iff \n\t\t(in_neural_circuit_with ?x ?y)\n\t\t(exists (...s)\n\t\t\t(neural_circuit_path  ?x ...s ?y)))) "
+        }, {
+          "pred" : "http://purl.org/spar/cito/citesAsAuthority",
+          "val" : "http://www.ncbi.nlm.nih.gov/pubmed/22402613"
+        }, {
+          "pred" : "http://purl.obolibrary.org/obo/RO_0001900",
+          "val" : "http://purl.obolibrary.org/obo/RO_0001901"
+        }, {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000117",
+          "val" : "David Osumi-Sutherland"
+        }, {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000114",
+          "val" : "http://purl.obolibrary.org/obo/IAO_0000125"
+        } ]
+      },
+      "type" : "PROPERTY",
+      "lbl" : "in neural circuit with"
     }, {
       "id" : "http://purl.obolibrary.org/obo/RO_0002604",
       "meta" : {
@@ -8580,32 +8606,6 @@
       },
       "type" : "PROPERTY",
       "lbl" : "is opposite of"
-    }, {
-      "id" : "http://purl.obolibrary.org/obo/RO_0000300",
-      "meta" : {
-        "definition" : {
-          "val" : "A relation that holds between two neurons connected directly via a synapse, or indirectly via a series of synaptically connected neurons.",
-          "xrefs" : [ ]
-        },
-        "basicPropertyValues" : [ {
-          "pred" : "http://purl.org/spar/cito/citesAsAuthority",
-          "val" : "http://www.ncbi.nlm.nih.gov/pubmed/22402613"
-        }, {
-          "pred" : "http://purl.obolibrary.org/obo/RO_0001900",
-          "val" : "http://purl.obolibrary.org/obo/RO_0001901"
-        }, {
-          "pred" : "http://purl.obolibrary.org/obo/IAO_0000117",
-          "val" : "David Osumi-Sutherland"
-        }, {
-          "pred" : "http://purl.obolibrary.org/obo/IAO_0000114",
-          "val" : "http://purl.obolibrary.org/obo/IAO_0000125"
-        }, {
-          "pred" : "http://purl.obolibrary.org/obo/IAO_0000426",
-          "val" : "(forall (?x ?y) \n\t(iff \n\t\t(neural_circuit_path  ?x ?y)\n\t\t(and\n\t\t\t(\"neuron ; CL_0000540\" ?x)\n\t\t\t(\"neuron ; CL_0000540\" ?y)\n\t\t\t(or \n\t\t\t\t(synapsed_by ?x ?y) \n\t\t\t\t(synapsed_to ?x ?y))))) \n\n(forall (...s ?x ?y ?z) \n\t(iff \n\t\t(neural_circuit_path  ...s ?x ?y ?z)\n\t\t(and\n\t\t\t(neural_circuit_path  ...s ?x ?y)\n\t\t\t(\"neuron ; CL_0000540\" ?z)\n\t\t\t(or \n\t\t\t\t(synapsed_by ?y ?z) \n\t\t\t\t(synapsed_to ?y ?z))))) \n\n(forall (?x ?y) \n\t(iff \n\t\t(in_neural_circuit_with ?x ?y)\n\t\t(exists (...s)\n\t\t\t(neural_circuit_path  ?x ...s ?y)))) "
-        } ]
-      },
-      "type" : "PROPERTY",
-      "lbl" : "in neural circuit with"
     }, {
       "id" : "http://purl.obolibrary.org/obo/CL_0000000",
       "meta" : {
@@ -8655,15 +8655,15 @@
         },
         "synonyms" : [ {
           "pred" : "hasExactSynonym",
-          "val" : "many-to-many homology",
-          "xrefs" : [ ]
-        }, {
-          "pred" : "hasExactSynonym",
           "val" : "many:many homology ",
           "xrefs" : [ ]
         }, {
           "pred" : "hasExactSynonym",
           "val" : "many to many homologous to",
+          "xrefs" : [ ]
+        }, {
+          "pred" : "hasExactSynonym",
+          "val" : "many-to-many homology",
           "xrefs" : [ ]
         } ],
         "basicPropertyValues" : [ {
@@ -8704,7 +8704,7 @@
       "meta" : {
         "definition" : {
           "val" : "Convergence that results from co-evolution usually involving an evolutionary arms race.",
-          "xrefs" : [ "http://purl.obolibrary.org/obo/HOM_0000033", "http://en.wikipedia.org/wiki/Mimicry" ]
+          "xrefs" : [ "http://purl.obolibrary.org/obo/HOM_0000033", "http:://en.wikipedia.org/wiki/Mimicry" ]
         },
         "synonyms" : [ {
           "pred" : "hasExactSynonym",
@@ -8736,16 +8736,16 @@
           "val" : "one-to-many orthology",
           "xrefs" : [ ]
         }, {
+          "pred" : "hasExactSynonym",
+          "val" : "1:many orthology",
+          "xrefs" : [ ]
+        }, {
           "pred" : "hasRelatedSynonym",
           "val" : "co-orthology",
           "xrefs" : [ ]
         }, {
           "pred" : "hasRelatedSynonym",
           "val" : "many to 1 orthology",
-          "xrefs" : [ ]
-        }, {
-          "pred" : "hasExactSynonym",
-          "val" : "1:many orthology",
           "xrefs" : [ ]
         }, {
           "pred" : "hasExactSynonym",
@@ -8859,9 +8859,9 @@
         },
         "comments" : [ "The term is sometimes also used for anatomical structures." ],
         "xrefs" : [ {
-          "val" : "ECO:00000060"
-        }, {
           "val" : "SO:0000855"
+        }, {
+          "val" : "ECO:00000060"
         }, {
           "val" : "SO:0000858"
         }, {
@@ -8950,12 +8950,12 @@
           "val" : "SO:non_functional_homolog_of"
         } ],
         "synonyms" : [ {
-          "pred" : "hasExactSynonym",
-          "val" : "non functional homologous to",
-          "xrefs" : [ ]
-        }, {
           "pred" : "hasBroadSynonym",
           "val" : "pseudogene",
+          "xrefs" : [ ]
+        }, {
+          "pred" : "hasExactSynonym",
+          "val" : "non functional homologous to",
           "xrefs" : [ ]
         } ],
         "basicPropertyValues" : [ {
@@ -9141,15 +9141,15 @@
         },
         "synonyms" : [ {
           "pred" : "hasExactSynonym",
+          "val" : "inparalogy",
+          "xrefs" : [ ]
+        }, {
+          "pred" : "hasExactSynonym",
           "val" : "symparalogy",
           "xrefs" : [ ]
         }, {
           "pred" : "hasExactSynonym",
           "val" : "in-paralogous to",
-          "xrefs" : [ ]
-        }, {
-          "pred" : "hasExactSynonym",
-          "val" : "inparalogy",
           "xrefs" : [ ]
         } ],
         "basicPropertyValues" : [ {
@@ -9177,9 +9177,9 @@
           "xrefs" : [ "http://dx.doi.org/10.1016/j.jhevol.2006.11.014", "http://dx.doi.org/10.1146/annurev.es.20.110189.000411", "http://purl.obolibrary.org/obo/HOM_0000006", "ISBN:0123195837" ]
         },
         "xrefs" : [ {
-          "val" : "ECO:0000071"
-        }, {
           "val" : "MI:2163"
+        }, {
+          "val" : "ECO:0000071"
         } ],
         "synonyms" : [ {
           "pred" : "hasExactSynonym",
@@ -9211,19 +9211,19 @@
           "xrefs" : [ "http://dx.doi.org/10.1016/S0169-5347(97)01125-7", "http://purl.obolibrary.org/obo/HOM_0000007", "ISBN:0123195837" ]
         },
         "xrefs" : [ {
-          "val" : "SO:0000853"
+          "val" : "TAO:homologous_to"
+        }, {
+          "val" : "RO_proposed_relation:homologous_to"
         }, {
           "val" : "SO:0000857"
+        }, {
+          "val" : "SO:0000853"
+        }, {
+          "val" : "SO:homologous_to"
         }, {
           "val" : "SO:0000330"
         }, {
           "val" : "ECO:0000080"
-        }, {
-          "val" : "SO:homologous_to"
-        }, {
-          "val" : "TAO:homologous_to"
-        }, {
-          "val" : "RO_proposed_relation:homologous_to"
         } ],
         "synonyms" : [ {
           "pred" : "hasExactSynonym",
@@ -9231,7 +9231,7 @@
           "xrefs" : [ ]
         }, {
           "pred" : "hasExactSynonym",
-          "val" : "taxic homology",
+          "val" : "phylogenetic homology",
           "xrefs" : [ ]
         }, {
           "pred" : "hasBroadSynonym",
@@ -9243,7 +9243,7 @@
           "xrefs" : [ ]
         }, {
           "pred" : "hasExactSynonym",
-          "val" : "phylogenetic homology",
+          "val" : "taxic homology",
           "xrefs" : [ ]
         }, {
           "pred" : "hasRelatedSynonym",
@@ -9327,12 +9327,12 @@
           "val" : "ECO:0000067"
         } ],
         "synonyms" : [ {
-          "pred" : "hasRelatedSynonym",
-          "val" : "transformational homology",
-          "xrefs" : [ ]
-        }, {
           "pred" : "hasExactSynonym",
           "val" : "biological homologous to",
+          "xrefs" : [ ]
+        }, {
+          "pred" : "hasRelatedSynonym",
+          "val" : "transformational homology",
           "xrefs" : [ ]
         } ],
         "basicPropertyValues" : [ {
@@ -9356,16 +9356,16 @@
           "xrefs" : [ "http://dx.doi.org/10.1016/j.jhevol.2006.11.010", "http://purl.obolibrary.org/obo/HOM_0000009" ]
         },
         "synonyms" : [ {
-          "pred" : "hasExactSynonym",
-          "val" : "rudiment",
-          "xrefs" : [ ]
-        }, {
           "pred" : "hasRelatedSynonym",
           "val" : "reversion",
           "xrefs" : [ ]
         }, {
           "pred" : "hasExactSynonym",
           "val" : "atavism",
+          "xrefs" : [ ]
+        }, {
+          "pred" : "hasExactSynonym",
+          "val" : "rudiment",
           "xrefs" : [ ]
         } ],
         "basicPropertyValues" : [ {
@@ -9450,24 +9450,24 @@
           "xrefs" : [ "http://purl.obolibrary.org/obo/HOM_0000014", "ISBN:0123195837", "ISBN:978-0471984931" ]
         },
         "synonyms" : [ {
-          "pred" : "hasExactSynonym",
-          "val" : "fractional homology",
+          "pred" : "hasRelatedSynonym",
+          "val" : "percent homology",
           "xrefs" : [ ]
         }, {
           "pred" : "hasExactSynonym",
           "val" : "segmental homology",
           "xrefs" : [ ]
         }, {
+          "pred" : "hasRelatedSynonym",
+          "val" : "mixed homology",
+          "xrefs" : [ ]
+        }, {
           "pred" : "hasExactSynonym",
           "val" : "partial homologous to",
           "xrefs" : [ ]
         }, {
-          "pred" : "hasRelatedSynonym",
-          "val" : "partial correspondence",
-          "xrefs" : [ ]
-        }, {
-          "pred" : "hasRelatedSynonym",
-          "val" : "mixed homology",
+          "pred" : "hasExactSynonym",
+          "val" : "fractional homology",
           "xrefs" : [ ]
         }, {
           "pred" : "hasRelatedSynonym",
@@ -9475,7 +9475,7 @@
           "xrefs" : [ ]
         }, {
           "pred" : "hasRelatedSynonym",
-          "val" : "percent homology",
+          "val" : "partial correspondence",
           "xrefs" : [ ]
         } ],
         "basicPropertyValues" : [ {
@@ -9531,16 +9531,16 @@
           "xrefs" : [ "http://dx.doi.org/10.1186/1471-213X-7-100", "http://purl.obolibrary.org/obo/HOM_0000012", "DOI:10.1002/1097-010X(20001215)288:4<345::AID-JEZ7>3.0.CO;2-Y" ]
         },
         "synonyms" : [ {
+          "pred" : "hasRelatedSynonym",
+          "val" : "duplicon",
+          "xrefs" : [ ]
+        }, {
           "pred" : "hasExactSynonym",
           "val" : "syntenic paralogous to",
           "xrefs" : [ ]
         }, {
           "pred" : "hasRelatedSynonym",
           "val" : "paralogon",
-          "xrefs" : [ ]
-        }, {
-          "pred" : "hasRelatedSynonym",
-          "val" : "duplicon",
           "xrefs" : [ ]
         } ],
         "basicPropertyValues" : [ {
@@ -9627,21 +9627,21 @@
           "val" : "SO:similar_to"
         } ],
         "synonyms" : [ {
+          "pred" : "hasRelatedSynonym",
+          "val" : "resemblance",
+          "xrefs" : [ ]
+        }, {
           "pred" : "hasExactSynonym",
           "val" : "sameness",
           "xrefs" : [ ]
-        }, {
-          "pred" : "hasRelatedSynonym",
-          "val" : "correspondence",
-          "xrefs" : [ "http://dx.doi.org/10.1007/BF02814479" ]
         }, {
           "pred" : "hasExactSynonym",
           "val" : "similar to",
           "xrefs" : [ ]
         }, {
           "pred" : "hasRelatedSynonym",
-          "val" : "resemblance",
-          "xrefs" : [ ]
+          "val" : "correspondence",
+          "xrefs" : [ "http://dx.doi.org/10.1007/BF02814479" ]
         } ],
         "basicPropertyValues" : [ {
           "pred" : "http://purl.org/dc/elements/1.1/creator",
@@ -9898,11 +9898,11 @@
         },
         "synonyms" : [ {
           "pred" : "hasExactSynonym",
-          "val" : "duplicate xenology",
+          "val" : "multiple xenology",
           "xrefs" : [ ]
         }, {
           "pred" : "hasExactSynonym",
-          "val" : "multiple xenology",
+          "val" : "duplicate xenology",
           "xrefs" : [ ]
         }, {
           "pred" : "hasExactSynonym",
@@ -9993,7 +9993,7 @@
         "comments" : [ "The genes are actually paralogs but appear to be orthologous due to differential, lineage-specific gene loss." ],
         "synonyms" : [ {
           "pred" : "hasExactSynonym",
-          "val" : "pseudoorthology",
+          "val" : "apparent 1:1 orthology",
           "xrefs" : [ ]
         }, {
           "pred" : "hasExactSynonym",
@@ -10005,7 +10005,7 @@
           "xrefs" : [ ]
         }, {
           "pred" : "hasExactSynonym",
-          "val" : "apparent 1:1 orthology",
+          "val" : "pseudoorthology",
           "xrefs" : [ ]
         } ],
         "basicPropertyValues" : [ {
@@ -10055,24 +10055,24 @@
           "xrefs" : [ "http://dx.doi.org/10.1038/415741a", "http://purl.obolibrary.org/obo/HOM_0000048", "http://www.ensembl.org/info/docs/compara/homology_method.html" ]
         },
         "synonyms" : [ {
-          "pred" : "hasExactSynonym",
-          "val" : "many-to-many orthology",
-          "xrefs" : [ ]
-        }, {
           "pred" : "hasRelatedSynonym",
           "val" : "co-orthology",
           "xrefs" : [ ]
         }, {
+          "pred" : "hasRelatedSynonym",
+          "val" : "trans-homology",
+          "xrefs" : [ ]
+        }, {
           "pred" : "hasExactSynonym",
-          "val" : "many:many orthology",
+          "val" : "many-to-many orthology",
           "xrefs" : [ ]
         }, {
           "pred" : "hasExactSynonym",
           "val" : "trans-orthology",
           "xrefs" : [ ]
         }, {
-          "pred" : "hasRelatedSynonym",
-          "val" : "trans-homology",
+          "pred" : "hasExactSynonym",
+          "val" : "many:many orthology",
           "xrefs" : [ ]
         }, {
           "pred" : "hasExactSynonym",
@@ -10285,11 +10285,11 @@
         "comments" : [ "Cannot be used when orthologous patterning gene are organizing obviously non-homologous structures in different organisms due for example to pleiotropic functions of these genes." ],
         "synonyms" : [ {
           "pred" : "hasExactSynonym",
-          "val" : "generative homology",
+          "val" : "syngenous to",
           "xrefs" : [ ]
         }, {
           "pred" : "hasExactSynonym",
-          "val" : "syngenous to",
+          "val" : "generative homology",
           "xrefs" : [ ]
         } ],
         "basicPropertyValues" : [ {
@@ -10314,15 +10314,15 @@
         },
         "synonyms" : [ {
           "pred" : "hasRelatedSynonym",
+          "val" : "iterative paralogy",
+          "xrefs" : [ ]
+        }, {
+          "pred" : "hasRelatedSynonym",
           "val" : "serial paralogy",
           "xrefs" : [ ]
         }, {
           "pred" : "hasExactSynonym",
           "val" : "tandem paralogous to",
-          "xrefs" : [ ]
-        }, {
-          "pred" : "hasRelatedSynonym",
-          "val" : "iterative paralogy",
           "xrefs" : [ ]
         } ],
         "basicPropertyValues" : [ {
@@ -10372,12 +10372,12 @@
           "xrefs" : [ "http://purl.obolibrary.org/obo/HOM_0000037", "BGEE:curator" ]
         },
         "synonyms" : [ {
-          "pred" : "hasExactSynonym",
-          "val" : "one-to-many homology",
-          "xrefs" : [ ]
-        }, {
           "pred" : "hasRelatedSynonym",
           "val" : "1:many homology",
+          "xrefs" : [ ]
+        }, {
+          "pred" : "hasExactSynonym",
+          "val" : "one-to-many homology",
           "xrefs" : [ ]
         }, {
           "pred" : "hasExactSynonym",
@@ -10435,12 +10435,12 @@
         },
         "comments" : [ "This term is usually contrasted to apomorphy." ],
         "synonyms" : [ {
-          "pred" : "hasExactSynonym",
-          "val" : "plesiomorphous to",
-          "xrefs" : [ ]
-        }, {
           "pred" : "hasRelatedSynonym",
           "val" : "symplesiomorphy",
+          "xrefs" : [ ]
+        }, {
+          "pred" : "hasExactSynonym",
+          "val" : "plesiomorphous to",
           "xrefs" : [ ]
         } ],
         "basicPropertyValues" : [ {
@@ -10528,20 +10528,20 @@
         },
         "comments" : [ "Used for structures in distantly related taxa." ],
         "synonyms" : [ {
-          "pred" : "hasExactSynonym",
-          "val" : "deep homologous to",
-          "xrefs" : [ ]
-        }, {
-          "pred" : "hasRelatedSynonym",
-          "val" : "generative homology",
-          "xrefs" : [ ]
-        }, {
           "pred" : "hasRelatedSynonym",
           "val" : "homoiology",
           "xrefs" : [ ]
         }, {
           "pred" : "hasExactSynonym",
           "val" : "deep genetic homology",
+          "xrefs" : [ ]
+        }, {
+          "pred" : "hasRelatedSynonym",
+          "val" : "generative homology",
+          "xrefs" : [ ]
+        }, {
+          "pred" : "hasExactSynonym",
+          "val" : "deep homologous to",
           "xrefs" : [ ]
         } ],
         "basicPropertyValues" : [ {
@@ -10774,13 +10774,13 @@
       "type" : "INDIVIDUAL",
       "lbl" : "relation has no temporal argument"
     }, {
-      "id" : "http://purl.obolibrary.org/obo/GO_0051816",
-      "type" : "CLASS",
-      "lbl" : "acquisition of nutrients from other organism during symbiotic interaction"
-    }, {
       "id" : "http://purl.obolibrary.org/obo/GO_0007610",
       "type" : "CLASS",
       "lbl" : "behavior"
+    }, {
+      "id" : "http://purl.obolibrary.org/obo/GO_0051816",
+      "type" : "CLASS",
+      "lbl" : "acquisition of nutrients from other organism during symbiotic interaction"
     }, {
       "id" : "http://www.geneontology.org/formats/oboInOwl#ObsoleteClass",
       "type" : "CLASS",
@@ -10790,13 +10790,13 @@
       "type" : "CLASS",
       "lbl" : "parasitism"
     }, {
-      "id" : "http://purl.obolibrary.org/obo/PATO_0001199",
-      "type" : "CLASS",
-      "lbl" : "linear"
-    }, {
       "id" : "http://www.geneontology.org/formats/oboInOwl#hasOBOFormatVersion",
       "type" : "PROPERTY",
       "lbl" : "has_obo_format_version"
+    }, {
+      "id" : "http://purl.obolibrary.org/obo/PATO_0001199",
+      "type" : "CLASS",
+      "lbl" : "linear"
     }, {
       "id" : "http://purl.obolibrary.org/obo/GO_0051702",
       "type" : "CLASS",
@@ -11151,6 +11151,10 @@
       "type" : "CLASS",
       "lbl" : "shape"
     }, {
+      "id" : "http://www.geneontology.org/formats/oboInOwl#hasBroadSynonym",
+      "type" : "PROPERTY",
+      "lbl" : "has_broad_synonym"
+    }, {
       "id" : "http://purl.obolibrary.org/obo/BFO_0000002",
       "meta" : {
         "definition" : {
@@ -11160,10 +11164,6 @@
       },
       "type" : "CLASS",
       "lbl" : "continuant"
-    }, {
-      "id" : "http://www.geneontology.org/formats/oboInOwl#hasBroadSynonym",
-      "type" : "PROPERTY",
-      "lbl" : "has_broad_synonym"
     }, {
       "id" : "http://purl.obolibrary.org/obo/BFO_0000003",
       "meta" : {
@@ -11387,13 +11387,13 @@
       "pred" : "subPropertyOf",
       "obj" : "http://purl.obolibrary.org/obo/RO_0000057"
     }, {
-      "sub" : "http://purl.obolibrary.org/obo/RO_0002578",
-      "pred" : "subPropertyOf",
-      "obj" : "http://purl.obolibrary.org/obo/RO_0002211"
-    }, {
       "sub" : "http://purl.obolibrary.org/obo/RO_0002555",
       "pred" : "subPropertyOf",
       "obj" : "http://purl.obolibrary.org/obo/RO_0002574"
+    }, {
+      "sub" : "http://purl.obolibrary.org/obo/RO_0002578",
+      "pred" : "subPropertyOf",
+      "obj" : "http://purl.obolibrary.org/obo/RO_0002211"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/RO_0002375",
       "pred" : "subPropertyOf",
@@ -11523,13 +11523,13 @@
       "pred" : "subPropertyOf",
       "obj" : "http://purl.obolibrary.org/obo/RO_0002571"
     }, {
-      "sub" : "http://purl.obolibrary.org/obo/RO_0002521",
-      "pred" : "subPropertyOf",
-      "obj" : "http://purl.obolibrary.org/obo/RO_0002514"
-    }, {
       "sub" : "http://purl.obolibrary.org/obo/RO_0002520",
       "pred" : "subPropertyOf",
       "obj" : "http://purl.obolibrary.org/obo/RO_0002524"
+    }, {
+      "sub" : "http://purl.obolibrary.org/obo/RO_0002521",
+      "pred" : "subPropertyOf",
+      "obj" : "http://purl.obolibrary.org/obo/RO_0002514"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/RO_0002571",
       "pred" : "subPropertyOf",
@@ -11847,13 +11847,13 @@
       "pred" : "subPropertyOf",
       "obj" : "http://purl.obolibrary.org/obo/RO_0002206"
     }, {
-      "sub" : "http://purl.obolibrary.org/obo/RO_0002225",
-      "pred" : "subPropertyOf",
-      "obj" : "http://purl.obolibrary.org/obo/RO_0002202"
-    }, {
       "sub" : "http://purl.obolibrary.org/obo/RO_0002223",
       "pred" : "subPropertyOf",
       "obj" : "http://purl.obolibrary.org/obo/RO_0002222"
+    }, {
+      "sub" : "http://purl.obolibrary.org/obo/RO_0002225",
+      "pred" : "subPropertyOf",
+      "obj" : "http://purl.obolibrary.org/obo/RO_0002202"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/RO_0002492",
       "pred" : "subPropertyOf",
@@ -11939,13 +11939,13 @@
       "pred" : "subPropertyOf",
       "obj" : "http://purl.obolibrary.org/obo/BFO_0000050"
     }, {
-      "sub" : "http://purl.obolibrary.org/obo/RO_HOM0000022",
-      "pred" : "subPropertyOf",
-      "obj" : "http://purl.obolibrary.org/obo/RO_HOM0000011"
-    }, {
       "sub" : "http://purl.obolibrary.org/obo/RO_0002230",
       "pred" : "subPropertyOf",
       "obj" : "http://purl.obolibrary.org/obo/BFO_0000051"
+    }, {
+      "sub" : "http://purl.obolibrary.org/obo/RO_HOM0000022",
+      "pred" : "subPropertyOf",
+      "obj" : "http://purl.obolibrary.org/obo/RO_HOM0000011"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/RO_0002590",
       "pred" : "subPropertyOf",
@@ -11987,13 +11987,13 @@
       "pred" : "subPropertyOf",
       "obj" : "http://purl.obolibrary.org/obo/RO_0002344"
     }, {
-      "sub" : "http://purl.obolibrary.org/obo/BFO_0000015",
-      "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/BFO_0000003"
-    }, {
       "sub" : "http://purl.obolibrary.org/obo/RO_0002012",
       "pred" : "subPropertyOf",
       "obj" : "http://purl.obolibrary.org/obo/RO_0002418"
+    }, {
+      "sub" : "http://purl.obolibrary.org/obo/BFO_0000015",
+      "pred" : "is_a",
+      "obj" : "http://purl.obolibrary.org/obo/BFO_0000003"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/RO_0002209",
       "pred" : "subPropertyOf",
@@ -12147,17 +12147,17 @@
       "pred" : "subPropertyOf",
       "obj" : "http://purl.obolibrary.org/obo/RO_0002629"
     }, {
-      "sub" : "http://purl.obolibrary.org/obo/RO_0002252",
+      "sub" : "http://purl.obolibrary.org/obo/RO_0002466",
       "pred" : "subPropertyOf",
-      "obj" : "http://purl.obolibrary.org/obo/RO_0002375"
+      "obj" : "http://purl.obolibrary.org/obo/RO_0002465"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/RO_0002455",
       "pred" : "subPropertyOf",
       "obj" : "http://purl.obolibrary.org/obo/RO_0002442"
     }, {
-      "sub" : "http://purl.obolibrary.org/obo/RO_0002466",
+      "sub" : "http://purl.obolibrary.org/obo/RO_0002252",
       "pred" : "subPropertyOf",
-      "obj" : "http://purl.obolibrary.org/obo/RO_0002465"
+      "obj" : "http://purl.obolibrary.org/obo/RO_0002375"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/RO_HOM0000007",
       "pred" : "subPropertyOf",
@@ -12175,13 +12175,13 @@
       "pred" : "subPropertyOf",
       "obj" : "http://purl.obolibrary.org/obo/RO_0002438"
     }, {
-      "sub" : "http://purl.obolibrary.org/obo/GO_0044456",
-      "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/CARO_0000014"
-    }, {
       "sub" : "http://purl.obolibrary.org/obo/RO_0002578",
       "pred" : "subPropertyOf",
       "obj" : "http://purl.obolibrary.org/obo/RO_0002412"
+    }, {
+      "sub" : "http://purl.obolibrary.org/obo/GO_0044456",
+      "pred" : "is_a",
+      "obj" : "http://purl.obolibrary.org/obo/CARO_0000014"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/RO_0002583",
       "pred" : "subPropertyOf",
@@ -12283,13 +12283,13 @@
       "pred" : "subPropertyOf",
       "obj" : "http://purl.obolibrary.org/obo/RO_0002428"
     }, {
-      "sub" : "http://purl.obolibrary.org/obo/RO_0002113",
-      "pred" : "subPropertyOf",
-      "obj" : "http://purl.obolibrary.org/obo/RO_0002130"
-    }, {
       "sub" : "http://purl.obolibrary.org/obo/RO_0002379",
       "pred" : "subPropertyOf",
       "obj" : "http://purl.obolibrary.org/obo/RO_0002131"
+    }, {
+      "sub" : "http://purl.obolibrary.org/obo/RO_0002113",
+      "pred" : "subPropertyOf",
+      "obj" : "http://purl.obolibrary.org/obo/RO_0002130"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/RO_0002114",
       "pred" : "subPropertyOf",
@@ -12755,13 +12755,13 @@
       "pred" : "subPropertyOf",
       "obj" : "http://purl.obolibrary.org/obo/RO_0002514"
     }, {
-      "sub" : "http://purl.obolibrary.org/obo/PATO_0002009",
-      "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/PATO_0000052"
-    }, {
       "sub" : "http://purl.obolibrary.org/obo/RO_0002160",
       "pred" : "subPropertyOf",
       "obj" : "http://purl.obolibrary.org/obo/RO_0002162"
+    }, {
+      "sub" : "http://purl.obolibrary.org/obo/PATO_0002009",
+      "pred" : "is_a",
+      "obj" : "http://purl.obolibrary.org/obo/PATO_0000052"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/RO_0002261",
       "pred" : "subPropertyOf",
@@ -12827,21 +12827,21 @@
       "pred" : "inverseOf",
       "obj" : "http://purl.obolibrary.org/obo/RO_0002090"
     }, {
-      "sub" : "http://purl.obolibrary.org/obo/RO_0002085",
-      "pred" : "inverseOf",
-      "obj" : "http://purl.obolibrary.org/obo/RO_0002092"
-    }, {
       "sub" : "http://purl.obolibrary.org/obo/RO_0002084",
       "pred" : "inverseOf",
       "obj" : "http://purl.obolibrary.org/obo/RO_0002093"
     }, {
-      "sub" : "http://purl.obolibrary.org/obo/CARO_0000011",
-      "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/CARO_0000006"
+      "sub" : "http://purl.obolibrary.org/obo/RO_0002085",
+      "pred" : "inverseOf",
+      "obj" : "http://purl.obolibrary.org/obo/RO_0002092"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/RO_0002444",
       "pred" : "subPropertyOf",
       "obj" : "http://purl.obolibrary.org/obo/RO_0002443"
+    }, {
+      "sub" : "http://purl.obolibrary.org/obo/CARO_0000011",
+      "pred" : "is_a",
+      "obj" : "http://purl.obolibrary.org/obo/CARO_0000006"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/RO_0001021",
       "pred" : "inverseOf",
@@ -13019,13 +13019,13 @@
       "pred" : "subPropertyOf",
       "obj" : "http://purl.obolibrary.org/obo/RO_0000052"
     }, {
-      "sub" : "http://purl.obolibrary.org/obo/RO_HOM0000057",
-      "pred" : "subPropertyOf",
-      "obj" : "http://purl.obolibrary.org/obo/RO_HOM0000005"
-    }, {
       "sub" : "http://purl.obolibrary.org/obo/RO_0002403",
       "pred" : "subPropertyOf",
       "obj" : "http://purl.obolibrary.org/obo/RO_0002234"
+    }, {
+      "sub" : "http://purl.obolibrary.org/obo/RO_HOM0000057",
+      "pred" : "subPropertyOf",
+      "obj" : "http://purl.obolibrary.org/obo/RO_HOM0000005"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/RO_0002500",
       "pred" : "subPropertyOf",
@@ -13071,13 +13071,13 @@
       "pred" : "subPropertyOf",
       "obj" : "http://purl.obolibrary.org/obo/RO_0002375"
     }, {
-      "sub" : "http://purl.obolibrary.org/obo/GO_0044464",
-      "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/CARO_0000014"
-    }, {
       "sub" : "http://purl.obolibrary.org/obo/RO_0002485",
       "pred" : "subPropertyOf",
       "obj" : "http://purl.obolibrary.org/obo/RO_0002170"
+    }, {
+      "sub" : "http://purl.obolibrary.org/obo/GO_0044464",
+      "pred" : "is_a",
+      "obj" : "http://purl.obolibrary.org/obo/CARO_0000014"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/RO_HOM0000002",
       "pred" : "subPropertyOf",
@@ -13231,13 +13231,13 @@
       "pred" : "subPropertyOf",
       "obj" : "http://purl.obolibrary.org/obo/RO_0000057"
     }, {
-      "sub" : "http://purl.obolibrary.org/obo/RO_0002090",
-      "pred" : "subPropertyOf",
-      "obj" : "http://purl.obolibrary.org/obo/BFO_0000063"
-    }, {
       "sub" : "http://purl.obolibrary.org/obo/RO_0002159",
       "pred" : "subPropertyOf",
       "obj" : "http://purl.obolibrary.org/obo/RO_0002320"
+    }, {
+      "sub" : "http://purl.obolibrary.org/obo/RO_0002090",
+      "pred" : "subPropertyOf",
+      "obj" : "http://purl.obolibrary.org/obo/BFO_0000063"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/RO_0000079",
       "pred" : "inverseOf",
@@ -13871,17 +13871,17 @@
       "pred" : "subPropertyOf",
       "obj" : "http://purl.obolibrary.org/obo/RO_0002461"
     }, {
-      "sub" : "http://purl.obolibrary.org/obo/RO_0002297",
+      "sub" : "http://purl.obolibrary.org/obo/RO_HOM0000065",
       "pred" : "subPropertyOf",
-      "obj" : "http://purl.obolibrary.org/obo/RO_0002295"
+      "obj" : "http://purl.obolibrary.org/obo/RO_HOM0000000"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/RO_HOM0000060",
       "pred" : "subPropertyOf",
       "obj" : "http://purl.obolibrary.org/obo/RO_HOM0000050"
     }, {
-      "sub" : "http://purl.obolibrary.org/obo/RO_HOM0000065",
+      "sub" : "http://purl.obolibrary.org/obo/RO_0002297",
       "pred" : "subPropertyOf",
-      "obj" : "http://purl.obolibrary.org/obo/RO_HOM0000000"
+      "obj" : "http://purl.obolibrary.org/obo/RO_0002295"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/GO_0051705",
       "pred" : "is_a",
@@ -14064,50 +14064,50 @@
       "subsets" : [ ],
       "xrefs" : [ ],
       "basicPropertyValues" : [ {
-        "pred" : "http://www.w3.org/2000/01/rdf-schema#comment",
-        "val" : "Includes Ontology(OntologyID(OntologyIRI(<http://purl.obolibrary.org/obo/ro/core.owl>) VersionIRI(<null>))) [Axioms: 276 Logical Axioms: 56]"
-      }, {
-        "pred" : "http://www.w3.org/2000/01/rdf-schema#comment",
-        "val" : "Includes Ontology(OntologyID(OntologyIRI(<http://purl.obolibrary.org/obo/ro/temporal-intervals.owl>) VersionIRI(<null>))) [Axioms: 146 Logical Axioms: 45]"
-      }, {
         "pred" : "http://purl.org/dc/elements/1.1/description",
         "val" : "The OBO Relations Ontology (RO) is a collection of OWL relations (ObjectProperties) intended for use across a wide variety of biological ontologies."
-      }, {
-        "pred" : "http://www.w3.org/2000/01/rdf-schema#comment",
-        "val" : "Includes Ontology(OntologyID(OntologyIRI(<http://purl.obolibrary.org/obo/ro/go-biotic.owl>) VersionIRI(<null>))) [Axioms: 42 Logical Axioms: 16]"
-      }, {
-        "pred" : "http://www.w3.org/2000/01/rdf-schema#comment",
-        "val" : "Includes Ontology(OntologyID(OntologyIRI(<http://purl.obolibrary.org/obo/ro/pato_import.owl>) VersionIRI(<null>))) [Axioms: 20 Logical Axioms: 6]"
-      }, {
-        "pred" : "http://www.w3.org/2000/01/rdf-schema#comment",
-        "val" : "Includes Ontology(OntologyID(OntologyIRI(<http://purl.obolibrary.org/obo/ro/go_mf_import.owl>) VersionIRI(<null>))) [Axioms: 29 Logical Axioms: 9]"
-      }, {
-        "pred" : "http://www.w3.org/2000/01/rdf-schema#comment",
-        "val" : "Includes Ontology(OntologyID(OntologyIRI(<http://purl.obolibrary.org/obo/ro/el-constraints.owl>) VersionIRI(<null>))) [Axioms: 6 Logical Axioms: 2]"
-      }, {
-        "pred" : "http://www.w3.org/2000/01/rdf-schema#comment",
-        "val" : "Includes Ontology(OntologyID(Anonymous-21)) [Axioms: 26 Logical Axioms: 0]"
-      }, {
-        "pred" : "http://www.w3.org/2000/01/rdf-schema#comment",
-        "val" : "Includes Ontology(OntologyID(OntologyIRI(<http://purl.obolibrary.org/obo/ro/annotations.owl>) VersionIRI(<null>))) [Axioms: 61 Logical Axioms: 0]"
-      }, {
-        "pred" : "http://www.w3.org/2000/01/rdf-schema#comment",
-        "val" : "Includes Ontology(OntologyID(OntologyIRI(<http://purl.obolibrary.org/obo/ro/rohom.owl>) VersionIRI(<null>))) [Axioms: 731 Logical Axioms: 148]"
-      }, {
-        "pred" : "http://xmlns.com/foaf/0.1/homepage",
-        "val" : " https://github.com/oborel/obo-relations/"
-      }, {
-        "pred" : "http://www.w3.org/2000/01/rdf-schema#comment",
-        "val" : "Includes Ontology(OntologyID(OntologyIRI(<http://purl.obolibrary.org/obo/ro/bfo-classes-minimal.owl>) VersionIRI(<null>))) [Axioms: 53 Logical Axioms: 12]"
-      }, {
-        "pred" : "http://www.w3.org/2000/01/rdf-schema#comment",
-        "val" : "Includes Ontology(OntologyID(Anonymous-21)) [Axioms: 32 Logical Axioms: 0]"
       }, {
         "pred" : "http://purl.org/dc/elements/1.1/source",
         "val" : "http://obofoundry.org/ro"
       }, {
         "pred" : "http://purl.org/dc/elements/1.1/title",
         "val" : "OBO Relations Ontology"
+      }, {
+        "pred" : "http://www.w3.org/2000/01/rdf-schema#comment",
+        "val" : "Includes Ontology(OntologyID(Anonymous-21)) [Axioms: 26 Logical Axioms: 0]"
+      }, {
+        "pred" : "http://www.w3.org/2000/01/rdf-schema#comment",
+        "val" : "Includes Ontology(OntologyID(Anonymous-21)) [Axioms: 32 Logical Axioms: 0]"
+      }, {
+        "pred" : "http://www.w3.org/2000/01/rdf-schema#comment",
+        "val" : "Includes Ontology(OntologyID(OntologyIRI(<http://purl.obolibrary.org/obo/ro/annotations.owl>) VersionIRI(<null>))) [Axioms: 61 Logical Axioms: 0]"
+      }, {
+        "pred" : "http://www.w3.org/2000/01/rdf-schema#comment",
+        "val" : "Includes Ontology(OntologyID(OntologyIRI(<http://purl.obolibrary.org/obo/ro/bfo-classes-minimal.owl>) VersionIRI(<null>))) [Axioms: 53 Logical Axioms: 12]"
+      }, {
+        "pred" : "http://www.w3.org/2000/01/rdf-schema#comment",
+        "val" : "Includes Ontology(OntologyID(OntologyIRI(<http://purl.obolibrary.org/obo/ro/core.owl>) VersionIRI(<null>))) [Axioms: 276 Logical Axioms: 56]"
+      }, {
+        "pred" : "http://www.w3.org/2000/01/rdf-schema#comment",
+        "val" : "Includes Ontology(OntologyID(OntologyIRI(<http://purl.obolibrary.org/obo/ro/el-constraints.owl>) VersionIRI(<null>))) [Axioms: 6 Logical Axioms: 2]"
+      }, {
+        "pred" : "http://www.w3.org/2000/01/rdf-schema#comment",
+        "val" : "Includes Ontology(OntologyID(OntologyIRI(<http://purl.obolibrary.org/obo/ro/go-biotic.owl>) VersionIRI(<null>))) [Axioms: 42 Logical Axioms: 16]"
+      }, {
+        "pred" : "http://www.w3.org/2000/01/rdf-schema#comment",
+        "val" : "Includes Ontology(OntologyID(OntologyIRI(<http://purl.obolibrary.org/obo/ro/go_mf_import.owl>) VersionIRI(<null>))) [Axioms: 29 Logical Axioms: 9]"
+      }, {
+        "pred" : "http://www.w3.org/2000/01/rdf-schema#comment",
+        "val" : "Includes Ontology(OntologyID(OntologyIRI(<http://purl.obolibrary.org/obo/ro/pato_import.owl>) VersionIRI(<null>))) [Axioms: 20 Logical Axioms: 6]"
+      }, {
+        "pred" : "http://www.w3.org/2000/01/rdf-schema#comment",
+        "val" : "Includes Ontology(OntologyID(OntologyIRI(<http://purl.obolibrary.org/obo/ro/rohom.owl>) VersionIRI(<null>))) [Axioms: 731 Logical Axioms: 148]"
+      }, {
+        "pred" : "http://www.w3.org/2000/01/rdf-schema#comment",
+        "val" : "Includes Ontology(OntologyID(OntologyIRI(<http://purl.obolibrary.org/obo/ro/temporal-intervals.owl>) VersionIRI(<null>))) [Axioms: 146 Logical Axioms: 45]"
+      }, {
+        "pred" : "http://xmlns.com/foaf/0.1/homepage",
+        "val" : " https://github.com/oborel/obo-relations/"
       } ],
       "version" : "http://purl.obolibrary.org/obo/ro/releases/2016-09-02/ro.owl"
     },

@@ -20,6 +20,15 @@ graphs:
         val: "x"
     type: "CLASS"
     lbl: "x1"
+  - id: "http://purl.obolibrary.org/obo/Y_1"
+    meta:
+      basicPropertyValues:
+      - pred: "http://www.geneontology.org/formats/oboInOwl#hasAlternativeId"
+        val: "Y:2"
+      - pred: "http://www.geneontology.org/formats/oboInOwl#hasOBONamespace"
+        val: "y"
+    type: "CLASS"
+    lbl: "y1"
   - id: "http://purl.obolibrary.org/obo/X_2"
     meta:
       basicPropertyValues:
@@ -30,15 +39,6 @@ graphs:
       deprecated: true
     type: "CLASS"
     lbl: "obsolete x2"
-  - id: "http://purl.obolibrary.org/obo/Y_1"
-    meta:
-      basicPropertyValues:
-      - pred: "http://www.geneontology.org/formats/oboInOwl#hasAlternativeId"
-        val: "Y:2"
-      - pred: "http://www.geneontology.org/formats/oboInOwl#hasOBONamespace"
-        val: "y"
-    type: "CLASS"
-    lbl: "y1"
   - id: "http://www.geneontology.org/formats/oboInOwl#hasOBONamespace"
     type: "PROPERTY"
     lbl: "has_obo_namespace"

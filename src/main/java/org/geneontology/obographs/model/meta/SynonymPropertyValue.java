@@ -19,6 +19,15 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 
 public class SynonymPropertyValue extends AbstractPropertyValue implements PropertyValue {
 
+    private final String synonymType;
+
+    /**
+     * @return the synonymType
+     */
+    public String getSynonymType() {
+        return synonymType;
+    }
+
     /**
      * OBO-style synonym scopes
      * 
@@ -46,7 +55,9 @@ public class SynonymPropertyValue extends AbstractPropertyValue implements Prope
     };
 
     private SynonymPropertyValue(Builder builder) {
+
         super(builder);
+        synonymType = builder.synonymType;
     }
 
     /**
@@ -67,6 +78,8 @@ public class SynonymPropertyValue extends AbstractPropertyValue implements Prope
 
     
     public static class Builder extends AbstractPropertyValue.Builder {
+
+        private String synonymType;
 
         @Override
         public Builder val(String val) {
@@ -94,6 +107,13 @@ public class SynonymPropertyValue extends AbstractPropertyValue implements Prope
 
             }
             super.pred(pred.toString());
+            return this;
+
+        }
+
+        public Builder synonymType(String synonymType) {
+            if (synonymType != null)
+                this.synonymType = synonymType;
             return this;
 
         }
