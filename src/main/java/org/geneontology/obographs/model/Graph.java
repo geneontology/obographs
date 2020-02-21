@@ -1,13 +1,14 @@
 package org.geneontology.obographs.model;
 
-import java.util.List;
-
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import org.geneontology.obographs.model.axiom.DomainRangeAxiom;
 import org.geneontology.obographs.model.axiom.EquivalentNodesSet;
 import org.geneontology.obographs.model.axiom.LogicalDefinitionAxiom;
 import org.geneontology.obographs.model.axiom.PropertyChainAxiom;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
+import java.util.List;
 
 /**
  * A graph object holds a collection of nodes and edges
@@ -33,6 +34,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  * @author cjm
  *
  */
+@JsonDeserialize(builder = Graph.Builder.class)
 public class Graph {
 
     private Graph(Builder builder) {
@@ -139,6 +141,20 @@ public class Graph {
     }
 
 
+    @Override
+    public String toString() {
+        return "Graph{" +
+                "nodes=" + nodes +
+                ", edges=" + edges +
+                ", id='" + id + '\'' +
+                ", lbl='" + lbl + '\'' +
+                ", meta=" + meta +
+                ", equivalentNodesSets=" + equivalentNodesSets +
+                ", logicalDefinitionAxioms=" + logicalDefinitionAxioms +
+                ", domainRangeAxioms=" + domainRangeAxioms +
+                ", propertyChainAxioms=" + propertyChainAxioms +
+                '}';
+    }
 
     public static class Builder {
 
@@ -202,6 +218,7 @@ public class Graph {
             return this;
         }
 
+        @JsonCreator
         public Graph build() {
             return new Graph(this);
         }

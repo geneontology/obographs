@@ -1,7 +1,9 @@
 package org.geneontology.obographs.model;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import org.geneontology.obographs.model.meta.*;
 
 import java.util.ArrayList;
@@ -25,6 +27,7 @@ import java.util.stream.Collectors;
  * @author cjm
  *
  */
+@JsonDeserialize(builder = Meta.Builder.class)
 public class Meta {
 
     private Meta(Builder builder) {
@@ -105,6 +108,20 @@ public class Meta {
 
     public Boolean getDeprecated() {
         return deprecated;
+    }
+
+    @Override
+    public String toString() {
+        return "Meta{" +
+                "definition=" + definition +
+                ", comments=" + comments +
+                ", subsets=" + subsets +
+                ", xrefs=" + xrefs +
+                ", synonyms=" + synonyms +
+                ", basicPropertyValues=" + basicPropertyValues +
+                ", version='" + version + '\'' +
+                ", deprecated=" + deprecated +
+                '}';
     }
 
     public static class Builder {
@@ -205,6 +222,7 @@ public class Meta {
         }
 
 
+        @JsonCreator
         public Meta build() {
             return new Meta(this);
         }

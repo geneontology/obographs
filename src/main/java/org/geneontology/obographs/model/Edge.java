@@ -1,6 +1,8 @@
 package org.geneontology.obographs.model;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 
 /**
  * An edge connects two nodes via a predicate
@@ -8,6 +10,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  * @author cjm
  *
  */
+@JsonDeserialize(builder = Edge.Builder.class)
 public class Edge implements NodeOrEdge {
 	
 	private Edge(Builder builder) {
@@ -48,7 +51,15 @@ public class Edge implements NodeOrEdge {
 		return obj;
 	}
 
-
+	@Override
+	public String toString() {
+		return "Edge{" +
+				"sub='" + sub + '\'' +
+				", pred='" + pred + '\'' +
+				", obj='" + obj + '\'' +
+				", meta=" + meta +
+				'}';
+	}
 
 	/**
 	 * @return the meta
@@ -90,6 +101,7 @@ public class Edge implements NodeOrEdge {
             return this;
         }
 
+        @JsonCreator
         public Edge build() {
         	return new Edge(this);
         }

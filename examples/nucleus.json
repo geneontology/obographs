@@ -38,6 +38,43 @@
       "type" : "PROPERTY",
       "lbl" : "database_cross_reference"
     }, {
+      "id" : "http://purl.obolibrary.org/obo/GO_0005575",
+      "meta" : {
+        "definition" : {
+          "val" : "The part of a cell or its extracellular environment in which a gene product is located. A gene product may be located in one or more parts of a cell and its location may be as specific as a particular macromolecular complex, that is, a stable, persistent association of macromolecules that function together.",
+          "xrefs" : [ "GOC:go_curators", "NIF_Subcellular:sao-1337158144" ]
+        },
+        "comments" : [ "Note that, in addition to forming the root of the cellular component ontology, this term is recommended for use for the annotation of gene products whose cellular component is unknown. Note that when this term is used for annotation, it indicates that no information was available about the cellular component of the gene product annotated as of the date the annotation was made; the evidence code ND, no data, is used to indicate this." ],
+        "subsets" : [ "http://purl.obolibrary.org/obo/go-test#goslim_metagenomics", "http://purl.obolibrary.org/obo/go-test#goslim_candida", "http://purl.obolibrary.org/obo/go-test#goslim_yeast", "http://purl.obolibrary.org/obo/go-test#goslim_chembl", "http://purl.obolibrary.org/obo/go-test#goslim_aspergillus", "http://purl.obolibrary.org/obo/go-test#goslim_pir", "http://purl.obolibrary.org/obo/go-test#gosubset_prok", "http://purl.obolibrary.org/obo/go-test#goslim_generic", "http://purl.obolibrary.org/obo/go-test#goslim_plant" ],
+        "xrefs" : [ {
+          "val" : "NIF_Subcellular:sao1337158144"
+        }, {
+          "val" : "NIF_Subcellular:sao-1337158144"
+        } ],
+        "synonyms" : [ {
+          "pred" : "hasRelatedSynonym",
+          "val" : "subcellular entity",
+          "xrefs" : [ "NIF_Subcellular:nlx_subcell_100315" ]
+        }, {
+          "pred" : "hasExactSynonym",
+          "val" : "cellular component",
+          "xrefs" : [ ]
+        }, {
+          "pred" : "hasExactSynonym",
+          "val" : "cell or subcellular entity",
+          "xrefs" : [ ]
+        } ],
+        "basicPropertyValues" : [ {
+          "pred" : "http://www.geneontology.org/formats/oboInOwl#hasOBONamespace",
+          "val" : "cellular_component"
+        }, {
+          "pred" : "http://www.geneontology.org/formats/oboInOwl#hasAlternativeId",
+          "val" : "GO:0008372"
+        } ]
+      },
+      "type" : "CLASS",
+      "lbl" : "cellular_component"
+    }, {
       "id" : "http://purl.obolibrary.org/obo/GO_0044424",
       "meta" : {
         "definition" : {
@@ -53,43 +90,6 @@
       },
       "type" : "CLASS",
       "lbl" : "intracellular part"
-    }, {
-      "id" : "http://purl.obolibrary.org/obo/GO_0005575",
-      "meta" : {
-        "definition" : {
-          "val" : "The part of a cell or its extracellular environment in which a gene product is located. A gene product may be located in one or more parts of a cell and its location may be as specific as a particular macromolecular complex, that is, a stable, persistent association of macromolecules that function together.",
-          "xrefs" : [ "GOC:go_curators", "NIF_Subcellular:sao-1337158144" ]
-        },
-        "comments" : [ "Note that, in addition to forming the root of the cellular component ontology, this term is recommended for use for the annotation of gene products whose cellular component is unknown. Note that when this term is used for annotation, it indicates that no information was available about the cellular component of the gene product annotated as of the date the annotation was made; the evidence code ND, no data, is used to indicate this." ],
-        "subsets" : [ "http://purl.obolibrary.org/obo/go-test#goslim_metagenomics", "http://purl.obolibrary.org/obo/go-test#goslim_candida", "http://purl.obolibrary.org/obo/go-test#goslim_yeast", "http://purl.obolibrary.org/obo/go-test#goslim_chembl", "http://purl.obolibrary.org/obo/go-test#goslim_aspergillus", "http://purl.obolibrary.org/obo/go-test#goslim_pir", "http://purl.obolibrary.org/obo/go-test#gosubset_prok", "http://purl.obolibrary.org/obo/go-test#goslim_generic", "http://purl.obolibrary.org/obo/go-test#goslim_plant" ],
-        "xrefs" : [ {
-          "val" : "NIF_Subcellular:sao1337158144"
-        }, {
-          "val" : "NIF_Subcellular:sao-1337158144"
-        } ],
-        "synonyms" : [ {
-          "pred" : "hasExactSynonym",
-          "val" : "cellular component",
-          "xrefs" : [ ]
-        }, {
-          "pred" : "hasRelatedSynonym",
-          "val" : "subcellular entity",
-          "xrefs" : [ "NIF_Subcellular:nlx_subcell_100315" ]
-        }, {
-          "pred" : "hasExactSynonym",
-          "val" : "cell or subcellular entity",
-          "xrefs" : [ ]
-        } ],
-        "basicPropertyValues" : [ {
-          "pred" : "http://www.geneontology.org/formats/oboInOwl#hasAlternativeId",
-          "val" : "GO:0008372"
-        }, {
-          "pred" : "http://www.geneontology.org/formats/oboInOwl#hasOBONamespace",
-          "val" : "cellular_component"
-        } ]
-      },
-      "type" : "CLASS",
-      "lbl" : "cellular_component"
     }, {
       "id" : "http://purl.obolibrary.org/obo/GO_0044464",
       "meta" : {
@@ -159,6 +159,10 @@
       "type" : "PROPERTY",
       "lbl" : "synonym_type_property"
     }, {
+      "id" : "http://www.geneontology.org/formats/oboInOwl#shorthand",
+      "type" : "PROPERTY",
+      "lbl" : "shorthand"
+    }, {
       "id" : "http://purl.obolibrary.org/obo/BFO_0000050",
       "meta" : {
         "xrefs" : [ {
@@ -174,10 +178,6 @@
       },
       "type" : "PROPERTY",
       "lbl" : "part of"
-    }, {
-      "id" : "http://www.geneontology.org/formats/oboInOwl#shorthand",
-      "type" : "PROPERTY",
-      "lbl" : "shorthand"
     }, {
       "id" : "http://www.geneontology.org/formats/oboInOwl#inSubset",
       "type" : "PROPERTY",
@@ -324,13 +324,13 @@
       "type" : "PROPERTY",
       "lbl" : "has_related_synonym"
     }, {
-      "id" : "http://www.geneontology.org/formats/oboInOwl#SubsetProperty",
-      "type" : "PROPERTY",
-      "lbl" : "subset_property"
-    }, {
       "id" : "http://www.geneontology.org/formats/oboInOwl#hasScope",
       "type" : "PROPERTY",
       "lbl" : "has_scope"
+    }, {
+      "id" : "http://www.geneontology.org/formats/oboInOwl#SubsetProperty",
+      "type" : "PROPERTY",
+      "lbl" : "subset_property"
     }, {
       "id" : "http://www.geneontology.org/formats/oboInOwl#hasAlternativeId",
       "type" : "PROPERTY",

@@ -1,14 +1,14 @@
 package org.geneontology.obographs.model.axiom;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.HashSet;
-import java.util.Set;
-
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import org.geneontology.obographs.model.Edge;
 import org.geneontology.obographs.model.Meta;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
+import java.util.Collections;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * This combined ObjectPropertyDomain, ObjectPropertyRange, and some AllValuesFrom expressions into a single convenience structure
@@ -17,6 +17,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  * @author cjm
  *
  */
+@JsonDeserialize(builder = DomainRangeAxiom.Builder.class)
 public class DomainRangeAxiom extends AbstractAxiom {
 
     private DomainRangeAxiom(Builder builder) {
@@ -137,13 +138,13 @@ public class DomainRangeAxiom extends AbstractAxiom {
                 allValuesFromEdges = new HashSet<>();
             this.allValuesFromEdges.add(edge);
             return this;
-           
         }
+
+        @JsonCreator
         public DomainRangeAxiom build() {
             return new DomainRangeAxiom(this);
         }
 
-  
     }
 
 

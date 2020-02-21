@@ -13,28 +13,28 @@ graphs:
         xrefs: []
       synonyms:
       - pred: "hasExactSynonym"
+        val: "hemangiosarcoma"
+        xrefs: []
+      - pred: "hasExactSynonym"
         val: "Hemangiosarcoma"
         xrefs: []
       - pred: "hasExactSynonym"
         val: "HEMANGIOSARCOMA, MALIGNANT"
         xrefs: []
       - pred: "hasExactSynonym"
-        val: "angiosarcoma"
+        val: "Malignant Angioendothelioma"
         xrefs: []
       - pred: "hasExactSynonym"
         val: "Hemangiosarcoma"
         xrefs: []
       - pred: "hasExactSynonym"
-        val: "Angiosarcoma"
-        xrefs: []
-      - pred: "hasExactSynonym"
-        val: "hemangiosarcoma"
-        xrefs: []
-      - pred: "hasExactSynonym"
-        val: "Malignant Angioendothelioma"
-        xrefs: []
-      - pred: "hasExactSynonym"
         val: "Malignant Hemangioendothelioma"
+        xrefs: []
+      - pred: "hasExactSynonym"
+        val: "angiosarcoma"
+        xrefs: []
+      - pred: "hasExactSynonym"
+        val: "Angiosarcoma"
         xrefs: []
     type: "CLASS"
     lbl: "Angiosarcoma"
@@ -67,9 +67,6 @@ graphs:
   - id: "http://www.geneontology.org/formats/oboInOwl#hasDbXref"
     type: "PROPERTY"
     lbl: "database_cross_reference"
-  - id: "http://purl.obolibrary.org/obo/IAO_0000115"
-    type: "PROPERTY"
-    lbl: "definition"
   - id: "http://purl.obolibrary.org/obo/DOID_267"
     meta:
       basicPropertyValues:
@@ -79,6 +76,9 @@ graphs:
         val: "http://purl.obolibrary.org/obo/IAO_0000227"
       deprecated: true
     type: "CLASS"
+  - id: "http://purl.obolibrary.org/obo/IAO_0000115"
+    type: "PROPERTY"
+    lbl: "definition"
   - id: "http://purl.obolibrary.org/obo/DOID_0001816"
     meta:
       definition:
@@ -92,15 +92,15 @@ graphs:
       subsets:
       - "http://purl.obolibrary.org/obo/TEMP#NCIthesaurus"
       xrefs:
-      - val: "SCTID:33176006"
-      - val: "UMLS:C0018923"
-      - val: "Orphanet:263413"
-      - val: "SCTID:39000009"
       - val: "MESH:D006394"
-      - val: "UMLS:C0854893"
-      - val: "SCTID:403977003"
       - val: "NCIT:C9275"
+      - val: "SCTID:33176006"
+      - val: "SCTID:39000009"
+      - val: "UMLS:C0018923"
+      - val: "SCTID:403977003"
+      - val: "UMLS:C0854893"
       - val: "NCIT:C3088"
+      - val: "Orphanet:263413"
       synonyms:
       - pred: "hasExactSynonym"
         val: "hemangiosarcoma"

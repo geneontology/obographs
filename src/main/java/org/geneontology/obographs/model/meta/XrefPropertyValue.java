@@ -1,11 +1,14 @@
 package org.geneontology.obographs.model.meta;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+
 import java.util.List;
 
-import org.geneontology.obographs.model.meta.DefinitionPropertyValue.Builder;
 
-
-public class XrefPropertyValue extends AbstractPropertyValue implements PropertyValue {
+@JsonDeserialize(builder = XrefPropertyValue.Builder.class)
+public class XrefPropertyValue extends AbstractPropertyValue {
 
     private final String lbl;
 
@@ -27,12 +30,14 @@ public class XrefPropertyValue extends AbstractPropertyValue implements Property
 
     public static class Builder extends AbstractPropertyValue.Builder {
 
+        @JsonProperty
         private String lbl;
         
         @Override
         public Builder val(String val) {
             return (Builder) super.val(val);
         }
+
         public Builder lbl(String lbl) {
             this.lbl= lbl;
             return this;
@@ -43,6 +48,7 @@ public class XrefPropertyValue extends AbstractPropertyValue implements Property
             return (Builder) super.xrefs(xrefs);
         }
 
+        @JsonCreator
         public XrefPropertyValue build() {
             return new XrefPropertyValue(this);
         }
