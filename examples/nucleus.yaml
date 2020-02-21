@@ -30,6 +30,7 @@ graphs:
       - pred: "hasExactSynonym"
         val: "cell nucleus"
         xrefs: []
+        synonymType: "http://purl.obolibrary.org/obo/go-test#systematic_synonym"
       basicPropertyValues:
       - pred: "http://www.geneontology.org/formats/oboInOwl#hasOBONamespace"
         val: "cellular_component"
@@ -80,6 +81,7 @@ graphs:
       - pred: "hasExactSynonym"
         val: "cellular component"
         xrefs: []
+        synonymType: "http://purl.obolibrary.org/obo/go-test#systematic_synonym"
       - pred: "hasExactSynonym"
         val: "cell or subcellular entity"
         xrefs: []

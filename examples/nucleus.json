@@ -20,7 +20,8 @@
         "synonyms" : [ {
           "pred" : "hasExactSynonym",
           "val" : "cell nucleus",
-          "xrefs" : [ ]
+          "xrefs" : [ ],
+          "synonymType" : "http://purl.obolibrary.org/obo/go-test#systematic_synonym"
         } ],
         "basicPropertyValues" : [ {
           "pred" : "http://www.geneontology.org/formats/oboInOwl#hasOBONamespace",
@@ -58,7 +59,8 @@
         }, {
           "pred" : "hasExactSynonym",
           "val" : "cellular component",
-          "xrefs" : [ ]
+          "xrefs" : [ ],
+          "synonymType" : "http://purl.obolibrary.org/obo/go-test#systematic_synonym"
         }, {
           "pred" : "hasExactSynonym",
           "val" : "cell or subcellular entity",

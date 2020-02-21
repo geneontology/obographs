@@ -18,6 +18,15 @@ import java.util.List;
 @JsonDeserialize(builder = SynonymPropertyValue.Builder.class)
 public class SynonymPropertyValue extends AbstractPropertyValue {
 
+    private final String synonymType;
+
+    /**
+     * @return the synonymType
+     */
+    public String getSynonymType() {
+        return synonymType;
+    }
+
     /**
      * OBO-style synonym scopes
      *
@@ -44,6 +53,7 @@ public class SynonymPropertyValue extends AbstractPropertyValue {
 
     private SynonymPropertyValue(Builder builder) {
         super(builder);
+        synonymType = builder.synonymType;
     }
 
     /**
@@ -63,6 +73,8 @@ public class SynonymPropertyValue extends AbstractPropertyValue {
     }
 
     public static class Builder extends AbstractPropertyValue.Builder {
+
+        private String synonymType;
 
         @Override
         public Builder val(String val) {
@@ -89,6 +101,12 @@ public class SynonymPropertyValue extends AbstractPropertyValue {
                 case NARROW: pred = PREDS.hasNarrowSynonym; break;
             }
             super.pred(pred.toString());
+            return this;
+        }
+
+        public Builder synonymType(String synonymType) {
+            if (synonymType != null)
+                this.synonymType = synonymType;
             return this;
         }
 
