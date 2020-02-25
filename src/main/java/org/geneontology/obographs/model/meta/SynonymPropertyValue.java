@@ -2,6 +2,7 @@ package org.geneontology.obographs.model.meta;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import org.geneontology.obographs.model.Meta;
 
@@ -74,6 +75,7 @@ public class SynonymPropertyValue extends AbstractPropertyValue {
 
     public static class Builder extends AbstractPropertyValue.Builder {
 
+        @JsonProperty
         private String synonymType;
 
         @Override
