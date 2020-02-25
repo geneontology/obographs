@@ -8,6 +8,8 @@ import org.junit.Test;
 
 import java.io.File;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.util.Arrays;
 
 import static org.junit.Assert.assertEquals;
@@ -24,7 +26,12 @@ public class OgJsonGeneratorTest {
 
     @Test
     public void testRead() throws IOException {
-        GraphDocument graphDocument  = OgJsonReader.readFile(new File("target/simple-example.json"));
+        GraphDocument testGraphDocument = GraphDocumentTest.build();
+
+        Path tempFile = Files.createTempFile("simple-example", ".json");
+        FileUtils.writeStringToFile(tempFile.toFile(), OgJsonGenerator.render(testGraphDocument));
+
+        GraphDocument graphDocument  = OgJsonReader.readFile(tempFile.toFile());
         assertEquals(1, graphDocument.getGraphs().size());
         Graph graph = graphDocument.getGraphs().get(0);
         assertEquals(2, graph.getNodes().size());
