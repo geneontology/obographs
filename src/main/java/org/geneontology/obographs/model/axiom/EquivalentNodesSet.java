@@ -1,10 +1,11 @@
 package org.geneontology.obographs.model.axiom;
 
-import java.util.Set;
-
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import org.geneontology.obographs.model.Meta;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
+import java.util.Set;
 
 /**
  * A set of nodes that all stand in a mutual equivalence or identity relationship to one another
@@ -15,6 +16,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  * @author cjm
  *
  */
+@JsonDeserialize(builder = EquivalentNodesSet.Builder.class)
 public class EquivalentNodesSet extends AbstractAxiom {
 
     private EquivalentNodesSet(Builder builder) {
@@ -64,7 +66,8 @@ public class EquivalentNodesSet extends AbstractAxiom {
             this.nodeIds = nodeIds;
             return this;
         }
-        
+
+        @JsonCreator
         public EquivalentNodesSet build() {
             return new EquivalentNodesSet(this);
         }

@@ -1,23 +1,23 @@
 package org.geneontology.obographs.model.meta;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import org.geneontology.obographs.model.Meta;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-import org.geneontology.obographs.model.Meta;
-import org.geneontology.obographs.model.meta.DefinitionPropertyValue.Builder;
-
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
 
 /**
  * A {@link PropertyValue} that represents a an alternative term for a node
- * 
- * @author cjm
  *
+ * @author cjm
  */
-
-public class SynonymPropertyValue extends AbstractPropertyValue implements PropertyValue {
+@JsonDeserialize(builder = SynonymPropertyValue.Builder.class)
+public class SynonymPropertyValue extends AbstractPropertyValue {
 
     private final String synonymType;
 
@@ -30,32 +30,29 @@ public class SynonymPropertyValue extends AbstractPropertyValue implements Prope
 
     /**
      * OBO-style synonym scopes
-     * 
-     * @author cjm
      *
+     * @author cjm
      */
     public enum SCOPES {
         EXACT,
         NARROW,
         BROAD,
         RELATED
-    };
-    
+    }
+
     /**
      * properties from oboInOwl vocabulary that represent scopes
-     * 
-     * @author cjm
      *
+     * @author cjm
      */
     public enum PREDS {
         hasExactSynonym,
         hasNarrowSynonym,
         hasBroadSynonym,
         hasRelatedSynonym
-    };
+    }
 
     private SynonymPropertyValue(Builder builder) {
-
         super(builder);
         synonymType = builder.synonymType;
     }
@@ -76,9 +73,9 @@ public class SynonymPropertyValue extends AbstractPropertyValue implements Prope
         return new ArrayList<>();
     }
 
-    
     public static class Builder extends AbstractPropertyValue.Builder {
 
+        @JsonProperty
         private String synonymType;
 
         @Override
@@ -100,24 +97,22 @@ public class SynonymPropertyValue extends AbstractPropertyValue implements Prope
         public Builder scope(SCOPES scope) {
             PREDS pred = PREDS.hasRelatedSynonym;
             switch (scope) {
-            case EXACT: pred = PREDS.hasExactSynonym; break;
-            case RELATED: pred = PREDS.hasRelatedSynonym; break;
-            case BROAD: pred = PREDS.hasBroadSynonym; break;
-            case NARROW: pred = PREDS.hasNarrowSynonym; break;
-
+                case EXACT: pred = PREDS.hasExactSynonym; break;
+                case RELATED: pred = PREDS.hasRelatedSynonym; break;
+                case BROAD: pred = PREDS.hasBroadSynonym; break;
+                case NARROW: pred = PREDS.hasNarrowSynonym; break;
             }
             super.pred(pred.toString());
             return this;
-
         }
 
         public Builder synonymType(String synonymType) {
             if (synonymType != null)
                 this.synonymType = synonymType;
             return this;
-
         }
 
+        @JsonCreator
         public SynonymPropertyValue build() {
             return new SynonymPropertyValue(this);
         }

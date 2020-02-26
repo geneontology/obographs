@@ -1,6 +1,8 @@
 package org.geneontology.obographs.model;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 
 /**
  * A graph node corresponds to a class, individual or property
@@ -19,6 +21,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  * @author cjm
  *
  */
+@JsonDeserialize(builder = Node.Builder.class)
 public class Node implements NodeOrEdge {
 	
     public enum RDFTYPES { CLASS, INDIVIDUAL, PROPERTY };
@@ -77,11 +80,21 @@ public class Node implements NodeOrEdge {
 		return meta;
 	}
 
-	public static class Builder {
+    @Override
+    public String toString() {
+        return "Node{" +
+                "id='" + id + '\'' +
+                ", label='" + label + '\'' +
+                ", meta=" + meta +
+                ", type=" + type +
+                '}';
+    }
+
+    public static class Builder {
 
         @JsonProperty
         private String id;
-        @JsonProperty
+        @JsonProperty("lbl")
         private String label;
         @JsonProperty
         private Meta meta;
@@ -108,6 +121,7 @@ public class Node implements NodeOrEdge {
             return this;
         }
 
+        @JsonCreator
         public Node build() {
         	return new Node(this);
         }

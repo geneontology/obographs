@@ -1,15 +1,10 @@
 package org.geneontology.obographs.model.axiom;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
-
-import org.geneontology.obographs.model.Edge;
-import org.geneontology.obographs.model.Meta;
-
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+
+import java.util.List;
 
 /**
  * P <- P1 ... Pn
@@ -18,6 +13,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  * @author cjm
  *
  */
+@JsonDeserialize(builder = PropertyChainAxiom.Builder.class)
 public class PropertyChainAxiom extends AbstractAxiom {
 
     private PropertyChainAxiom(Builder builder) {
@@ -63,7 +59,8 @@ public class PropertyChainAxiom extends AbstractAxiom {
             this.chainPredicateIds = chainPredicateIds;
             return this;
         }
-        
+
+        @JsonCreator
         public PropertyChainAxiom build() {
             return new PropertyChainAxiom(this);
         }

@@ -1,11 +1,7 @@
 package org.geneontology.obographs.model.axiom;
 
-import java.util.Set;
-
-import org.geneontology.obographs.model.Meta;
-import org.geneontology.obographs.model.axiom.EquivalentNodesSet.Builder;
-
 import com.fasterxml.jackson.annotation.JsonProperty;
+import org.geneontology.obographs.model.Meta;
 
 public abstract class AbstractAxiom implements Axiom {
 
@@ -31,7 +27,7 @@ public abstract class AbstractAxiom implements Axiom {
 
         @JsonProperty
         private Meta meta;
-       
+
         public Builder meta(Meta meta) {
             this.meta = meta;
             return this;
