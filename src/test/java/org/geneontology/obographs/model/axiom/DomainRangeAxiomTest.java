@@ -1,12 +1,8 @@
 package org.geneontology.obographs.model.axiom;
 
-import static org.junit.Assert.*;
-
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Set;
-
 import org.junit.Test;
+
+import static org.junit.Assert.assertEquals;
 
 public class DomainRangeAxiomTest {
 
@@ -20,9 +16,11 @@ public class DomainRangeAxiomTest {
         assertEquals(pred, a.getPredicateId());
     }
 
-    
     public static DomainRangeAxiom build() {
-        return new DomainRangeAxiom.Builder().predicateId(pred).domainClassId(domain).rangeClassId(range).build();
-        
+        return new DomainRangeAxiom.Builder()
+                .predicateId(pred)
+                .addDomainClassId(domain)
+                .addRangeClassId(range)
+                .build();
     }
 }

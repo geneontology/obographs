@@ -1,10 +1,8 @@
 package org.geneontology.obographs.model.meta;
 
-import static org.junit.Assert.*;
-
-import java.util.Arrays;
-
 import org.junit.Test;
+
+import static org.junit.Assert.assertEquals;
 
 public class XrefPropertyValueTest {
 
@@ -22,9 +20,10 @@ public class XrefPropertyValueTest {
     }
 
     public static XrefPropertyValue build() {
-        return new XrefPropertyValue.Builder().val(val).
-                lbl(lbl).
-                build();
+        return new XrefPropertyValue.Builder()
+                .val(val)
+                .lbl(lbl)
+                .build();
     }
 
 }

@@ -1,8 +1,11 @@
 package org.geneontology.obographs.model.meta;
 
-import java.util.List;
-
+import com.fasterxml.jackson.annotation.JsonProperty;
 import org.geneontology.obographs.model.Meta;
+import org.immutables.value.Value;
+
+import javax.annotation.Nullable;
+import java.util.List;
 
 /**
  * Associates the container object with a value via a property.
@@ -26,13 +29,30 @@ import org.geneontology.obographs.model.Meta;
  */
 public interface PropertyValue {
 
+//    static final Meta EMPTY_META = new Meta.Builder().build();
+//
+//    /**
+//     * @return the meta
+//     */
+//    @Value.Default
+//    default Meta getMeta() {
+//        return EMPTY_META;
+//    }
+
+    @JsonProperty
+    @Nullable
+    public Meta getMeta();
+
     /**
      * Predicates correspond to OWL properties. Like all preds in this datamodel,
      * a pred is represented as a String which denotes a CURIE
      * 
      * @return the pred
      */
-    public String getPred();
+    @Value.Default
+    default String getPred() {
+        return "";
+    }
 
     /**
      * An array denoting objects that support the property value assertion
@@ -47,12 +67,5 @@ public interface PropertyValue {
      * @return the val
      */
     public String getVal();
-
-
-
-    /**
-     * @return the meta
-     */
-    public Meta getMeta();
 
 }

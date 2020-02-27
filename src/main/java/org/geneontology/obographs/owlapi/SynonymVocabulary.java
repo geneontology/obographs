@@ -1,9 +1,9 @@
 package org.geneontology.obographs.owlapi;
 
+import org.geneontology.obographs.model.meta.AbstractSynonymPropertyValue.SCOPES;
+
 import java.util.HashMap;
 import java.util.Map;
-
-import org.geneontology.obographs.model.meta.SynonymPropertyValue.SCOPES;
 
 public class SynonymVocabulary {
 

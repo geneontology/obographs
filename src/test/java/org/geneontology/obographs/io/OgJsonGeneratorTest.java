@@ -21,6 +21,7 @@ public class OgJsonGeneratorTest {
         GraphDocument d = GraphDocumentTest.build();
   
         String s = OgJsonGenerator.render(d);
+        System.out.println(s);
         FileUtils.writeStringToFile(new File("target/simple-example.json"), s);
     }
 
@@ -31,7 +32,7 @@ public class OgJsonGeneratorTest {
         Path tempFile = Files.createTempFile("simple-example", ".json");
         FileUtils.writeStringToFile(tempFile.toFile(), OgJsonGenerator.render(testGraphDocument));
 
-        GraphDocument graphDocument  = OgJsonReader.readFile(tempFile.toFile());
+        GraphDocument graphDocument = OgJsonReader.readFile(tempFile.toFile());
         assertEquals(1, graphDocument.getGraphs().size());
         Graph graph = graphDocument.getGraphs().get(0);
         assertEquals(2, graph.getNodes().size());

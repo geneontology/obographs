@@ -1,19 +1,15 @@
 package org.geneontology.obographs.model;
 
-import static org.junit.Assert.*;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import org.geneontology.obographs.io.OgJsonGenerator;
+import org.geneontology.obographs.io.OgYamlGenerator;
+import org.junit.Test;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-import org.geneontology.obographs.io.OgJsonGenerator;
-import org.geneontology.obographs.io.OgYamlGenerator;
-import org.geneontology.obographs.model.Edge;
-import org.geneontology.obographs.model.Graph;
-import org.geneontology.obographs.model.Node;
-import org.junit.Test;
-
-import com.fasterxml.jackson.core.JsonProcessingException;
+import static org.junit.Assert.assertEquals;
 
 public class GraphTest {
 

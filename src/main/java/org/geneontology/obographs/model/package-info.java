@@ -50,4 +50,5 @@
  * @author cjm
  *
  */
+@OboGraph
 package org.geneontology.obographs.model;

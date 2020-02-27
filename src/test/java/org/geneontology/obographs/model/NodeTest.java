@@ -1,10 +1,9 @@
 package org.geneontology.obographs.model;
 
-import static org.junit.Assert.*;
-
-import org.geneontology.obographs.model.Meta;
-import org.geneontology.obographs.model.Node;
 import org.junit.Test;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNull;
 
 public class NodeTest {
 

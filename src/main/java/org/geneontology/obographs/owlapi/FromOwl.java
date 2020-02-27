@@ -3,14 +3,14 @@ package org.geneontology.obographs.owlapi;
 import com.github.jsonldjava.core.Context;
 import com.google.common.base.Optional;
 import org.geneontology.obographs.io.PrefixHelper;
+import org.geneontology.obographs.model.AbstractNode.RDFTYPES;
 import org.geneontology.obographs.model.*;
 import org.geneontology.obographs.model.Node.Builder;
-import org.geneontology.obographs.model.Node.RDFTYPES;
 import org.geneontology.obographs.model.axiom.*;
+import org.geneontology.obographs.model.meta.AbstractSynonymPropertyValue.SCOPES;
 import org.geneontology.obographs.model.meta.BasicPropertyValue;
 import org.geneontology.obographs.model.meta.DefinitionPropertyValue;
 import org.geneontology.obographs.model.meta.SynonymPropertyValue;
-import org.geneontology.obographs.model.meta.SynonymPropertyValue.SCOPES;
 import org.geneontology.obographs.model.meta.XrefPropertyValue;
 import org.semanticweb.owlapi.model.*;
 
@@ -77,15 +77,14 @@ public class FromOwl {
         List<Node> nodes = new ArrayList<>();
         List<EquivalentNodesSet> ensets = new ArrayList<>();
         List<LogicalDefinitionAxiom> ldas = new ArrayList<>();
-        Set<String> nodeIds = new HashSet<>();
-        Map<String,RDFTYPES> nodeTypeMap = new HashMap<>();
-        Map<String,String> nodeLabelMap = new HashMap<>();
-        Map<String,DomainRangeAxiom.Builder> domainRangeBuilderMap = new HashMap<>();
+        Set<String> nodeIds = new LinkedHashSet<>();
+        Map<String, RDFTYPES> nodeTypeMap = new LinkedHashMap<>();
+        Map<String,String> nodeLabelMap = new LinkedHashMap<>();
+        Map<String,DomainRangeAxiom.Builder> domainRangeBuilderMap = new LinkedHashMap<>();
         List<PropertyChainAxiom> pcas = new ArrayList<>();
 
         // Each node can be built from multiple axioms; use a builder for each nodeId
-        Map<String,Meta.Builder> nodeMetaBuilderMap = new HashMap<>();
-
+        Map<String,Meta.Builder> nodeMetaBuilderMap = new LinkedHashMap<>();
 
         Set<OWLAxiom> untranslatedAxioms = new HashSet<>();
 
@@ -165,10 +164,11 @@ public class FromOwl {
 
                                 }
                                 else {
-                                    Edge e = getEdge(subj, 
-                                            b.predicateId(), 
+                                    Edge e = getEdge(subj,
+                                            //TODO CHECK!!!
+                                            b.build().getPredicateId(),
                                             getClassId(avf.getFiller().asOWLClass()));
-                                    b.addAllValuesFrom(e);
+                                    b.addAllValuesFromEdge(e);
                                 }
                             }
                             else {
@@ -177,7 +177,6 @@ public class FromOwl {
                         }
                         else {
                             edges.add(getEdge(subj, SUBCLASS_OF, getClassId((OWLClass) supc)));
-
                         }
                     }
                     else {
@@ -235,7 +234,8 @@ public class FromOwl {
 
                         // all classes in equivalence axiom are named
                         // TODO: merge pairwise assertions into a clique
-                        EquivalentNodesSet enset = 
+                        EquivalentNodesSet enset =
+                                //TODO: EquivalentNodesSet.representativeNodeId() is not set in the production code!!
                                 new EquivalentNodesSet.Builder().nodeIds(xClassIds).build();
                         ensets.add(enset);
                     }
@@ -406,7 +406,7 @@ public class FromOwl {
                         }
                         else if (p.isComment()) {
                             Meta.Builder nb = getMetaBuilder(nodeMetaBuilderMap, subj);
-                            nb.addComment(lv.toString());                         
+                            nb.addComment(lv.toString());
                         }
                         else if (isOboInOwlIdProperty(pIRI)) {
 
@@ -425,7 +425,7 @@ public class FromOwl {
                         else if (synonymVocabulary.contains(pIRI.toString())) {
                             SCOPES scope = synonymVocabulary.get(pIRI.toString());
                             if (lv != null) {
-                                String synonymType = null;
+                                String synonymType = "";
                                 for (OWLAnnotation a : aaa.getAnnotations()) {
                                     if (a.getProperty().getIRI().toString().equals(SynonymVocabulary.SYNONYM_TYPE)) {
                                         synonymType = a.getValue().toString();
@@ -434,8 +434,9 @@ public class FromOwl {
                                         // TODO: capture these in meta
                                     }
                                 }
+
                                 SynonymPropertyValue syn = new SynonymPropertyValue.Builder().
-                                        scope(scope).
+                                        pred(scope.pred()).
                                         synonymType(synonymType).
                                         val(lv).
                                         xrefs(meta.getXrefsValues()).
@@ -480,7 +481,7 @@ public class FromOwl {
         for (String n : nodeIds) {
             Builder nb = new Node.Builder().
                     id(n).
-                    label(nodeLabelMap.get(n));
+                    label(nodeLabelMap.getOrDefault(n, ""));
             if (nodeMetaBuilderMap.containsKey(n)) {
                 Meta meta = nodeMetaBuilderMap.get(n).build();
                 nb.meta(meta);
@@ -581,7 +582,7 @@ public class FromOwl {
      * @return
      */
     private Meta getAnnotations(OWLAxiom ax) {
-        return(getAnnotations(ax.getAnnotations()));
+        return getAnnotations(ax.getAnnotations());
     }
     private Meta getAnnotations(Set<OWLAnnotation> anns) {
         return getAnnotations(anns, null);

@@ -1,11 +1,12 @@
 package org.geneontology.obographs.model.meta;
 
-import static org.junit.Assert.*;
+import org.geneontology.obographs.model.meta.AbstractSynonymPropertyValue.SCOPES;
+import org.junit.Test;
 
 import java.util.Arrays;
 
-import org.geneontology.obographs.model.meta.SynonymPropertyValue.SCOPES;
-import org.junit.Test;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 public class SynonymPropertyValueTest {
 
@@ -30,7 +31,7 @@ public class SynonymPropertyValueTest {
 
     public static SynonymPropertyValue build() {
         return new SynonymPropertyValue.Builder().val(val).
-                scope(scope).
+                pred(scope.pred()).
                 synonymType(synonymType).
                 xrefs(Arrays.asList(synXrefs)).
                 build();

@@ -1,17 +1,12 @@
 package org.geneontology.obographs.model;
 
-import static org.junit.Assert.*;
+import org.geneontology.obographs.model.meta.*;
+import org.junit.Test;
 
 import java.util.Arrays;
 import java.util.Collections;
 
-import org.geneontology.obographs.model.Meta;
-import org.geneontology.obographs.model.meta.DefinitionPropertyValue;
-import org.geneontology.obographs.model.meta.SynonymPropertyValue;
-import org.geneontology.obographs.model.meta.SynonymPropertyValueTest;
-import org.geneontology.obographs.model.meta.XrefPropertyValue;
-import org.geneontology.obographs.model.meta.XrefPropertyValueTest;
-import org.junit.Test;
+import static org.junit.Assert.assertEquals;
 
 public class MetaTest {
 
@@ -44,11 +39,13 @@ public class MetaTest {
                 val(defval).
                 xrefs(Arrays.asList(defXrefs)).
                 build();
+
         return new Meta.Builder().
                 definition(def).
                 synonyms(Collections.singletonList(s)).
                 xrefs(Collections.singletonList(xref)).
-                subsets(subsets).build();
+                subsets(Arrays.asList(subsets))
+                .build();
     }
 
 }
