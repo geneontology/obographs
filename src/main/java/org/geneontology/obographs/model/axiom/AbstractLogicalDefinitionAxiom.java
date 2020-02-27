@@ -25,6 +25,7 @@ public abstract class AbstractLogicalDefinitionAxiom implements Axiom {
      */
     @JsonProperty
     public abstract String getDefinedClassId();
+
     /**
      * @return the nodeIds
      */

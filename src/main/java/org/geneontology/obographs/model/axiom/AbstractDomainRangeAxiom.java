@@ -13,27 +13,10 @@ import java.util.Set;
  *
  * @author cjm
  */
-//@JsonDeserialize(builder = DomainRangeAxiom.Builder.class)
 @JsonSerialize(as = DomainRangeAxiom.class)
 @JsonDeserialize(as = DomainRangeAxiom.class)
 @Value.Immutable
 public abstract class AbstractDomainRangeAxiom implements Axiom {
-
-//    @JsonProperty
-//    public abstract Meta getMeta();
-//
-//    private DomainRangeAxiom(Builder builder) {
-//        super(builder);
-//        predicateId = builder.predicateId;
-//        domainClassIds = builder.domainClassIds;
-//        rangeClassIds = builder.rangeClassIds;
-//        allValuesFromEdges = builder.allValuesFromEdges;
-//    }
-//
-//    private final String predicateId;
-//    private final Set<String> domainClassIds;
-//    private final Set<String> rangeClassIds;
-//    private final Set<Edge> allValuesFromEdges;
 
     /**
      * @return the predicateId
@@ -68,71 +51,5 @@ public abstract class AbstractDomainRangeAxiom implements Axiom {
      */
     @JsonProperty
     public abstract Set<Edge> getAllValuesFromEdges();
-
-//    public static class Builder extends AbstractAxiom.Builder {
-//
-//        @JsonProperty
-//        private String predicateId;
-//        @JsonProperty
-//        private Set<String> domainClassIds;
-//        @JsonProperty
-//        private Set<String> rangeClassIds;
-//        @JsonProperty
-//        private Meta meta;
-//        @JsonProperty
-//        private Set<Edge> allValuesFromEdges;
-//
-//        public Builder predicateId(String predicateId) {
-//            this.predicateId = predicateId;
-//            return this;
-//        }
-//        public String predicateId() {
-//            return predicateId;
-//        }
-//
-//        public Builder domainClassId(Set<String> domainClassId) {
-//            this.domainClassIds = domainClassIds;
-//            return this;
-//        }
-//        public Builder domainClassId(String domainClassId) {
-//            this.domainClassIds = Collections.singleton(domainClassId);
-//            return this;
-//        }
-//        public Builder addDomainClassId(String domainClassId) {
-//            if (domainClassIds == null)
-//                domainClassIds = new HashSet<>();
-//            this.domainClassIds.add(domainClassId);
-//            return this;
-//        }
-//
-//        public Builder rangeClassIds(Set<String> rangeClassIds) {
-//            this.rangeClassIds = rangeClassIds;
-//            return this;
-//        }
-//        public Builder rangeClassId(String rangeClassId) {
-//            this.rangeClassIds = Collections.singleton(rangeClassId);
-//            return this;
-//        }
-//        public Builder addRangeClassId(String rangeClassId) {
-//            if (rangeClassIds == null)
-//                rangeClassIds = new HashSet<>();
-//            this.rangeClassIds.add(rangeClassId);
-//            return this;
-//        }
-//
-//        public Builder addAllValuesFrom(Edge edge) {
-//            if (allValuesFromEdges == null)
-//                allValuesFromEdges = new HashSet<>();
-//            this.allValuesFromEdges.add(edge);
-//            return this;
-//        }
-//
-//        @JsonCreator
-//        public DomainRangeAxiom build() {
-//            return new DomainRangeAxiom(this);
-//        }
-//
-//    }
-
 
 }

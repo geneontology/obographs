@@ -30,6 +30,7 @@ public abstract class AbstractEquivalentNodesSet implements Axiom {
         String representative = getNodeIds().iterator().next();
         return representative == null ? "" : representative;
     }
+
     /**
      * @return the nodeIds
      */
