@@ -77,20 +77,20 @@ public class FromOwl {
         List<Node> nodes = new ArrayList<>();
         List<EquivalentNodesSet> ensets = new ArrayList<>();
         List<LogicalDefinitionAxiom> ldas = new ArrayList<>();
-        Set<String> nodeIds = new HashSet<>();
-        Map<String,RDFTYPES> nodeTypeMap = new HashMap<>();
-        Map<String,String> nodeLabelMap = new HashMap<>();
-        Map<String,DomainRangeAxiom.Builder> domainRangeBuilderMap = new HashMap<>();
+        Set<String> nodeIds = new LinkedHashSet<>();
+        Map<String, RDFTYPES> nodeTypeMap = new LinkedHashMap<>();
+        Map<String, String> nodeLabelMap = new LinkedHashMap<>();
+        Map<String, DomainRangeAxiom.Builder> domainRangeBuilderMap = new LinkedHashMap<>();
         List<PropertyChainAxiom> pcas = new ArrayList<>();
 
         // Each node can be built from multiple axioms; use a builder for each nodeId
-        Map<String,Meta.Builder> nodeMetaBuilderMap = new HashMap<>();
+        Map<String, Meta.Builder> nodeMetaBuilderMap = new LinkedHashMap<>();
 
+        Set<OWLAxiom> untranslatedAxioms = new LinkedHashSet<>();
 
-        Set<OWLAxiom> untranslatedAxioms = new HashSet<>();
-
+        List<OWLAxiom> sortedAxioms = ontology.getAxioms().parallelStream().sorted().collect(Collectors.toList());
         // iterate over all axioms and push to relevant builders
-        for (OWLAxiom ax : ontology.getAxioms()) {
+        for (OWLAxiom ax : sortedAxioms) {
 
             Meta meta = getAnnotations(ax);
 
