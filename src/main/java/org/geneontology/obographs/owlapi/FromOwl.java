@@ -89,8 +89,9 @@ public class FromOwl {
 
         Set<OWLAxiom> untranslatedAxioms = new LinkedHashSet<>();
 
+        List<OWLAxiom> sortedAxioms = ontology.getAxioms().parallelStream().sorted().collect(Collectors.toList());
         // iterate over all axioms and push to relevant builders
-        for (OWLAxiom ax : ontology.getAxioms()) {
+        for (OWLAxiom ax : sortedAxioms) {
 
             Meta meta = getAnnotations(ax);
 
