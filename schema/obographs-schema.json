@@ -104,6 +104,9 @@
                           "meta" : {
                             "type" : "object",
                             "$ref" : "urn:jsonschema:org:geneontology:obographs:model:Meta"
+                          },
+                          "synonymType" : {
+                            "type" : "string"
                           }
                         }
                       }
