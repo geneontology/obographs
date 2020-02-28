@@ -4,6 +4,7 @@ import org.apache.commons.io.FileUtils;
 import org.geneontology.obographs.io.OgJsonGenerator;
 import org.geneontology.obographs.io.OgJsonReader;
 import org.geneontology.obographs.io.OgYamlGenerator;
+import org.geneontology.obographs.io.OgYamlReader;
 import org.geneontology.obographs.model.GraphDocument;
 import org.junit.Test;
 import org.semanticweb.owlapi.apibinding.OWLManager;
@@ -53,9 +54,9 @@ public class FromOwlTest {
             FileUtils.writeStringToFile(yamlOutFile, yamlStr);
 
             // read it back in from JSON
-            GraphDocument graphDocument = OgJsonReader.readFile(jsonOutFile);
             // cross fingers...
-            assertThat(gd, equalTo(graphDocument));
+            assertThat(gd, equalTo(OgJsonReader.readFile(jsonOutFile)));
+            assertThat(gd, equalTo(OgYamlReader.readFile(yamlOutFile)));
         }
     }
 
