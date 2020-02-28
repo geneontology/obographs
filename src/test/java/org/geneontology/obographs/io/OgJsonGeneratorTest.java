@@ -33,6 +33,9 @@ public class OgJsonGeneratorTest {
         FileUtils.writeStringToFile(tempFile.toFile(), OgJsonGenerator.render(testGraphDocument));
 
         GraphDocument graphDocument = OgJsonReader.readFile(tempFile.toFile());
+
+        assertEquals(testGraphDocument, graphDocument);
+
         assertEquals(1, graphDocument.getGraphs().size());
         Graph graph = graphDocument.getGraphs().get(0);
         assertEquals(2, graph.getNodes().size());
