@@ -32,10 +32,16 @@ public abstract class AbstractNode implements NodeOrEdge {
     public enum RDFTYPES { CLASS, INDIVIDUAL, PROPERTY };
 
 	@JsonProperty
-	public abstract String getId();
-	
+	@Value.Default
+	public String getId() {
+		return "";
+	}
+
 	@JsonProperty("lbl")
-	public abstract String getLabel();
+	@Value.Default
+	public String getLabel() {
+		return "";
+	}
 
 	@JsonProperty
 	@Nullable

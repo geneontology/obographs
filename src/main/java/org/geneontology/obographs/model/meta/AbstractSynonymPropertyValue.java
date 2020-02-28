@@ -48,7 +48,10 @@ public abstract class AbstractSynonymPropertyValue implements PropertyValue {
     }
 
     @JsonProperty
-    public abstract String getSynonymType();
+    @Value.Default
+    public String getSynonymType() {
+        return "";
+    }
 
     /**
      * @return true is scope equals EXACT -- convenience predicate
