@@ -45,11 +45,11 @@ public class AdvancedAxiomsTest {
         Node n = NodeTest.build();
         Edge e = EdgeTest.build();
         
-        List<Node> nodes = (List<Node>) Collections.singletonList(n);
-        List<Edge> edges = (List<Edge>) Collections.singletonList(e);
+        List<Node> nodes = Collections.singletonList(n);
+        List<Edge> edges = Collections.singletonList(e);
         List<EquivalentNodesSet> enss = Collections.singletonList(EquivalentNodesSetTest.build());
         List<LogicalDefinitionAxiom> ldas = Collections.singletonList(LogicalDefinitionAxiomTest.build());
-        Graph g = new Graph.Builder().nodes(nodes ).edges(edges).equivalentNodesSet(enss).logicalDefinitionAxioms(ldas).build();
+        Graph g = new Graph.Builder().nodes(nodes ).edges(edges).equivalentNodesSets(enss).logicalDefinitionAxioms(ldas).build();
         return g;
     }
 

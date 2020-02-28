@@ -511,7 +511,7 @@ public class FromOwl {
                 meta(meta).
                 nodes(nodes).
                 edges(edges).
-                equivalentNodesSet(ensets).
+                equivalentNodesSets(ensets).
                 logicalDefinitionAxioms(ldas).
                 domainRangeAxioms(domainRangeAxioms).
                 propertyChainAxioms(pcas).

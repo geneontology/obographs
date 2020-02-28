@@ -26,7 +26,6 @@ import javax.annotation.Nullable;
  */
 @JsonSerialize(as = Node.class)
 @JsonDeserialize(as = Node.class)
-//@JsonInclude
 @Value.Immutable
 public abstract class AbstractNode implements NodeOrEdge {
 	

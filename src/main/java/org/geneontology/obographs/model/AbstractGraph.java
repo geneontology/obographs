@@ -1,0 +1,105 @@
+package org.geneontology.obographs.model;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.geneontology.obographs.model.axiom.DomainRangeAxiom;
+import org.geneontology.obographs.model.axiom.EquivalentNodesSet;
+import org.geneontology.obographs.model.axiom.LogicalDefinitionAxiom;
+import org.geneontology.obographs.model.axiom.PropertyChainAxiom;
+import org.immutables.value.Value;
+
+import javax.annotation.Nullable;
+import java.util.List;
+
+/**
+ * A graph object holds a collection of nodes and edges
+ * 
+ * Corresponds to a Named Graph in RDF, and an Ontology in OWL
+ * 
+ * Note: there is no assumption that either nodes or edges are unique to a graph
+ * 
+ * ## Basic OBO Graphs
+ * 
+ * ![Node UML](node-bog.png)
+ *  * 
+ * @startuml node-bog.png
+ * class Graph
+ * class Node
+ * class Edge
+ * 
+ * Graph-->Node : 0..*
+ * Graph-->Edge : 0..*
+ * @enduml
+
+ * 
+ * @author cjm
+ *
+ */
+@JsonSerialize(as = Graph.class)
+@JsonDeserialize(as = Graph.class)
+@Value.Immutable
+public abstract class AbstractGraph {
+
+    /**
+     * @return the nodes
+     */
+    @JsonProperty
+    public abstract List<Node> getNodes();
+
+    /**
+     * @return the edges
+     */
+    @JsonProperty
+    public abstract List<Edge> getEdges();
+
+    /**
+     * @return the id
+     */
+    @JsonProperty
+    @Value.Default
+    public String getId() {
+        return "";
+    }
+
+    /**
+     * @return the lbl
+     */
+    @JsonProperty
+    @Value.Default
+    public String getLbl() {
+        return "";
+    }
+
+    /**
+     * @return the meta
+     */
+    @JsonProperty
+    @Nullable
+    public abstract Meta getMeta();
+
+    /**
+     * @return the equivalentNodesSet
+     */
+    @JsonProperty
+    public abstract List<EquivalentNodesSet> getEquivalentNodesSets();
+
+    /**
+     * @return the logicalDefinitionAxioms
+     */
+    @JsonProperty
+    public abstract List<LogicalDefinitionAxiom> getLogicalDefinitionAxioms();
+
+    /**
+     * @return the domainRangeAxioms
+     */
+    @JsonProperty
+    public abstract List<DomainRangeAxiom> getDomainRangeAxioms();
+
+    /**
+     * @return the propertyChainAxioms
+     */
+    @JsonProperty
+    public abstract List<PropertyChainAxiom> getPropertyChainAxioms();
+
+}
