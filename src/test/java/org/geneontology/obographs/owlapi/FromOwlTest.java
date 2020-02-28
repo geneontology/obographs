@@ -20,8 +20,8 @@ import static org.hamcrest.CoreMatchers.equalTo;
 import static org.junit.Assert.assertThat;
 
 /**
- * TODO - this test generates json from OWL but does not actually test the content returned
- * 
+ * Generates json from OWL and tests the content returned for equality.
+ *
  * @author cjm
  *
  */
@@ -36,8 +36,6 @@ public class FromOwlTest {
 
         for (File file : files) {
             System.out.println("Converting: "+file);
-            //System.out.println(file.toPath());
-            //System.out.println(file.toString());
 
             OWLOntologyManager m = OWLManager.createOWLOntologyManager();
             OWLOntology ontology = m.loadOntologyFromOntologyDocument(file);
@@ -47,25 +45,23 @@ public class FromOwlTest {
 
             Path fn = file.toPath().getFileName();
             String jsonStr = OgJsonGenerator.render(gd);
-            File jsonOutFile = export(jsonStr, fn, ".json");
+            File jsonOutFile = createFileWithSuffix(fn, ".json");
+            FileUtils.writeStringToFile(jsonOutFile, jsonStr);
 
             String yamlStr = OgYamlGenerator.render(gd);
-            export(yamlStr, fn, ".yaml");
-            //String ofn = fn.toString().replace(".obo", ".json").replace(".owl", ".json");
-            //FileUtils.writeStringToFile(new File("examples/"+ofn), s);
-            // read it back in from JSON - this is where you might find an error
-            GraphDocument graphDocument = OgJsonReader.readFile(jsonOutFile);
+            File yamlOutFile = createFileWithSuffix(fn, ".yaml");
+            FileUtils.writeStringToFile(yamlOutFile, yamlStr);
 
-            // ideally, but not tried this yet!
+            // read it back in from JSON
+            GraphDocument graphDocument = OgJsonReader.readFile(jsonOutFile);
+            // cross fingers...
             assertThat(gd, equalTo(graphDocument));
         }
     }
 
-    private File export(String s, Path fn, String suffix) throws IOException {
+    private File createFileWithSuffix(Path fn, String suffix) {
         String ofn = fn.toString().replace(".obo", suffix).replace(".owl", suffix);
-        File outFile = new File("examples/" + ofn);
-        FileUtils.writeStringToFile(outFile, s);
-        return outFile;
+        return new File("examples/" + ofn);
     }
 
 }
