@@ -3,172 +3,218 @@
     "nodes" : [ {
       "meta" : {
         "definition" : {
-          "val" : "An angiosarcoma that arises from the soft tissues, usually in the deep muscles of the lower extremities, retroperitoneum, mediastinum, and mesentery."
-        },
-        "synonyms" : [ {
-          "pred" : "hasExactSynonym",
-          "val" : "Angiosarcoma of Soft Tissue"
-        } ]
-      },
-      "id" : "http://purl.obolibrary.org/obo/NCIT_C121671",
-      "type" : "CLASS",
-      "lbl" : "Angiosarcoma of Soft Tissue"
-    }, {
-      "meta" : {
-        "definition" : {
-          "val" : "A malignant tumor arising from the endothelial cells of the blood vessels.  Microscopically, it is characterized by frequently open vascular anastomosing and branching channels.  The malignant cells that line the vascular channels are spindle or epithelioid and often display hyperchromatic nuclei.  Angiosarcomas most frequently occur in the skin and breast.  Patients with long-standing lymphedema are at increased risk of developing angiosarcoma."
-        },
-        "synonyms" : [ {
-          "pred" : "hasExactSynonym",
-          "val" : "hemangiosarcoma"
-        }, {
-          "pred" : "hasExactSynonym",
-          "val" : "Hemangiosarcoma"
-        }, {
-          "pred" : "hasExactSynonym",
-          "val" : "HEMANGIOSARCOMA, MALIGNANT"
-        }, {
-          "pred" : "hasExactSynonym",
-          "val" : "Malignant Angioendothelioma"
-        }, {
-          "pred" : "hasExactSynonym",
-          "val" : "Hemangiosarcoma"
-        }, {
-          "pred" : "hasExactSynonym",
-          "val" : "Malignant Hemangioendothelioma"
-        }, {
-          "pred" : "hasExactSynonym",
-          "val" : "angiosarcoma"
-        }, {
-          "pred" : "hasExactSynonym",
-          "val" : "Angiosarcoma"
-        } ]
-      },
-      "id" : "http://purl.obolibrary.org/obo/NCIT_C3088",
-      "type" : "CLASS",
-      "lbl" : "Angiosarcoma"
-    }, {
-      "meta" : {
-        "subsets" : [ "http://purl.obolibrary.org/obo/Orphanet_377788" ],
-        "xrefs" : [ {
-          "val" : "MedDRA:10002476"
-        } ]
-      },
-      "id" : "http://purl.obolibrary.org/obo/Orphanet_263413",
-      "type" : "CLASS",
-      "lbl" : "Angiosarcoma"
-    }, {
-      "meta" : {
-        "definition" : {
           "xrefs" : [ "url:http://emedicine.medscape.com/article/276512-overview", "url:http://en.wikipedia.org/wiki/Hemangiosarcoma", "url:http://www.ncbi.nlm.nih.gov/pubmed/23327728" ],
           "val" : "A malignant Vascular tumor that results_in rapidly proliferating, extensively infiltrating anaplastic cells derived_from blood vessels and derived_from the lining of irregular blood-filled spaces."
         },
         "subsets" : [ "http://purl.obolibrary.org/obo/TEMP#NCIthesaurus" ],
-        "xrefs" : [ {
-          "val" : "MESH:D006394"
-        }, {
-          "val" : "NCIT:C9275"
-        }, {
-          "val" : "SCTID:33176006"
-        }, {
-          "val" : "SCTID:39000009"
-        }, {
-          "val" : "UMLS:C0018923"
-        }, {
-          "val" : "SCTID:403977003"
-        }, {
-          "val" : "UMLS:C0854893"
-        }, {
-          "val" : "NCIT:C3088"
-        }, {
-          "val" : "Orphanet:263413"
-        } ],
+        "xrefs" : [
+          {
+            "val": "MESH:D006394"
+          },
+          {
+            "val": "NCIT:C3088"
+          },
+          {
+            "val": "NCIT:C9275"
+          },
+          {
+            "val": "Orphanet:263413"
+          },
+          {
+            "val": "SCTID:33176006"
+          },
+          {
+            "val": "SCTID:39000009"
+          },
+          {
+            "val": "SCTID:403977003"
+          },
+          {
+            "val": "UMLS:C0018923"
+          },
+          {
+            "val": "UMLS:C0854893"
+          }
+        ],
         "synonyms" : [ {
           "pred" : "hasExactSynonym",
           "val" : "hemangiosarcoma"
         } ],
         "basicPropertyValues" : [ {
           "pred" : "http://www.geneontology.org/formats/oboInOwl#hasAlternativeId",
-          "val" : "DOID:4508"
+          "val": "DOID:267"
         }, {
           "pred" : "http://www.geneontology.org/formats/oboInOwl#hasAlternativeId",
-          "val" : "DOID:267"
+          "val": "DOID:4508"
         } ]
       },
       "id" : "http://purl.obolibrary.org/obo/DOID_0001816",
       "type" : "CLASS",
       "lbl" : "angiosarcoma"
     }, {
-      "meta" : {
-        "basicPropertyValues" : [ {
-          "pred" : "http://purl.obolibrary.org/obo/IAO_0100001",
-          "val" : "http://purl.obolibrary.org/obo/DOID_0001816"
-        }, {
-          "pred" : "http://purl.obolibrary.org/obo/IAO_0000231",
-          "val" : "http://purl.obolibrary.org/obo/IAO_0000227"
-        } ],
-        "deprecated" : true
+      "meta": {
+        "basicPropertyValues": [
+          {
+            "pred": "http://purl.obolibrary.org/obo/IAO_0000231",
+            "val": "http://purl.obolibrary.org/obo/IAO_0000227"
+          },
+          {
+            "pred": "http://purl.obolibrary.org/obo/IAO_0100001",
+            "val": "http://purl.obolibrary.org/obo/DOID_0001816"
+          }
+        ],
+        "deprecated": true
       },
-      "id" : "http://purl.obolibrary.org/obo/DOID_4508",
-      "type" : "CLASS"
+      "id": "http://purl.obolibrary.org/obo/DOID_267",
+      "type": "CLASS"
     }, {
-      "meta" : {
-        "basicPropertyValues" : [ {
-          "pred" : "http://purl.obolibrary.org/obo/IAO_0100001",
-          "val" : "http://purl.obolibrary.org/obo/DOID_0001816"
-        }, {
-          "pred" : "http://purl.obolibrary.org/obo/IAO_0000231",
-          "val" : "http://purl.obolibrary.org/obo/IAO_0000227"
-        } ],
-        "deprecated" : true
+      "meta": {
+        "basicPropertyValues": [
+          {
+            "pred": "http://purl.obolibrary.org/obo/IAO_0000231",
+            "val": "http://purl.obolibrary.org/obo/IAO_0000227"
+          },
+          {
+            "pred": "http://purl.obolibrary.org/obo/IAO_0100001",
+            "val": "http://purl.obolibrary.org/obo/DOID_0001816"
+          }
+        ],
+        "deprecated": true
       },
-      "id" : "http://purl.obolibrary.org/obo/DOID_267",
-      "type" : "CLASS"
-    }, {
-      "id" : "http://www.geneontology.org/formats/oboInOwl#inSubset",
-      "type" : "PROPERTY",
-      "lbl" : "in_subset"
-    }, {
-      "id" : "http://www.geneontology.org/formats/oboInOwl#hasAlternativeId",
-      "type" : "PROPERTY",
-      "lbl" : "has_alternative_id"
-    }, {
-      "id" : "http://www.geneontology.org/formats/oboInOwl#hasDbXref",
-      "type" : "PROPERTY",
-      "lbl" : "database_cross_reference"
-    }, {
-      "id" : "http://purl.obolibrary.org/obo/IAO_0000115",
-      "type" : "PROPERTY",
-      "lbl" : "definition"
-    }, {
-      "id" : "http://www.geneontology.org/formats/oboInOwl#hasExactSynonym",
-      "type" : "PROPERTY",
-      "lbl" : "has_exact_synonym"
-    } ],
-    "edges" : [ {
-      "sub" : "http://purl.obolibrary.org/obo/NCIT_C3088",
-      "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/NCIT_C9118"
-    }, {
-      "sub" : "http://purl.obolibrary.org/obo/DOID_0001816",
-      "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/DOID_1115"
-    }, {
-      "sub" : "http://purl.obolibrary.org/obo/NCIT_C3088",
-      "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/NCIT_C8538"
-    }, {
-      "sub" : "http://purl.obolibrary.org/obo/NCIT_C121671",
-      "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/NCIT_C3088"
-    }, {
-      "sub" : "http://purl.obolibrary.org/obo/Orphanet_263413",
-      "pred" : "is_a",
+      "id": "http://purl.obolibrary.org/obo/DOID_4508",
+      "type": "CLASS"
+    },
+      {
+        "id": "http://purl.obolibrary.org/obo/IAO_0000115",
+        "type": "PROPERTY",
+        "lbl": "definition"
+      },
+      {
+        "meta": {
+          "definition": {
+            "val": "An angiosarcoma that arises from the soft tissues, usually in the deep muscles of the lower extremities, retroperitoneum, mediastinum, and mesentery."
+          },
+          "synonyms": [
+            {
+              "pred": "hasExactSynonym",
+              "val": "Angiosarcoma of Soft Tissue"
+            }
+          ]
+        },
+        "id": "http://purl.obolibrary.org/obo/NCIT_C121671",
+        "type": "CLASS",
+        "lbl": "Angiosarcoma of Soft Tissue"
+      },
+      {
+        "meta": {
+          "definition": {
+            "val": "A malignant tumor arising from the endothelial cells of the blood vessels.  Microscopically, it is characterized by frequently open vascular anastomosing and branching channels.  The malignant cells that line the vascular channels are spindle or epithelioid and often display hyperchromatic nuclei.  Angiosarcomas most frequently occur in the skin and breast.  Patients with long-standing lymphedema are at increased risk of developing angiosarcoma."
+          },
+          "synonyms": [
+            {
+              "pred": "hasExactSynonym",
+              "val": "Angiosarcoma"
+            },
+            {
+              "pred": "hasExactSynonym",
+              "val": "HEMANGIOSARCOMA, MALIGNANT"
+            },
+            {
+              "pred": "hasExactSynonym",
+              "val": "Hemangiosarcoma"
+            },
+            {
+              "pred": "hasExactSynonym",
+              "val": "Hemangiosarcoma"
+            },
+            {
+              "pred": "hasExactSynonym",
+              "val": "Malignant Angioendothelioma"
+            },
+            {
+              "pred": "hasExactSynonym",
+              "val": "Malignant Hemangioendothelioma"
+            },
+            {
+              "pred": "hasExactSynonym",
+              "val": "angiosarcoma"
+            },
+            {
+              "pred": "hasExactSynonym",
+              "val": "hemangiosarcoma"
+            }
+          ]
+        },
+        "id": "http://purl.obolibrary.org/obo/NCIT_C3088",
+        "type": "CLASS",
+        "lbl": "Angiosarcoma"
+      },
+      {
+        "meta": {
+          "subsets": [
+            "http://purl.obolibrary.org/obo/Orphanet_377788"
+          ],
+          "xrefs": [
+            {
+              "val": "MedDRA:10002476"
+            }
+          ]
+        },
+        "id": "http://purl.obolibrary.org/obo/Orphanet_263413",
+        "type": "CLASS",
+        "lbl": "Angiosarcoma"
+      },
+      {
+        "id": "http://www.geneontology.org/formats/oboInOwl#hasAlternativeId",
+        "type": "PROPERTY",
+        "lbl": "has_alternative_id"
+      },
+      {
+        "id": "http://www.geneontology.org/formats/oboInOwl#hasDbXref",
+        "type": "PROPERTY",
+        "lbl": "database_cross_reference"
+      },
+      {
+        "id": "http://www.geneontology.org/formats/oboInOwl#hasExactSynonym",
+        "type": "PROPERTY",
+        "lbl": "has_exact_synonym"
+      },
+      {
+        "id": "http://www.geneontology.org/formats/oboInOwl#inSubset",
+        "type": "PROPERTY",
+        "lbl": "in_subset"
+      }
+    ],
+    "edges" : [
+      {
+        "sub": "http://purl.obolibrary.org/obo/DOID_0001816",
+        "pred": "is_a",
+        "obj": "http://purl.obolibrary.org/obo/DOID_1115"
+      },
+      {
+        "sub": "http://purl.obolibrary.org/obo/NCIT_C121671",
+        "pred": "is_a",
+        "obj": "http://purl.obolibrary.org/obo/NCIT_C3088"
+      },
+      {
+        "sub": "http://purl.obolibrary.org/obo/NCIT_C121671",
+        "pred": "is_a",
+        "obj": "http://purl.obolibrary.org/obo/NCIT_C9306"
+      },
+      {
+        "sub": "http://purl.obolibrary.org/obo/NCIT_C3088",
+        "pred": "is_a",
+        "obj": "http://purl.obolibrary.org/obo/NCIT_C8538"
+      },
+      {
+        "sub": "http://purl.obolibrary.org/obo/NCIT_C3088",
+        "pred": "is_a",
+        "obj": "http://purl.obolibrary.org/obo/NCIT_C9118"
+      },
+      {
+        "sub": "http://purl.obolibrary.org/obo/Orphanet_263413",
+        "pred": "is_a",
       "obj" : "http://purl.obolibrary.org/obo/Orphanet_3394"
-    }, {
-      "sub" : "http://purl.obolibrary.org/obo/NCIT_C121671",
-      "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/NCIT_C9306"
     } ],
     "id" : "http://purl.obolibrary.org/obo/TEMP",
     "meta" : { },
