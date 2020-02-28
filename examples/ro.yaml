@@ -56,22 +56,6 @@ graphs:
     lbl: "proper distributary of"
   - meta:
       definition:
-        val: "x 'has end location' y if and only if there exists some process z such\
-          \ that x 'ends with' z and z 'occurs in' y"
-      subsets:
-      - "http://purl.obolibrary.org/obo/ro/subsets#ro-eco"
-      basicPropertyValues:
-      - pred: "http://purl.obolibrary.org/obo/IAO_0000118"
-        val: "ends with process that occurs in"
-      - pred: "http://purl.obolibrary.org/obo/IAO_0000114"
-        val: "http://purl.obolibrary.org/obo/IAO_0000125"
-      - pred: "http://purl.obolibrary.org/obo/IAO_0000117"
-        val: "Chris Mungall"
-    id: "http://purl.obolibrary.org/obo/RO_0002232"
-    type: "PROPERTY"
-    lbl: "has end location"
-  - meta:
-      definition:
         val: "x only in taxon y if and only if x is in taxon y, and there is no other\
           \ organism z such that y!=z a and x is in taxon z."
       basicPropertyValues:
@@ -121,6 +105,22 @@ graphs:
     id: "http://purl.obolibrary.org/obo/RO_HOM0000055"
     type: "PROPERTY"
     lbl: "in tandem paralogy relationship with"
+  - meta:
+      definition:
+        val: "x 'has end location' y if and only if there exists some process z such\
+          \ that x 'ends with' z and z 'occurs in' y"
+      subsets:
+      - "http://purl.obolibrary.org/obo/ro/subsets#ro-eco"
+      basicPropertyValues:
+      - pred: "http://purl.obolibrary.org/obo/IAO_0000118"
+        val: "ends with process that occurs in"
+      - pred: "http://purl.obolibrary.org/obo/IAO_0000114"
+        val: "http://purl.obolibrary.org/obo/IAO_0000125"
+      - pred: "http://purl.obolibrary.org/obo/IAO_0000117"
+        val: "Chris Mungall"
+    id: "http://purl.obolibrary.org/obo/RO_0002232"
+    type: "PROPERTY"
+    lbl: "has end location"
   - meta:
       definition:
         xrefs:
@@ -506,22 +506,6 @@ graphs:
     lbl: "in structural homology relationship with"
   - meta:
       definition:
-        val: "p 'directly regulates' q if and only if p and q are processes, and p\
-          \ regulates q, and q directly follows from p"
-      basicPropertyValues:
-      - pred: "http://purl.obolibrary.org/obo/RO_0002575"
-        val: "http://purl.obolibrary.org/obo/RO_0002211"
-      - pred: "http://purl.obolibrary.org/obo/IAO_0000119"
-        val: "http://purl.obolibrary.org/obo/ro/docs/causal-relations"
-      - pred: "http://purl.obolibrary.org/obo/IAO_0000589"
-        val: "directly regulates (processual)"
-      - pred: "http://purl.obolibrary.org/obo/IAO_0000117"
-        val: "Chris Mungall"
-    id: "http://purl.obolibrary.org/obo/RO_0002578"
-    type: "PROPERTY"
-    lbl: "directly regulates"
-  - meta:
-      definition:
         val: "a relation between two distinct material entities, the new entity and\
           \ the old entity, in which the new entity begins to exist when the old entity\
           \ ceases to exist, and the new entity inherits the significant portion of\
@@ -547,6 +531,22 @@ graphs:
     id: "http://purl.obolibrary.org/obo/RO_0001000"
     type: "PROPERTY"
     lbl: "derives from"
+  - meta:
+      definition:
+        val: "p 'directly regulates' q if and only if p and q are processes, and p\
+          \ regulates q, and q directly follows from p"
+      basicPropertyValues:
+      - pred: "http://purl.obolibrary.org/obo/RO_0002575"
+        val: "http://purl.obolibrary.org/obo/RO_0002211"
+      - pred: "http://purl.obolibrary.org/obo/IAO_0000119"
+        val: "http://purl.obolibrary.org/obo/ro/docs/causal-relations"
+      - pred: "http://purl.obolibrary.org/obo/IAO_0000589"
+        val: "directly regulates (processual)"
+      - pred: "http://purl.obolibrary.org/obo/IAO_0000117"
+        val: "Chris Mungall"
+    id: "http://purl.obolibrary.org/obo/RO_0002578"
+    type: "PROPERTY"
+    lbl: "directly regulates"
   - meta:
       definition:
         val: "A relation that holds between two neurons connected directly via a synapse,\
@@ -752,6 +752,15 @@ graphs:
     type: "PROPERTY"
     lbl: "has evidence"
   - meta:
+      basicPropertyValues:
+      - pred: "http://purl.org/spar/cito/citesAsAuthority"
+        val: "http://www.ncbi.nlm.nih.gov/pubmed/22402613"
+      - pred: "http://purl.obolibrary.org/obo/IAO_0000117"
+        val: "David Osumi-Sutherland"
+    id: "http://purl.obolibrary.org/obo/RO_0002005"
+    type: "PROPERTY"
+    lbl: "innervated_by"
+  - meta:
       definition:
         val: "p has direct input c iff c is a participant in p, c is present at the\
           \ start of p, and the state of c is modified during p."
@@ -767,15 +776,6 @@ graphs:
     id: "http://purl.obolibrary.org/obo/RO_0002233"
     type: "PROPERTY"
     lbl: "has input"
-  - meta:
-      basicPropertyValues:
-      - pred: "http://purl.org/spar/cito/citesAsAuthority"
-        val: "http://www.ncbi.nlm.nih.gov/pubmed/22402613"
-      - pred: "http://purl.obolibrary.org/obo/IAO_0000117"
-        val: "David Osumi-Sutherland"
-    id: "http://purl.obolibrary.org/obo/RO_0002005"
-    type: "PROPERTY"
-    lbl: "innervated_by"
   - meta:
       definition:
         val: "b occurs_in c =def b is a process and c is a material entity or immaterial\
@@ -1417,18 +1417,6 @@ graphs:
     lbl: "symbiotically interacts with"
   - meta:
       definition:
-        val: "A relationship that holds via some environmental process"
-      basicPropertyValues:
-      - pred: "http://purl.obolibrary.org/obo/IAO_0000117"
-        val: "Chris Mungall"
-      - pred: "http://purl.obolibrary.org/obo/IAO_0000232"
-        val: "Do not use this relation directly. It is ended as a grouping for a diverse\
-          \ set of relations, all involving the process of evolution."
-    id: "http://purl.obolibrary.org/obo/RO_0002320"
-    type: "PROPERTY"
-    lbl: "evolutionarily related to"
-  - meta:
-      definition:
         val: "a relation between two independent continuants, the location and the\
           \ target, in which the target is entirely within the location"
       basicPropertyValues:
@@ -1450,6 +1438,18 @@ graphs:
     lbl: "location of"
   - meta:
       definition:
+        val: "A relationship that holds via some environmental process"
+      basicPropertyValues:
+      - pred: "http://purl.obolibrary.org/obo/IAO_0000117"
+        val: "Chris Mungall"
+      - pred: "http://purl.obolibrary.org/obo/IAO_0000232"
+        val: "Do not use this relation directly. It is ended as a grouping for a diverse\
+          \ set of relations, all involving the process of evolution."
+    id: "http://purl.obolibrary.org/obo/RO_0002320"
+    type: "PROPERTY"
+    lbl: "evolutionarily related to"
+  - meta:
+      definition:
         val: "inverse of positively regulates"
       subsets:
       - "http://purl.obolibrary.org/obo/RO_0002259"
@@ -1459,6 +1459,20 @@ graphs:
     id: "http://purl.obolibrary.org/obo/RO_0002336"
     type: "PROPERTY"
     lbl: "positively regulated by"
+  - meta:
+      comments:
+      - "Previously had ID  http://purl.obolibrary.org/obo/RO_0002124 in test files\
+        \ in sandpit - but this seems to have been dropped from ro-edit.owl at some\
+        \ point.  No re-use under this ID AFAIK, but leaving note here in case we\
+        \ run in to clashes down the line.  Official ID now chosen from DOS ID range."
+      basicPropertyValues:
+      - pred: "http://purl.obolibrary.org/obo/IAO_0000117"
+        val: "David Osumi-Sutherland"
+      - pred: "http://purl.obolibrary.org/obo/IAO_0000118"
+        val: "di"
+    id: "http://purl.obolibrary.org/obo/RO_0002085"
+    type: "PROPERTY"
+    lbl: "encompasses"
   - meta:
       definition:
         val: "An interaction relationship between two organisms living together in\
@@ -1476,20 +1490,6 @@ graphs:
     id: "http://purl.obolibrary.org/obo/RO_0002441"
     type: "PROPERTY"
     lbl: "commensually interacts with"
-  - meta:
-      comments:
-      - "Previously had ID  http://purl.obolibrary.org/obo/RO_0002124 in test files\
-        \ in sandpit - but this seems to have been dropped from ro-edit.owl at some\
-        \ point.  No re-use under this ID AFAIK, but leaving note here in case we\
-        \ run in to clashes down the line.  Official ID now chosen from DOS ID range."
-      basicPropertyValues:
-      - pred: "http://purl.obolibrary.org/obo/IAO_0000117"
-        val: "David Osumi-Sutherland"
-      - pred: "http://purl.obolibrary.org/obo/IAO_0000118"
-        val: "di"
-    id: "http://purl.obolibrary.org/obo/RO_0002085"
-    type: "PROPERTY"
-    lbl: "encompasses"
   - meta:
       subsets:
       - "http://purl.obolibrary.org/obo/ro/subsets#ro-eco"
@@ -1637,15 +1637,6 @@ graphs:
     type: "PROPERTY"
     lbl: "causal relation between material entity and a process"
   - meta:
-      subsets:
-      - "http://purl.obolibrary.org/obo/ro/subsets#ro-eco"
-      basicPropertyValues:
-      - pred: "http://purl.obolibrary.org/obo/IAO_0000117"
-        val: "Chris Mungall"
-    id: "http://purl.obolibrary.org/obo/RO_0002460"
-    type: "PROPERTY"
-    lbl: "has vector"
-  - meta:
       definition:
         val: "Relation between an arterial structure and another structure, where\
           \ the arterial structure acts as a conduit channeling fluid, substance or\
@@ -1661,19 +1652,14 @@ graphs:
     type: "PROPERTY"
     lbl: "supplies"
   - meta:
-      definition:
-        val: "A relation that applies between a cell(c) and a gene(g) , where the\
-          \ process of 'transcription, DNA templated (GO_0006351)' is occuring in\
-          \ in cell c and that process has input gene g."
+      subsets:
+      - "http://purl.obolibrary.org/obo/ro/subsets#ro-eco"
       basicPropertyValues:
       - pred: "http://purl.obolibrary.org/obo/IAO_0000117"
-        val: "David Osumi-Sutherland"
-      - pred: "http://purl.org/dc/elements/1.1/description"
-        val: "x 'cell expresses' y iff:\ncell(x)\nAND gene(y)\nAND exists some 'transcription,\
-          \ DNA templated (GO_0006351)'(t)\nAND t occurs_in x\nAND t has_input y"
-    id: "http://purl.obolibrary.org/obo/RO_0002009"
+        val: "Chris Mungall"
+    id: "http://purl.obolibrary.org/obo/RO_0002460"
     type: "PROPERTY"
-    lbl: "cell expresses"
+    lbl: "has vector"
   - meta:
       definition:
         val: "x has start sequence y if the start of x is identical to the start of\
@@ -1692,6 +1678,20 @@ graphs:
     id: "http://purl.obolibrary.org/obo/RO_0002516"
     type: "PROPERTY"
     lbl: "has start sequence"
+  - meta:
+      definition:
+        val: "A relation that applies between a cell(c) and a gene(g) , where the\
+          \ process of 'transcription, DNA templated (GO_0006351)' is occuring in\
+          \ in cell c and that process has input gene g."
+      basicPropertyValues:
+      - pred: "http://purl.obolibrary.org/obo/IAO_0000117"
+        val: "David Osumi-Sutherland"
+      - pred: "http://purl.org/dc/elements/1.1/description"
+        val: "x 'cell expresses' y iff:\ncell(x)\nAND gene(y)\nAND exists some 'transcription,\
+          \ DNA templated (GO_0006351)'(t)\nAND t occurs_in x\nAND t has_input y"
+    id: "http://purl.obolibrary.org/obo/RO_0002009"
+    type: "PROPERTY"
+    lbl: "cell expresses"
   - meta:
       definition:
         val: "p regulates levels of c if p regulates some amount (PATO:0000070) of\
@@ -2064,20 +2064,6 @@ graphs:
     lbl: "overlaps sequence of"
   - meta:
       definition:
-        val: "inverse of determined by"
-      subsets:
-      - "http://purl.obolibrary.org/obo/ro/subsets#ro-eco"
-      - "http://purl.obolibrary.org/obo/RO_0002259"
-      basicPropertyValues:
-      - pred: "http://purl.obolibrary.org/obo/IAO_0000117"
-        val: "Chris Mungall"
-      - pred: "http://purl.obolibrary.org/obo/IAO_0000589"
-        val: "determines (material entity to system)"
-    id: "http://purl.obolibrary.org/obo/RO_0002508"
-    type: "PROPERTY"
-    lbl: "determines"
-  - meta:
-      definition:
         val: "Relation between a neuron and some structure (e.g.- a brain region)\
           \ in which it receives (chemical) synaptic input."
       basicPropertyValues:
@@ -2098,22 +2084,18 @@ graphs:
     lbl: "has presynaptic terminal in"
   - meta:
       definition:
-        val: "x ends with y if and only if x has part y and the time point at which\
-          \ x ends is equivalent to the time point at which y ends. Formally: α(y)\
-          \ > α(x) ∧ ω(y) = ω(x), where α is a function that maps a process to a start\
-          \ point, and ω is a function that maps a process to an end point."
+        val: "inverse of determined by"
       subsets:
       - "http://purl.obolibrary.org/obo/ro/subsets#ro-eco"
+      - "http://purl.obolibrary.org/obo/RO_0002259"
       basicPropertyValues:
       - pred: "http://purl.obolibrary.org/obo/IAO_0000117"
         val: "Chris Mungall"
-      - pred: "http://purl.obolibrary.org/obo/IAO_0000114"
-        val: "http://purl.obolibrary.org/obo/IAO_0000125"
-      - pred: "http://purl.obolibrary.org/obo/IAO_0000118"
-        val: "finished by"
-    id: "http://purl.obolibrary.org/obo/RO_0002230"
+      - pred: "http://purl.obolibrary.org/obo/IAO_0000589"
+        val: "determines (material entity to system)"
+    id: "http://purl.obolibrary.org/obo/RO_0002508"
     type: "PROPERTY"
-    lbl: "ends with"
+    lbl: "determines"
   - meta:
       subsets:
       - "http://purl.obolibrary.org/obo/ro/subsets#ro-eco"
@@ -2140,6 +2122,24 @@ graphs:
     id: "http://purl.obolibrary.org/obo/RO_0002229"
     type: "PROPERTY"
     lbl: "ends"
+  - meta:
+      definition:
+        val: "x ends with y if and only if x has part y and the time point at which\
+          \ x ends is equivalent to the time point at which y ends. Formally: α(y)\
+          \ > α(x) ∧ ω(y) = ω(x), where α is a function that maps a process to a start\
+          \ point, and ω is a function that maps a process to an end point."
+      subsets:
+      - "http://purl.obolibrary.org/obo/ro/subsets#ro-eco"
+      basicPropertyValues:
+      - pred: "http://purl.obolibrary.org/obo/IAO_0000117"
+        val: "Chris Mungall"
+      - pred: "http://purl.obolibrary.org/obo/IAO_0000114"
+        val: "http://purl.obolibrary.org/obo/IAO_0000125"
+      - pred: "http://purl.obolibrary.org/obo/IAO_0000118"
+        val: "finished by"
+    id: "http://purl.obolibrary.org/obo/RO_0002230"
+    type: "PROPERTY"
+    lbl: "ends with"
   - meta:
       definition:
         val: "A relationship that holds between a biological entity and a phenotype.\
@@ -2196,6 +2196,14 @@ graphs:
     lbl: "results in maturation of"
   - meta:
       definition:
+        val: "An independent continuant that is spatially extended whose identity\
+          \ is independent of that of other entities and can be maintained through\
+          \ time."
+    id: "http://purl.obolibrary.org/obo/BFO_0000040"
+    type: "CLASS"
+    lbl: "material entity"
+  - meta:
+      definition:
         val: "inverse of branching part of"
       subsets:
       - "http://purl.obolibrary.org/obo/ro/subsets#ro-eco"
@@ -2206,14 +2214,6 @@ graphs:
     id: "http://purl.obolibrary.org/obo/RO_0002569"
     type: "PROPERTY"
     lbl: "has branching part"
-  - meta:
-      definition:
-        val: "An independent continuant that is spatially extended whose identity\
-          \ is independent of that of other entities and can be maintained through\
-          \ time."
-    id: "http://purl.obolibrary.org/obo/BFO_0000040"
-    type: "CLASS"
-    lbl: "material entity"
   - meta:
       definition:
         val: "A broad relationship between an exposure event or process and any entity\
@@ -2381,6 +2381,20 @@ graphs:
     lbl: "logical macro assertion on an annotation property"
   - meta:
       definition:
+        val: "The relationship linking a cell and its participation in a process that\
+          \ results in the fate of the cell being specified. Once specification has\
+          \ taken place, a cell will be committed to differentiate down a specific\
+          \ pathway if left in its normal environment. "
+      basicPropertyValues:
+      - pred: "http://purl.obolibrary.org/obo/IAO_0000117"
+        val: "Chris Mungall"
+      - pred: "http://purl.obolibrary.org/obo/IAO_0000119"
+        val: "http://www.geneontology.org/GO.doc.development.shtml#fate"
+    id: "http://purl.obolibrary.org/obo/RO_0002356"
+    type: "PROPERTY"
+    lbl: "results in specification of"
+  - meta:
+      definition:
         val: "a relation between a material entity and a 2D immaterial entity (the\
           \ boundary), in which the boundary delimits the material entity"
       basicPropertyValues:
@@ -2403,20 +2417,6 @@ graphs:
     id: "http://purl.obolibrary.org/obo/RO_0002002"
     type: "PROPERTY"
     lbl: "has 2D boundary"
-  - meta:
-      definition:
-        val: "The relationship linking a cell and its participation in a process that\
-          \ results in the fate of the cell being specified. Once specification has\
-          \ taken place, a cell will be committed to differentiate down a specific\
-          \ pathway if left in its normal environment. "
-      basicPropertyValues:
-      - pred: "http://purl.obolibrary.org/obo/IAO_0000117"
-        val: "Chris Mungall"
-      - pred: "http://purl.obolibrary.org/obo/IAO_0000119"
-        val: "http://www.geneontology.org/GO.doc.development.shtml#fate"
-    id: "http://purl.obolibrary.org/obo/RO_0002356"
-    type: "PROPERTY"
-    lbl: "results in specification of"
   - meta:
       definition:
         xrefs:
@@ -2524,21 +2524,6 @@ graphs:
     lbl: "transports or maintains localization of"
   - meta:
       definition:
-        val: "x main_stem_of y if y is a branching structure and x is a channel that\
-          \ traces a linear path through y, such that x has higher capacity than any\
-          \ other such path."
-      subsets:
-      - "http://purl.obolibrary.org/obo/ro/subsets#ro-eco"
-      basicPropertyValues:
-      - pred: "http://purl.obolibrary.org/obo/IAO_0000117"
-        val: "Chris Mungall"
-      - pred: "http://purl.obolibrary.org/obo/IAO_0000114"
-        val: "http://purl.obolibrary.org/obo/IAO_0000428"
-    id: "http://purl.obolibrary.org/obo/RO_0002381"
-    type: "PROPERTY"
-    lbl: "main stem of"
-  - meta:
-      definition:
         val: "A relationship between a generically dependent continuant and a specifically\
           \ dependent continuant, in which the generically dependent continuant depends\
           \ on some independent continuant in virtue of the fact that the specifically\
@@ -2562,6 +2547,21 @@ graphs:
     id: "http://purl.obolibrary.org/obo/RO_0000058"
     type: "PROPERTY"
     lbl: "is concretized as"
+  - meta:
+      definition:
+        val: "x main_stem_of y if y is a branching structure and x is a channel that\
+          \ traces a linear path through y, such that x has higher capacity than any\
+          \ other such path."
+      subsets:
+      - "http://purl.obolibrary.org/obo/ro/subsets#ro-eco"
+      basicPropertyValues:
+      - pred: "http://purl.obolibrary.org/obo/IAO_0000117"
+        val: "Chris Mungall"
+      - pred: "http://purl.obolibrary.org/obo/IAO_0000114"
+        val: "http://purl.obolibrary.org/obo/IAO_0000428"
+    id: "http://purl.obolibrary.org/obo/RO_0002381"
+    type: "PROPERTY"
+    lbl: "main stem of"
   - meta:
       definition:
         val: "Relation between a muscle and a motor neuron that synapses to it via\
@@ -2729,19 +2729,19 @@ graphs:
     type: "PROPERTY"
     lbl: "results in ending of"
   - meta:
-      definition:
-        val: "A sub-relations of parasite-of in which the parasite that can complete\
-          \ its life cycle independent of a host."
-    id: "http://purl.obolibrary.org/obo/RO_0002228"
-    type: "PROPERTY"
-    lbl: "facultative parasite of"
-  - meta:
       basicPropertyValues:
       - pred: "http://purl.obolibrary.org/obo/IAO_0000412"
         val: "http://purl.obolibrary.org/obo/go.owl"
     id: "http://purl.obolibrary.org/obo/GO_0045211"
     type: "CLASS"
     lbl: "postsynaptic membrane"
+  - meta:
+      definition:
+        val: "A sub-relations of parasite-of in which the parasite that can complete\
+          \ its life cycle independent of a host."
+    id: "http://purl.obolibrary.org/obo/RO_0002228"
+    type: "PROPERTY"
+    lbl: "facultative parasite of"
   - meta:
       definition:
         val: "x has end sequence y if the end of x is identical to the end of y, and\
@@ -2912,19 +2912,6 @@ graphs:
     lbl: "immediate transformation of"
   - meta:
       definition:
-        val: "s 'has part structure that is capable of' p if and only if there exists\
-          \ some part x such that s 'has part' x and x 'capable of' p"
-      basicPropertyValues:
-      - pred: "http://purl.obolibrary.org/obo/IAO_0000112"
-        val: "gland SubClassOf 'has part structure that is capable of' some 'secretion\
-          \ by cell'"
-      - pred: "http://purl.obolibrary.org/obo/IAO_0000117"
-        val: "Chris Mungall"
-    id: "http://purl.obolibrary.org/obo/RO_0002584"
-    type: "PROPERTY"
-    lbl: "has part structure that is capable of"
-  - meta:
-      definition:
         val: "S present_in_taxon T if some instance of T has some S. This does not\
           \ means that all instances of T have an S - it may only be certain life\
           \ stages or sexes that have S"
@@ -2938,6 +2925,19 @@ graphs:
     id: "http://purl.obolibrary.org/obo/RO_0002175"
     type: "PROPERTY"
     lbl: "present in taxon"
+  - meta:
+      definition:
+        val: "s 'has part structure that is capable of' p if and only if there exists\
+          \ some part x such that s 'has part' x and x 'capable of' p"
+      basicPropertyValues:
+      - pred: "http://purl.obolibrary.org/obo/IAO_0000112"
+        val: "gland SubClassOf 'has part structure that is capable of' some 'secretion\
+          \ by cell'"
+      - pred: "http://purl.obolibrary.org/obo/IAO_0000117"
+        val: "Chris Mungall"
+    id: "http://purl.obolibrary.org/obo/RO_0002584"
+    type: "PROPERTY"
+    lbl: "has part structure that is capable of"
   - meta:
       definition:
         xrefs:
@@ -3187,6 +3187,25 @@ graphs:
     type: "CLASS"
     lbl: "obsolete dependent continuant"
   - meta:
+      basicPropertyValues:
+      - pred: "http://purl.obolibrary.org/obo/IAO_0000117"
+        val: "Chris Mungall"
+    id: "http://purl.obolibrary.org/obo/RO_0002481"
+    type: "PROPERTY"
+    lbl: "is kinase activity"
+  - meta:
+      definition:
+        val: "Holds between c and p if and only if c is capable of some activity a,\
+          \ and a regulates p."
+      basicPropertyValues:
+      - pred: "http://purl.obolibrary.org/obo/IAO_0000112"
+        val: "pyrethroid -> growth"
+      - pred: "http://purl.obolibrary.org/obo/IAO_0000119"
+        val: "http://purl.obolibrary.org/obo/ro/docs/causal-relations"
+    id: "http://purl.obolibrary.org/obo/RO_0002596"
+    type: "PROPERTY"
+    lbl: "capable of regulating"
+  - meta:
       definition:
         val: "w 'has component' p if w 'has part' p and w is such that it can be directly\
           \ disassembled into into n parts p, p2, p3, ..., pn, where these parts are\
@@ -3212,25 +3231,6 @@ graphs:
     id: "http://purl.obolibrary.org/obo/RO_0002180"
     type: "PROPERTY"
     lbl: "has component"
-  - meta:
-      definition:
-        val: "Holds between c and p if and only if c is capable of some activity a,\
-          \ and a regulates p."
-      basicPropertyValues:
-      - pred: "http://purl.obolibrary.org/obo/IAO_0000112"
-        val: "pyrethroid -> growth"
-      - pred: "http://purl.obolibrary.org/obo/IAO_0000119"
-        val: "http://purl.obolibrary.org/obo/ro/docs/causal-relations"
-    id: "http://purl.obolibrary.org/obo/RO_0002596"
-    type: "PROPERTY"
-    lbl: "capable of regulating"
-  - meta:
-      basicPropertyValues:
-      - pred: "http://purl.obolibrary.org/obo/IAO_0000117"
-        val: "Chris Mungall"
-    id: "http://purl.obolibrary.org/obo/RO_0002481"
-    type: "PROPERTY"
-    lbl: "is kinase activity"
   - meta:
       definition:
         val: "inverse of develops from"
@@ -3332,19 +3332,6 @@ graphs:
     lbl: "directly develops into"
   - meta:
       definition:
-        val: "a is attached to b if and only if a and b are discrete objects or object\
-          \ parts, and there are physical connections between a and b such that a\
-          \ force pulling a will move b, or a force pulling b will move a"
-      subsets:
-      - "http://purl.obolibrary.org/obo/ro/subsets#ro-eco"
-      basicPropertyValues:
-      - pred: "http://purl.obolibrary.org/obo/IAO_0000117"
-        val: "Chris Mungall"
-    id: "http://purl.obolibrary.org/obo/RO_0002371"
-    type: "PROPERTY"
-    lbl: "attached to"
-  - meta:
-      definition:
         val: "a relation between an independent continuant (the bearer) and a function,\
           \ in which the function specifically depends on the bearer for its existence"
       basicPropertyValues:
@@ -3361,6 +3348,19 @@ graphs:
     id: "http://purl.obolibrary.org/obo/RO_0000085"
     type: "PROPERTY"
     lbl: "has function"
+  - meta:
+      definition:
+        val: "a is attached to b if and only if a and b are discrete objects or object\
+          \ parts, and there are physical connections between a and b such that a\
+          \ force pulling a will move b, or a force pulling b will move a"
+      subsets:
+      - "http://purl.obolibrary.org/obo/ro/subsets#ro-eco"
+      basicPropertyValues:
+      - pred: "http://purl.obolibrary.org/obo/IAO_0000117"
+        val: "Chris Mungall"
+    id: "http://purl.obolibrary.org/obo/RO_0002371"
+    type: "PROPERTY"
+    lbl: "attached to"
   - meta:
       definition:
         val: "A is has_no_connections_with B if there are no parts of A or B that\
@@ -3419,6 +3419,18 @@ graphs:
     lbl: "in 1 to 1 orthology relationship with"
   - meta:
       definition:
+        val: "x is the opposite of y if there exists some distance metric M, and there\
+          \ exists no z such as M(x,z) <= M(x,y) or M(y,z) <= M(y,x)."
+      basicPropertyValues:
+      - pred: "http://purl.obolibrary.org/obo/IAO_0000112"
+        val: "'anterior end of organism' is-opposite-of 'posterior end of organism'"
+      - pred: "http://purl.obolibrary.org/obo/IAO_0000112"
+        val: "'increase in temperature' is-opposite-of 'decrease in temperature'"
+    id: "http://purl.obolibrary.org/obo/RO_0002604"
+    type: "PROPERTY"
+    lbl: "is opposite of"
+  - meta:
+      definition:
         val: "A relationship that holds between a substance and a chemical entity,\
           \ if the chemical entity is part of the substance, and the chemical entity\
           \ forms the biologically active component of the substance."
@@ -3433,18 +3445,6 @@ graphs:
     id: "http://purl.obolibrary.org/obo/RO_0002248"
     type: "PROPERTY"
     lbl: "has active ingredient"
-  - meta:
-      definition:
-        val: "x is the opposite of y if there exists some distance metric M, and there\
-          \ exists no z such as M(x,z) <= M(x,y) or M(y,z) <= M(y,x)."
-      basicPropertyValues:
-      - pred: "http://purl.obolibrary.org/obo/IAO_0000112"
-        val: "'anterior end of organism' is-opposite-of 'posterior end of organism'"
-      - pred: "http://purl.obolibrary.org/obo/IAO_0000112"
-        val: "'increase in temperature' is-opposite-of 'decrease in temperature'"
-    id: "http://purl.obolibrary.org/obo/RO_0002604"
-    type: "PROPERTY"
-    lbl: "is opposite of"
   - id: "http://www.geneontology.org/formats/oboInOwl#hasBroadSynonym"
     type: "PROPERTY"
     lbl: "has_broad_synonym"
@@ -4011,27 +4011,6 @@ graphs:
     lbl: "interacts with"
   - meta:
       definition:
-        val: "p1 directly provides input for p2 iff there exists some c such that\
-          \ p1 has_output c and p2 has_input c"
-      basicPropertyValues:
-      - pred: "http://purl.obolibrary.org/obo/IAO_0000114"
-        val: "http://purl.obolibrary.org/obo/IAO_0000428"
-      - pred: "http://purl.obolibrary.org/obo/IAO_0000119"
-        val: "http://purl.obolibrary.org/obo/ro/docs/causal-relations"
-      - pred: "http://purl.obolibrary.org/obo/IAO_0000589"
-        val: "directly provides input for (process to process)"
-      - pred: "http://purl.obolibrary.org/obo/IAO_0000117"
-        val: "Chris Mungall"
-      - pred: "http://purl.obolibrary.org/obo/IAO_0000116"
-        val: "This is currently called 'directly provides input for' to be consistent\
-          \ with our terminology where we use 'direct' whenever two occurrents succeed\
-          \ one another directly. We may relabel this simply 'provides input for',\
-          \ as directness is implicit"
-    id: "http://purl.obolibrary.org/obo/RO_0002413"
-    type: "PROPERTY"
-    lbl: "directly provides input for"
-  - meta:
-      definition:
         xrefs:
         - "http://dx.doi.org/10.1016/S0169-5347(97)01125-7"
         - "http://purl.obolibrary.org/obo/HOM_0000007"
@@ -4068,6 +4047,27 @@ graphs:
     id: "http://purl.obolibrary.org/obo/RO_HOM0000007"
     type: "PROPERTY"
     lbl: "in historical homology relationship with"
+  - meta:
+      definition:
+        val: "p1 directly provides input for p2 iff there exists some c such that\
+          \ p1 has_output c and p2 has_input c"
+      basicPropertyValues:
+      - pred: "http://purl.obolibrary.org/obo/IAO_0000114"
+        val: "http://purl.obolibrary.org/obo/IAO_0000428"
+      - pred: "http://purl.obolibrary.org/obo/IAO_0000119"
+        val: "http://purl.obolibrary.org/obo/ro/docs/causal-relations"
+      - pred: "http://purl.obolibrary.org/obo/IAO_0000589"
+        val: "directly provides input for (process to process)"
+      - pred: "http://purl.obolibrary.org/obo/IAO_0000117"
+        val: "Chris Mungall"
+      - pred: "http://purl.obolibrary.org/obo/IAO_0000116"
+        val: "This is currently called 'directly provides input for' to be consistent\
+          \ with our terminology where we use 'direct' whenever two occurrents succeed\
+          \ one another directly. We may relabel this simply 'provides input for',\
+          \ as directness is implicit"
+    id: "http://purl.obolibrary.org/obo/RO_0002413"
+    type: "PROPERTY"
+    lbl: "directly provides input for"
   - meta:
       definition:
         val: "p 'results in commitment to' c if and only if p is a developmental process\
@@ -4165,24 +4165,6 @@ graphs:
     lbl: "in mimicry relationship with"
   - meta:
       definition:
-        val: "x has gene product y if and only if x is a gene (SO:0000704) that participates\
-          \ in some gene expression process (GO:0010467) where the output of that\
-          \ process is either y or something that is ribosomally translated from y"
-      basicPropertyValues:
-      - pred: "http://purl.obolibrary.org/obo/IAO_0000117"
-        val: "Chris Mungall"
-      - pred: "http://purl.obolibrary.org/obo/IAO_0000114"
-        val: "http://purl.obolibrary.org/obo/IAO_0000125"
-      - pred: "http://purl.obolibrary.org/obo/IAO_0000112"
-        val: "every sonic hedgehog protein (PR:000014841) is the gene product of some\
-          \ sonic hedgehog gene"
-      - pred: "http://purl.obolibrary.org/obo/IAO_0000112"
-        val: "every HOTAIR lncRNA is the gene product of some HOXC gene"
-    id: "http://purl.obolibrary.org/obo/RO_0002205"
-    type: "PROPERTY"
-    lbl: "has gene product"
-  - meta:
-      definition:
         val: "A relationship between a specifically dependent continuant and a generically\
           \ dependent continuant, in which the generically dependent continuant depends\
           \ on some independent continuant in virtue of the fact that the specifically\
@@ -4206,6 +4188,24 @@ graphs:
     id: "http://purl.obolibrary.org/obo/RO_0000059"
     type: "PROPERTY"
     lbl: "concretizes"
+  - meta:
+      definition:
+        val: "x has gene product y if and only if x is a gene (SO:0000704) that participates\
+          \ in some gene expression process (GO:0010467) where the output of that\
+          \ process is either y or something that is ribosomally translated from y"
+      basicPropertyValues:
+      - pred: "http://purl.obolibrary.org/obo/IAO_0000117"
+        val: "Chris Mungall"
+      - pred: "http://purl.obolibrary.org/obo/IAO_0000114"
+        val: "http://purl.obolibrary.org/obo/IAO_0000125"
+      - pred: "http://purl.obolibrary.org/obo/IAO_0000112"
+        val: "every sonic hedgehog protein (PR:000014841) is the gene product of some\
+          \ sonic hedgehog gene"
+      - pred: "http://purl.obolibrary.org/obo/IAO_0000112"
+        val: "every HOTAIR lncRNA is the gene product of some HOXC gene"
+    id: "http://purl.obolibrary.org/obo/RO_0002205"
+    type: "PROPERTY"
+    lbl: "has gene product"
   - meta:
       definition:
         val: "x 'has habitat' y if and only if: x is an organism, y is a habitat,\
@@ -4450,19 +4450,6 @@ graphs:
     lbl: "obsolete has indirect input"
   - meta:
       definition:
-        val: "inverse of causally upstream of or within"
-      subsets:
-      - "http://purl.obolibrary.org/obo/RO_0002259"
-      basicPropertyValues:
-      - pred: "http://purl.obolibrary.org/obo/IAO_0000119"
-        val: "http://purl.obolibrary.org/obo/ro/docs/causal-relations"
-      - pred: "http://purl.obolibrary.org/obo/IAO_0000117"
-        val: "Chris Mungall"
-    id: "http://purl.obolibrary.org/obo/RO_0002427"
-    type: "PROPERTY"
-    lbl: "causally downstream of or within"
-  - meta:
-      definition:
         val: "x regulates y if and only if the x is the realization of a function\
           \ to exert an effect on the frequency, rate or extent of y"
       basicPropertyValues:
@@ -4493,6 +4480,19 @@ graphs:
     id: "http://purl.obolibrary.org/obo/RO_0002211"
     type: "PROPERTY"
     lbl: "regulates"
+  - meta:
+      definition:
+        val: "inverse of causally upstream of or within"
+      subsets:
+      - "http://purl.obolibrary.org/obo/RO_0002259"
+      basicPropertyValues:
+      - pred: "http://purl.obolibrary.org/obo/IAO_0000119"
+        val: "http://purl.obolibrary.org/obo/ro/docs/causal-relations"
+      - pred: "http://purl.obolibrary.org/obo/IAO_0000117"
+        val: "Chris Mungall"
+    id: "http://purl.obolibrary.org/obo/RO_0002427"
+    type: "PROPERTY"
+    lbl: "causally downstream of or within"
   - meta:
       definition:
         val: "s is luminal space of x iff s is lumen_of x and s is an immaterial entity"
@@ -4795,17 +4795,6 @@ graphs:
     lbl: "developmentally replaces"
   - meta:
       definition:
-        val: "has member is a mereological relation between a collection and an item."
-      basicPropertyValues:
-      - pred: "http://purl.obolibrary.org/obo/RO_0001900"
-        val: "http://purl.obolibrary.org/obo/RO_0001901"
-      - pred: "http://purl.obolibrary.org/obo/IAO_0000119"
-        val: "SIO"
-    id: "http://purl.obolibrary.org/obo/RO_0002351"
-    type: "PROPERTY"
-    lbl: "has member"
-  - meta:
-      definition:
         val: "The relationship that links a specified entity with the process that\
           \ results in an unspecified entity acquiring the features and characteristics\
           \ of the specified entity"
@@ -4824,6 +4813,17 @@ graphs:
     id: "http://purl.obolibrary.org/obo/RO_0002315"
     type: "PROPERTY"
     lbl: "results in acquisition of features of"
+  - meta:
+      definition:
+        val: "has member is a mereological relation between a collection and an item."
+      basicPropertyValues:
+      - pred: "http://purl.obolibrary.org/obo/RO_0001900"
+        val: "http://purl.obolibrary.org/obo/RO_0001901"
+      - pred: "http://purl.obolibrary.org/obo/IAO_0000119"
+        val: "SIO"
+    id: "http://purl.obolibrary.org/obo/RO_0002351"
+    type: "PROPERTY"
+    lbl: "has member"
   - meta:
       definition:
         val: "c involved in or regulates p if and only if either (i) c is involved\
@@ -5711,27 +5711,6 @@ graphs:
     lbl: "material anatomical entity"
   - meta:
       definition:
-        xrefs:
-        - "http://dx.doi.org/10.1007/BF00173425"
-        - "http://dx.doi.org/10.1016/S0168-9525(00)02005-9"
-        - "http://purl.obolibrary.org/obo/HOM_0000053"
-        val: "Xenology that results, not from the transfer of a gene between two species,\
-          \ but from a hybridization of two species."
-      synonyms:
-      - pred: "hasExactSynonym"
-        val: "synologous to"
-      basicPropertyValues:
-      - pred: "http://purl.org/dc/elements/1.1/source"
-        val: "http://www.ncbi.nlm.nih.gov/pubmed/20116127"
-      - pred: "http://www.w3.org/2000/01/rdf-schema#seeAlso"
-        val: "http://purl.obolibrary.org/obo/HOM_0000053"
-      - pred: "http://purl.org/dc/elements/1.1/creator"
-        val: "http://bgee.unil.ch"
-    id: "http://purl.obolibrary.org/obo/RO_HOM0000053"
-    type: "PROPERTY"
-    lbl: "in synology relationship with"
-  - meta:
-      definition:
         val: "The relation between a neuron projection bundle and a neuron projection\
           \ that is fasciculated with it."
       basicPropertyValues:
@@ -5759,6 +5738,27 @@ graphs:
     id: "http://purl.obolibrary.org/obo/RO_0002132"
     type: "PROPERTY"
     lbl: "has fasciculating neuron projection"
+  - meta:
+      definition:
+        xrefs:
+        - "http://dx.doi.org/10.1007/BF00173425"
+        - "http://dx.doi.org/10.1016/S0168-9525(00)02005-9"
+        - "http://purl.obolibrary.org/obo/HOM_0000053"
+        val: "Xenology that results, not from the transfer of a gene between two species,\
+          \ but from a hybridization of two species."
+      synonyms:
+      - pred: "hasExactSynonym"
+        val: "synologous to"
+      basicPropertyValues:
+      - pred: "http://purl.org/dc/elements/1.1/source"
+        val: "http://www.ncbi.nlm.nih.gov/pubmed/20116127"
+      - pred: "http://www.w3.org/2000/01/rdf-schema#seeAlso"
+        val: "http://purl.obolibrary.org/obo/HOM_0000053"
+      - pred: "http://purl.org/dc/elements/1.1/creator"
+        val: "http://bgee.unil.ch"
+    id: "http://purl.obolibrary.org/obo/RO_HOM0000053"
+    type: "PROPERTY"
+    lbl: "in synology relationship with"
   - meta:
       definition:
         val: "relation p is the direct form of relation q iff p is a subPropertyOf\
@@ -6124,9 +6124,6 @@ graphs:
     id: "http://purl.obolibrary.org/obo/RO_HOM0000002"
     type: "PROPERTY"
     lbl: "in homoplasy relationship with"
-  - id: "http://purl.obolibrary.org/obo/ro/subsets#ro-eco"
-    type: "PROPERTY"
-    lbl: "eco subset"
   - meta:
       definition:
         val: "A relationship that holds via some process of localization"
@@ -6136,6 +6133,9 @@ graphs:
     id: "http://purl.obolibrary.org/obo/RO_0002337"
     type: "PROPERTY"
     lbl: "related via localization to"
+  - id: "http://purl.obolibrary.org/obo/ro/subsets#ro-eco"
+    type: "PROPERTY"
+    lbl: "eco subset"
   - meta:
       definition:
         xrefs:
@@ -6809,15 +6809,6 @@ graphs:
     lbl: "results in transport across"
   - meta:
       definition:
-        val: "A relation that holds between a disease or an organism and a phenotype"
-      basicPropertyValues:
-      - pred: "http://purl.obolibrary.org/obo/IAO_0000117"
-        val: "Chris Mungall"
-    id: "http://purl.obolibrary.org/obo/RO_0002452"
-    type: "PROPERTY"
-    lbl: "has symptom"
-  - meta:
-      definition:
         val: "p directly activates q if and only if p is immediately upstream of q\
           \ and p is the realization of a function to increase the rate or activity\
           \ of q"
@@ -6831,6 +6822,15 @@ graphs:
     id: "http://purl.obolibrary.org/obo/RO_0002407"
     type: "PROPERTY"
     lbl: "indirectly activates"
+  - meta:
+      definition:
+        val: "A relation that holds between a disease or an organism and a phenotype"
+      basicPropertyValues:
+      - pred: "http://purl.obolibrary.org/obo/IAO_0000117"
+        val: "Chris Mungall"
+    id: "http://purl.obolibrary.org/obo/RO_0002452"
+    type: "PROPERTY"
+    lbl: "has symptom"
   - meta:
       definition:
         val: "p 'results in development of' c if and only if p is a developmental\
@@ -7122,6 +7122,28 @@ graphs:
     lbl: "provides nutrients for"
   - meta:
       definition:
+        xrefs:
+        - "http://dx.doi.org/10.1016/j.jhevol.2006.11.010"
+        - "http://purl.obolibrary.org/obo/HOM_0000005"
+        val: "Homoplasy that involves homologous underlying mechanisms or structures."
+      comments:
+      - "Can be applied for features present in closely related organisms but not\
+        \ present continuously in all the members of the lineage."
+      synonyms:
+      - pred: "hasExactSynonym"
+        val: "parallel evolution"
+      basicPropertyValues:
+      - pred: "http://purl.org/dc/elements/1.1/source"
+        val: "http://www.ncbi.nlm.nih.gov/pubmed/20116127"
+      - pred: "http://purl.org/dc/elements/1.1/creator"
+        val: "http://bgee.unil.ch"
+      - pred: "http://www.w3.org/2000/01/rdf-schema#seeAlso"
+        val: "http://purl.obolibrary.org/obo/HOM_0000005"
+    id: "http://purl.obolibrary.org/obo/RO_HOM0000005"
+    type: "PROPERTY"
+    lbl: "in parallelism relationship with"
+  - meta:
+      definition:
         val: "p results in the developmental progression of s iff p is a developmental\
           \ process and s is an anatomical structure and p causes s to undergo a change\
           \ in state at some point along its natural developmental cycle (this cycle\
@@ -7147,28 +7169,6 @@ graphs:
     id: "http://purl.obolibrary.org/obo/RO_0002295"
     type: "PROPERTY"
     lbl: "results in developmental progression of"
-  - meta:
-      definition:
-        xrefs:
-        - "http://dx.doi.org/10.1016/j.jhevol.2006.11.010"
-        - "http://purl.obolibrary.org/obo/HOM_0000005"
-        val: "Homoplasy that involves homologous underlying mechanisms or structures."
-      comments:
-      - "Can be applied for features present in closely related organisms but not\
-        \ present continuously in all the members of the lineage."
-      synonyms:
-      - pred: "hasExactSynonym"
-        val: "parallel evolution"
-      basicPropertyValues:
-      - pred: "http://purl.org/dc/elements/1.1/source"
-        val: "http://www.ncbi.nlm.nih.gov/pubmed/20116127"
-      - pred: "http://purl.org/dc/elements/1.1/creator"
-        val: "http://bgee.unil.ch"
-      - pred: "http://www.w3.org/2000/01/rdf-schema#seeAlso"
-        val: "http://purl.obolibrary.org/obo/HOM_0000005"
-    id: "http://purl.obolibrary.org/obo/RO_HOM0000005"
-    type: "PROPERTY"
-    lbl: "in parallelism relationship with"
   - id: "http://purl.obolibrary.org/obo/BFO_0000016"
     type: "CLASS"
     lbl: "disposition"
@@ -7448,6 +7448,18 @@ graphs:
     lbl: "results in closure of"
   - meta:
       definition:
+        val: "inverse of has input"
+      subsets:
+      - "http://purl.obolibrary.org/obo/ro/subsets#ro-eco"
+      - "http://purl.obolibrary.org/obo/RO_0002259"
+      basicPropertyValues:
+      - pred: "http://purl.obolibrary.org/obo/IAO_0000117"
+        val: "Chris Mungall"
+    id: "http://purl.obolibrary.org/obo/RO_0002352"
+    type: "PROPERTY"
+    lbl: "input of"
+  - meta:
+      definition:
         val: "d derived_by_descent_from a if d is specified by some genetic program\
           \ that is sequence-inherited-from a genetic program that specifies a."
       basicPropertyValues:
@@ -7460,18 +7472,6 @@ graphs:
     id: "http://purl.obolibrary.org/obo/RO_0002156"
     type: "PROPERTY"
     lbl: "derived by descent from"
-  - meta:
-      definition:
-        val: "inverse of has input"
-      subsets:
-      - "http://purl.obolibrary.org/obo/ro/subsets#ro-eco"
-      - "http://purl.obolibrary.org/obo/RO_0002259"
-      basicPropertyValues:
-      - pred: "http://purl.obolibrary.org/obo/IAO_0000117"
-        val: "Chris Mungall"
-    id: "http://purl.obolibrary.org/obo/RO_0002352"
-    type: "PROPERTY"
-    lbl: "input of"
   - id: "http://www.geneontology.org/formats/oboInOwl#ObsoleteClass"
     type: "CLASS"
     lbl: "Obsolete Class"
@@ -7698,12 +7698,6 @@ graphs:
     lbl: "ambiguous for taxon"
   - meta:
       definition:
-        val: "c has-chemical-role r iff c has-role r and r is a chemical role (CHEBI:51086)"
-    id: "http://purl.obolibrary.org/obo/RO_0002262"
-    type: "PROPERTY"
-    lbl: "has chemical role"
-  - meta:
-      definition:
         val: "x starts ends with y if and only if the time point at which x starts\
           \ is equivalent to the time point at which y starts. Formally: x existence\
           \ starts with y iff α(x) = α(y)."
@@ -7713,6 +7707,12 @@ graphs:
     id: "http://purl.obolibrary.org/obo/RO_0002489"
     type: "PROPERTY"
     lbl: "existence starts with"
+  - meta:
+      definition:
+        val: "c has-chemical-role r iff c has-role r and r is a chemical role (CHEBI:51086)"
+    id: "http://purl.obolibrary.org/obo/RO_0002262"
+    type: "PROPERTY"
+    lbl: "has chemical role"
   - meta:
       definition:
         val: "S dubious_for_taxon T if it is probably the case that no instances of\
@@ -8840,12 +8840,12 @@ graphs:
   - id: "http://purl.obolibrary.org/obo/ENVO_00000428"
     type: "CLASS"
     lbl: "biome"
-  - id: "http://purl.obolibrary.org/obo/IAO_0000600"
-    type: "PROPERTY"
-    lbl: "elucidation"
   - id: "http://purl.obolibrary.org/obo/RO_0002619"
     type: "PROPERTY"
     lbl: "visited by"
+  - id: "http://purl.obolibrary.org/obo/IAO_0000600"
+    type: "PROPERTY"
+    lbl: "elucidation"
   - meta:
       definition:
         val: "Relation between a research artifact and an entity it is used to study,\
@@ -9230,12 +9230,12 @@ graphs:
   - sub: "http://purl.obolibrary.org/obo/RO_0002210"
     pred: "subPropertyOf"
     obj: "http://purl.obolibrary.org/obo/RO_0002203"
-  - sub: "http://purl.obolibrary.org/obo/RO_0003307"
-    pred: "subPropertyOf"
-    obj: "http://purl.obolibrary.org/obo/RO_0002410"
   - sub: "http://purl.obolibrary.org/obo/RO_0000302"
     pred: "subPropertyOf"
     obj: "http://purl.obolibrary.org/obo/RO_0000300"
+  - sub: "http://purl.obolibrary.org/obo/RO_0003307"
+    pred: "subPropertyOf"
+    obj: "http://purl.obolibrary.org/obo/RO_0002410"
   - sub: "http://purl.obolibrary.org/obo/RO_0002009"
     pred: "subPropertyOf"
     obj: "http://purl.obolibrary.org/obo/RO_0002292"
@@ -9716,12 +9716,12 @@ graphs:
   - sub: "http://purl.obolibrary.org/obo/RO_0002509"
     pred: "subPropertyOf"
     obj: "http://purl.obolibrary.org/obo/RO_0002131"
-  - sub: "http://purl.obolibrary.org/obo/PATO_0001199"
-    pred: "is_a"
-    obj: "http://purl.obolibrary.org/obo/PATO_0000052"
   - sub: "http://purl.obolibrary.org/obo/GO_0030425"
     pred: "is_a"
     obj: "http://purl.obolibrary.org/obo/GO_0043005"
+  - sub: "http://purl.obolibrary.org/obo/PATO_0001199"
+    pred: "is_a"
+    obj: "http://purl.obolibrary.org/obo/PATO_0000052"
   - sub: "http://purl.obolibrary.org/obo/RO_0002478"
     pred: "subPropertyOf"
     obj: "http://purl.obolibrary.org/obo/RO_0002476"
@@ -9746,15 +9746,15 @@ graphs:
   - sub: "http://purl.obolibrary.org/obo/RO_0002406"
     pred: "subPropertyOf"
     obj: "http://purl.obolibrary.org/obo/RO_0002629"
+  - sub: "http://purl.obolibrary.org/obo/RO_0002466"
+    pred: "subPropertyOf"
+    obj: "http://purl.obolibrary.org/obo/RO_0002465"
   - sub: "http://purl.obolibrary.org/obo/RO_0002455"
     pred: "subPropertyOf"
     obj: "http://purl.obolibrary.org/obo/RO_0002442"
   - sub: "http://purl.obolibrary.org/obo/RO_0002252"
     pred: "subPropertyOf"
     obj: "http://purl.obolibrary.org/obo/RO_0002375"
-  - sub: "http://purl.obolibrary.org/obo/RO_0002466"
-    pred: "subPropertyOf"
-    obj: "http://purl.obolibrary.org/obo/RO_0002465"
   - sub: "http://purl.obolibrary.org/obo/RO_HOM0000007"
     pred: "subPropertyOf"
     obj: "http://purl.obolibrary.org/obo/RO_HOM0000001"
@@ -9848,12 +9848,12 @@ graphs:
   - sub: "http://purl.obolibrary.org/obo/RO_0002430"
     pred: "subPropertyOf"
     obj: "http://purl.obolibrary.org/obo/RO_0002428"
-  - sub: "http://purl.obolibrary.org/obo/RO_0002113"
-    pred: "subPropertyOf"
-    obj: "http://purl.obolibrary.org/obo/RO_0002130"
   - sub: "http://purl.obolibrary.org/obo/RO_0002114"
     pred: "subPropertyOf"
     obj: "http://purl.obolibrary.org/obo/RO_0002120"
+  - sub: "http://purl.obolibrary.org/obo/RO_0002113"
+    pred: "subPropertyOf"
+    obj: "http://purl.obolibrary.org/obo/RO_0002130"
   - sub: "http://purl.obolibrary.org/obo/RO_0002379"
     pred: "subPropertyOf"
     obj: "http://purl.obolibrary.org/obo/RO_0002131"
@@ -10214,12 +10214,12 @@ graphs:
   - sub: "http://purl.obolibrary.org/obo/RO_0002245"
     pred: "subPropertyOf"
     obj: "http://purl.obolibrary.org/obo/RO_0002206"
-  - sub: "http://purl.obolibrary.org/obo/RO_0002180"
-    pred: "subPropertyOf"
-    obj: "http://purl.obolibrary.org/obo/BFO_0000051"
   - sub: "http://purl.obolibrary.org/obo/RO_0002231"
     pred: "subPropertyOf"
     obj: "http://purl.obolibrary.org/obo/RO_0002479"
+  - sub: "http://purl.obolibrary.org/obo/RO_0002180"
+    pred: "subPropertyOf"
+    obj: "http://purl.obolibrary.org/obo/BFO_0000051"
   - sub: "http://purl.obolibrary.org/obo/RO_0002230"
     pred: "subPropertyOf"
     obj: "http://purl.obolibrary.org/obo/RO_0002222"
@@ -10235,12 +10235,12 @@ graphs:
   - sub: "http://purl.obolibrary.org/obo/RO_HOM0000075"
     pred: "subPropertyOf"
     obj: "http://purl.obolibrary.org/obo/RO_HOM0000007"
-  - sub: "http://purl.obolibrary.org/obo/RO_0002241"
-    pred: "subPropertyOf"
-    obj: "http://purl.obolibrary.org/obo/RO_0002244"
   - sub: "http://purl.obolibrary.org/obo/RO_0002211"
     pred: "subPropertyOf"
     obj: "http://purl.obolibrary.org/obo/RO_0002411"
+  - sub: "http://purl.obolibrary.org/obo/RO_0002241"
+    pred: "subPropertyOf"
+    obj: "http://purl.obolibrary.org/obo/RO_0002244"
   - sub: "http://purl.obolibrary.org/obo/RO_0002293"
     pred: "subPropertyOf"
     obj: "http://purl.obolibrary.org/obo/RO_0002292"
@@ -10253,15 +10253,15 @@ graphs:
   - sub: "http://purl.obolibrary.org/obo/RO_HOM0000062"
     pred: "subPropertyOf"
     obj: "http://purl.obolibrary.org/obo/RO_HOM0000007"
+  - sub: "http://purl.obolibrary.org/obo/RO_0002085"
+    pred: "inverseOf"
+    obj: "http://purl.obolibrary.org/obo/RO_0002092"
   - sub: "http://purl.obolibrary.org/obo/RO_0002087"
     pred: "inverseOf"
     obj: "http://purl.obolibrary.org/obo/RO_0002090"
   - sub: "http://purl.obolibrary.org/obo/RO_0002084"
     pred: "inverseOf"
     obj: "http://purl.obolibrary.org/obo/RO_0002093"
-  - sub: "http://purl.obolibrary.org/obo/RO_0002085"
-    pred: "inverseOf"
-    obj: "http://purl.obolibrary.org/obo/RO_0002092"
   - sub: "http://purl.obolibrary.org/obo/CARO_0000011"
     pred: "is_a"
     obj: "http://purl.obolibrary.org/obo/CARO_0000006"
@@ -10277,21 +10277,21 @@ graphs:
   - sub: "http://purl.obolibrary.org/obo/RO_0002004"
     pred: "subPropertyOf"
     obj: "http://purl.obolibrary.org/obo/RO_0001018"
-  - sub: "http://purl.obolibrary.org/obo/RO_0002458"
-    pred: "subPropertyOf"
-    obj: "http://purl.obolibrary.org/obo/RO_0002438"
   - sub: "http://purl.obolibrary.org/obo/RO_0002476"
     pred: "subPropertyOf"
     obj: "http://purl.obolibrary.org/obo/RO_0002258"
+  - sub: "http://purl.obolibrary.org/obo/RO_0002458"
+    pred: "subPropertyOf"
+    obj: "http://purl.obolibrary.org/obo/RO_0002438"
   - sub: "http://purl.obolibrary.org/obo/RO_0002233"
     pred: "subPropertyOf"
     obj: "http://purl.obolibrary.org/obo/RO_0000057"
-  - sub: "http://purl.obolibrary.org/obo/RO_0002006"
-    pred: "inverseOf"
-    obj: "http://purl.obolibrary.org/obo/RO_0002130"
   - sub: "http://purl.obolibrary.org/obo/RO_0001020"
     pred: "inverseOf"
     obj: "http://purl.obolibrary.org/obo/RO_0001022"
+  - sub: "http://purl.obolibrary.org/obo/RO_0002006"
+    pred: "inverseOf"
+    obj: "http://purl.obolibrary.org/obo/RO_0002130"
   - sub: "http://purl.obolibrary.org/obo/RO_0002622"
     pred: "inverseOf"
     obj: "http://purl.obolibrary.org/obo/RO_0002623"
@@ -10385,12 +10385,12 @@ graphs:
   - sub: "http://purl.obolibrary.org/obo/RO_0003302"
     pred: "subPropertyOf"
     obj: "http://purl.obolibrary.org/obo/RO_0002410"
-  - sub: "http://purl.obolibrary.org/obo/RO_0002460"
-    pred: "subPropertyOf"
-    obj: "http://purl.obolibrary.org/obo/RO_0002459"
   - sub: "http://purl.obolibrary.org/obo/RO_0002373"
     pred: "subPropertyOf"
     obj: "http://purl.obolibrary.org/obo/RO_0002567"
+  - sub: "http://purl.obolibrary.org/obo/RO_0002460"
+    pred: "subPropertyOf"
+    obj: "http://purl.obolibrary.org/obo/RO_0002459"
   - sub: "http://purl.obolibrary.org/obo/RO_0002264"
     pred: "subPropertyOf"
     obj: "http://purl.obolibrary.org/obo/RO_0002500"
@@ -10400,12 +10400,12 @@ graphs:
   - sub: "http://purl.obolibrary.org/obo/RO_0000081"
     pred: "subPropertyOf"
     obj: "http://purl.obolibrary.org/obo/RO_0000052"
-  - sub: "http://purl.obolibrary.org/obo/RO_0002403"
-    pred: "subPropertyOf"
-    obj: "http://purl.obolibrary.org/obo/RO_0002234"
   - sub: "http://purl.obolibrary.org/obo/RO_HOM0000057"
     pred: "subPropertyOf"
     obj: "http://purl.obolibrary.org/obo/RO_HOM0000005"
+  - sub: "http://purl.obolibrary.org/obo/RO_0002403"
+    pred: "subPropertyOf"
+    obj: "http://purl.obolibrary.org/obo/RO_0002234"
   - sub: "http://purl.obolibrary.org/obo/RO_0002500"
     pred: "subPropertyOf"
     obj: "http://purl.obolibrary.org/obo/RO_0002595"
@@ -10514,12 +10514,12 @@ graphs:
   - sub: "http://purl.obolibrary.org/obo/RO_0002444"
     pred: "subPropertyOf"
     obj: "http://purl.obolibrary.org/obo/RO_0002454"
-  - sub: "http://purl.obolibrary.org/obo/RO_0002246"
-    pred: "subPropertyOf"
-    obj: "http://purl.obolibrary.org/obo/RO_0002206"
   - sub: "http://purl.obolibrary.org/obo/RO_0002461"
     pred: "subPropertyOf"
     obj: "http://purl.obolibrary.org/obo/RO_0000056"
+  - sub: "http://purl.obolibrary.org/obo/RO_0002246"
+    pred: "subPropertyOf"
+    obj: "http://purl.obolibrary.org/obo/RO_0002206"
   - sub: "http://purl.obolibrary.org/obo/RO_0002232"
     pred: "subPropertyOf"
     obj: "http://purl.obolibrary.org/obo/RO_0002479"
@@ -10562,12 +10562,12 @@ graphs:
   - sub: "http://purl.obolibrary.org/obo/RO_0000079"
     pred: "inverseOf"
     obj: "http://purl.obolibrary.org/obo/RO_0000085"
-  - sub: "http://purl.obolibrary.org/obo/RO_0002159"
-    pred: "subPropertyOf"
-    obj: "http://purl.obolibrary.org/obo/RO_0002320"
   - sub: "http://purl.obolibrary.org/obo/RO_0002090"
     pred: "subPropertyOf"
     obj: "http://purl.obolibrary.org/obo/BFO_0000063"
+  - sub: "http://purl.obolibrary.org/obo/RO_0002159"
+    pred: "subPropertyOf"
+    obj: "http://purl.obolibrary.org/obo/RO_0002320"
   - sub: "http://purl.obolibrary.org/obo/RO_HOM0000045"
     pred: "subPropertyOf"
     obj: "http://purl.obolibrary.org/obo/RO_HOM0000007"
@@ -11039,15 +11039,15 @@ graphs:
   - sub: "http://purl.obolibrary.org/obo/RO_0002462"
     pred: "subPropertyOf"
     obj: "http://purl.obolibrary.org/obo/RO_0002461"
-  - sub: "http://purl.obolibrary.org/obo/RO_0002297"
-    pred: "subPropertyOf"
-    obj: "http://purl.obolibrary.org/obo/RO_0002295"
   - sub: "http://purl.obolibrary.org/obo/RO_HOM0000065"
     pred: "subPropertyOf"
     obj: "http://purl.obolibrary.org/obo/RO_HOM0000000"
   - sub: "http://purl.obolibrary.org/obo/RO_HOM0000060"
     pred: "subPropertyOf"
     obj: "http://purl.obolibrary.org/obo/RO_HOM0000050"
+  - sub: "http://purl.obolibrary.org/obo/RO_0002297"
+    pred: "subPropertyOf"
+    obj: "http://purl.obolibrary.org/obo/RO_0002295"
   - sub: "http://purl.obolibrary.org/obo/GO_0051705"
     pred: "is_a"
     obj: "http://purl.obolibrary.org/obo/GO_0007610"

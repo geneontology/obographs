@@ -18,9 +18,9 @@
           "xrefs" : [ "NIF_Subcellular:nlx_subcell_100315" ],
           "val" : "subcellular entity"
         }, {
-          "synonymType" : "http://purl.obolibrary.org/obo/go-test#systematic_synonym",
           "pred" : "hasExactSynonym",
-          "val" : "cellular component"
+          "val" : "cellular component",
+          "synonymType" : "http://purl.obolibrary.org/obo/go-test#systematic_synonym"
         }, {
           "pred" : "hasExactSynonym",
           "val" : "cell or subcellular entity"
@@ -137,9 +137,9 @@
           "val" : "NIF_Subcellular:sao1702920020"
         } ],
         "synonyms" : [ {
-          "synonymType" : "http://purl.obolibrary.org/obo/go-test#systematic_synonym",
           "pred" : "hasExactSynonym",
-          "val" : "cell nucleus"
+          "val" : "cell nucleus",
+          "synonymType" : "http://purl.obolibrary.org/obo/go-test#systematic_synonym"
         } ],
         "basicPropertyValues" : [ {
           "pred" : "http://www.geneontology.org/formats/oboInOwl#hasOBONamespace",

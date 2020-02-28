@@ -31,16 +31,6 @@ import java.util.List;
 @JsonInclude(JsonInclude.Include.NON_DEFAULT)
 public interface PropertyValue {
 
-//    static final Meta EMPTY_META = new Meta.Builder().build();
-//
-//    /**
-//     * @return the meta
-//     */
-//    @Value.Default
-//    default Meta getMeta() {
-//        return EMPTY_META;
-//    }
-
     @JsonProperty
     @Nullable
     public Meta getMeta();
@@ -51,6 +41,7 @@ public interface PropertyValue {
      * 
      * @return the pred
      */
+    @JsonProperty
     @Value.Default
     default String getPred() {
         return "";
@@ -61,6 +52,7 @@ public interface PropertyValue {
      * 
      * @return the xrefs
      */
+    @JsonProperty
     public List<String> getXrefs();
 
     /**
@@ -68,6 +60,7 @@ public interface PropertyValue {
      * 
      * @return the val
      */
+    @JsonProperty
     public String getVal();
 
 }
