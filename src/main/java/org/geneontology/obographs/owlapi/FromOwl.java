@@ -2,6 +2,7 @@ package org.geneontology.obographs.owlapi;
 
 import com.github.jsonldjava.core.Context;
 import com.google.common.base.Optional;
+import com.google.common.collect.ImmutableSet;
 import org.geneontology.obographs.io.PrefixHelper;
 import org.geneontology.obographs.model.AbstractNode.RDFTYPES;
 import org.geneontology.obographs.model.*;
@@ -86,7 +87,7 @@ public class FromOwl {
         // Each node can be built from multiple axioms; use a builder for each nodeId
         Map<String,Meta.Builder> nodeMetaBuilderMap = new LinkedHashMap<>();
 
-        Set<OWLAxiom> untranslatedAxioms = new HashSet<>();
+        Set<OWLAxiom> untranslatedAxioms = new LinkedHashSet<>();
 
         // iterate over all axioms and push to relevant builders
         for (OWLAxiom ax : ontology.getAxioms()) {
@@ -228,7 +229,7 @@ public class FromOwl {
                     List<OWLClassExpression> namedXs = 
                             xs.stream().filter(x -> !x.isAnonymous()).collect(Collectors.toList());
                     Set<String> xClassIds = 
-                            namedXs.stream().map(x -> getClassId((OWLClass)x)).collect(Collectors.toSet());
+                            namedXs.stream().map(x -> getClassId((OWLClass)x)).collect(ImmutableSet.toImmutableSet());
                     if (anonXs.isEmpty()) {
                         // EquivalentNodesSet
 

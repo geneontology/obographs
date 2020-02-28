@@ -3,19 +3,6 @@
     "nodes" : [ {
       "meta" : {
         "basicPropertyValues" : [ {
-          "pred" : "http://www.geneontology.org/formats/oboInOwl#hasAlternativeId",
-          "val" : "Y:2"
-        }, {
-          "pred" : "http://www.geneontology.org/formats/oboInOwl#hasOBONamespace",
-          "val" : "y"
-        } ]
-      },
-      "id" : "http://purl.obolibrary.org/obo/Y_1",
-      "type" : "CLASS",
-      "lbl" : "y1"
-    }, {
-      "meta" : {
-        "basicPropertyValues" : [ {
           "pred" : "http://purl.obolibrary.org/obo/IAO_0000231",
           "val" : "http://purl.obolibrary.org/obo/IAO_0000227"
         }, {
@@ -26,6 +13,19 @@
       },
       "id" : "http://purl.obolibrary.org/obo/Y_2",
       "type" : "CLASS"
+    }, {
+      "meta" : {
+        "basicPropertyValues" : [ {
+          "pred" : "http://www.geneontology.org/formats/oboInOwl#hasAlternativeId",
+          "val" : "Y:2"
+        }, {
+          "pred" : "http://www.geneontology.org/formats/oboInOwl#hasOBONamespace",
+          "val" : "y"
+        } ]
+      },
+      "id" : "http://purl.obolibrary.org/obo/Y_1",
+      "type" : "CLASS",
+      "lbl" : "y1"
     }, {
       "meta" : {
         "basicPropertyValues" : [ {
