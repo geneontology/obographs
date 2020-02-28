@@ -1,15 +1,14 @@
 package org.geneontology.obographs.io;
 
-import static org.junit.Assert.*;
+import com.github.jsonldjava.core.Context;
+import org.junit.Test;
+import org.semanticweb.owlapi.util.DefaultPrefixManager;
 
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
-import org.junit.Test;
-import org.semanticweb.owlapi.util.DefaultPrefixManager;
-
-import com.github.jsonldjava.core.Context;
+import static org.junit.Assert.assertEquals;
 
 public class PrefixHelperTest {
 
@@ -70,11 +69,11 @@ public class PrefixHelperTest {
         expected.put("foo", "http://example.com#");
         assertEquals("Check foo prefix", expected, ioh.getPrefixes());
 
-        String json = "{\n"
-                    + "  \"@context\" : {\n"
-                    + "    \"foo\" : \"http://example.com#\"\n"
-                    + "  }\n"
-                    + "}";
+        String json = String.format("{%n"
+                    + "  \"@context\" : {%n"
+                    + "    \"foo\" : \"http://example.com#\"%n"
+                    + "  }%n"
+                    + "}");
         assertEquals("Check JSON-LD", json, ioh.getContextString());
 
         ioh.addPrefix("bar: http://example.com#");
