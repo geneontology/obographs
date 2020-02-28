@@ -6,7 +6,7 @@ import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import org.immutables.value.Value;
 
-import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 
@@ -47,31 +47,8 @@ public abstract class AbstractSynonymPropertyValue implements PropertyValue {
         }
     }
 
-//    /**
-//     * properties from oboInOwl vocabulary that represent scopes
-//     *
-//     * @author cjm
-//     */
-//    public enum PREDS {
-//        hasExactSynonym,
-//        hasNarrowSynonym,
-//        hasBroadSynonym,
-//        hasRelatedSynonym
-//    }
-
     @JsonProperty
     public abstract String getSynonymType();
-
-//    public void scope(SCOPES scope) {
-//        PREDS pred = PREDS.hasRelatedSynonym;
-//        switch (scope) {
-//            case EXACT: pred = PREDS.hasExactSynonym; break;
-//            case RELATED: pred = PREDS.hasRelatedSynonym; break;
-//            case BROAD: pred = PREDS.hasBroadSynonym; break;
-//            case NARROW: pred = PREDS.hasNarrowSynonym; break;
-//        }
-//        super.pred(pred.toString());
-//    }
 
     /**
      * @return true is scope equals EXACT -- convenience predicate
@@ -86,52 +63,15 @@ public abstract class AbstractSynonymPropertyValue implements PropertyValue {
         if (getMeta() != null) {
             return getMeta().getSubsets();
         }
-        return new ArrayList<>();
+        return Collections.emptyList();
     }
 
-//    public static class Builder extends AbstractPropertyValue.Builder {
-//
-//        @JsonProperty
-//        private String synonymType;
-//
-//        @Override
-//        public Builder val(String val) {
-//            return (Builder) super.val(val);
-//        }
-//
-//        @Override
-//        public Builder xrefs(List<String> xrefs) {
-//            return (Builder) super.xrefs(xrefs);
-//        }
-//
+    // n.b. this was never used in any production code. Left it here for audit purposed, but this should be handled by
+    // the FromOwl class adding to the SynonymPropertyValue.Meta.
 //        public Builder addType(String type) {
 //            // TODO: decide on pattern for nested builders
 //            super.meta(new Meta.Builder().subsets(Collections.singletonList(type)).build());
 //            return this;
 //        }
-//
-//        public Builder scope(SCOPES scope) {
-//            PREDS pred = PREDS.hasRelatedSynonym;
-//            switch (scope) {
-//                case EXACT: pred = PREDS.hasExactSynonym; break;
-//                case RELATED: pred = PREDS.hasRelatedSynonym; break;
-//                case BROAD: pred = PREDS.hasBroadSynonym; break;
-//                case NARROW: pred = PREDS.hasNarrowSynonym; break;
-//            }
-//            super.pred(pred.toString());
-//            return this;
-//        }
-//
-//        public Builder synonymType(String synonymType) {
-//            if (synonymType != null)
-//                this.synonymType = synonymType;
-//            return this;
-//        }
-//
-//        @JsonCreator
-//        public SynonymPropertyValue build() {
-//            return new SynonymPropertyValue(this);
-//        }
-//    }
 
 }
