@@ -80,12 +80,12 @@ public class FromOwl {
         List<LogicalDefinitionAxiom> ldas = new ArrayList<>();
         Set<String> nodeIds = new LinkedHashSet<>();
         Map<String, RDFTYPES> nodeTypeMap = new LinkedHashMap<>();
-        Map<String,String> nodeLabelMap = new LinkedHashMap<>();
-        Map<String,DomainRangeAxiom.Builder> domainRangeBuilderMap = new LinkedHashMap<>();
+        Map<String, String> nodeLabelMap = new LinkedHashMap<>();
+        Map<String, DomainRangeAxiom.Builder> domainRangeBuilderMap = new LinkedHashMap<>();
         List<PropertyChainAxiom> pcas = new ArrayList<>();
 
         // Each node can be built from multiple axioms; use a builder for each nodeId
-        Map<String,Meta.Builder> nodeMetaBuilderMap = new LinkedHashMap<>();
+        Map<String, Meta.Builder> nodeMetaBuilderMap = new LinkedHashMap<>();
 
         Set<OWLAxiom> untranslatedAxioms = new LinkedHashSet<>();
 
