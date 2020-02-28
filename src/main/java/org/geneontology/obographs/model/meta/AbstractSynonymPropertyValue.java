@@ -1,6 +1,7 @@
 package org.geneontology.obographs.model.meta;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import org.immutables.value.Value;
@@ -58,6 +59,7 @@ public abstract class AbstractSynonymPropertyValue implements PropertyValue {
 //        hasRelatedSynonym
 //    }
 
+    @JsonProperty
     public abstract String getSynonymType();
 
 //    public void scope(SCOPES scope) {
