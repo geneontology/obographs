@@ -1,7 +1,11 @@
 package org.geneontology.obographs.model;
 
-import org.immutables.value.Value;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
+import javax.annotation.Nullable;
+
+@JsonInclude(JsonInclude.Include.NON_DEFAULT)
 public interface NodeOrEdge {
 
     static final Meta EMPTY_META = new Meta.Builder().build();
@@ -9,9 +13,7 @@ public interface NodeOrEdge {
     /**
      * @return the meta
      */
-    @Value.Default
-//    @Nullable
-    default Meta getMeta(){
-        return EMPTY_META;
-    }
+    @JsonProperty
+    @Nullable
+    public Meta getMeta();
 }

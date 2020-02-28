@@ -17,8 +17,10 @@ public class OgJsonGenerator {
 		mapper.registerModule(new GuavaModule());
 		mapper.setSerializationInclusion(JsonInclude.Include.NON_NULL);
 		mapper.setSerializationInclusion(JsonInclude.Include.NON_EMPTY);
+		mapper.setSerializationInclusion(JsonInclude.Include.NON_DEFAULT);
+		mapper.setSerializationInclusion(JsonInclude.Include.NON_ABSENT);
+
 		ObjectWriter writer = mapper.writerWithDefaultPrettyPrinter();
 		return writer.writeValueAsString(obj);
 	}
-
 }

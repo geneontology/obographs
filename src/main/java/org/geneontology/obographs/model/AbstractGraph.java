@@ -1,5 +1,6 @@
 package org.geneontology.obographs.model;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
@@ -38,6 +39,7 @@ import java.util.List;
  */
 @JsonSerialize(as = Graph.class)
 @JsonDeserialize(as = Graph.class)
+@JsonInclude(JsonInclude.Include.NON_DEFAULT)
 @Value.Immutable
 public abstract class AbstractGraph {
 

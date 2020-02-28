@@ -1,5 +1,6 @@
 package org.geneontology.obographs.model.meta;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import org.geneontology.obographs.model.Meta;
 import org.immutables.value.Value;
@@ -27,6 +28,7 @@ import java.util.List;
  * @author cjm
  *
  */
+@JsonInclude(JsonInclude.Include.NON_DEFAULT)
 public interface PropertyValue {
 
 //    static final Meta EMPTY_META = new Meta.Builder().build();
