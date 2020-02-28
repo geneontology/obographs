@@ -61,6 +61,9 @@ public interface PropertyValue {
      * @return the val
      */
     @JsonProperty
-    public String getVal();
+    @Value.Default
+    default String getVal() {
+        return "";
+    }
 
 }
