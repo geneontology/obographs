@@ -6,7 +6,7 @@ import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import org.geneontology.obographs.model.Edge;
 import org.immutables.value.Value;
 
-import java.util.Set;
+import java.util.SortedSet;
 
 /**
  * This combined ObjectPropertyDomain, ObjectPropertyRange, and some AllValuesFrom expressions into a single convenience structure
@@ -30,7 +30,8 @@ public abstract class AbstractDomainRangeAxiom implements Axiom {
      * @return the domainClassIds
      */
     @JsonProperty
-    public abstract Set<String> getDomainClassIds();
+    @Value.NaturalOrder
+    public abstract SortedSet<String> getDomainClassIds();
 
     /**
      * For multiple ranges, this is treated as intersection
@@ -38,7 +39,8 @@ public abstract class AbstractDomainRangeAxiom implements Axiom {
      * @return the rangeClassIds
      */
     @JsonProperty
-    public abstract Set<String> getRangeClassIds();
+    @Value.NaturalOrder
+    public abstract SortedSet<String> getRangeClassIds();
 
     /**
      * Set of edges representing `X SubClassOf P only Y` axioms.
@@ -50,6 +52,6 @@ public abstract class AbstractDomainRangeAxiom implements Axiom {
      * @return the allValuesFromEdges
      */
     @JsonProperty
-    public abstract Set<Edge> getAllValuesFromEdges();
-
+    @Value.NaturalOrder
+    public abstract SortedSet<Edge> getAllValuesFromEdges();
 }

@@ -5,7 +5,7 @@ import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import org.immutables.value.Value;
 
-import java.util.Set;
+import java.util.SortedSet;
 
 /**
  * A set of nodes that all stand in a mutual equivalence or identity relationship to one another
@@ -35,6 +35,7 @@ public abstract class AbstractEquivalentNodesSet implements Axiom {
      * @return the nodeIds
      */
     @JsonProperty
-    public abstract Set<String> getNodeIds();
+    @Value.NaturalOrder
+    public abstract SortedSet<String> getNodeIds();
 
 }

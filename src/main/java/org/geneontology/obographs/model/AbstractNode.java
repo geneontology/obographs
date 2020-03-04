@@ -3,6 +3,7 @@ package org.geneontology.obographs.model;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.google.common.collect.ComparisonChain;
 import org.immutables.value.Value;
 
 import javax.annotation.Nullable;
@@ -27,7 +28,7 @@ import javax.annotation.Nullable;
 @JsonSerialize(as = Node.class)
 @JsonDeserialize(as = Node.class)
 @Value.Immutable
-public abstract class AbstractNode implements NodeOrEdge {
+public abstract class AbstractNode implements NodeOrEdge, Comparable<AbstractNode> {
 	
     public enum RDFTYPES { CLASS, INDIVIDUAL, PROPERTY };
 
@@ -47,4 +48,11 @@ public abstract class AbstractNode implements NodeOrEdge {
 	@Nullable
 	public abstract RDFTYPES getType();
 
+	public int compareTo(AbstractNode other) {
+		return ComparisonChain.start()
+				.compare(this.getId(), other.getId())
+				.compare(this.getLabel(), other.getLabel())
+				.compare(this.getType(), other.getType())
+				.result();
+	}
 }
