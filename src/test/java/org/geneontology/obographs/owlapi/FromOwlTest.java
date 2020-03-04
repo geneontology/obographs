@@ -36,7 +36,7 @@ public class FromOwlTest {
         Collection<File> files = FileUtils.listFiles(dir, exts, true);
 
         for (File file : files) {
-            System.out.println("Converting: "+file);
+            System.out.println("Converting: " + file);
 
             OWLOntologyManager m = OWLManager.createOWLOntologyManager();
             OWLOntology ontology = m.loadOntologyFromOntologyDocument(file);
@@ -47,11 +47,11 @@ public class FromOwlTest {
             Path fn = file.toPath().getFileName();
             String jsonStr = OgJsonGenerator.render(gd);
             File jsonOutFile = createFileWithSuffix(fn, ".json");
-            FileUtils.writeStringToFile(jsonOutFile, jsonStr);
+            FileUtils.writeStringToFile(jsonOutFile, jsonStr, "UTF-8");
 
             String yamlStr = OgYamlGenerator.render(gd);
             File yamlOutFile = createFileWithSuffix(fn, ".yaml");
-            FileUtils.writeStringToFile(yamlOutFile, yamlStr);
+            FileUtils.writeStringToFile(yamlOutFile, yamlStr, "UTF-8");
 
             // read it back in from JSON
             // cross fingers...
