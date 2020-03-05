@@ -29,14 +29,14 @@
                         "pred" : {
                           "type" : "string"
                         },
+                        "val" : {
+                          "type" : "string"
+                        },
                         "xrefs" : {
                           "type" : "array",
                           "items" : {
                             "type" : "string"
                           }
-                        },
-                        "val" : {
-                          "type" : "string"
                         }
                       }
                     },
@@ -62,10 +62,10 @@
                             "type" : "object",
                             "$ref" : "urn:jsonschema:org:geneontology:obographs:model:Meta"
                           },
-                          "lbl" : {
+                          "pred" : {
                             "type" : "string"
                           },
-                          "pred" : {
+                          "val" : {
                             "type" : "string"
                           },
                           "xrefs" : {
@@ -74,7 +74,7 @@
                               "type" : "string"
                             }
                           },
-                          "val" : {
+                          "lbl" : {
                             "type" : "string"
                           }
                         }
@@ -93,14 +93,14 @@
                           "pred" : {
                             "type" : "string"
                           },
+                          "val" : {
+                            "type" : "string"
+                          },
                           "xrefs" : {
                             "type" : "array",
                             "items" : {
                               "type" : "string"
                             }
-                          },
-                          "val" : {
-                            "type" : "string"
                           },
                           "synonymType" : {
                             "type" : "string"
@@ -121,14 +121,14 @@
                           "pred" : {
                             "type" : "string"
                           },
+                          "val" : {
+                            "type" : "string"
+                          },
                           "xrefs" : {
                             "type" : "array",
                             "items" : {
                               "type" : "string"
                             }
-                          },
-                          "val" : {
-                            "type" : "string"
                           }
                         }
                       }

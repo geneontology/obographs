@@ -8877,8 +8877,8 @@
     }, {
       "meta" : {
         "definition" : {
-          "xrefs" : [ "http://purl.obolibrary.org/obo/HOM_0000000", "BGEE:curator" ],
-          "val" : "Relation between biological objects that resemble or are related to each other sufficiently to warrant a comparison."
+          "val" : "Relation between biological objects that resemble or are related to each other sufficiently to warrant a comparison.",
+          "xrefs" : [ "http://purl.obolibrary.org/obo/HOM_0000000", "BGEE:curator" ]
         },
         "xrefs" : [ {
           "val" : "ECO:0000041"
@@ -8893,8 +8893,8 @@
           "val" : "similar to"
         }, {
           "pred" : "hasRelatedSynonym",
-          "xrefs" : [ "http://dx.doi.org/10.1007/BF02814479" ],
-          "val" : "correspondence"
+          "val" : "correspondence",
+          "xrefs" : [ "http://dx.doi.org/10.1007/BF02814479" ]
         }, {
           "pred" : "hasRelatedSynonym",
           "val" : "resemblance"
@@ -8916,8 +8916,8 @@
     }, {
       "meta" : {
         "definition" : {
-          "xrefs" : [ "http://dx.doi.org/10.1002/bies.950180611", "http://dx.doi.org/10.1002/jmor.1051730307", "http://dx.doi.org/10.1007/BF02814480", "http://purl.obolibrary.org/obo/HOM_0000001" ],
-          "val" : "Similarity that results from common evolutionary origin."
+          "val" : "Similarity that results from common evolutionary origin.",
+          "xrefs" : [ "http://dx.doi.org/10.1002/bies.950180611", "http://dx.doi.org/10.1002/jmor.1051730307", "http://dx.doi.org/10.1007/BF02814480", "http://purl.obolibrary.org/obo/HOM_0000001" ]
         },
         "comments" : [ "This broad definition encompasses all the working definitions proposed so far in the literature." ],
         "synonyms" : [ {
@@ -8941,8 +8941,8 @@
     }, {
       "meta" : {
         "definition" : {
-          "xrefs" : [ "http://dx.doi.org/10.1016/j.jhevol.2006.11.010", "http://purl.obolibrary.org/obo/HOM_0000002" ],
-          "val" : "Similarity that results from independent evolution."
+          "val" : "Similarity that results from independent evolution.",
+          "xrefs" : [ "http://dx.doi.org/10.1016/j.jhevol.2006.11.010", "http://purl.obolibrary.org/obo/HOM_0000002" ]
         },
         "synonyms" : [ {
           "pred" : "hasExactSynonym",
@@ -8968,8 +8968,8 @@
     }, {
       "meta" : {
         "definition" : {
-          "xrefs" : [ "http://dx.doi.org/10.1007/BF02814484", "http://dx.doi.org/10.1007/s00427-003-0301-4", "http://dx.doi.org/10.1186/1742-9994-2-15", "http://purl.obolibrary.org/obo/HOM_0000003" ],
-          "val" : "Similarity that is characterized by the organization of anatomical structures through the expression of homologous or identical patterning genes."
+          "val" : "Similarity that is characterized by the organization of anatomical structures through the expression of homologous or identical patterning genes.",
+          "xrefs" : [ "http://dx.doi.org/10.1007/BF02814484", "http://dx.doi.org/10.1007/s00427-003-0301-4", "http://dx.doi.org/10.1186/1742-9994-2-15", "http://purl.obolibrary.org/obo/HOM_0000003" ]
         },
         "comments" : [ "Homology and homocracy are not mutually exclusive. The homology relationships of patterning genes may be unresolved and thus may include orthologues and paralogues." ],
         "xrefs" : [ {
@@ -8996,8 +8996,8 @@
     }, {
       "meta" : {
         "definition" : {
-          "xrefs" : [ "http://dx.doi.org/10.1016/j.jhevol.2006.11.010", "http://purl.obolibrary.org/obo/HOM_0000004" ],
-          "val" : "Homoplasy that involves different underlying mechanisms or structures."
+          "val" : "Homoplasy that involves different underlying mechanisms or structures.",
+          "xrefs" : [ "http://dx.doi.org/10.1016/j.jhevol.2006.11.010", "http://purl.obolibrary.org/obo/HOM_0000004" ]
         },
         "comments" : [ "Convergence usually implies a notion of adaptation." ],
         "synonyms" : [ {
@@ -9021,8 +9021,8 @@
     }, {
       "meta" : {
         "definition" : {
-          "xrefs" : [ "http://dx.doi.org/10.1016/j.jhevol.2006.11.010", "http://purl.obolibrary.org/obo/HOM_0000005" ],
-          "val" : "Homoplasy that involves homologous underlying mechanisms or structures."
+          "val" : "Homoplasy that involves homologous underlying mechanisms or structures.",
+          "xrefs" : [ "http://dx.doi.org/10.1016/j.jhevol.2006.11.010", "http://purl.obolibrary.org/obo/HOM_0000005" ]
         },
         "comments" : [ "Can be applied for features present in closely related organisms but not present continuously in all the members of the lineage." ],
         "synonyms" : [ {
@@ -9046,8 +9046,8 @@
     }, {
       "meta" : {
         "definition" : {
-          "xrefs" : [ "http://dx.doi.org/10.1016/j.jhevol.2006.11.014", "http://dx.doi.org/10.1146/annurev.es.20.110189.000411", "http://purl.obolibrary.org/obo/HOM_0000006", "ISBN:0123195837" ],
-          "val" : "Homology that is defined by similarity with regard to selected structural parameters."
+          "val" : "Homology that is defined by similarity with regard to selected structural parameters.",
+          "xrefs" : [ "http://dx.doi.org/10.1016/j.jhevol.2006.11.014", "http://dx.doi.org/10.1146/annurev.es.20.110189.000411", "http://purl.obolibrary.org/obo/HOM_0000006", "ISBN:0123195837" ]
         },
         "xrefs" : [ {
           "val" : "ECO:0000071"
@@ -9078,8 +9078,8 @@
     }, {
       "meta" : {
         "definition" : {
-          "xrefs" : [ "http://dx.doi.org/10.1016/S0169-5347(97)01125-7", "http://purl.obolibrary.org/obo/HOM_0000007", "ISBN:0123195837" ],
-          "val" : "Homology that is defined by common descent."
+          "val" : "Homology that is defined by common descent.",
+          "xrefs" : [ "http://dx.doi.org/10.1016/S0169-5347(97)01125-7", "http://purl.obolibrary.org/obo/HOM_0000007", "ISBN:0123195837" ]
         },
         "xrefs" : [ {
           "val" : "ECO:0000080"
@@ -9132,8 +9132,8 @@
     }, {
       "meta" : {
         "definition" : {
-          "xrefs" : [ "http://dx.doi.org/10.1016/S0169-5347(97)01125-7", "http://dx.doi.org/10.1146/annurev.es.20.110189.000411", "http://purl.obolibrary.org/obo/HOM_0000008" ],
-          "val" : "Homology that is defined by sharing of a set of developmental constraints, caused by locally acting self-regulatory mechanisms of differentiation, between individualized parts of the phenotype."
+          "val" : "Homology that is defined by sharing of a set of developmental constraints, caused by locally acting self-regulatory mechanisms of differentiation, between individualized parts of the phenotype.",
+          "xrefs" : [ "http://dx.doi.org/10.1016/S0169-5347(97)01125-7", "http://dx.doi.org/10.1146/annurev.es.20.110189.000411", "http://purl.obolibrary.org/obo/HOM_0000008" ]
         },
         "comments" : [ "Applicable only to morphology. A certain degree of ambiguity is accepted between biological homology and parallelism." ],
         "xrefs" : [ {
@@ -9163,8 +9163,8 @@
     }, {
       "meta" : {
         "definition" : {
-          "xrefs" : [ "http://dx.doi.org/10.1016/j.jhevol.2006.11.010", "http://purl.obolibrary.org/obo/HOM_0000009" ],
-          "val" : "Homoplasy that involves phenotypes similar to those seen in ancestors within the lineage."
+          "val" : "Homoplasy that involves phenotypes similar to those seen in ancestors within the lineage.",
+          "xrefs" : [ "http://dx.doi.org/10.1016/j.jhevol.2006.11.010", "http://purl.obolibrary.org/obo/HOM_0000009" ]
         },
         "synonyms" : [ {
           "pred" : "hasExactSynonym",
@@ -9193,8 +9193,8 @@
     }, {
       "meta" : {
         "definition" : {
-          "xrefs" : [ "http://purl.obolibrary.org/obo/HOM_0000010", "MeSH:Synteny" ],
-          "val" : "Structural homology that is detected by similarity in content and organization between chromosomes."
+          "val" : "Structural homology that is detected by similarity in content and organization between chromosomes.",
+          "xrefs" : [ "http://purl.obolibrary.org/obo/HOM_0000010", "MeSH:Synteny" ]
         },
         "xrefs" : [ {
           "val" : "MeSH:Synteny"
@@ -9227,8 +9227,8 @@
     }, {
       "meta" : {
         "definition" : {
-          "xrefs" : [ "http://dx.doi.org/10.1016/S0168-9525(00)02005-9", "http://dx.doi.org/10.1146/annurev.genet.39.073003.114725", "http://purl.obolibrary.org/obo/HOM_0000011", "http://www.ncbi.nlm.nih.gov/pubmed/5449325" ],
-          "val" : "Historical homology that involves genes that diverged after a duplication event."
+          "val" : "Historical homology that involves genes that diverged after a duplication event.",
+          "xrefs" : [ "http://dx.doi.org/10.1016/S0168-9525(00)02005-9", "http://dx.doi.org/10.1146/annurev.genet.39.073003.114725", "http://purl.obolibrary.org/obo/HOM_0000011", "http://www.ncbi.nlm.nih.gov/pubmed/5449325" ]
         },
         "xrefs" : [ {
           "val" : "SO:0000854"
@@ -9258,8 +9258,8 @@
     }, {
       "meta" : {
         "definition" : {
-          "xrefs" : [ "http://dx.doi.org/10.1186/1471-213X-7-100", "http://purl.obolibrary.org/obo/HOM_0000012", "DOI:10.1002/1097-010X(20001215)288:4<345::AID-JEZ7>3.0.CO;2-Y" ],
-          "val" : "Paralogy that involves sets of syntenic blocks."
+          "val" : "Paralogy that involves sets of syntenic blocks.",
+          "xrefs" : [ "http://dx.doi.org/10.1186/1471-213X-7-100", "http://purl.obolibrary.org/obo/HOM_0000012", "DOI:10.1002/1097-010X(20001215)288:4<345::AID-JEZ7>3.0.CO;2-Y" ]
         },
         "synonyms" : [ {
           "pred" : "hasExactSynonym",
@@ -9288,8 +9288,8 @@
     }, {
       "meta" : {
         "definition" : {
-          "xrefs" : [ "http://dx.doi.org/10.1101/gr.6380007", "http://purl.obolibrary.org/obo/HOM_0000013" ],
-          "val" : "Syntenic homology that involves chromosomes of different species."
+          "val" : "Syntenic homology that involves chromosomes of different species.",
+          "xrefs" : [ "http://dx.doi.org/10.1101/gr.6380007", "http://purl.obolibrary.org/obo/HOM_0000013" ]
         },
         "synonyms" : [ {
           "pred" : "hasExactSynonym",
@@ -9312,8 +9312,8 @@
     }, {
       "meta" : {
         "definition" : {
-          "xrefs" : [ "http://purl.obolibrary.org/obo/HOM_0000014", "ISBN:0123195837", "ISBN:978-0471984931" ],
-          "val" : "Structural homology that involves complex structures from which only a fraction of the elements that can be isolated are separately homologous."
+          "val" : "Structural homology that involves complex structures from which only a fraction of the elements that can be isolated are separately homologous.",
+          "xrefs" : [ "http://purl.obolibrary.org/obo/HOM_0000014", "ISBN:0123195837", "ISBN:978-0471984931" ]
         },
         "synonyms" : [ {
           "pred" : "hasExactSynonym",
@@ -9354,8 +9354,8 @@
     }, {
       "meta" : {
         "definition" : {
-          "xrefs" : [ "http://dx.doi.org/10.1016/0022-2836(76)90195-9", "http://purl.obolibrary.org/obo/HOM_0000015" ],
-          "val" : "Structural homology that is detected at the level of the 3D protein structure, but maybe not at the level of the amino acid sequence."
+          "val" : "Structural homology that is detected at the level of the 3D protein structure, but maybe not at the level of the amino acid sequence.",
+          "xrefs" : [ "http://dx.doi.org/10.1016/0022-2836(76)90195-9", "http://purl.obolibrary.org/obo/HOM_0000015" ]
         },
         "xrefs" : [ {
           "val" : "MeSH:Structural_Homology,_Protein"
@@ -9381,8 +9381,8 @@
     }, {
       "meta" : {
         "definition" : {
-          "xrefs" : [ "http://purl.obolibrary.org/obo/HOM_0000016", "SO:non_functional_homolog_of" ],
-          "val" : "Structural homology that involves a pseudogenic feature and its functional ancestor."
+          "val" : "Structural homology that involves a pseudogenic feature and its functional ancestor.",
+          "xrefs" : [ "http://purl.obolibrary.org/obo/HOM_0000016", "SO:non_functional_homolog_of" ]
         },
         "xrefs" : [ {
           "val" : "SO:non_functional_homolog_of"
@@ -9411,8 +9411,8 @@
     }, {
       "meta" : {
         "definition" : {
-          "xrefs" : [ "http://dx.doi.org/10.1007/BF02814484", "http://dx.doi.org/10.1016/S0168-9525(00)02005-9", "http://dx.doi.org/10.1146/annurev.genet.39.073003.114725", "http://purl.obolibrary.org/obo/HOM_0000017", "http://www.ncbi.nlm.nih.gov/pubmed/5449325" ],
-          "val" : "Historical homology that involves genes that diverged after a speciation event."
+          "val" : "Historical homology that involves genes that diverged after a speciation event.",
+          "xrefs" : [ "http://dx.doi.org/10.1007/BF02814484", "http://dx.doi.org/10.1016/S0168-9525(00)02005-9", "http://dx.doi.org/10.1146/annurev.genet.39.073003.114725", "http://purl.obolibrary.org/obo/HOM_0000017", "http://www.ncbi.nlm.nih.gov/pubmed/5449325" ]
         },
         "comments" : [ "The term is sometimes also used for anatomical structures." ],
         "xrefs" : [ {
@@ -9445,8 +9445,8 @@
     }, {
       "meta" : {
         "definition" : {
-          "xrefs" : [ "http://dx.doi.org/10.1016/S0168-9525(00)02005-9", "http://dx.doi.org/10.1146/annurev.genet.39.073003.114725", "http://purl.obolibrary.org/obo/HOM_0000018" ],
-          "val" : "Historical homology that is characterized by an interspecies (horizontal) transfer since the common ancestor."
+          "val" : "Historical homology that is characterized by an interspecies (horizontal) transfer since the common ancestor.",
+          "xrefs" : [ "http://dx.doi.org/10.1016/S0168-9525(00)02005-9", "http://dx.doi.org/10.1146/annurev.genet.39.073003.114725", "http://purl.obolibrary.org/obo/HOM_0000018" ]
         },
         "comments" : [ "The term is sometimes also used for anatomical structures (e.g. in case of a symbiosis)." ],
         "synonyms" : [ {
@@ -9470,8 +9470,8 @@
     }, {
       "meta" : {
         "definition" : {
-          "xrefs" : [ "http://purl.obolibrary.org/obo/HOM_0000019", "BGEE:curator" ],
-          "val" : "Historical homology that involves two members sharing no other homologs in the lineages considered."
+          "val" : "Historical homology that involves two members sharing no other homologs in the lineages considered.",
+          "xrefs" : [ "http://purl.obolibrary.org/obo/HOM_0000019", "BGEE:curator" ]
         },
         "synonyms" : [ {
           "pred" : "hasExactSynonym",
@@ -9500,8 +9500,8 @@
     }, {
       "meta" : {
         "definition" : {
-          "xrefs" : [ "http://dx.doi.org/10.1007/BF02814484", "http://purl.obolibrary.org/obo/HOM_0000020", "http://www.ensembl.org/info/docs/compara/homology_method.html" ],
-          "val" : "Orthology that involves two genes that did not experience any duplication after the speciation event that created them."
+          "val" : "Orthology that involves two genes that did not experience any duplication after the speciation event that created them.",
+          "xrefs" : [ "http://dx.doi.org/10.1007/BF02814484", "http://purl.obolibrary.org/obo/HOM_0000020", "http://www.ensembl.org/info/docs/compara/homology_method.html" ]
         },
         "synonyms" : [ {
           "pred" : "hasExactSynonym",
@@ -9530,8 +9530,8 @@
     }, {
       "meta" : {
         "definition" : {
-          "xrefs" : [ "http://dx.doi.org/10.1038/75560", "http://purl.obolibrary.org/obo/HOM_0000022" ],
-          "val" : "Paralogy that results from a whole genome duplication event."
+          "val" : "Paralogy that results from a whole genome duplication event.",
+          "xrefs" : [ "http://dx.doi.org/10.1038/75560", "http://purl.obolibrary.org/obo/HOM_0000022" ]
         },
         "synonyms" : [ {
           "pred" : "hasExactSynonym",
@@ -9557,8 +9557,8 @@
     }, {
       "meta" : {
         "definition" : {
-          "xrefs" : [ "http://dx.doi.org/10.1146/annurev.genet.39.073003.114725", "http://purl.obolibrary.org/obo/HOM_0000023" ],
-          "val" : "Paralogy that results from a lineage-specific duplication subsequent to a given speciation event."
+          "val" : "Paralogy that results from a lineage-specific duplication subsequent to a given speciation event.",
+          "xrefs" : [ "http://dx.doi.org/10.1146/annurev.genet.39.073003.114725", "http://purl.obolibrary.org/obo/HOM_0000023" ]
         },
         "synonyms" : [ {
           "pred" : "hasExactSynonym",
@@ -9587,8 +9587,8 @@
     }, {
       "meta" : {
         "definition" : {
-          "xrefs" : [ "http://dx.doi.org/10.1146/annurev.genet.39.073003.114725", "http://purl.obolibrary.org/obo/HOM_0000024" ],
-          "val" : "Paralogy that results from a duplication preceding a given speciation event."
+          "val" : "Paralogy that results from a duplication preceding a given speciation event.",
+          "xrefs" : [ "http://dx.doi.org/10.1146/annurev.genet.39.073003.114725", "http://purl.obolibrary.org/obo/HOM_0000024" ]
         },
         "synonyms" : [ {
           "pred" : "hasExactSynonym",
@@ -9617,8 +9617,8 @@
     }, {
       "meta" : {
         "definition" : {
-          "xrefs" : [ "http://dx.doi.org/10.1006/scdb.1999.0338", "http://dx.doi.org/10.1038/nrg2099", "http://purl.obolibrary.org/obo/HOM_0000025" ],
-          "val" : "1:many orthology that involves a gene in species A and one of its ortholog in species B, when duplications more recent than the species split have occurred in species B but not in species A."
+          "val" : "1:many orthology that involves a gene in species A and one of its ortholog in species B, when duplications more recent than the species split have occurred in species B but not in species A.",
+          "xrefs" : [ "http://dx.doi.org/10.1006/scdb.1999.0338", "http://dx.doi.org/10.1038/nrg2099", "http://purl.obolibrary.org/obo/HOM_0000025" ]
         },
         "synonyms" : [ {
           "pred" : "hasExactSynonym",
@@ -9641,8 +9641,8 @@
     }, {
       "meta" : {
         "definition" : {
-          "xrefs" : [ "http://dx.doi.org/10.1006/scdb.1999.0338", "http://dx.doi.org/10.1038/nrg2099", "http://purl.obolibrary.org/obo/HOM_0000026" ],
-          "val" : "1:many orthology that involves a gene in species A and its ortholog in species B, when duplications more recent than the species split have occurred in species A but not in species B."
+          "val" : "1:many orthology that involves a gene in species A and its ortholog in species B, when duplications more recent than the species split have occurred in species A but not in species B.",
+          "xrefs" : [ "http://dx.doi.org/10.1006/scdb.1999.0338", "http://dx.doi.org/10.1038/nrg2099", "http://purl.obolibrary.org/obo/HOM_0000026" ]
         },
         "comments" : [ "The converse of pro-orthologous." ],
         "synonyms" : [ {
@@ -9666,8 +9666,8 @@
     }, {
       "meta" : {
         "definition" : {
-          "xrefs" : [ "http://dx.doi.org/10.1146/annurev.es.20.110189.000411", "http://purl.obolibrary.org/obo/HOM_0000027" ],
-          "val" : "Iterative homology that involves structures arranged along the main body axis."
+          "val" : "Iterative homology that involves structures arranged along the main body axis.",
+          "xrefs" : [ "http://dx.doi.org/10.1146/annurev.es.20.110189.000411", "http://purl.obolibrary.org/obo/HOM_0000027" ]
         },
         "synonyms" : [ {
           "pred" : "hasExactSynonym",
@@ -9693,8 +9693,8 @@
     }, {
       "meta" : {
         "definition" : {
-          "xrefs" : [ "http://purl.obolibrary.org/obo/HOM_0000028", "ISBN:978-0674639416" ],
-          "val" : "Biological homology that is characterized by changes, over evolutionary time, in the rate or timing of developmental events of homologous structures."
+          "val" : "Biological homology that is characterized by changes, over evolutionary time, in the rate or timing of developmental events of homologous structures.",
+          "xrefs" : [ "http://purl.obolibrary.org/obo/HOM_0000028", "ISBN:978-0674639416" ]
         },
         "synonyms" : [ {
           "pred" : "hasExactSynonym",
@@ -9720,8 +9720,8 @@
     }, {
       "meta" : {
         "definition" : {
-          "xrefs" : [ "http://en.wikipedia.org/wiki/Pedomorphosis", "http://purl.obolibrary.org/obo/HOM_0000029", "ISBN:978-0674639416" ],
-          "val" : "Heterochronous homology that is produced by a retention in adults of a species of traits previously seen only in juveniles."
+          "val" : "Heterochronous homology that is produced by a retention in adults of a species of traits previously seen only in juveniles.",
+          "xrefs" : [ "http://en.wikipedia.org/wiki/Pedomorphosis", "http://purl.obolibrary.org/obo/HOM_0000029", "ISBN:978-0674639416" ]
         },
         "synonyms" : [ {
           "pred" : "hasExactSynonym",
@@ -9747,8 +9747,8 @@
     }, {
       "meta" : {
         "definition" : {
-          "xrefs" : [ "http://en.wikipedia.org/wiki/Peramorphosis", "http://purl.obolibrary.org/obo/HOM_0000030" ],
-          "val" : "Heterochronous homology that is produced by a maturation of individuals of a species past adulthood, which take on hitherto unseen traits."
+          "val" : "Heterochronous homology that is produced by a maturation of individuals of a species past adulthood, which take on hitherto unseen traits.",
+          "xrefs" : [ "http://en.wikipedia.org/wiki/Peramorphosis", "http://purl.obolibrary.org/obo/HOM_0000030" ]
         },
         "basicPropertyValues" : [ {
           "pred" : "http://purl.org/dc/elements/1.1/creator",
@@ -9767,8 +9767,8 @@
     }, {
       "meta" : {
         "definition" : {
-          "xrefs" : [ "http://en.wikipedia.org/wiki/Progenesis", "http://purl.obolibrary.org/obo/HOM_0000031", "ISBN:978-0674639416" ],
-          "val" : "Paedomorphosis that is produced by precocious sexual maturation of an organism still in a morphologically juvenile stage."
+          "val" : "Paedomorphosis that is produced by precocious sexual maturation of an organism still in a morphologically juvenile stage.",
+          "xrefs" : [ "http://en.wikipedia.org/wiki/Progenesis", "http://purl.obolibrary.org/obo/HOM_0000031", "ISBN:978-0674639416" ]
         },
         "basicPropertyValues" : [ {
           "pred" : "http://purl.org/dc/elements/1.1/creator",
@@ -9787,8 +9787,8 @@
     }, {
       "meta" : {
         "definition" : {
-          "xrefs" : [ "http://en.wikipedia.org/wiki/Neoteny", "http://purl.obolibrary.org/obo/HOM_0000032", "ISBN:978-0674639416" ],
-          "val" : "Paedomorphosis that is produced by a retardation of somatic development."
+          "val" : "Paedomorphosis that is produced by a retardation of somatic development.",
+          "xrefs" : [ "http://en.wikipedia.org/wiki/Neoteny", "http://purl.obolibrary.org/obo/HOM_0000032", "ISBN:978-0674639416" ]
         },
         "synonyms" : [ {
           "pred" : "hasExactSynonym",
@@ -9814,8 +9814,8 @@
     }, {
       "meta" : {
         "definition" : {
-          "xrefs" : [ "http://purl.obolibrary.org/obo/HOM_0000033", "http:://en.wikipedia.org/wiki/Mimicry" ],
-          "val" : "Convergence that results from co-evolution usually involving an evolutionary arms race."
+          "val" : "Convergence that results from co-evolution usually involving an evolutionary arms race.",
+          "xrefs" : [ "http://purl.obolibrary.org/obo/HOM_0000033", "http:://en.wikipedia.org/wiki/Mimicry" ]
         },
         "synonyms" : [ {
           "pred" : "hasExactSynonym",
@@ -9838,8 +9838,8 @@
     }, {
       "meta" : {
         "definition" : {
-          "xrefs" : [ "http://dx.doi.org/10.1038/415741a", "http://purl.obolibrary.org/obo/HOM_0000034", "http://www.ensembl.org/info/docs/compara/homology_method.html" ],
-          "val" : "Orthology that involves two genes when duplications more recent than the species split have occurred in one species but not the other."
+          "val" : "Orthology that involves two genes when duplications more recent than the species split have occurred in one species but not the other.",
+          "xrefs" : [ "http://dx.doi.org/10.1038/415741a", "http://purl.obolibrary.org/obo/HOM_0000034", "http://www.ensembl.org/info/docs/compara/homology_method.html" ]
         },
         "synonyms" : [ {
           "pred" : "hasExactSynonym",
@@ -9874,8 +9874,8 @@
     }, {
       "meta" : {
         "definition" : {
-          "xrefs" : [ "http://dx.doi.org/10.1093/molbev/msp002", "http://purl.obolibrary.org/obo/HOM_0000036" ],
-          "val" : "Historical homology that involves two members of a larger set of homologs."
+          "val" : "Historical homology that involves two members of a larger set of homologs.",
+          "xrefs" : [ "http://dx.doi.org/10.1093/molbev/msp002", "http://purl.obolibrary.org/obo/HOM_0000036" ]
         },
         "synonyms" : [ {
           "pred" : "hasExactSynonym",
@@ -9904,8 +9904,8 @@
     }, {
       "meta" : {
         "definition" : {
-          "xrefs" : [ "http://purl.obolibrary.org/obo/HOM_0000037", "BGEE:curator" ],
-          "val" : "Historical homology that involves a structure that has no other homologs in the species in which it is defined, and several homologous structures in another species."
+          "val" : "Historical homology that involves a structure that has no other homologs in the species in which it is defined, and several homologous structures in another species.",
+          "xrefs" : [ "http://purl.obolibrary.org/obo/HOM_0000037", "BGEE:curator" ]
         },
         "synonyms" : [ {
           "pred" : "hasExactSynonym",
@@ -9934,8 +9934,8 @@
     }, {
       "meta" : {
         "definition" : {
-          "xrefs" : [ "http://purl.obolibrary.org/obo/HOM_0000042", "ISBN:978-0252068140" ],
-          "val" : "Historical homology that is based on recent shared ancestry, characterizing a monophyletic group."
+          "val" : "Historical homology that is based on recent shared ancestry, characterizing a monophyletic group.",
+          "xrefs" : [ "http://purl.obolibrary.org/obo/HOM_0000042", "ISBN:978-0252068140" ]
         },
         "synonyms" : [ {
           "pred" : "hasExactSynonym",
@@ -9961,8 +9961,8 @@
     }, {
       "meta" : {
         "definition" : {
-          "xrefs" : [ "http://purl.obolibrary.org/obo/HOM_0000043", "ISBN:978-0252068140" ],
-          "val" : "Historical homology that is based on distant shared ancestry."
+          "val" : "Historical homology that is based on distant shared ancestry.",
+          "xrefs" : [ "http://purl.obolibrary.org/obo/HOM_0000043", "ISBN:978-0252068140" ]
         },
         "comments" : [ "This term is usually contrasted to apomorphy." ],
         "synonyms" : [ {
@@ -9989,8 +9989,8 @@
     }, {
       "meta" : {
         "definition" : {
-          "xrefs" : [ "http://dx.doi.org/10.1007/BF02814485", "http://dx.doi.org/10.1038/nature07891", "http://purl.obolibrary.org/obo/HOM_0000044" ],
-          "val" : "Homocracy that involves morphologically and phylogenetically disparate structures that are the result of parallel evolution."
+          "val" : "Homocracy that involves morphologically and phylogenetically disparate structures that are the result of parallel evolution.",
+          "xrefs" : [ "http://dx.doi.org/10.1007/BF02814485", "http://dx.doi.org/10.1038/nature07891", "http://purl.obolibrary.org/obo/HOM_0000044" ]
         },
         "comments" : [ "Used for structures in distantly related taxa." ],
         "synonyms" : [ {
@@ -10023,8 +10023,8 @@
     }, {
       "meta" : {
         "definition" : {
-          "xrefs" : [ "http://dx.doi.org/10.1073/pnas.0807433105", "http://purl.obolibrary.org/obo/HOM_0000045" ],
-          "val" : "Historical homology that is characterized by topological discordance between a gene tree and a species tree attributable to the phylogenetic sorting of genetic polymorphisms across successive nodes in a species tree."
+          "val" : "Historical homology that is characterized by topological discordance between a gene tree and a species tree attributable to the phylogenetic sorting of genetic polymorphisms across successive nodes in a species tree.",
+          "xrefs" : [ "http://dx.doi.org/10.1073/pnas.0807433105", "http://purl.obolibrary.org/obo/HOM_0000045" ]
         },
         "synonyms" : [ {
           "pred" : "hasExactSynonym",
@@ -10047,8 +10047,8 @@
     }, {
       "meta" : {
         "definition" : {
-          "xrefs" : [ "http://purl.obolibrary.org/obo/HOM_0000046", "http://www.ncbi.nlm.nih.gov/pubmed/11110898" ],
-          "val" : "Historical homology that involves not recombining and subsequently differentiated sex chromosomes."
+          "val" : "Historical homology that involves not recombining and subsequently differentiated sex chromosomes.",
+          "xrefs" : [ "http://purl.obolibrary.org/obo/HOM_0000046", "http://www.ncbi.nlm.nih.gov/pubmed/11110898" ]
         },
         "synonyms" : [ {
           "pred" : "hasExactSynonym",
@@ -10071,8 +10071,8 @@
     }, {
       "meta" : {
         "definition" : {
-          "xrefs" : [ "http://purl.obolibrary.org/obo/HOM_0000047", "ISBN:0195307615" ],
-          "val" : "Historical homology that involves the chromosomes able to pair (synapse) during meiosis."
+          "val" : "Historical homology that involves the chromosomes able to pair (synapse) during meiosis.",
+          "xrefs" : [ "http://purl.obolibrary.org/obo/HOM_0000047", "ISBN:0195307615" ]
         },
         "xrefs" : [ {
           "val" : "MeSH:Chromosome_Pairing"
@@ -10098,8 +10098,8 @@
     }, {
       "meta" : {
         "definition" : {
-          "xrefs" : [ "http://dx.doi.org/10.1038/415741a", "http://purl.obolibrary.org/obo/HOM_0000048", "http://www.ensembl.org/info/docs/compara/homology_method.html" ],
-          "val" : "Orthology that involves two genes that experienced duplications more recent than the species split that created them."
+          "val" : "Orthology that involves two genes that experienced duplications more recent than the species split that created them.",
+          "xrefs" : [ "http://dx.doi.org/10.1038/415741a", "http://purl.obolibrary.org/obo/HOM_0000048", "http://www.ensembl.org/info/docs/compara/homology_method.html" ]
         },
         "synonyms" : [ {
           "pred" : "hasExactSynonym",
@@ -10137,8 +10137,8 @@
     }, {
       "meta" : {
         "definition" : {
-          "xrefs" : [ "http://purl.obolibrary.org/obo/HOM_0000049", "http://www.ensembl.org/info/docs/compara/homology_method.html" ],
-          "val" : "Paralogy that involves genes from the same species."
+          "val" : "Paralogy that involves genes from the same species.",
+          "xrefs" : [ "http://purl.obolibrary.org/obo/HOM_0000049", "http://www.ensembl.org/info/docs/compara/homology_method.html" ]
         },
         "synonyms" : [ {
           "pred" : "hasExactSynonym",
@@ -10161,8 +10161,8 @@
     }, {
       "meta" : {
         "definition" : {
-          "xrefs" : [ "http://purl.obolibrary.org/obo/HOM_0000050", "http://www.ensembl.org/info/docs/compara/homology_method.html" ],
-          "val" : "Paralogy that involves genes from different species."
+          "val" : "Paralogy that involves genes from different species.",
+          "xrefs" : [ "http://purl.obolibrary.org/obo/HOM_0000050", "http://www.ensembl.org/info/docs/compara/homology_method.html" ]
         },
         "comments" : [ "The genes have diverged before a speciation event." ],
         "synonyms" : [ {
@@ -10186,8 +10186,8 @@
     }, {
       "meta" : {
         "definition" : {
-          "xrefs" : [ "http://en.wikipedia.org/wiki/Pedomorphosis", "http://purl.obolibrary.org/obo/HOM_0000051" ],
-          "val" : "Paedomorphosis that is produced by delayed growth of immature structures into the adult form."
+          "val" : "Paedomorphosis that is produced by delayed growth of immature structures into the adult form.",
+          "xrefs" : [ "http://en.wikipedia.org/wiki/Pedomorphosis", "http://purl.obolibrary.org/obo/HOM_0000051" ]
         },
         "synonyms" : [ {
           "pred" : "hasExactSynonym",
@@ -10210,8 +10210,8 @@
     }, {
       "meta" : {
         "definition" : {
-          "xrefs" : [ "http://en.wikipedia.org/wiki/Peramorphosis", "http://purl.obolibrary.org/obo/HOM_0000052", "ISBN:978-0674639416" ],
-          "val" : "Peramorphosis that is produced by a delay in the offset of development."
+          "val" : "Peramorphosis that is produced by a delay in the offset of development.",
+          "xrefs" : [ "http://en.wikipedia.org/wiki/Peramorphosis", "http://purl.obolibrary.org/obo/HOM_0000052", "ISBN:978-0674639416" ]
         },
         "basicPropertyValues" : [ {
           "pred" : "http://purl.org/dc/elements/1.1/creator",
@@ -10230,8 +10230,8 @@
     }, {
       "meta" : {
         "definition" : {
-          "xrefs" : [ "http://dx.doi.org/10.1007/BF00173425", "http://dx.doi.org/10.1016/S0168-9525(00)02005-9", "http://purl.obolibrary.org/obo/HOM_0000053" ],
-          "val" : "Xenology that results, not from the transfer of a gene between two species, but from a hybridization of two species."
+          "val" : "Xenology that results, not from the transfer of a gene between two species, but from a hybridization of two species.",
+          "xrefs" : [ "http://dx.doi.org/10.1007/BF00173425", "http://dx.doi.org/10.1016/S0168-9525(00)02005-9", "http://purl.obolibrary.org/obo/HOM_0000053" ]
         },
         "synonyms" : [ {
           "pred" : "hasExactSynonym",
@@ -10254,8 +10254,8 @@
     }, {
       "meta" : {
         "definition" : {
-          "xrefs" : [ "http://dx.doi.org/10.1016/S0168-9525(00)02005-9", "http://purl.obolibrary.org/obo/HOM_0000054" ],
-          "val" : "Orthology that involves functional equivalent genes with retention of the ancestral function."
+          "val" : "Orthology that involves functional equivalent genes with retention of the ancestral function.",
+          "xrefs" : [ "http://dx.doi.org/10.1016/S0168-9525(00)02005-9", "http://purl.obolibrary.org/obo/HOM_0000054" ]
         },
         "xrefs" : [ {
           "val" : "ECO:0000080"
@@ -10281,8 +10281,8 @@
     }, {
       "meta" : {
         "definition" : {
-          "xrefs" : [ "http://dx.doi.org/10.1016/S0168-9525(00)02005-9", "http://purl.obolibrary.org/obo/HOM_0000055", "ISBN:978-0878932665" ],
-          "val" : "Paralogy that is characterized by duplication of adjacent sequences on a chromosome segment."
+          "val" : "Paralogy that is characterized by duplication of adjacent sequences on a chromosome segment.",
+          "xrefs" : [ "http://dx.doi.org/10.1016/S0168-9525(00)02005-9", "http://purl.obolibrary.org/obo/HOM_0000055", "ISBN:978-0878932665" ]
         },
         "synonyms" : [ {
           "pred" : "hasExactSynonym",
@@ -10311,8 +10311,8 @@
     }, {
       "meta" : {
         "definition" : {
-          "xrefs" : [ "http://dx.doi.org/10.1007/BF02814485", "http://dx.doi.org/10.1016/j.jhevol.2006.11.010", "http://dx.doi.org/10.1186/1742-9994-2-15", "http://purl.obolibrary.org/obo/HOM_0000057", "ISBN:0199141118" ],
-          "val" : "Parallelism that involves morphologically very similar structures, occurring only within some members of a taxon and absent in the common ancestor (which possessed the developmental basis to develop this character)."
+          "val" : "Parallelism that involves morphologically very similar structures, occurring only within some members of a taxon and absent in the common ancestor (which possessed the developmental basis to develop this character).",
+          "xrefs" : [ "http://dx.doi.org/10.1007/BF02814485", "http://dx.doi.org/10.1016/j.jhevol.2006.11.010", "http://dx.doi.org/10.1186/1742-9994-2-15", "http://purl.obolibrary.org/obo/HOM_0000057", "ISBN:0199141118" ]
         },
         "comments" : [ "Used for structures in closely related taxa." ],
         "synonyms" : [ {
@@ -10354,8 +10354,8 @@
     }, {
       "meta" : {
         "definition" : {
-          "xrefs" : [ "http://dx.doi.org/10.1186/1742-9994-2-15", "http://purl.obolibrary.org/obo/HOM_0000058", "DOI:10.1002/1521-1878(200009)22:9<846::AID-BIES10>3.0.CO;2-R" ],
-          "val" : "Homocracy that involves recognizably corresponding characters that occurs in two or more taxa, or as a repeated unit within an individual."
+          "val" : "Homocracy that involves recognizably corresponding characters that occurs in two or more taxa, or as a repeated unit within an individual.",
+          "xrefs" : [ "http://dx.doi.org/10.1186/1742-9994-2-15", "http://purl.obolibrary.org/obo/HOM_0000058", "DOI:10.1002/1521-1878(200009)22:9<846::AID-BIES10>3.0.CO;2-R" ]
         },
         "comments" : [ "Cannot be used when orthologous patterning gene are organizing obviously non-homologous structures in different organisms due for example to pleiotropic functions of these genes." ],
         "synonyms" : [ {
@@ -10382,8 +10382,8 @@
     }, {
       "meta" : {
         "definition" : {
-          "xrefs" : [ "http://dx.doi.org/10.1146/annurev.genet.39.073003.114725", "http://purl.obolibrary.org/obo/HOM_0000060", "http://www.ensembl.org/info/docs/compara/homology_method.html" ],
-          "val" : "Between-species paralogy that involves single copy paralogs resulting from reciprocal gene loss."
+          "val" : "Between-species paralogy that involves single copy paralogs resulting from reciprocal gene loss.",
+          "xrefs" : [ "http://dx.doi.org/10.1146/annurev.genet.39.073003.114725", "http://purl.obolibrary.org/obo/HOM_0000060", "http://www.ensembl.org/info/docs/compara/homology_method.html" ]
         },
         "comments" : [ "The genes are actually paralogs but appear to be orthologous due to differential, lineage-specific gene loss." ],
         "synonyms" : [ {
@@ -10416,8 +10416,8 @@
     }, {
       "meta" : {
         "definition" : {
-          "xrefs" : [ "http://dx.doi.org/10.1146/annurev.genet.39.073003.114725", "http://purl.obolibrary.org/obo/HOM_0000061" ],
-          "val" : "Xenology that involves genes that ended up in a given genome as a result of a combination of vertical inheritance and horizontal gene transfer."
+          "val" : "Xenology that involves genes that ended up in a given genome as a result of a combination of vertical inheritance and horizontal gene transfer.",
+          "xrefs" : [ "http://dx.doi.org/10.1146/annurev.genet.39.073003.114725", "http://purl.obolibrary.org/obo/HOM_0000061" ]
         },
         "comments" : [ "These genes may come out as paralogs in a single-genome analysis." ],
         "synonyms" : [ {
@@ -10441,8 +10441,8 @@
     }, {
       "meta" : {
         "definition" : {
-          "xrefs" : [ "http://dx.doi.org/10.1093/nar/gkl1043", "http://purl.obolibrary.org/obo/HOM_0000062" ],
-          "val" : "Historical homology that involves functional equivalent genes with retention of the ancestral function."
+          "val" : "Historical homology that involves functional equivalent genes with retention of the ancestral function.",
+          "xrefs" : [ "http://dx.doi.org/10.1093/nar/gkl1043", "http://purl.obolibrary.org/obo/HOM_0000062" ]
         },
         "comments" : [ "This may include examples of orthology, paralogy and xenology." ],
         "synonyms" : [ {
@@ -10466,8 +10466,8 @@
     }, {
       "meta" : {
         "definition" : {
-          "xrefs" : [ "http://dx.doi.org/10.1101/gr.1774904", "http://dx.doi.org/10.1126/science.287.5450.116", "http://purl.obolibrary.org/obo/HOM_0000063" ],
-          "val" : "Historical homology that involves orthologous pairs of interacting molecules in different organisms."
+          "val" : "Historical homology that involves orthologous pairs of interacting molecules in different organisms.",
+          "xrefs" : [ "http://dx.doi.org/10.1101/gr.1774904", "http://dx.doi.org/10.1126/science.287.5450.116", "http://purl.obolibrary.org/obo/HOM_0000063" ]
         },
         "synonyms" : [ {
           "pred" : "hasExactSynonym",
@@ -10490,8 +10490,8 @@
     }, {
       "meta" : {
         "definition" : {
-          "xrefs" : [ "http://dx.doi.org/10.1007/BF02814484", "http://dx.doi.org/10.1038/415741a", "http://purl.obolibrary.org/obo/HOM_0000065" ],
-          "val" : "Similarity that is characterized by interchangeability in function."
+          "val" : "Similarity that is characterized by interchangeability in function.",
+          "xrefs" : [ "http://dx.doi.org/10.1007/BF02814484", "http://dx.doi.org/10.1038/415741a", "http://purl.obolibrary.org/obo/HOM_0000065" ]
         },
         "synonyms" : [ {
           "pred" : "hasRelatedSynonym",
@@ -10514,8 +10514,8 @@
     }, {
       "meta" : {
         "definition" : {
-          "xrefs" : [ "http://dx.doi.org/10.1146/annurev.es.20.110189.000411", "http://purl.obolibrary.org/obo/HOM_0000066" ],
-          "val" : "Biological homology that involves parts of the same organism."
+          "val" : "Biological homology that involves parts of the same organism.",
+          "xrefs" : [ "http://dx.doi.org/10.1146/annurev.es.20.110189.000411", "http://purl.obolibrary.org/obo/HOM_0000066" ]
         },
         "synonyms" : [ {
           "pred" : "hasExactSynonym",
@@ -10538,8 +10538,8 @@
     }, {
       "meta" : {
         "definition" : {
-          "xrefs" : [ "http://purl.obolibrary.org/obo/HOM_0000068", "http://www.ncbi.nlm.nih.gov/pubmed/3065587" ],
-          "val" : "Xenology that is characterized by multiple horizontal transfer events, resulting in the presence of two or more copies of the foreign gene in the host genome."
+          "val" : "Xenology that is characterized by multiple horizontal transfer events, resulting in the presence of two or more copies of the foreign gene in the host genome.",
+          "xrefs" : [ "http://purl.obolibrary.org/obo/HOM_0000068", "http://www.ncbi.nlm.nih.gov/pubmed/3065587" ]
         },
         "synonyms" : [ {
           "pred" : "hasExactSynonym",
@@ -10568,8 +10568,8 @@
     }, {
       "meta" : {
         "definition" : {
-          "xrefs" : [ "http://purl.obolibrary.org/obo/HOM_0000069", "http://www.ncbi.nlm.nih.gov/pubmed/3065587" ],
-          "val" : "Paralogy that is characterized by extra similarity between paralogous sequences resulting from concerted evolution."
+          "val" : "Paralogy that is characterized by extra similarity between paralogous sequences resulting from concerted evolution.",
+          "xrefs" : [ "http://purl.obolibrary.org/obo/HOM_0000069", "http://www.ncbi.nlm.nih.gov/pubmed/3065587" ]
         },
         "comments" : [ "This phenomenon is usually due to gene conversion process." ],
         "synonyms" : [ {
@@ -10593,8 +10593,8 @@
     }, {
       "meta" : {
         "definition" : {
-          "xrefs" : [ "http://dx.doi.org/10.1007/BF02814484", "http://dx.doi.org/10.1007/BF02814485", "http://purl.obolibrary.org/obo/HOM_0000071", "ISBN:0123195837" ],
-          "val" : "Structural homology that involves structures with the same or similar relative positions."
+          "val" : "Structural homology that involves structures with the same or similar relative positions.",
+          "xrefs" : [ "http://dx.doi.org/10.1007/BF02814484", "http://dx.doi.org/10.1007/BF02814485", "http://purl.obolibrary.org/obo/HOM_0000071", "ISBN:0123195837" ]
         },
         "comments" : [ "Theissen (2005) mentions that some authors may consider homotopy to be distinct from homology, but this is not the standard use." ],
         "synonyms" : [ {
@@ -10618,8 +10618,8 @@
     }, {
       "meta" : {
         "definition" : {
-          "xrefs" : [ "http://dx.doi.org/10.1007/BF02814485", "http://dx.doi.org/10.1016/j.cell.2008.06.030", "http://purl.obolibrary.org/obo/HOM_0000072" ],
-          "val" : "Biological homology that involves an ectopic structure and the normally positioned structure."
+          "val" : "Biological homology that involves an ectopic structure and the normally positioned structure.",
+          "xrefs" : [ "http://dx.doi.org/10.1007/BF02814485", "http://dx.doi.org/10.1016/j.cell.2008.06.030", "http://purl.obolibrary.org/obo/HOM_0000072" ]
         },
         "synonyms" : [ {
           "pred" : "hasRelatedSynonym",
@@ -10642,8 +10642,8 @@
     }, {
       "meta" : {
         "definition" : {
-          "xrefs" : [ "http://dx.doi.org/10.1073/pnas.0505156102", "http://purl.obolibrary.org/obo/HOM_0000073" ],
-          "val" : "Synology that results from allopolyploidy."
+          "val" : "Synology that results from allopolyploidy.",
+          "xrefs" : [ "http://dx.doi.org/10.1073/pnas.0505156102", "http://purl.obolibrary.org/obo/HOM_0000073" ]
         },
         "comments" : [ "On a long term, it is hard to distinguish allopolyploidy from whole genome duplication." ],
         "synonyms" : [ {
@@ -10667,8 +10667,8 @@
     }, {
       "meta" : {
         "definition" : {
-          "xrefs" : [ "http://dx.doi.org/10.1007/s10441-007-9023-8", "http://dx.doi.org/10.1046/j.1525-142x.2000.00054.x", "http://purl.obolibrary.org/obo/HOM_0000074" ],
-          "val" : "Iterative homology that involves two structures, one of which originated as a duplicate of the other and co-opted the expression of patterning genes of the ancestral structure."
+          "val" : "Iterative homology that involves two structures, one of which originated as a duplicate of the other and co-opted the expression of patterning genes of the ancestral structure.",
+          "xrefs" : [ "http://dx.doi.org/10.1007/s10441-007-9023-8", "http://dx.doi.org/10.1046/j.1525-142x.2000.00054.x", "http://purl.obolibrary.org/obo/HOM_0000074" ]
         },
         "synonyms" : [ {
           "pred" : "hasRelatedSynonym",
@@ -10691,8 +10691,8 @@
     }, {
       "meta" : {
         "definition" : {
-          "xrefs" : [ "http://dx.doi.org/10.1101/gr.1774904", "http://purl.obolibrary.org/obo/HOM_0000075" ],
-          "val" : "Historical homology that involves orthologous pairs of transcription factors and downstream regulated genes in different organisms."
+          "val" : "Historical homology that involves orthologous pairs of transcription factors and downstream regulated genes in different organisms.",
+          "xrefs" : [ "http://dx.doi.org/10.1101/gr.1774904", "http://purl.obolibrary.org/obo/HOM_0000075" ]
         },
         "synonyms" : [ {
           "pred" : "hasExactSynonym",

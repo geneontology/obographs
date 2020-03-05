@@ -19,8 +19,8 @@
     }, {
       "meta" : {
         "definition" : {
-          "xrefs" : [ "GOC:go_curators", "NIF_Subcellular:sao-1337158144" ],
-          "val" : "The part of a cell or its extracellular environment in which a gene product is located. A gene product may be located in one or more parts of a cell and its location may be as specific as a particular macromolecular complex, that is, a stable, persistent association of macromolecules that function together."
+          "val" : "The part of a cell or its extracellular environment in which a gene product is located. A gene product may be located in one or more parts of a cell and its location may be as specific as a particular macromolecular complex, that is, a stable, persistent association of macromolecules that function together.",
+          "xrefs" : [ "GOC:go_curators", "NIF_Subcellular:sao-1337158144" ]
         },
         "comments" : [ "Note that, in addition to forming the root of the cellular component ontology, this term is recommended for use for the annotation of gene products whose cellular component is unknown. Note that when this term is used for annotation, it indicates that no information was available about the cellular component of the gene product annotated as of the date the annotation was made; the evidence code ND, no data, is used to indicate this." ],
         "subsets" : [ "http://purl.obolibrary.org/obo/go-test#goslim_aspergillus", "http://purl.obolibrary.org/obo/go-test#goslim_candida", "http://purl.obolibrary.org/obo/go-test#goslim_chembl", "http://purl.obolibrary.org/obo/go-test#goslim_generic", "http://purl.obolibrary.org/obo/go-test#goslim_metagenomics", "http://purl.obolibrary.org/obo/go-test#goslim_pir", "http://purl.obolibrary.org/obo/go-test#goslim_plant", "http://purl.obolibrary.org/obo/go-test#goslim_yeast", "http://purl.obolibrary.org/obo/go-test#gosubset_prok" ],
@@ -38,8 +38,8 @@
           "synonymType" : "http://purl.obolibrary.org/obo/go-test#systematic_synonym"
         }, {
           "pred" : "hasRelatedSynonym",
-          "xrefs" : [ "NIF_Subcellular:nlx_subcell_100315" ],
-          "val" : "subcellular entity"
+          "val" : "subcellular entity",
+          "xrefs" : [ "NIF_Subcellular:nlx_subcell_100315" ]
         } ],
         "basicPropertyValues" : [ {
           "pred" : "http://www.geneontology.org/formats/oboInOwl#hasAlternativeId",
@@ -55,8 +55,8 @@
     }, {
       "meta" : {
         "definition" : {
-          "xrefs" : [ "ISBN:0198506732" ],
-          "val" : "The living contents of a cell; the matter contained within (but not including) the plasma membrane, usually taken to exclude large vacuoles and masses of secretory or ingested material. In eukaryotes it includes the nucleus and cytoplasm."
+          "val" : "The living contents of a cell; the matter contained within (but not including) the plasma membrane, usually taken to exclude large vacuoles and masses of secretory or ingested material. In eukaryotes it includes the nucleus and cytoplasm.",
+          "xrefs" : [ "ISBN:0198506732" ]
         },
         "subsets" : [ "http://purl.obolibrary.org/obo/go-test#goslim_chembl", "http://purl.obolibrary.org/obo/go-test#goslim_generic", "http://purl.obolibrary.org/obo/go-test#goslim_metagenomics", "http://purl.obolibrary.org/obo/go-test#goslim_pir", "http://purl.obolibrary.org/obo/go-test#goslim_plant", "http://purl.obolibrary.org/obo/go-test#gosubset_prok" ],
         "xrefs" : [ {
@@ -70,12 +70,12 @@
           "val" : "protoplasm"
         }, {
           "pred" : "hasRelatedSynonym",
-          "xrefs" : [ "GOC:mah" ],
-          "val" : "nucleocytoplasm"
+          "val" : "nucleocytoplasm",
+          "xrefs" : [ "GOC:mah" ]
         }, {
           "pred" : "hasRelatedSynonym",
-          "xrefs" : [ "GOC:mah" ],
-          "val" : "protoplast"
+          "val" : "protoplast",
+          "xrefs" : [ "GOC:mah" ]
         } ],
         "basicPropertyValues" : [ {
           "pred" : "http://www.geneontology.org/formats/oboInOwl#hasOBONamespace",
@@ -88,8 +88,8 @@
     }, {
       "meta" : {
         "definition" : {
-          "xrefs" : [ "GOC:go_curators" ],
-          "val" : "The basic structural and functional unit of all organisms. Includes the plasma membrane and any external encapsulating structures such as the cell wall and cell envelope."
+          "val" : "The basic structural and functional unit of all organisms. Includes the plasma membrane and any external encapsulating structures such as the cell wall and cell envelope.",
+          "xrefs" : [ "GOC:go_curators" ]
         },
         "subsets" : [ "http://purl.obolibrary.org/obo/go-test#goslim_chembl", "http://purl.obolibrary.org/obo/go-test#goslim_generic", "http://purl.obolibrary.org/obo/go-test#goslim_plant", "http://purl.obolibrary.org/obo/go-test#gosubset_prok" ],
         "xrefs" : [ {
@@ -111,8 +111,8 @@
     }, {
       "meta" : {
         "definition" : {
-          "xrefs" : [ "GOC:go_curators" ],
-          "val" : "A membrane-bounded organelle of eukaryotic cells in which chromosomes are housed and replicated. In most cells, the nucleus contains all of the cell's chromosomes except the organellar chromosomes, and is the site of RNA synthesis and processing. In some species, or in specialized cell types, RNA metabolism or DNA replication may be absent."
+          "val" : "A membrane-bounded organelle of eukaryotic cells in which chromosomes are housed and replicated. In most cells, the nucleus contains all of the cell's chromosomes except the organellar chromosomes, and is the site of RNA synthesis and processing. In some species, or in specialized cell types, RNA metabolism or DNA replication may be absent.",
+          "xrefs" : [ "GOC:go_curators" ]
         },
         "subsets" : [ "http://purl.obolibrary.org/obo/go-test#goslim_aspergillus", "http://purl.obolibrary.org/obo/go-test#goslim_candida", "http://purl.obolibrary.org/obo/go-test#goslim_chembl", "http://purl.obolibrary.org/obo/go-test#goslim_generic", "http://purl.obolibrary.org/obo/go-test#goslim_metagenomics", "http://purl.obolibrary.org/obo/go-test#goslim_pir", "http://purl.obolibrary.org/obo/go-test#goslim_plant", "http://purl.obolibrary.org/obo/go-test#goslim_yeast" ],
         "xrefs" : [ {
@@ -149,8 +149,8 @@
     }, {
       "meta" : {
         "definition" : {
-          "xrefs" : [ "GOC:go_curators" ],
-          "val" : "Organized structure of distinctive morphology and function. Includes the nucleus, mitochondria, plastids, vacuoles, vesicles, ribosomes and the cytoskeleton, and prokaryotic structures such as anammoxosomes and pirellulosomes. Excludes the plasma membrane."
+          "val" : "Organized structure of distinctive morphology and function. Includes the nucleus, mitochondria, plastids, vacuoles, vesicles, ribosomes and the cytoskeleton, and prokaryotic structures such as anammoxosomes and pirellulosomes. Excludes the plasma membrane.",
+          "xrefs" : [ "GOC:go_curators" ]
         },
         "subsets" : [ "http://purl.obolibrary.org/obo/go-test#goslim_chembl", "http://purl.obolibrary.org/obo/go-test#goslim_generic", "http://purl.obolibrary.org/obo/go-test#goslim_pir", "http://purl.obolibrary.org/obo/go-test#gosubset_prok" ],
         "xrefs" : [ {
@@ -169,8 +169,8 @@
     }, {
       "meta" : {
         "definition" : {
-          "xrefs" : [ "GOC:go_curators" ],
-          "val" : "Organized structure of distinctive morphology and function, bounded by a single or double lipid bilayer membrane. Includes the nucleus, mitochondria, plastids, vacuoles, and vesicles. Excludes the plasma membrane."
+          "val" : "Organized structure of distinctive morphology and function, bounded by a single or double lipid bilayer membrane. Includes the nucleus, mitochondria, plastids, vacuoles, and vesicles. Excludes the plasma membrane.",
+          "xrefs" : [ "GOC:go_curators" ]
         },
         "subsets" : [ "http://purl.obolibrary.org/obo/go-test#gosubset_prok" ],
         "xrefs" : [ {
@@ -191,8 +191,8 @@
     }, {
       "meta" : {
         "definition" : {
-          "xrefs" : [ "GOC:go_curators" ],
-          "val" : "Organized structure of distinctive morphology and function, occurring within the cell. Includes the nucleus, mitochondria, plastids, vacuoles, vesicles, ribosomes and the cytoskeleton. Excludes the plasma membrane."
+          "val" : "Organized structure of distinctive morphology and function, occurring within the cell. Includes the nucleus, mitochondria, plastids, vacuoles, vesicles, ribosomes and the cytoskeleton. Excludes the plasma membrane.",
+          "xrefs" : [ "GOC:go_curators" ]
         },
         "subsets" : [ "http://purl.obolibrary.org/obo/go-test#goslim_pir", "http://purl.obolibrary.org/obo/go-test#gosubset_prok" ],
         "basicPropertyValues" : [ {
@@ -206,8 +206,8 @@
     }, {
       "meta" : {
         "definition" : {
-          "xrefs" : [ "GOC:go_curators" ],
-          "val" : "Organized structure of distinctive morphology and function, bounded by a single or double lipid bilayer membrane and occurring within the cell. Includes the nucleus, mitochondria, plastids, vacuoles, and vesicles. Excludes the plasma membrane."
+          "val" : "Organized structure of distinctive morphology and function, bounded by a single or double lipid bilayer membrane and occurring within the cell. Includes the nucleus, mitochondria, plastids, vacuoles, and vesicles. Excludes the plasma membrane.",
+          "xrefs" : [ "GOC:go_curators" ]
         },
         "subsets" : [ "http://purl.obolibrary.org/obo/go-test#goslim_pir", "http://purl.obolibrary.org/obo/go-test#gosubset_prok" ],
         "synonyms" : [ {
@@ -225,8 +225,8 @@
     }, {
       "meta" : {
         "definition" : {
-          "xrefs" : [ "GOC:jl" ],
-          "val" : "Any constituent part of the living contents of a cell; the matter contained within (but not including) the plasma membrane, usually taken to exclude large vacuoles and masses of secretory or ingested material. In eukaryotes it includes the nucleus and cytoplasm."
+          "val" : "Any constituent part of the living contents of a cell; the matter contained within (but not including) the plasma membrane, usually taken to exclude large vacuoles and masses of secretory or ingested material. In eukaryotes it includes the nucleus and cytoplasm.",
+          "xrefs" : [ "GOC:jl" ]
         },
         "comments" : [ "Note that this term is in the subset of terms that should not be used for direct gene product annotation. Instead, select a child term or, if no appropriate child term exists, please request a new term. Direct annotations to this term may be amended during annotation QC." ],
         "subsets" : [ "http://purl.obolibrary.org/obo/go-test#goantislim_grouping", "http://purl.obolibrary.org/obo/go-test#gocheck_do_not_annotate", "http://purl.obolibrary.org/obo/go-test#gosubset_prok" ],
@@ -241,8 +241,8 @@
     }, {
       "meta" : {
         "definition" : {
-          "xrefs" : [ "GOC:jl" ],
-          "val" : "Any constituent part of a cell, the basic structural and functional unit of all organisms."
+          "val" : "Any constituent part of a cell, the basic structural and functional unit of all organisms.",
+          "xrefs" : [ "GOC:jl" ]
         },
         "comments" : [ "Note that this term is in the subset of terms that should not be used for direct gene product annotation. Instead, select a child term or, if no appropriate child term exists, please request a new term. Direct annotations to this term may be amended during annotation QC." ],
         "subsets" : [ "http://purl.obolibrary.org/obo/go-test#goantislim_grouping", "http://purl.obolibrary.org/obo/go-test#gocheck_do_not_annotate", "http://purl.obolibrary.org/obo/go-test#goslim_pir", "http://purl.obolibrary.org/obo/go-test#gosubset_prok" ],
@@ -251,12 +251,12 @@
         } ],
         "synonyms" : [ {
           "pred" : "hasExactSynonym",
-          "xrefs" : [ "NIF_Subcellular:sao628508602" ],
-          "val" : "cellular subcomponent"
+          "val" : "cellular subcomponent",
+          "xrefs" : [ "NIF_Subcellular:sao628508602" ]
         }, {
           "pred" : "hasRelatedSynonym",
-          "xrefs" : [ "GOC:mah" ],
-          "val" : "protoplast"
+          "val" : "protoplast",
+          "xrefs" : [ "GOC:mah" ]
         } ],
         "basicPropertyValues" : [ {
           "pred" : "http://www.geneontology.org/formats/oboInOwl#hasOBONamespace",

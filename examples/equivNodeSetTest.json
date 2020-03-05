@@ -3,8 +3,8 @@
     "nodes" : [ {
       "meta" : {
         "definition" : {
-          "xrefs" : [ "url:http://emedicine.medscape.com/article/276512-overview", "url:http://en.wikipedia.org/wiki/Hemangiosarcoma", "url:http://www.ncbi.nlm.nih.gov/pubmed/23327728" ],
-          "val" : "A malignant Vascular tumor that results_in rapidly proliferating, extensively infiltrating anaplastic cells derived_from blood vessels and derived_from the lining of irregular blood-filled spaces."
+          "val" : "A malignant Vascular tumor that results_in rapidly proliferating, extensively infiltrating anaplastic cells derived_from blood vessels and derived_from the lining of irregular blood-filled spaces.",
+          "xrefs" : [ "url:http://emedicine.medscape.com/article/276512-overview", "url:http://en.wikipedia.org/wiki/Hemangiosarcoma", "url:http://www.ncbi.nlm.nih.gov/pubmed/23327728" ]
         },
         "subsets" : [ "http://purl.obolibrary.org/obo/TEMP#NCIthesaurus" ],
         "xrefs" : [ {
