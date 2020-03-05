@@ -233,10 +233,10 @@
                     "type" : "object",
                     "id" : "urn:jsonschema:org:geneontology:obographs:model:axiom:ExistentialRestrictionExpression",
                     "properties" : {
-                      "fillerId" : {
+                      "propertyId" : {
                         "type" : "string"
                       },
-                      "propertyId" : {
+                      "fillerId" : {
                         "type" : "string"
                       }
                     }
