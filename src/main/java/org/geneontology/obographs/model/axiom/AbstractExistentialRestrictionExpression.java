@@ -19,15 +19,15 @@ import org.immutables.value.Value;
 public abstract class AbstractExistentialRestrictionExpression implements Expression {
 
     /**
-     * @return the representativeNodeId
-     */
-    @JsonProperty
-    public abstract String getFillerId();
-
-    /**
      * @return the propertyId
      */
     @JsonProperty
     public abstract String getPropertyId();
+
+    /**
+     * @return the representativeNodeId
+     */
+    @JsonProperty
+    public abstract String getFillerId();
 
 }
