@@ -15,6 +15,7 @@ import org.geneontology.obographs.model.meta.SynonymPropertyValue;
 import org.geneontology.obographs.model.meta.XrefPropertyValue;
 import org.semanticweb.owlapi.model.*;
 
+import javax.annotation.Nullable;
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -642,39 +643,39 @@ public class FromOwl {
         return new Edge.Builder().sub(subj).pred(pred).obj(obj).build();
     }
 
-    private ExistentialRestrictionExpression getRestriction(
-            OWLClassExpression x) {
+    @Nullable
+    private ExistentialRestrictionExpression getRestriction(OWLClassExpression x) {
         if (x instanceof OWLObjectSomeValuesFrom) {
-            OWLObjectSomeValuesFrom r = (OWLObjectSomeValuesFrom)x;
+            OWLObjectSomeValuesFrom r = (OWLObjectSomeValuesFrom) x;
             OWLPropertyExpression p = r.getProperty();
             OWLClassExpression f = r.getFiller();
             if (p instanceof OWLObjectProperty && !f.isAnonymous()) {
-
                 return new ExistentialRestrictionExpression.Builder()
-                .propertyId(getPropertyId((OWLObjectProperty) p))
-                .fillerId(getClassId((OWLClass) f))
-                .build();
+                        .propertyId(getPropertyId((OWLObjectProperty) p))
+                        .fillerId(getClassId((OWLClass) f))
+                        .build();
             }
         }
         return null;
     }
 
+    @Nullable
     private OBOClassDef getClassDef(Set<OWLClassExpression> ixs) {
         OBOClassDef def = new OBOClassDef();
         boolean isLDA = true;
         for (OWLClassExpression ix : ixs) {
             if (!ix.isAnonymous()) {
-                def.genusClassIds.add(getClassId((OWLClass)ix));
-            }
-            else if (ix instanceof OWLObjectSomeValuesFrom) {
-                def.restrs.add(getRestriction(ix));
-            }
-            else {
+                def.genusClassIds.add(getClassId((OWLClass) ix));
+            } else if (ix instanceof OWLObjectSomeValuesFrom) {
+                ExistentialRestrictionExpression restriction = getRestriction(ix);
+                if (restriction != null) {
+                    def.restrs.add(restriction);
+                }
+            } else {
                 isLDA = false;
                 break;
             }
-
-        } 
+        }
         if (!isLDA) {
             return null;
         }
