@@ -2,6 +2,7 @@ package org.geneontology.obographs.owlapi;
 
 import com.github.jsonldjava.core.Context;
 import com.google.common.base.Optional;
+import com.google.common.collect.ImmutableSet;
 import org.geneontology.obographs.io.PrefixHelper;
 import org.geneontology.obographs.model.*;
 import org.geneontology.obographs.model.Node.Builder;
@@ -14,6 +15,7 @@ import org.geneontology.obographs.model.meta.SynonymPropertyValue.SCOPES;
 import org.geneontology.obographs.model.meta.XrefPropertyValue;
 import org.semanticweb.owlapi.model.*;
 
+import javax.annotation.Nullable;
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -229,7 +231,7 @@ public class FromOwl {
                     List<OWLClassExpression> namedXs = 
                             xs.stream().filter(x -> !x.isAnonymous()).collect(Collectors.toList());
                     Set<String> xClassIds = 
-                            namedXs.stream().map(x -> getClassId((OWLClass)x)).collect(Collectors.toSet());
+                            namedXs.stream().map(x -> getClassId((OWLClass)x)).collect(ImmutableSet.toImmutableSet());
                     if (anonXs.isEmpty()) {
                         // EquivalentNodesSet
 
@@ -425,7 +427,7 @@ public class FromOwl {
                         else if (synonymVocabulary.contains(pIRI.toString())) {
                             SCOPES scope = synonymVocabulary.get(pIRI.toString());
                             if (lv != null) {
-                                String synonymType = null;
+                                String synonymType = "";
                                 for (OWLAnnotation a : aaa.getAnnotations()) {
                                     if (a.getProperty().getIRI().toString().equals(SynonymVocabulary.SYNONYM_TYPE)) {
                                         synonymType = a.getValue().toString();
@@ -480,7 +482,7 @@ public class FromOwl {
         for (String n : nodeIds) {
             Builder nb = new Node.Builder().
                     id(n).
-                    label(nodeLabelMap.get(n));
+                    label(nodeLabelMap.getOrDefault(n, ""));
             if (nodeMetaBuilderMap.containsKey(n)) {
                 Meta meta = nodeMetaBuilderMap.get(n).build();
                 nb.meta(meta);
@@ -581,7 +583,7 @@ public class FromOwl {
      * @return
      */
     private Meta getAnnotations(OWLAxiom ax) {
-        return(getAnnotations(ax.getAnnotations()));
+        return getAnnotations(ax.getAnnotations());
     }
     private Meta getAnnotations(Set<OWLAnnotation> anns) {
         return getAnnotations(anns, null);
@@ -639,14 +641,13 @@ public class FromOwl {
         return new Edge.Builder().sub(subj).pred(pred).obj(obj).build();
     }
 
-    private ExistentialRestrictionExpression getRestriction(
-            OWLClassExpression x) {
+    @Nullable
+    private ExistentialRestrictionExpression getRestriction(OWLClassExpression x) {
         if (x instanceof OWLObjectSomeValuesFrom) {
             OWLObjectSomeValuesFrom r = (OWLObjectSomeValuesFrom)x;
             OWLPropertyExpression p = r.getProperty();
             OWLClassExpression f = r.getFiller();
             if (p instanceof OWLObjectProperty && !f.isAnonymous()) {
-
                 return new ExistentialRestrictionExpression.Builder()
                 .propertyId(getPropertyId((OWLObjectProperty) p))
                 .fillerId(getClassId((OWLClass) f))
@@ -656,22 +657,23 @@ public class FromOwl {
         return null;
     }
 
+    @Nullable
     private OBOClassDef getClassDef(Set<OWLClassExpression> ixs) {
         OBOClassDef def = new OBOClassDef();
         boolean isLDA = true;
         for (OWLClassExpression ix : ixs) {
             if (!ix.isAnonymous()) {
-                def.genusClassIds.add(getClassId((OWLClass)ix));
-            }
-            else if (ix instanceof OWLObjectSomeValuesFrom) {
-                def.restrs.add(getRestriction(ix));
-            }
-            else {
+                def.genusClassIds.add(getClassId((OWLClass) ix));
+            } else if (ix instanceof OWLObjectSomeValuesFrom) {
+                ExistentialRestrictionExpression restriction = getRestriction(ix);
+                if (restriction != null) {
+                    def.restrs.add(restriction);
+                }
+            } else {
                 isLDA = false;
                 break;
             }
-
-        } 
+        }
         if (!isLDA) {
             return null;
         }
