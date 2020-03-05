@@ -48,16 +48,8 @@ public interface PropertyValue {
     }
 
     /**
-     * An array denoting objects that support the property value assertion
-     * 
-     * @return the xrefs
-     */
-    @JsonProperty
-    public List<String> getXrefs();
-
-    /**
      * The value of the property-value
-     * 
+     *
      * @return the val
      */
     @JsonProperty
@@ -65,5 +57,13 @@ public interface PropertyValue {
     default String getVal() {
         return "";
     }
+
+    /**
+     * An array denoting objects that support the property value assertion
+     *
+     * @return the xrefs
+     */
+    @JsonProperty
+    public List<String> getXrefs();
 
 }
