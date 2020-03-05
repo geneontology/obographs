@@ -1,8 +1,7 @@
 ---
 graphs:
 - nodes:
-  - id: "http://purl.obolibrary.org/obo/BFO_0000050"
-    meta:
+  - meta:
       xrefs:
       - val: "BFO:0000050"
       basicPropertyValues:
@@ -10,10 +9,10 @@ graphs:
         val: "external"
       - pred: "http://www.geneontology.org/formats/oboInOwl#shorthand"
         val: "part_of"
+    id: "http://purl.obolibrary.org/obo/BFO_0000050"
     type: "PROPERTY"
     lbl: "part of"
-  - id: "http://purl.obolibrary.org/obo/GO_0005575"
-    meta:
+  - meta:
       definition:
         val: "The part of a cell or its extracellular environment in which a gene\
           \ product is located. A gene product may be located in one or more parts\
@@ -46,10 +45,8 @@ graphs:
       synonyms:
       - pred: "hasExactSynonym"
         val: "cell or subcellular entity"
-        xrefs: []
       - pred: "hasExactSynonym"
         val: "cellular component"
-        xrefs: []
         synonymType: "http://purl.obolibrary.org/obo/go-test#systematic_synonym"
       - pred: "hasRelatedSynonym"
         val: "subcellular entity"
@@ -60,10 +57,10 @@ graphs:
         val: "GO:0008372"
       - pred: "http://www.geneontology.org/formats/oboInOwl#hasOBONamespace"
         val: "cellular_component"
+    id: "http://purl.obolibrary.org/obo/GO_0005575"
     type: "CLASS"
     lbl: "cellular_component"
-  - id: "http://purl.obolibrary.org/obo/GO_0005622"
-    meta:
+  - meta:
       definition:
         val: "The living contents of a cell; the matter contained within (but not\
           \ including) the plasma membrane, usually taken to exclude large vacuoles\
@@ -83,10 +80,8 @@ graphs:
       synonyms:
       - pred: "hasExactSynonym"
         val: "internal to cell"
-        xrefs: []
       - pred: "hasExactSynonym"
         val: "protoplasm"
-        xrefs: []
       - pred: "hasRelatedSynonym"
         val: "nucleocytoplasm"
         xrefs:
@@ -98,10 +93,10 @@ graphs:
       basicPropertyValues:
       - pred: "http://www.geneontology.org/formats/oboInOwl#hasOBONamespace"
         val: "cellular_component"
+    id: "http://purl.obolibrary.org/obo/GO_0005622"
     type: "CLASS"
     lbl: "intracellular"
-  - id: "http://purl.obolibrary.org/obo/GO_0005623"
-    meta:
+  - meta:
       definition:
         val: "The basic structural and functional unit of all organisms. Includes\
           \ the plasma membrane and any external encapsulating structures such as\
@@ -121,10 +116,10 @@ graphs:
         val: "cell and encapsulating structures"
       - pred: "http://www.geneontology.org/formats/oboInOwl#hasOBONamespace"
         val: "cellular_component"
+    id: "http://purl.obolibrary.org/obo/GO_0005623"
     type: "CLASS"
     lbl: "cell"
-  - id: "http://purl.obolibrary.org/obo/GO_0005634"
-    meta:
+  - meta:
       definition:
         val: "A membrane-bounded organelle of eukaryotic cells in which chromosomes\
           \ are housed and replicated. In most cells, the nucleus contains all of\
@@ -148,24 +143,23 @@ graphs:
       synonyms:
       - pred: "hasExactSynonym"
         val: "cell nucleus"
-        xrefs: []
         synonymType: "http://purl.obolibrary.org/obo/go-test#systematic_synonym"
       basicPropertyValues:
       - pred: "http://www.geneontology.org/formats/oboInOwl#hasOBONamespace"
         val: "cellular_component"
+    id: "http://purl.obolibrary.org/obo/GO_0005634"
     type: "CLASS"
     lbl: "nucleus"
-  - id: "http://purl.obolibrary.org/obo/GO_0008372"
-    meta:
+  - meta:
       basicPropertyValues:
       - pred: "http://purl.obolibrary.org/obo/IAO_0000231"
         val: "http://purl.obolibrary.org/obo/IAO_0000227"
       - pred: "http://purl.obolibrary.org/obo/IAO_0100001"
         val: "http://purl.obolibrary.org/obo/GO_0005575"
       deprecated: true
+    id: "http://purl.obolibrary.org/obo/GO_0008372"
     type: "CLASS"
-  - id: "http://purl.obolibrary.org/obo/GO_0043226"
-    meta:
+  - meta:
       definition:
         val: "Organized structure of distinctive morphology and function. Includes\
           \ the nucleus, mitochondria, plastids, vacuoles, vesicles, ribosomes and\
@@ -184,10 +178,10 @@ graphs:
       basicPropertyValues:
       - pred: "http://www.geneontology.org/formats/oboInOwl#hasOBONamespace"
         val: "cellular_component"
+    id: "http://purl.obolibrary.org/obo/GO_0043226"
     type: "CLASS"
     lbl: "organelle"
-  - id: "http://purl.obolibrary.org/obo/GO_0043227"
-    meta:
+  - meta:
       definition:
         val: "Organized structure of distinctive morphology and function, bounded\
           \ by a single or double lipid bilayer membrane. Includes the nucleus, mitochondria,\
@@ -201,14 +195,13 @@ graphs:
       synonyms:
       - pred: "hasExactSynonym"
         val: "membrane-enclosed organelle"
-        xrefs: []
       basicPropertyValues:
       - pred: "http://www.geneontology.org/formats/oboInOwl#hasOBONamespace"
         val: "cellular_component"
+    id: "http://purl.obolibrary.org/obo/GO_0043227"
     type: "CLASS"
     lbl: "membrane-bounded organelle"
-  - id: "http://purl.obolibrary.org/obo/GO_0043229"
-    meta:
+  - meta:
       definition:
         val: "Organized structure of distinctive morphology and function, occurring\
           \ within the cell. Includes the nucleus, mitochondria, plastids, vacuoles,\
@@ -221,10 +214,10 @@ graphs:
       basicPropertyValues:
       - pred: "http://www.geneontology.org/formats/oboInOwl#hasOBONamespace"
         val: "cellular_component"
+    id: "http://purl.obolibrary.org/obo/GO_0043229"
     type: "CLASS"
     lbl: "intracellular organelle"
-  - id: "http://purl.obolibrary.org/obo/GO_0043231"
-    meta:
+  - meta:
       definition:
         val: "Organized structure of distinctive morphology and function, bounded\
           \ by a single or double lipid bilayer membrane and occurring within the\
@@ -238,14 +231,13 @@ graphs:
       synonyms:
       - pred: "hasExactSynonym"
         val: "intracellular membrane-enclosed organelle"
-        xrefs: []
       basicPropertyValues:
       - pred: "http://www.geneontology.org/formats/oboInOwl#hasOBONamespace"
         val: "cellular_component"
+    id: "http://purl.obolibrary.org/obo/GO_0043231"
     type: "CLASS"
     lbl: "intracellular membrane-bounded organelle"
-  - id: "http://purl.obolibrary.org/obo/GO_0044424"
-    meta:
+  - meta:
       definition:
         val: "Any constituent part of the living contents of a cell; the matter contained\
           \ within (but not including) the plasma membrane, usually taken to exclude\
@@ -265,10 +257,10 @@ graphs:
       basicPropertyValues:
       - pred: "http://www.geneontology.org/formats/oboInOwl#hasOBONamespace"
         val: "cellular_component"
+    id: "http://purl.obolibrary.org/obo/GO_0044424"
     type: "CLASS"
     lbl: "intracellular part"
-  - id: "http://purl.obolibrary.org/obo/GO_0044464"
-    meta:
+  - meta:
       definition:
         val: "Any constituent part of a cell, the basic structural and functional\
           \ unit of all organisms."
@@ -298,6 +290,7 @@ graphs:
       basicPropertyValues:
       - pred: "http://www.geneontology.org/formats/oboInOwl#hasOBONamespace"
         val: "cellular_component"
+    id: "http://purl.obolibrary.org/obo/GO_0044464"
     type: "CLASS"
     lbl: "cell part"
   - id: "http://purl.obolibrary.org/obo/IAO_0000115"
@@ -305,11 +298,11 @@ graphs:
     lbl: "definition"
   - id: "http://purl.obolibrary.org/obo/go-test#syngo_official_label"
     lbl: "label approved by the SynGO project"
-  - id: "http://purl.obolibrary.org/obo/go-test#systematic_synonym"
-    meta:
+  - meta:
       basicPropertyValues:
       - pred: "http://www.geneontology.org/formats/oboInOwl#hasScope"
         val: "http://www.geneontology.org/formats/oboInOwl#hasExactSynonym"
+    id: "http://purl.obolibrary.org/obo/go-test#systematic_synonym"
     lbl: "Systematic synonym"
   - id: "http://www.geneontology.org/formats/oboInOwl#SubsetProperty"
     type: "PROPERTY"
@@ -392,13 +385,10 @@ graphs:
     obj: "http://purl.obolibrary.org/obo/go-test#has_part"
   id: "http://purl.obolibrary.org/obo/go-test.owl"
   meta:
-    subsets: []
-    xrefs: []
     basicPropertyValues:
     - pred: "http://www.geneontology.org/formats/oboInOwl#hasOBOFormatVersion"
       val: "1.2"
     version: "http://purl.obolibrary.org/obo/go-test/releases/2016-10-22/go-test.owl"
-  equivalentNodesSets: []
   logicalDefinitionAxioms:
   - definedClassId: "http://purl.obolibrary.org/obo/GO_0044424"
     genusIds:
@@ -412,5 +402,3 @@ graphs:
     restrictions:
     - propertyId: "http://purl.obolibrary.org/obo/BFO_0000050"
       fillerId: "http://purl.obolibrary.org/obo/GO_0005623"
-  domainRangeAxioms: []
-  propertyChainAxioms: []

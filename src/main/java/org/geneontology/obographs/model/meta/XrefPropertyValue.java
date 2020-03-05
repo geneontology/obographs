@@ -17,11 +17,10 @@ public class XrefPropertyValue extends AbstractPropertyValue {
         lbl = builder.lbl;
     }
 
-     
-  
     /**
      * @return the lbl
      */
+    @JsonProperty
     public String getLbl() {
         return lbl;
     }
@@ -30,7 +29,6 @@ public class XrefPropertyValue extends AbstractPropertyValue {
 
     public static class Builder extends AbstractPropertyValue.Builder {
 
-        @JsonProperty
         private String lbl;
         
         @Override

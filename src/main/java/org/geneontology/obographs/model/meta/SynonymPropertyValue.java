@@ -6,7 +6,6 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import org.geneontology.obographs.model.Meta;
 
-import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
@@ -24,6 +23,7 @@ public class SynonymPropertyValue extends AbstractPropertyValue {
     /**
      * @return the synonymType
      */
+    @JsonProperty
     public String getSynonymType() {
         return synonymType;
     }
@@ -70,12 +70,11 @@ public class SynonymPropertyValue extends AbstractPropertyValue {
         if (getMeta() != null) {
             return getMeta().getSubsets();
         }
-        return new ArrayList<>();
+        return Collections.emptyList();
     }
 
     public static class Builder extends AbstractPropertyValue.Builder {
 
-        @JsonProperty
         private String synonymType;
 
         @Override
