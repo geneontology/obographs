@@ -30,7 +30,6 @@ public class Edge implements NodeOrEdge, Comparable<Edge> {
     /**
 	 * @return the subj
 	 */
-	@JsonProperty
 	public String getSub() {
 		return sub;
 	}
@@ -38,7 +37,6 @@ public class Edge implements NodeOrEdge, Comparable<Edge> {
 	/**
 	 * @return the pred
 	 */
-	@JsonProperty
 	public String getPred() {
 		return pred;
 	}
@@ -46,7 +44,6 @@ public class Edge implements NodeOrEdge, Comparable<Edge> {
 	/**
 	 * @return the obj
 	 */
-	@JsonProperty
 	public String getObj() {
 		return obj;
 	}
@@ -79,9 +76,12 @@ public class Edge implements NodeOrEdge, Comparable<Edge> {
 
 	public static class Builder {
 
-        private String sub;
-        private String pred;
-        private String obj;
+		@JsonProperty
+		private String sub;
+		@JsonProperty
+		private String pred;
+		@JsonProperty
+		private String obj;
 
         private Meta meta;
 

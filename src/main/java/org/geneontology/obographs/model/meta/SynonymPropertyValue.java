@@ -23,7 +23,6 @@ public class SynonymPropertyValue extends AbstractPropertyValue {
     /**
      * @return the synonymType
      */
-    @JsonProperty
     public String getSynonymType() {
         return synonymType;
     }
@@ -75,6 +74,7 @@ public class SynonymPropertyValue extends AbstractPropertyValue {
 
     public static class Builder extends AbstractPropertyValue.Builder {
 
+        @JsonProperty
         private String synonymType;
 
         @Override

@@ -33,7 +33,6 @@ public class EquivalentNodesSet extends AbstractAxiom {
     /**
      * @return the representativeNodeId
      */
-    @JsonProperty
     public String getRepresentativeNodeId() {
         return representativeNodeId;
     }
@@ -42,7 +41,6 @@ public class EquivalentNodesSet extends AbstractAxiom {
     /**
      * @return the nodeIds
      */
-    @JsonProperty
     public SortedSet<String> getNodeIds() {
         return nodeIds;
     }
@@ -51,7 +49,9 @@ public class EquivalentNodesSet extends AbstractAxiom {
 
     public static class Builder extends AbstractAxiom.Builder {
 
+        @JsonProperty
         private String representativeNodeId;
+        @JsonProperty
         private SortedSet<String> nodeIds;
         private Meta meta;
 
