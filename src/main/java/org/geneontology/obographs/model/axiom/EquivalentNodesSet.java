@@ -62,6 +62,7 @@ public class EquivalentNodesSet extends AbstractAxiom {
 
         public Builder nodeIds(Set<String> nodeIds) {
             this.nodeIds = ImmutableSortedSet.copyOf(nodeIds);
+            this.representativeNodeId = this.nodeIds.first();
             return this;
         }
 
