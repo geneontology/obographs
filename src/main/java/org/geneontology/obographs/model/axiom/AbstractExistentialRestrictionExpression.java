@@ -1,6 +1,7 @@
 package org.geneontology.obographs.model.axiom;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import org.immutables.value.Value;
@@ -15,6 +16,7 @@ import org.immutables.value.Value;
  */
 @JsonSerialize(as = ExistentialRestrictionExpression.class)
 @JsonDeserialize(as = ExistentialRestrictionExpression.class)
+@JsonPropertyOrder({"propertyId", "fillerId", "meta"})
 @Value.Immutable
 public abstract class AbstractExistentialRestrictionExpression implements Expression {
 

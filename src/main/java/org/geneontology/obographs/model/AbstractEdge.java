@@ -1,6 +1,7 @@
 package org.geneontology.obographs.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.google.common.collect.ComparisonChain;
@@ -14,6 +15,7 @@ import org.immutables.value.Value;
  */
 @JsonSerialize(as = Edge.class)
 @JsonDeserialize(as = Edge.class)
+@JsonPropertyOrder({"sub", "pred", "obj", "meta"})
 @Value.Immutable
 public abstract class AbstractEdge implements NodeOrEdge, Comparable<AbstractEdge> {
 

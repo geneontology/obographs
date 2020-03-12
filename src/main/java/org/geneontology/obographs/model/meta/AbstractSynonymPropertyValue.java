@@ -2,6 +2,7 @@ package org.geneontology.obographs.model.meta;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import org.immutables.value.Value;
@@ -17,6 +18,7 @@ import java.util.List;
  */
 @JsonSerialize(as = SynonymPropertyValue.class)
 @JsonDeserialize(as = SynonymPropertyValue.class)
+@JsonPropertyOrder({"synonymType", "pred", "val", "xrefs", "meta"})
 @Value.Immutable
 public abstract class AbstractSynonymPropertyValue implements PropertyValue {
 

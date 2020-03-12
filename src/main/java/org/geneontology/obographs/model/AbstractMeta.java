@@ -3,6 +3,7 @@ package org.geneontology.obographs.model;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import org.geneontology.obographs.model.meta.*;
@@ -32,6 +33,7 @@ import java.util.stream.Collectors;
 @JsonSerialize(as = Meta.class)
 @JsonDeserialize(as = Meta.class)
 @JsonInclude(JsonInclude.Include.NON_DEFAULT)
+@JsonPropertyOrder({"definition", "comments", "subsets", "synonyms", "xrefs", "basicPropertyValues", "version", "deprecated"})
 @Value.Immutable
 public abstract class AbstractMeta {
 

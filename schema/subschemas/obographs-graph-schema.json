@@ -8,6 +8,16 @@
         "type" : "object",
         "id" : "urn:jsonschema:org:geneontology:obographs:model:Node",
         "properties" : {
+          "id" : {
+            "type" : "string"
+          },
+          "lbl" : {
+            "type" : "string"
+          },
+          "type" : {
+            "type" : "string",
+            "enum" : [ "CLASS", "INDIVIDUAL", "PROPERTY" ]
+          },
           "meta" : {
             "type" : "object",
             "id" : "urn:jsonschema:org:geneontology:obographs:model:Meta",
@@ -16,10 +26,6 @@
                 "type" : "object",
                 "id" : "urn:jsonschema:org:geneontology:obographs:model:meta:DefinitionPropertyValue",
                 "properties" : {
-                  "meta" : {
-                    "type" : "object",
-                    "$ref" : "urn:jsonschema:org:geneontology:obographs:model:Meta"
-                  },
                   "pred" : {
                     "type" : "string"
                   },
@@ -31,6 +37,10 @@
                     "items" : {
                       "type" : "string"
                     }
+                  },
+                  "meta" : {
+                    "type" : "object",
+                    "$ref" : "urn:jsonschema:org:geneontology:obographs:model:Meta"
                   }
                 }
               },
@@ -46,43 +56,14 @@
                   "type" : "string"
                 }
               },
-              "xrefs" : {
-                "type" : "array",
-                "items" : {
-                  "type" : "object",
-                  "id" : "urn:jsonschema:org:geneontology:obographs:model:meta:XrefPropertyValue",
-                  "properties" : {
-                    "meta" : {
-                      "type" : "object",
-                      "$ref" : "urn:jsonschema:org:geneontology:obographs:model:Meta"
-                    },
-                    "pred" : {
-                      "type" : "string"
-                    },
-                    "val" : {
-                      "type" : "string"
-                    },
-                    "xrefs" : {
-                      "type" : "array",
-                      "items" : {
-                        "type" : "string"
-                      }
-                    },
-                    "lbl" : {
-                      "type" : "string"
-                    }
-                  }
-                }
-              },
               "synonyms" : {
                 "type" : "array",
                 "items" : {
                   "type" : "object",
                   "id" : "urn:jsonschema:org:geneontology:obographs:model:meta:SynonymPropertyValue",
                   "properties" : {
-                    "meta" : {
-                      "type" : "object",
-                      "$ref" : "urn:jsonschema:org:geneontology:obographs:model:Meta"
+                    "synonymType" : {
+                      "type" : "string"
                     },
                     "pred" : {
                       "type" : "string"
@@ -96,8 +77,37 @@
                         "type" : "string"
                       }
                     },
-                    "synonymType" : {
+                    "meta" : {
+                      "type" : "object",
+                      "$ref" : "urn:jsonschema:org:geneontology:obographs:model:Meta"
+                    }
+                  }
+                }
+              },
+              "xrefs" : {
+                "type" : "array",
+                "items" : {
+                  "type" : "object",
+                  "id" : "urn:jsonschema:org:geneontology:obographs:model:meta:XrefPropertyValue",
+                  "properties" : {
+                    "lbl" : {
                       "type" : "string"
+                    },
+                    "pred" : {
+                      "type" : "string"
+                    },
+                    "val" : {
+                      "type" : "string"
+                    },
+                    "xrefs" : {
+                      "type" : "array",
+                      "items" : {
+                        "type" : "string"
+                      }
+                    },
+                    "meta" : {
+                      "type" : "object",
+                      "$ref" : "urn:jsonschema:org:geneontology:obographs:model:Meta"
                     }
                   }
                 }
@@ -108,10 +118,6 @@
                   "type" : "object",
                   "id" : "urn:jsonschema:org:geneontology:obographs:model:meta:BasicPropertyValue",
                   "properties" : {
-                    "meta" : {
-                      "type" : "object",
-                      "$ref" : "urn:jsonschema:org:geneontology:obographs:model:Meta"
-                    },
                     "pred" : {
                       "type" : "string"
                     },
@@ -123,6 +129,10 @@
                       "items" : {
                         "type" : "string"
                       }
+                    },
+                    "meta" : {
+                      "type" : "object",
+                      "$ref" : "urn:jsonschema:org:geneontology:obographs:model:Meta"
                     }
                   }
                 }
@@ -134,16 +144,6 @@
                 "type" : "boolean"
               }
             }
-          },
-          "id" : {
-            "type" : "string"
-          },
-          "type" : {
-            "type" : "string",
-            "enum" : [ "CLASS", "INDIVIDUAL", "PROPERTY" ]
-          },
-          "lbl" : {
-            "type" : "string"
           }
         }
       }
@@ -154,10 +154,6 @@
         "type" : "object",
         "id" : "urn:jsonschema:org:geneontology:obographs:model:Edge",
         "properties" : {
-          "meta" : {
-            "type" : "object",
-            "$ref" : "urn:jsonschema:org:geneontology:obographs:model:Meta"
-          },
           "sub" : {
             "type" : "string"
           },
@@ -166,6 +162,10 @@
           },
           "obj" : {
             "type" : "string"
+          },
+          "meta" : {
+            "type" : "object",
+            "$ref" : "urn:jsonschema:org:geneontology:obographs:model:Meta"
           }
         }
       }
@@ -186,10 +186,6 @@
         "type" : "object",
         "id" : "urn:jsonschema:org:geneontology:obographs:model:axiom:EquivalentNodesSet",
         "properties" : {
-          "meta" : {
-            "type" : "object",
-            "$ref" : "urn:jsonschema:org:geneontology:obographs:model:Meta"
-          },
           "representativeNodeId" : {
             "type" : "string"
           },
@@ -198,6 +194,10 @@
             "items" : {
               "type" : "string"
             }
+          },
+          "meta" : {
+            "type" : "object",
+            "$ref" : "urn:jsonschema:org:geneontology:obographs:model:Meta"
           }
         }
       }
@@ -208,10 +208,6 @@
         "type" : "object",
         "id" : "urn:jsonschema:org:geneontology:obographs:model:axiom:LogicalDefinitionAxiom",
         "properties" : {
-          "meta" : {
-            "type" : "object",
-            "$ref" : "urn:jsonschema:org:geneontology:obographs:model:Meta"
-          },
           "definedClassId" : {
             "type" : "string"
           },
@@ -235,6 +231,10 @@
                 }
               }
             }
+          },
+          "meta" : {
+            "type" : "object",
+            "$ref" : "urn:jsonschema:org:geneontology:obographs:model:Meta"
           }
         }
       }
@@ -245,10 +245,6 @@
         "type" : "object",
         "id" : "urn:jsonschema:org:geneontology:obographs:model:axiom:DomainRangeAxiom",
         "properties" : {
-          "meta" : {
-            "type" : "object",
-            "$ref" : "urn:jsonschema:org:geneontology:obographs:model:Meta"
-          },
           "predicateId" : {
             "type" : "string"
           },
@@ -270,6 +266,10 @@
               "type" : "object",
               "$ref" : "urn:jsonschema:org:geneontology:obographs:model:Edge"
             }
+          },
+          "meta" : {
+            "type" : "object",
+            "$ref" : "urn:jsonschema:org:geneontology:obographs:model:Meta"
           }
         }
       }
@@ -280,10 +280,6 @@
         "type" : "object",
         "id" : "urn:jsonschema:org:geneontology:obographs:model:axiom:PropertyChainAxiom",
         "properties" : {
-          "meta" : {
-            "type" : "object",
-            "$ref" : "urn:jsonschema:org:geneontology:obographs:model:Meta"
-          },
           "predicateId" : {
             "type" : "string"
           },
@@ -292,6 +288,10 @@
             "items" : {
               "type" : "string"
             }
+          },
+          "meta" : {
+            "type" : "object",
+            "$ref" : "urn:jsonschema:org:geneontology:obographs:model:Meta"
           }
         }
       }
