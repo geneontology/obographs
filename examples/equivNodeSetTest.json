@@ -1,5 +1,7 @@
 {
   "graphs" : [ {
+    "id" : "http://purl.obolibrary.org/obo/TEMP",
+    "meta" : { },
     "nodes" : [ {
       "id" : "http://purl.obolibrary.org/obo/DOID_0001816",
       "lbl" : "angiosarcoma",
@@ -170,8 +172,6 @@
       "pred" : "is_a",
       "obj" : "http://purl.obolibrary.org/obo/Orphanet_3394"
     } ],
-    "id" : "http://purl.obolibrary.org/obo/TEMP",
-    "meta" : { },
     "equivalentNodesSets" : [ {
       "representativeNodeId" : "http://purl.obolibrary.org/obo/DOID_0001816",
       "nodeIds" : [ "http://purl.obolibrary.org/obo/DOID_0001816", "http://purl.obolibrary.org/obo/NCIT_C3088" ]

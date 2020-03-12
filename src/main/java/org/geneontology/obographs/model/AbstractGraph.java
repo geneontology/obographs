@@ -2,6 +2,7 @@ package org.geneontology.obographs.model;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import org.geneontology.obographs.model.axiom.DomainRangeAxiom;
@@ -40,20 +41,9 @@ import java.util.List;
 @JsonSerialize(as = Graph.class)
 @JsonDeserialize(as = Graph.class)
 @JsonInclude(JsonInclude.Include.NON_DEFAULT)
+@JsonPropertyOrder({"id", "lbl", "meta", "nodes", "edges", "equivalentNodesSets", "logicalDefinitionAxioms", "domainRangeAxioms", "propertyChainAxioms"})
 @Value.Immutable
 public abstract class AbstractGraph {
-
-    /**
-     * @return the nodes
-     */
-    @JsonProperty
-    public abstract List<Node> getNodes();
-
-    /**
-     * @return the edges
-     */
-    @JsonProperty
-    public abstract List<Edge> getEdges();
 
     /**
      * @return the id
@@ -79,6 +69,18 @@ public abstract class AbstractGraph {
     @JsonProperty
     @Nullable
     public abstract Meta getMeta();
+
+    /**
+     * @return the nodes
+     */
+    @JsonProperty
+    public abstract List<Node> getNodes();
+
+    /**
+     * @return the edges
+     */
+    @JsonProperty
+    public abstract List<Edge> getEdges();
 
     /**
      * @return the equivalentNodesSet

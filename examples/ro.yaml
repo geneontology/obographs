@@ -1,6 +1,52 @@
 ---
 graphs:
-- nodes:
+- id: "http://purl.obolibrary.org/obo/ro.owl"
+  meta:
+    basicPropertyValues:
+    - pred: "http://purl.org/dc/elements/1.1/description"
+      val: "The OBO Relations Ontology (RO) is a collection of OWL relations (ObjectProperties)\
+        \ intended for use across a wide variety of biological ontologies."
+    - pred: "http://purl.org/dc/elements/1.1/source"
+      val: "http://obofoundry.org/ro"
+    - pred: "http://purl.org/dc/elements/1.1/title"
+      val: "OBO Relations Ontology"
+    - pred: "http://www.w3.org/2000/01/rdf-schema#comment"
+      val: "Includes Ontology(OntologyID(Anonymous-21)) [Axioms: 26 Logical Axioms:\
+        \ 0]"
+    - pred: "http://www.w3.org/2000/01/rdf-schema#comment"
+      val: "Includes Ontology(OntologyID(Anonymous-21)) [Axioms: 32 Logical Axioms:\
+        \ 0]"
+    - pred: "http://www.w3.org/2000/01/rdf-schema#comment"
+      val: "Includes Ontology(OntologyID(OntologyIRI(<http://purl.obolibrary.org/obo/ro/annotations.owl>)\
+        \ VersionIRI(<null>))) [Axioms: 61 Logical Axioms: 0]"
+    - pred: "http://www.w3.org/2000/01/rdf-schema#comment"
+      val: "Includes Ontology(OntologyID(OntologyIRI(<http://purl.obolibrary.org/obo/ro/bfo-classes-minimal.owl>)\
+        \ VersionIRI(<null>))) [Axioms: 53 Logical Axioms: 12]"
+    - pred: "http://www.w3.org/2000/01/rdf-schema#comment"
+      val: "Includes Ontology(OntologyID(OntologyIRI(<http://purl.obolibrary.org/obo/ro/core.owl>)\
+        \ VersionIRI(<null>))) [Axioms: 276 Logical Axioms: 56]"
+    - pred: "http://www.w3.org/2000/01/rdf-schema#comment"
+      val: "Includes Ontology(OntologyID(OntologyIRI(<http://purl.obolibrary.org/obo/ro/el-constraints.owl>)\
+        \ VersionIRI(<null>))) [Axioms: 6 Logical Axioms: 2]"
+    - pred: "http://www.w3.org/2000/01/rdf-schema#comment"
+      val: "Includes Ontology(OntologyID(OntologyIRI(<http://purl.obolibrary.org/obo/ro/go-biotic.owl>)\
+        \ VersionIRI(<null>))) [Axioms: 42 Logical Axioms: 16]"
+    - pred: "http://www.w3.org/2000/01/rdf-schema#comment"
+      val: "Includes Ontology(OntologyID(OntologyIRI(<http://purl.obolibrary.org/obo/ro/go_mf_import.owl>)\
+        \ VersionIRI(<null>))) [Axioms: 29 Logical Axioms: 9]"
+    - pred: "http://www.w3.org/2000/01/rdf-schema#comment"
+      val: "Includes Ontology(OntologyID(OntologyIRI(<http://purl.obolibrary.org/obo/ro/pato_import.owl>)\
+        \ VersionIRI(<null>))) [Axioms: 20 Logical Axioms: 6]"
+    - pred: "http://www.w3.org/2000/01/rdf-schema#comment"
+      val: "Includes Ontology(OntologyID(OntologyIRI(<http://purl.obolibrary.org/obo/ro/rohom.owl>)\
+        \ VersionIRI(<null>))) [Axioms: 731 Logical Axioms: 148]"
+    - pred: "http://www.w3.org/2000/01/rdf-schema#comment"
+      val: "Includes Ontology(OntologyID(OntologyIRI(<http://purl.obolibrary.org/obo/ro/temporal-intervals.owl>)\
+        \ VersionIRI(<null>))) [Axioms: 146 Logical Axioms: 45]"
+    - pred: "http://xmlns.com/foaf/0.1/homepage"
+      val: " https://github.com/oborel/obo-relations/"
+    version: "http://purl.obolibrary.org/obo/ro/releases/2016-09-02/ro.owl"
+  nodes:
   - id: "http://purl.obolibrary.org/obo/BFO_0000002"
     lbl: "continuant"
     type: "CLASS"
@@ -11180,52 +11226,6 @@ graphs:
   - sub: "http://purl.obolibrary.org/obo/RO_0003000"
     pred: "inverseOf"
     obj: "http://purl.obolibrary.org/obo/RO_0003001"
-  id: "http://purl.obolibrary.org/obo/ro.owl"
-  meta:
-    basicPropertyValues:
-    - pred: "http://purl.org/dc/elements/1.1/description"
-      val: "The OBO Relations Ontology (RO) is a collection of OWL relations (ObjectProperties)\
-        \ intended for use across a wide variety of biological ontologies."
-    - pred: "http://purl.org/dc/elements/1.1/source"
-      val: "http://obofoundry.org/ro"
-    - pred: "http://purl.org/dc/elements/1.1/title"
-      val: "OBO Relations Ontology"
-    - pred: "http://www.w3.org/2000/01/rdf-schema#comment"
-      val: "Includes Ontology(OntologyID(Anonymous-21)) [Axioms: 26 Logical Axioms:\
-        \ 0]"
-    - pred: "http://www.w3.org/2000/01/rdf-schema#comment"
-      val: "Includes Ontology(OntologyID(Anonymous-21)) [Axioms: 32 Logical Axioms:\
-        \ 0]"
-    - pred: "http://www.w3.org/2000/01/rdf-schema#comment"
-      val: "Includes Ontology(OntologyID(OntologyIRI(<http://purl.obolibrary.org/obo/ro/annotations.owl>)\
-        \ VersionIRI(<null>))) [Axioms: 61 Logical Axioms: 0]"
-    - pred: "http://www.w3.org/2000/01/rdf-schema#comment"
-      val: "Includes Ontology(OntologyID(OntologyIRI(<http://purl.obolibrary.org/obo/ro/bfo-classes-minimal.owl>)\
-        \ VersionIRI(<null>))) [Axioms: 53 Logical Axioms: 12]"
-    - pred: "http://www.w3.org/2000/01/rdf-schema#comment"
-      val: "Includes Ontology(OntologyID(OntologyIRI(<http://purl.obolibrary.org/obo/ro/core.owl>)\
-        \ VersionIRI(<null>))) [Axioms: 276 Logical Axioms: 56]"
-    - pred: "http://www.w3.org/2000/01/rdf-schema#comment"
-      val: "Includes Ontology(OntologyID(OntologyIRI(<http://purl.obolibrary.org/obo/ro/el-constraints.owl>)\
-        \ VersionIRI(<null>))) [Axioms: 6 Logical Axioms: 2]"
-    - pred: "http://www.w3.org/2000/01/rdf-schema#comment"
-      val: "Includes Ontology(OntologyID(OntologyIRI(<http://purl.obolibrary.org/obo/ro/go-biotic.owl>)\
-        \ VersionIRI(<null>))) [Axioms: 42 Logical Axioms: 16]"
-    - pred: "http://www.w3.org/2000/01/rdf-schema#comment"
-      val: "Includes Ontology(OntologyID(OntologyIRI(<http://purl.obolibrary.org/obo/ro/go_mf_import.owl>)\
-        \ VersionIRI(<null>))) [Axioms: 29 Logical Axioms: 9]"
-    - pred: "http://www.w3.org/2000/01/rdf-schema#comment"
-      val: "Includes Ontology(OntologyID(OntologyIRI(<http://purl.obolibrary.org/obo/ro/pato_import.owl>)\
-        \ VersionIRI(<null>))) [Axioms: 20 Logical Axioms: 6]"
-    - pred: "http://www.w3.org/2000/01/rdf-schema#comment"
-      val: "Includes Ontology(OntologyID(OntologyIRI(<http://purl.obolibrary.org/obo/ro/rohom.owl>)\
-        \ VersionIRI(<null>))) [Axioms: 731 Logical Axioms: 148]"
-    - pred: "http://www.w3.org/2000/01/rdf-schema#comment"
-      val: "Includes Ontology(OntologyID(OntologyIRI(<http://purl.obolibrary.org/obo/ro/temporal-intervals.owl>)\
-        \ VersionIRI(<null>))) [Axioms: 146 Logical Axioms: 45]"
-    - pred: "http://xmlns.com/foaf/0.1/homepage"
-      val: " https://github.com/oborel/obo-relations/"
-    version: "http://purl.obolibrary.org/obo/ro/releases/2016-09-02/ro.owl"
   domainRangeAxioms:
   - predicateId: "http://purl.obolibrary.org/obo/RO_0002207"
     allValuesFromEdges:

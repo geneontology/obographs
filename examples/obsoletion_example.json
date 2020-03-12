@@ -1,5 +1,7 @@
 {
   "graphs" : [ {
+    "id" : "http://purl.obolibrary.org/obo/obsoletion_example.owl",
+    "meta" : { },
     "nodes" : [ {
       "id" : "http://purl.obolibrary.org/obo/IAO_0100001",
       "lbl" : "term replaced by",
@@ -62,8 +64,6 @@
       "id" : "http://www.geneontology.org/formats/oboInOwl#hasOBONamespace",
       "lbl" : "has_obo_namespace",
       "type" : "PROPERTY"
-    } ],
-    "id" : "http://purl.obolibrary.org/obo/obsoletion_example.owl",
-    "meta" : { }
+    } ]
   } ]
 }
