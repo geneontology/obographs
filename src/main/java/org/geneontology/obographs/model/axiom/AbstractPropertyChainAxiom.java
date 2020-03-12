@@ -2,8 +2,6 @@ package org.geneontology.obographs.model.axiom;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import org.immutables.value.Value;
 
 import java.util.List;
@@ -15,8 +13,6 @@ import java.util.List;
  * @author cjm
  *
  */
-@JsonSerialize(as = PropertyChainAxiom.class)
-@JsonDeserialize(as = PropertyChainAxiom.class)
 @JsonPropertyOrder({"predicateId", "chainPredicateIds", "meta"})
 @Value.Immutable
 public abstract class AbstractPropertyChainAxiom implements Axiom {

@@ -3,9 +3,6 @@ package org.geneontology.obographs.model;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import org.geneontology.obographs.model.meta.*;
 import org.immutables.value.Value;
 
@@ -30,10 +27,7 @@ import java.util.stream.Collectors;
  * @author cjm
  *
  */
-@JsonSerialize(as = Meta.class)
-@JsonDeserialize(as = Meta.class)
 @JsonInclude(JsonInclude.Include.NON_DEFAULT)
-@JsonPropertyOrder({"definition", "comments", "subsets", "synonyms", "xrefs", "basicPropertyValues", "version", "deprecated"})
 @Value.Immutable
 public abstract class AbstractMeta {
 
@@ -42,12 +36,19 @@ public abstract class AbstractMeta {
     public abstract DefinitionPropertyValue getDefinition();
 
     @JsonProperty
+    @Value.NaturalOrder
     public abstract List<String> getComments();
 
     @JsonProperty
+    @Value.NaturalOrder
     public abstract List<String> getSubsets();
 
     @JsonProperty
+    @Value.NaturalOrder
+    public abstract List<SynonymPropertyValue> getSynonyms();
+
+    @JsonProperty
+    @Value.NaturalOrder
     public abstract List<XrefPropertyValue> getXrefs();
 
     @JsonIgnore
@@ -57,9 +58,7 @@ public abstract class AbstractMeta {
     }
 
     @JsonProperty
-    public abstract List<SynonymPropertyValue> getSynonyms();
-
-    @JsonProperty
+    @Value.NaturalOrder
     public abstract List<BasicPropertyValue> getBasicPropertyValues();
 
     @JsonProperty

@@ -2,8 +2,6 @@ package org.geneontology.obographs.model.axiom;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import org.geneontology.obographs.model.Edge;
 import org.immutables.value.Value;
 
@@ -14,8 +12,6 @@ import java.util.SortedSet;
  *
  * @author cjm
  */
-@JsonSerialize(as = DomainRangeAxiom.class)
-@JsonDeserialize(as = DomainRangeAxiom.class)
 @JsonPropertyOrder({"predicateId", "domainClassIds", "rangeClassIds", "allValuesFromEdges", "meta"})
 @Value.Immutable
 public abstract class AbstractDomainRangeAxiom implements Axiom {

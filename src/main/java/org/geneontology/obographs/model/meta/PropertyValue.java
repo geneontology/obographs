@@ -2,7 +2,7 @@ package org.geneontology.obographs.model.meta;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.google.common.collect.ComparisonChain;
 import org.geneontology.obographs.model.Meta;
 import org.immutables.value.Value;
 
@@ -29,13 +29,8 @@ import java.util.List;
  * @author cjm
  *
  */
-@JsonPropertyOrder({"pred", "val", "xrefs", "meta"})
 @JsonInclude(JsonInclude.Include.NON_DEFAULT)
-public interface PropertyValue {
-
-    @JsonProperty
-    @Nullable
-    public Meta getMeta();
+public interface PropertyValue extends Comparable<PropertyValue> {
 
     /**
      * Predicates correspond to OWL properties. Like all preds in this datamodel,
@@ -68,4 +63,15 @@ public interface PropertyValue {
     @JsonProperty
     public List<String> getXrefs();
 
+    @JsonProperty
+    @Nullable
+    public Meta getMeta();
+
+    @Override
+    default int compareTo(PropertyValue o) {
+        return ComparisonChain.start()
+                .compare(this.getPred(), o.getPred())
+                .compare(this.getVal(), o.getVal())
+                .result();
+    }
 }

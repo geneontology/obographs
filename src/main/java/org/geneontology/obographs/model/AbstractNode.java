@@ -2,8 +2,6 @@ package org.geneontology.obographs.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.google.common.collect.ComparisonChain;
 import org.immutables.value.Value;
 
@@ -26,8 +24,6 @@ import javax.annotation.Nullable;
  * @author cjm
  *
  */
-@JsonSerialize(as = Node.class)
-@JsonDeserialize(as = Node.class)
 @JsonPropertyOrder({"id", "lbl", "type", "meta"})
 @Value.Immutable
 public abstract class AbstractNode implements NodeOrEdge, Comparable<AbstractNode> {

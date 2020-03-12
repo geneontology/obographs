@@ -1,7 +1,6 @@
 package org.geneontology.obographs.model.meta;
 
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import org.immutables.value.Value;
 
 /**
@@ -9,8 +8,7 @@ import org.immutables.value.Value;
  *
  * @author cjm
  */
-@JsonSerialize(as = BasicPropertyValue.class)
-@JsonDeserialize(as = BasicPropertyValue.class)
+@JsonPropertyOrder({"pred", "val", "xrefs", "meta"})
 @Value.Immutable
 public abstract class AbstractBasicPropertyValue implements PropertyValue {
 
