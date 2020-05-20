@@ -2,8 +2,7 @@ package org.geneontology.obographs.model.axiom;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.google.common.collect.ComparisonChain;
 import org.immutables.value.Value;
 
 /**
@@ -14,11 +13,9 @@ import org.immutables.value.Value;
  * @author cjm
  *
  */
-@JsonSerialize(as = ExistentialRestrictionExpression.class)
-@JsonDeserialize(as = ExistentialRestrictionExpression.class)
 @JsonPropertyOrder({"propertyId", "fillerId", "meta"})
 @Value.Immutable
-public abstract class AbstractExistentialRestrictionExpression implements Expression {
+public abstract class AbstractExistentialRestrictionExpression implements Expression, Comparable<AbstractExistentialRestrictionExpression> {
 
     /**
      * @return the propertyId
@@ -32,4 +29,11 @@ public abstract class AbstractExistentialRestrictionExpression implements Expres
     @JsonProperty
     public abstract String getFillerId();
 
+    @Override
+    public int compareTo(AbstractExistentialRestrictionExpression o) {
+        return ComparisonChain.start()
+                .compare(this.getPropertyId(), o.getPropertyId())
+                .compare(this.getFillerId(), o.getFillerId())
+                .result();
+    }
 }

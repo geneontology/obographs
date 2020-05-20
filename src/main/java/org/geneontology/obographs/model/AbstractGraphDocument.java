@@ -2,8 +2,6 @@ package org.geneontology.obographs.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import org.immutables.value.Value;
 
 import javax.annotation.Nullable;
@@ -28,8 +26,6 @@ import java.util.List;
  * @author cjm
  *
  */
-@JsonSerialize(as = GraphDocument.class)
-@JsonDeserialize(as = GraphDocument.class)
 @JsonPropertyOrder({"context", "meta", "graphs"})
 @Value.Immutable
 public abstract class AbstractGraphDocument {

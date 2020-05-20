@@ -2,11 +2,10 @@ package org.geneontology.obographs.model.axiom;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.google.common.collect.ComparisonChain;
 import org.immutables.value.Value;
 
-import java.util.SortedSet;
+import java.util.Set;
 
 /**
  * A set of nodes that all stand in a mutual equivalence or identity relationship to one another
@@ -17,11 +16,9 @@ import java.util.SortedSet;
  * @author cjm
  *
  */
-@JsonSerialize(as = EquivalentNodesSet.class)
-@JsonDeserialize(as = EquivalentNodesSet.class)
 @JsonPropertyOrder({"representativeNodeId", "nodeIds", "meta"})
 @Value.Immutable
-public abstract class AbstractEquivalentNodesSet implements Axiom {
+public abstract class AbstractEquivalentNodesSet implements Axiom, Comparable<AbstractEquivalentNodesSet> {
 
     /**
      * @return the representativeNodeId
@@ -37,7 +34,14 @@ public abstract class AbstractEquivalentNodesSet implements Axiom {
      * @return the nodeIds
      */
     @JsonProperty
-    @Value.NaturalOrder
-    public abstract SortedSet<String> getNodeIds();
+//    @Value.NaturalOrder
+    public abstract Set<String> getNodeIds();
 
+    @Override
+    public int compareTo(AbstractEquivalentNodesSet o) {
+        return ComparisonChain.start()
+                .compare(this.getRepresentativeNodeId(), o.getRepresentativeNodeId())
+//                .compare(this.getNodeIds(), o.getNodeIds())
+                .result();
+    }
 }

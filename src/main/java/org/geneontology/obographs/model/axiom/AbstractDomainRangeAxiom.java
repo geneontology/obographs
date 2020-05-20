@@ -2,23 +2,20 @@ package org.geneontology.obographs.model.axiom;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.google.common.collect.ComparisonChain;
 import org.geneontology.obographs.model.Edge;
 import org.immutables.value.Value;
 
-import java.util.SortedSet;
+import java.util.Set;
 
 /**
  * This combined ObjectPropertyDomain, ObjectPropertyRange, and some AllValuesFrom expressions into a single convenience structure
  *
  * @author cjm
  */
-@JsonSerialize(as = DomainRangeAxiom.class)
-@JsonDeserialize(as = DomainRangeAxiom.class)
 @JsonPropertyOrder({"predicateId", "domainClassIds", "rangeClassIds", "allValuesFromEdges", "meta"})
 @Value.Immutable
-public abstract class AbstractDomainRangeAxiom implements Axiom {
+public abstract class AbstractDomainRangeAxiom implements Axiom, Comparable<AbstractDomainRangeAxiom> {
 
     /**
      * @return the predicateId
@@ -32,8 +29,8 @@ public abstract class AbstractDomainRangeAxiom implements Axiom {
      * @return the domainClassIds
      */
     @JsonProperty
-    @Value.NaturalOrder
-    public abstract SortedSet<String> getDomainClassIds();
+//    @Value.NaturalOrder
+    public abstract Set<String> getDomainClassIds();
 
     /**
      * For multiple ranges, this is treated as intersection
@@ -41,8 +38,8 @@ public abstract class AbstractDomainRangeAxiom implements Axiom {
      * @return the rangeClassIds
      */
     @JsonProperty
-    @Value.NaturalOrder
-    public abstract SortedSet<String> getRangeClassIds();
+//    @Value.NaturalOrder
+    public abstract Set<String> getRangeClassIds();
 
     /**
      * Set of edges representing `X SubClassOf P only Y` axioms.
@@ -54,6 +51,13 @@ public abstract class AbstractDomainRangeAxiom implements Axiom {
      * @return the allValuesFromEdges
      */
     @JsonProperty
-    @Value.NaturalOrder
-    public abstract SortedSet<Edge> getAllValuesFromEdges();
+//    @Value.NaturalOrder
+    public abstract Set<Edge> getAllValuesFromEdges();
+
+    @Override
+    public int compareTo(AbstractDomainRangeAxiom o) {
+        return ComparisonChain.start()
+                .compare(this.getPredicateId(), o.getPredicateId())
+                .result();
+    }
 }

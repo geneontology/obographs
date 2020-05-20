@@ -1,5 +1,6 @@
 package org.geneontology.obographs.model;
 
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import org.immutables.value.Value;
 
 import java.lang.annotation.ElementType;
@@ -21,5 +22,6 @@ import java.lang.annotation.Target;
         builder = "new", // construct builder using 'new' instead of factory method
         visibility = Value.Style.ImplementationVisibility.PUBLIC // Generated class will be always public
 )
+@JsonSerialize
 public @interface OboGraph {
 }

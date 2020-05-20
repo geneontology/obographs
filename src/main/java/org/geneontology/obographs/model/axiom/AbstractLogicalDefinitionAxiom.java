@@ -2,8 +2,7 @@ package org.geneontology.obographs.model.axiom;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.google.common.collect.ComparisonChain;
 import org.immutables.value.Value;
 
 import java.util.List;
@@ -16,11 +15,9 @@ import java.util.List;
  * @author cjm
  *
  */
-@JsonSerialize(as = LogicalDefinitionAxiom.class)
-@JsonDeserialize(as = LogicalDefinitionAxiom.class)
 @JsonPropertyOrder({"definedClassId", "genusIds", "restrictions", "meta"})
 @Value.Immutable
-public abstract class AbstractLogicalDefinitionAxiom implements Axiom {
+public abstract class AbstractLogicalDefinitionAxiom implements Axiom, Comparable<AbstractLogicalDefinitionAxiom> {
 
     /**
      * @return the representativeNodeId
@@ -40,4 +37,10 @@ public abstract class AbstractLogicalDefinitionAxiom implements Axiom {
     @JsonProperty
     public abstract List<ExistentialRestrictionExpression> getRestrictions();
 
+    @Override
+    public int compareTo(AbstractLogicalDefinitionAxiom o) {
+        return ComparisonChain.start()
+                .compare(this.getDefinedClassId(), o.getDefinedClassId())
+                .result();
+    }
 }
