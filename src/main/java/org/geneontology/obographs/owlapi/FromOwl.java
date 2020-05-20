@@ -19,6 +19,8 @@ import javax.annotation.Nullable;
 import java.util.*;
 import java.util.stream.Collectors;
 
+import static org.semanticweb.owlapi.util.CollectionFactory.sortOptionally;
+
 
 /**
  * Implements OWL to OG translation
@@ -89,10 +91,13 @@ public class FromOwl {
         Map<String, Meta.Builder> nodeMetaBuilderMap = new LinkedHashMap<>();
 
         Set<OWLAxiom> untranslatedAxioms = new LinkedHashSet<>();
+        // OWLXMLObjectRenderer does some magic to ensure consistent output - this is the only OWLAPI output format
+        // which seems to reliably output the exact same file each time.
+        // The magic word is 'sortOptionally', as used below. It is *not* sufficient to use standard Collections.sort().
+        // This honestly took days to track down and led to much misery :(
 
-        List<OWLAxiom> sortedAxioms = ontology.getAxioms().parallelStream().sorted().collect(Collectors.toList());
         // iterate over all axioms and push to relevant builders
-        for (OWLAxiom ax : sortedAxioms) {
+        for (OWLAxiom ax : sortOptionally(ontology.getAxioms())) {
 
             Meta meta = getAnnotations(ax);
 
@@ -591,46 +596,33 @@ public class FromOwl {
         return getAnnotations(anns, null);
     }
     private Meta getAnnotations(Set<OWLAnnotation> anns, String version) {
-            
-        List<XrefPropertyValue> xrefs = new ArrayList<>();
-        List<BasicPropertyValue> bpvs = new ArrayList<>();
-        List<String> inSubsets = new ArrayList<>();
-        boolean isDeprecated = false;
+        Meta.Builder builder = new Meta.Builder();
         for (OWLAnnotation ann : anns) {
             OWLAnnotationProperty p = ann.getProperty();
-           
             OWLAnnotationValue v = ann.getValue();
-            String val = v instanceof IRI ? ((IRI)v).toString() : ((OWLLiteral)v).getLiteral();
+            String val = v instanceof IRI ? ((IRI) v).toString() : ((OWLLiteral) v).getLiteral();
             if (ann.isDeprecatedIRIAnnotation()) {
-                isDeprecated = true;
+                builder.deprecated(true);
             }
             else if (isHasXrefProperty(p.getIRI())) {
-                xrefs.add(new XrefPropertyValue.Builder().val(val).build());
+                builder.addXref(new XrefPropertyValue.Builder().val(val).build());
             }
             else if (isInSubsetProperty(p.getIRI())) {
-                inSubsets.add(val);
+                builder.addSubset(val);
             }
             else if (isHasSynonymTypeProperty(p.getIRI())) {
-                inSubsets.add(val);
+                builder.addSubset(val);
             }
             else {
-                bpvs.add(new BasicPropertyValue.Builder().
-                        pred(getPropertyId(p)).
-                        val(val).
-                        build());
+                builder.addBasicPropertyValue(new BasicPropertyValue.Builder()
+                        .pred(getPropertyId(p))
+                        .val(val)
+                        .build());
             }
         }
-        org.geneontology.obographs.model.Meta.Builder b = new Meta.Builder();
         if (version != null) {
-            b.version(version);
+            builder.version(version);
         }
-        Meta.Builder builder = 
-                b.basicPropertyValues(bpvs).
-                subsets(inSubsets).
-                xrefs(xrefs);
-        if (isDeprecated)
-            builder.deprecated(true);
-        
         return builder.build();
     }
 
