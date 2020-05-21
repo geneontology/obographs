@@ -2,9 +2,6 @@
   "type" : "object",
   "id" : "urn:jsonschema:org:geneontology:obographs:model:GraphDocument",
   "properties" : {
-    "@context" : {
-      "type" : "any"
-    },
     "meta" : {
       "type" : "object",
       "id" : "urn:jsonschema:org:geneontology:obographs:model:Meta",
@@ -311,6 +308,9 @@
           }
         }
       }
+    },
+    "@context" : {
+      "type" : "any"
     }
   }
 }
