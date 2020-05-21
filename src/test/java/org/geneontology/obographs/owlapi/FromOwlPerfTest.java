@@ -1,9 +1,5 @@
 package org.geneontology.obographs.owlapi;
 
-import java.io.File;
-import java.io.IOException;
-import java.nio.file.Path;
-
 import org.apache.commons.io.FileUtils;
 import org.geneontology.obographs.io.OgJsonGenerator;
 import org.geneontology.obographs.io.OgYamlGenerator;
@@ -14,6 +10,11 @@ import org.semanticweb.owlapi.model.IRI;
 import org.semanticweb.owlapi.model.OWLOntology;
 import org.semanticweb.owlapi.model.OWLOntologyCreationException;
 import org.semanticweb.owlapi.model.OWLOntologyManager;
+
+import java.io.File;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
 
 public class FromOwlPerfTest {
 
@@ -42,14 +43,8 @@ public class FromOwlPerfTest {
             FromOwl fromOwl = new FromOwl();
             GraphDocument gd = fromOwl.generateGraphDocument(ontology);
 
-            String fn =  "foo.obo";
-            String jsonStr = OgJsonGenerator.render(gd);
-            export(jsonStr, fn, ".json");
-            String yamlStr = OgYamlGenerator.render(gd);
-            export(yamlStr, fn, ".yaml");
-            //String ofn = fn.toString().replace(".obo", ".json").replace(".owl", ".json");
-            //FileUtils.writeStringToFile(new File("examples/"+ofn), s);
-
+            OgJsonGenerator.write(Files.createTempFile("foo", ".json").toFile(), gd);
+            OgYamlGenerator.write(Files.createTempFile("foo", ".yaml").toFile(), gd);
         }
     }
 
@@ -58,10 +53,4 @@ public class FromOwlPerfTest {
         FileUtils.writeStringToFile(new File("examples/"+ofn), s);
 
     }
-    private void export(String s, String fn, String suffix) throws IOException {
-        String ofn = fn.toString().replace(".obo", suffix).replace(".owl", suffix);
-        FileUtils.writeStringToFile(new File("examples/"+ofn), s);
-
-    }
-
 }
