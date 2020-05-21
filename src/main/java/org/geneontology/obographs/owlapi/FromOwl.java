@@ -43,7 +43,7 @@ public class FromOwl {
     private PrefixHelper prefixHelper;
     private Context context;
 
-    class OBOClassDef {
+    static class OBOClassDef {
         List<String> genusClassIds = new ArrayList<>();
         List<ExistentialRestrictionExpression> restrs = new ArrayList<>();
     }
@@ -392,7 +392,6 @@ public class FromOwl {
                                 nb.definition(def);
                                 nodeIds.add(subj);
                             }
-
                         }
                         else if (isHasXrefProperty(pIRI)) {
                             if (lv != null) {
@@ -404,7 +403,6 @@ public class FromOwl {
                                 nb.addXref(xref);
                                 nodeIds.add(subj);
                             }
-
                         }
                         else if (p.isDeprecated()) {
                             if (aaa.isDeprecatedIRIAssertion()) {
@@ -422,13 +420,9 @@ public class FromOwl {
 
                         }
                         else if (isInSubsetProperty(pIRI)) {
-
-
                             Meta.Builder nb = getMetaBuilder(nodeMetaBuilderMap, subj);
                             nb.addSubset(v.toString());
                             nodeIds.add(subj);
-
-
                         }
                         else if (synonymVocabulary.contains(pIRI.toString())) {
                             SCOPES scope = synonymVocabulary.get(pIRI.toString());
@@ -464,9 +458,8 @@ public class FromOwl {
                             else if (v instanceof OWLAnonymousIndividual)
                                 val = ((OWLAnonymousIndividual)v).getID().toString();
                             else
-                                val = null;
-                                
-                            
+                                val = "";
+
                             BasicPropertyValue pv = new BasicPropertyValue.Builder().
                                     pred(getPropertyId(p)).
                                     val(val).

@@ -7,6 +7,7 @@ import org.geneontology.obographs.model.GraphDocument;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.Reader;
 
 public class OgJsonReader {
 
@@ -24,5 +25,11 @@ public class OgJsonReader {
 		ObjectMapper objectMapper = new ObjectMapper();
 		objectMapper.registerModule(new GuavaModule());
 		return objectMapper.readValue(stream, GraphDocument.class);
+	}
+
+	public static GraphDocument read(Reader reader) throws IOException {
+		ObjectMapper objectMapper = new ObjectMapper();
+		objectMapper.registerModule(new GuavaModule());
+		return objectMapper.readValue(reader, GraphDocument.class);
 	}
 }
