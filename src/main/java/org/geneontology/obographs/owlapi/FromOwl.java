@@ -19,9 +19,6 @@ import javax.annotation.Nullable;
 import java.util.*;
 import java.util.stream.Collectors;
 
-import static org.semanticweb.owlapi.util.CollectionFactory.sortOptionally;
-
-
 /**
  * Implements OWL to OG translation
  * ===
@@ -91,13 +88,13 @@ public class FromOwl {
         Map<String, Meta.Builder> nodeMetaBuilderMap = new LinkedHashMap<>();
 
         Set<OWLAxiom> untranslatedAxioms = new LinkedHashSet<>();
-        // OWLXMLObjectRenderer does some magic to ensure consistent output - this is the only OWLAPI output format
-        // which seems to reliably output the exact same file each time.
-        // The magic word is 'sortOptionally', as used below. It is *not* sufficient to use standard Collections.sort().
-        // This honestly took days to track down and led to much misery :(
+
+        // Ensure axioms are sorted for reproducible objects and output
+        List<OWLAxiom> sortedAxioms = new ArrayList<>(ontology.getAxioms());
+        Collections.sort(sortedAxioms);
 
         // iterate over all axioms and push to relevant builders
-        for (OWLAxiom ax : sortOptionally(ontology.getAxioms())) {
+        for (OWLAxiom ax : sortedAxioms) {
 
             Meta meta = getAnnotations(ax);
 
