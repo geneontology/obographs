@@ -7,6 +7,7 @@ import java.util.Arrays;
 import java.util.Collections;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
 
 public class MetaTest {
 
@@ -27,7 +28,8 @@ public class MetaTest {
         assertEquals(2, m.getSubsets().size());   
         assertEquals(1, m.getXrefs().size());   
         assertEquals(XrefPropertyValueTest.val, m.getXrefs().get(0).getVal());   
-        assertEquals(XrefPropertyValueTest.lbl, m.getXrefs().get(0).getLbl());   
+        assertEquals(XrefPropertyValueTest.lbl, m.getXrefs().get(0).getLbl());
+        assertFalse(m.getDeprecated());
     }
 
     public static Meta build() {
@@ -45,6 +47,7 @@ public class MetaTest {
                 synonyms(Collections.singletonList(s)).
                 xrefs(Collections.singletonList(xref)).
                 subsets(Arrays.asList(subsets))
+                .deprecated(false)
                 .build();
     }
 
