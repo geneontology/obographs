@@ -17,8 +17,6 @@ public class XrefPropertyValue extends AbstractPropertyValue {
         lbl = builder.lbl;
     }
 
-     
-  
     /**
      * @return the lbl
      */

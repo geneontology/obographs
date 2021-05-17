@@ -1,8 +1,10 @@
 package org.geneontology.obographs.model.meta;
 
-import java.util.List;
-
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import org.geneontology.obographs.model.Meta;
+
+import java.util.List;
 
 /**
  * Associates the container object with a value via a property.
@@ -24,35 +26,38 @@ import org.geneontology.obographs.model.Meta;
  * @author cjm
  *
  */
+@JsonInclude(JsonInclude.Include.NON_DEFAULT)
 public interface PropertyValue {
-
-    /**
-     * Predicates correspond to OWL properties. Like all preds in this datamodel,
-     * a pred is represented as a String which denotes a CURIE
-     * 
-     * @return the pred
-     */
-    public String getPred();
-
-    /**
-     * An array denoting objects that support the property value assertion
-     * 
-     * @return the xrefs
-     */
-    public List<String> getXrefs();
-
-    /**
-     * The value of the property-value
-     * 
-     * @return the val
-     */
-    public String getVal();
-
-
 
     /**
      * @return the meta
      */
+    @JsonProperty
     public Meta getMeta();
+
+    /**
+     * Predicates correspond to OWL properties. Like all preds in this datamodel,
+     * a pred is represented as a String which denotes a CURIE
+     *
+     * @return the pred
+     */
+    @JsonProperty
+    public String getPred();
+
+    /**
+     * The value of the property-value
+     *
+     * @return the val
+     */
+    @JsonProperty
+    public String getVal();
+
+    /**
+     * An array denoting objects that support the property value assertion
+     *
+     * @return the xrefs
+     */
+    @JsonProperty
+    public List<String> getXrefs();
 
 }

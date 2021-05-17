@@ -85,12 +85,7 @@ graphs:
     pred: "inverseOf"
     obj: "http://purl.obolibrary.org/obo/T/parent-of"
   id: "http://purl.obolibrary.org/obo/T"
-  meta:
-    subsets: []
-    xrefs: []
-    basicPropertyValues: []
-  equivalentNodesSets: []
-  logicalDefinitionAxioms: []
+  meta: {}
   domainRangeAxioms:
   - predicateId: "http://purl.obolibrary.org/obo/T/brother-of"
     domainClassIds:

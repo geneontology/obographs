@@ -16,46 +16,31 @@ public abstract class AbstractPropertyValue implements PropertyValue {
 		xrefs = builder.xrefs;
 	}
 
-    @JsonProperty
     private final String pred;
-    @JsonProperty
     private final String val;
-    @JsonProperty
     private final List<String> xrefs;
-    @JsonProperty
     private final Meta meta;
-	
-	
-
-
-
 
 	/**
 	 * @return the pred
 	 */
-	public String getPred() {
+    public String getPred() {
 		return pred;
 	}
 
+    /**
+	 * @return the val
+	 */
+    public String getVal() {
+		return val;
+	}
 
-
-	/**
+    /**
      * @return the xrefs
      */
     public List<String> getXrefs() {
         return xrefs;
     }
-
-
-
-    /**
-	 * @return the val
-	 */
-	public String getVal() {
-		return val;
-	}
-
-
 
 	/**
 	 * @return the meta

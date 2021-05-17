@@ -1,7 +1,6 @@
 {
   "graphs" : [ {
     "nodes" : [ {
-      "id" : "http://purl.obolibrary.org/obo/BFO_0000050",
       "meta" : {
         "xrefs" : [ {
           "val" : "BFO:0000050"
@@ -11,6 +10,7 @@
           "val" : "part_of"
         } ]
       },
+      "id" : "http://purl.obolibrary.org/obo/BFO_0000050",
       "type" : "PROPERTY"
     }, {
       "id" : "http://purl.obolibrary.org/obo/IAO_0000115",
@@ -25,13 +25,12 @@
       "type" : "CLASS",
       "lbl" : "forelimb"
     }, {
-      "id" : "http://purl.obolibrary.org/obo/UBERON_0002398",
       "meta" : {
         "definition" : {
-          "val" : ".",
-          "xrefs" : [ ]
+          "val" : "."
         }
       },
+      "id" : "http://purl.obolibrary.org/obo/UBERON_0002398",
       "type" : "CLASS",
       "lbl" : "manus"
     }, {
@@ -66,14 +65,11 @@
     } ],
     "id" : "http://purl.obolibrary.org/obo/TEMP",
     "meta" : {
-      "subsets" : [ ],
-      "xrefs" : [ ],
       "basicPropertyValues" : [ {
         "pred" : "http://www.geneontology.org/formats/oboInOwl#id",
         "val" : "logical_definition_test"
       } ]
     },
-    "equivalentNodesSets" : [ ],
     "logicalDefinitionAxioms" : [ {
       "definedClassId" : "http://purl.obolibrary.org/obo/UBERON_0002398",
       "genusIds" : [ "http://purl.obolibrary.org/obo/UBERON_0002470" ],
@@ -81,8 +77,6 @@
         "propertyId" : "http://purl.obolibrary.org/obo/BFO_0000050",
         "fillerId" : "http://purl.obolibrary.org/obo/UBERON_0002102"
       } ]
-    } ],
-    "domainRangeAxioms" : [ ],
-    "propertyChainAxioms" : [ ]
+    } ]
   } ]
 }

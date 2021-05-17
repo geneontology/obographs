@@ -3,6 +3,7 @@ package org.geneontology.obographs.model;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.google.common.collect.ComparisonChain;
 
 /**
  * A graph node corresponds to a class, individual or property
@@ -22,7 +23,7 @@ import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
  *
  */
 @JsonDeserialize(builder = Node.Builder.class)
-public class Node implements NodeOrEdge {
+public class Node implements NodeOrEdge, Comparable<Node> {
 	
     public enum RDFTYPES { CLASS, INDIVIDUAL, PROPERTY };
     
@@ -33,52 +34,51 @@ public class Node implements NodeOrEdge {
 		type = builder.type;
 	}
 
-	private final String id;
-	
-	@JsonProperty("lbl")
-	private final String label;
-
-	@JsonProperty
-	private final Meta meta;
-    
-	@JsonProperty
+    private final Meta meta;
+    private final String id;
+    private final String label;
 	private final RDFTYPES type;
-	
-	
-	
+
+    /**
+     * @return the meta
+     */
+    public Meta getMeta() {
+        return meta;
+    }
+
     /**
 	 * @return the id
 	 */
-	public String getId() {
+    @JsonProperty
+    public String getId() {
 		return id;
 	}
-
-
 
 	/**
 	 * @return the lbl
 	 */
-	public String getLabel() {
+    @JsonProperty("lbl")
+    public String getLabel() {
 		return label;
 	}
-
-
 
 	/**
      * @return the type
      */
+    @JsonProperty
     public RDFTYPES getType() {
         return type;
     }
 
 
-
-    /**
-	 * @return the meta
-	 */
-	public Meta getMeta() {
-		return meta;
-	}
+    @Override
+    public int compareTo(Node other) {
+        return ComparisonChain.start()
+                .compare(this.getId(), other.getId())
+                .compare(this.getLabel(), other.getLabel())
+                .compare(this.getType(), other.getType())
+                .result();
+    }
 
     @Override
     public String toString() {

@@ -14,9 +14,6 @@
               "type" : "object",
               "id" : "urn:jsonschema:org:geneontology:obographs:model:Node",
               "properties" : {
-                "id" : {
-                  "type" : "string"
-                },
                 "meta" : {
                   "type" : "object",
                   "id" : "urn:jsonschema:org:geneontology:obographs:model:Meta",
@@ -143,6 +140,9 @@
                       "type" : "boolean"
                     }
                   }
+                },
+                "id" : {
+                  "type" : "string"
                 },
                 "type" : {
                   "type" : "string",

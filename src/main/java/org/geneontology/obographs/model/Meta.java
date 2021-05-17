@@ -2,6 +2,7 @@ package org.geneontology.obographs.model;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import org.geneontology.obographs.model.meta.*;
@@ -28,6 +29,7 @@ import java.util.stream.Collectors;
  *
  */
 @JsonDeserialize(builder = Meta.Builder.class)
+@JsonInclude(JsonInclude.Include.NON_DEFAULT)
 public class Meta {
 
     private Meta(Builder builder) {
