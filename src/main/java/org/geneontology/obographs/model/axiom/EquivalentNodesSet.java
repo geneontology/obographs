@@ -19,16 +19,18 @@ import java.util.SortedSet;
  *
  */
 @JsonDeserialize(builder = EquivalentNodesSet.Builder.class)
-public class EquivalentNodesSet extends AbstractAxiom {
+public class EquivalentNodesSet implements Axiom {
 
     private EquivalentNodesSet(Builder builder) {
-        super(builder);
+        //super(builder);
         representativeNodeId = builder.representativeNodeId;
         nodeIds = builder.nodeIds;
+        meta = builder.meta;
     }
 
     private final String representativeNodeId;
     private final SortedSet<String> nodeIds;
+    private final Meta meta;
 
     /**
      * @return the representativeNodeId
@@ -45,6 +47,12 @@ public class EquivalentNodesSet extends AbstractAxiom {
         return nodeIds;
     }
 
+    /**
+     * @return the meta
+     */
+    public Meta getMeta() {
+        return meta;
+    }
 
 
     public static class Builder extends AbstractAxiom.Builder {
@@ -63,6 +71,11 @@ public class EquivalentNodesSet extends AbstractAxiom {
         public Builder nodeIds(Set<String> nodeIds) {
             this.nodeIds = ImmutableSortedSet.copyOf(nodeIds);
             this.representativeNodeId = this.nodeIds.first();
+            return this;
+        }
+
+        public Builder meta(Meta meta) {
+            this.meta = meta;
             return this;
         }
 

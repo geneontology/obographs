@@ -1,6 +1,7 @@
 package org.geneontology.obographs.model;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.google.common.collect.ComparisonChain;
@@ -83,6 +84,8 @@ public class Edge implements NodeOrEdge, Comparable<Edge> {
 		@JsonProperty
 		private String obj;
 
+		@JsonProperty
+		@JsonInclude(JsonInclude.Include.NON_EMPTY)
         private Meta meta;
 
         public Builder sub(String subj) {
@@ -100,7 +103,9 @@ public class Edge implements NodeOrEdge, Comparable<Edge> {
         }
 
         public Builder meta(Meta meta) {
-            this.meta = meta;
+        	if (meta != null) {
+				this.meta = meta;
+			}
             return this;
         }
 

@@ -19,99 +19,123 @@
     "edges" : [ {
       "sub" : "http://purl.obolibrary.org/obo/T/Female",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/T/Person"
+      "obj" : "http://purl.obolibrary.org/obo/T/Person",
+      "meta" : { }
     }, {
       "sub" : "http://purl.obolibrary.org/obo/T/Male",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/T/Person"
+      "obj" : "http://purl.obolibrary.org/obo/T/Person",
+      "meta" : { }
     }, {
       "sub" : "http://purl.obolibrary.org/obo/T/f1",
       "pred" : "type",
-      "obj" : "http://purl.obolibrary.org/obo/T/Male"
+      "obj" : "http://purl.obolibrary.org/obo/T/Male",
+      "meta" : { }
     }, {
       "sub" : "http://purl.obolibrary.org/obo/T/m1",
       "pred" : "type",
-      "obj" : "http://purl.obolibrary.org/obo/T/Female"
+      "obj" : "http://purl.obolibrary.org/obo/T/Female",
+      "meta" : { }
     }, {
       "sub" : "http://purl.obolibrary.org/obo/T/b",
       "pred" : "http://purl.obolibrary.org/obo/T/father-of",
-      "obj" : "http://purl.obolibrary.org/obo/T/b1"
+      "obj" : "http://purl.obolibrary.org/obo/T/b1",
+      "meta" : { }
     }, {
       "sub" : "http://purl.obolibrary.org/obo/T/b",
       "pred" : "http://purl.obolibrary.org/obo/T/father-of",
-      "obj" : "http://purl.obolibrary.org/obo/T/b2"
+      "obj" : "http://purl.obolibrary.org/obo/T/b2",
+      "meta" : { }
     }, {
       "sub" : "http://purl.obolibrary.org/obo/T/f1",
       "pred" : "http://purl.obolibrary.org/obo/T/father-of",
-      "obj" : "http://purl.obolibrary.org/obo/T/b"
+      "obj" : "http://purl.obolibrary.org/obo/T/b",
+      "meta" : { }
     }, {
       "sub" : "http://purl.obolibrary.org/obo/T/f1",
       "pred" : "http://purl.obolibrary.org/obo/T/father-of",
-      "obj" : "http://purl.obolibrary.org/obo/T/c"
+      "obj" : "http://purl.obolibrary.org/obo/T/c",
+      "meta" : { }
     }, {
       "sub" : "http://purl.obolibrary.org/obo/T/m1",
       "pred" : "http://purl.obolibrary.org/obo/T/mother-of",
-      "obj" : "http://purl.obolibrary.org/obo/T/b"
+      "obj" : "http://purl.obolibrary.org/obo/T/b",
+      "meta" : { }
     }, {
       "sub" : "http://purl.obolibrary.org/obo/T/m1",
       "pred" : "http://purl.obolibrary.org/obo/T/mother-of",
-      "obj" : "http://purl.obolibrary.org/obo/T/c"
+      "obj" : "http://purl.obolibrary.org/obo/T/c",
+      "meta" : { }
     }, {
       "sub" : "http://purl.obolibrary.org/obo/T/ancestor-of",
       "pred" : "subPropertyOf",
-      "obj" : "http://purl.obolibrary.org/obo/T/genealogically-related-to"
+      "obj" : "http://purl.obolibrary.org/obo/T/genealogically-related-to",
+      "meta" : { }
     }, {
       "sub" : "http://purl.obolibrary.org/obo/T/brother-of",
       "pred" : "subPropertyOf",
-      "obj" : "http://purl.obolibrary.org/obo/T/sibling-of"
+      "obj" : "http://purl.obolibrary.org/obo/T/sibling-of",
+      "meta" : { }
     }, {
       "sub" : "http://purl.obolibrary.org/obo/T/child-of",
       "pred" : "subPropertyOf",
-      "obj" : "http://purl.obolibrary.org/obo/T/descendant-of"
+      "obj" : "http://purl.obolibrary.org/obo/T/descendant-of",
+      "meta" : { }
     }, {
       "sub" : "http://purl.obolibrary.org/obo/T/descendant-of",
       "pred" : "subPropertyOf",
-      "obj" : "http://purl.obolibrary.org/obo/T/genealogically-related-to"
+      "obj" : "http://purl.obolibrary.org/obo/T/genealogically-related-to",
+      "meta" : { }
     }, {
       "sub" : "http://purl.obolibrary.org/obo/T/father-of",
       "pred" : "subPropertyOf",
-      "obj" : "http://purl.obolibrary.org/obo/T/parent-of"
+      "obj" : "http://purl.obolibrary.org/obo/T/parent-of",
+      "meta" : { }
     }, {
       "sub" : "http://purl.obolibrary.org/obo/T/grandfather-of",
       "pred" : "subPropertyOf",
-      "obj" : "http://purl.obolibrary.org/obo/T/grandparent-of"
+      "obj" : "http://purl.obolibrary.org/obo/T/grandparent-of",
+      "meta" : { }
     }, {
       "sub" : "http://purl.obolibrary.org/obo/T/grandmother-of",
       "pred" : "subPropertyOf",
-      "obj" : "http://purl.obolibrary.org/obo/T/grandparent-of"
+      "obj" : "http://purl.obolibrary.org/obo/T/grandparent-of",
+      "meta" : { }
     }, {
       "sub" : "http://purl.obolibrary.org/obo/T/grandparent-of",
       "pred" : "subPropertyOf",
-      "obj" : "http://purl.obolibrary.org/obo/T/ancestor-of"
+      "obj" : "http://purl.obolibrary.org/obo/T/ancestor-of",
+      "meta" : { }
     }, {
       "sub" : "http://purl.obolibrary.org/obo/T/mother-of",
       "pred" : "subPropertyOf",
-      "obj" : "http://purl.obolibrary.org/obo/T/parent-of"
+      "obj" : "http://purl.obolibrary.org/obo/T/parent-of",
+      "meta" : { }
     }, {
       "sub" : "http://purl.obolibrary.org/obo/T/parent-of",
       "pred" : "subPropertyOf",
-      "obj" : "http://purl.obolibrary.org/obo/T/ancestor-of"
+      "obj" : "http://purl.obolibrary.org/obo/T/ancestor-of",
+      "meta" : { }
     }, {
       "sub" : "http://purl.obolibrary.org/obo/T/sibling-of",
       "pred" : "subPropertyOf",
-      "obj" : "http://purl.obolibrary.org/obo/T/genealogically-related-to"
+      "obj" : "http://purl.obolibrary.org/obo/T/genealogically-related-to",
+      "meta" : { }
     }, {
       "sub" : "http://purl.obolibrary.org/obo/T/sister-of",
       "pred" : "subPropertyOf",
-      "obj" : "http://purl.obolibrary.org/obo/T/sibling-of"
+      "obj" : "http://purl.obolibrary.org/obo/T/sibling-of",
+      "meta" : { }
     }, {
       "sub" : "http://purl.obolibrary.org/obo/T/ancestor-of",
       "pred" : "inverseOf",
-      "obj" : "http://purl.obolibrary.org/obo/T/descendant-of"
+      "obj" : "http://purl.obolibrary.org/obo/T/descendant-of",
+      "meta" : { }
     }, {
       "sub" : "http://purl.obolibrary.org/obo/T/child-of",
       "pred" : "inverseOf",
-      "obj" : "http://purl.obolibrary.org/obo/T/parent-of"
+      "obj" : "http://purl.obolibrary.org/obo/T/parent-of",
+      "meta" : { }
     } ],
     "id" : "http://purl.obolibrary.org/obo/T",
     "meta" : { },

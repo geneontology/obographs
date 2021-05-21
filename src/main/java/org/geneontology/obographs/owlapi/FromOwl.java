@@ -156,7 +156,7 @@ public class FromOwl {
                                     untranslatedAxioms.add(sca);
                                 }
                                 else {
-                                    Edge e = getEdge(subj, r.getPropertyId(), r.getFillerId());
+                                    Edge e = getEdge(subj, r.getPropertyId(), r.getFillerId(), meta);
                                     edges.add(e);
                                 }
                             }
@@ -169,7 +169,8 @@ public class FromOwl {
                                 else {
                                     Edge e = getEdge(subj, 
                                             b.predicateId(), 
-                                            getClassId(avf.getFiller().asOWLClass()));
+                                            getClassId(avf.getFiller().asOWLClass()),
+                                            meta);
                                     b.addAllValuesFrom(e);
                                 }
                             }
@@ -178,7 +179,7 @@ public class FromOwl {
                             }
                         }
                         else {
-                            edges.add(getEdge(subj, SUBCLASS_OF, getClassId((OWLClass) supc)));
+                            edges.add(getEdge(subj, SUBCLASS_OF, getClassId((OWLClass) supc), meta));
 
                         }
                     }
@@ -200,7 +201,7 @@ public class FromOwl {
                     else {
                         obj = getClassId(cx.asOWLClass());
                     }
-                    edges.add(getEdge(subj, pred, obj));
+                    edges.add(getEdge(subj, pred, obj, meta));
                     nodeIds.add(subj); // always include
                     nodeIds.add(obj); // always include
 
@@ -216,7 +217,7 @@ public class FromOwl {
                     else {
                         String pred = getPropertyId(opa.getProperty().asOWLObjectProperty());
 
-                        edges.add(getEdge(subj, pred, obj));
+                        edges.add(getEdge(subj, pred, obj, meta));
                     }
                     nodeIds.add(subj); // always include subject node of an OPA
 
@@ -238,7 +239,7 @@ public class FromOwl {
                         // all classes in equivalence axiom are named
                         // TODO: merge pairwise assertions into a clique
                         EquivalentNodesSet enset = 
-                                new EquivalentNodesSet.Builder().nodeIds(xClassIds).build();
+                                new EquivalentNodesSet.Builder().nodeIds(xClassIds).meta(meta).build();
                         ensets.add(enset);
                     }
                     else {
@@ -305,7 +306,7 @@ public class FromOwl {
                         else {
                             String subj = getPropertyId(spa.getSubProperty().asOWLObjectProperty());
                             String obj = getPropertyId(spa.getSuperProperty().asOWLObjectProperty());
-                            edges.add(getEdge(subj, SUBPROPERTY_OF, obj));
+                            edges.add(getEdge(subj, SUBPROPERTY_OF, obj, meta));
                         }
 
                     }
@@ -319,7 +320,7 @@ public class FromOwl {
                         else {
                             String p1 = getPropertyId(ipa.getFirstProperty().asOWLObjectProperty());
                             String p2 = getPropertyId(ipa.getSecondProperty().asOWLObjectProperty());
-                            edges.add(getEdge(p1, INVERSE_OF, p2));
+                            edges.add(getEdge(p1, INVERSE_OF, p2, meta));
                         }
 
                     }
@@ -632,13 +633,14 @@ public class FromOwl {
         return builder.build();
     }
 
-    private Edge getEdge(String subj, String pred, String obj) {
-        return getEdge(subj, pred, obj, null);
+    private Edge getEdge(String subj, String pred, String obj, Meta meta) {
+        return getEdge(subj, pred, obj, meta,null);
     }
 
 
-    private Edge getEdge(String subj, String pred, String obj, List<ExistentialRestrictionExpression> gciQualifiers) {
-        return new Edge.Builder().sub(subj).pred(pred).obj(obj).build();
+    private Edge getEdge(String subj, String pred, String obj,  Meta meta, List<ExistentialRestrictionExpression> gciQualifiers) {
+        System.out.println("Edge: " + subj + " " + pred + " " + obj + " " + meta);
+        return new Edge.Builder().sub(subj).pred(pred).obj(obj).meta(meta).build();
     }
 
     @Nullable

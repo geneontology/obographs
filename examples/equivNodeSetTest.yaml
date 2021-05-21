@@ -116,21 +116,32 @@ graphs:
   - sub: "http://purl.obolibrary.org/obo/DOID_0001816"
     pred: "is_a"
     obj: "http://purl.obolibrary.org/obo/DOID_1115"
+    meta: {}
   - sub: "http://purl.obolibrary.org/obo/NCIT_C121671"
     pred: "is_a"
     obj: "http://purl.obolibrary.org/obo/NCIT_C3088"
+    meta: {}
   - sub: "http://purl.obolibrary.org/obo/NCIT_C121671"
     pred: "is_a"
     obj: "http://purl.obolibrary.org/obo/NCIT_C9306"
+    meta: {}
   - sub: "http://purl.obolibrary.org/obo/NCIT_C3088"
     pred: "is_a"
     obj: "http://purl.obolibrary.org/obo/NCIT_C8538"
+    meta: {}
   - sub: "http://purl.obolibrary.org/obo/NCIT_C3088"
     pred: "is_a"
     obj: "http://purl.obolibrary.org/obo/NCIT_C9118"
+    meta: {}
   - sub: "http://purl.obolibrary.org/obo/Orphanet_263413"
     pred: "is_a"
     obj: "http://purl.obolibrary.org/obo/Orphanet_3394"
+    meta:
+      basicPropertyValues:
+      - pred: "http://www.geneontology.org/formats/oboInOwl#comments"
+        val: "test comments"
+      - pred: "http://www.geneontology.org/formats/oboInOwl#source"
+        val: "Orphanet"
   id: "http://purl.obolibrary.org/obo/TEMP"
   meta: {}
   equivalentNodesSets:
@@ -138,7 +149,14 @@ graphs:
     nodeIds:
     - "http://purl.obolibrary.org/obo/DOID_0001816"
     - "http://purl.obolibrary.org/obo/NCIT_C3088"
+    meta:
+      basicPropertyValues:
+      - pred: "http://www.geneontology.org/formats/oboInOwl#comments"
+        val: "foo bar"
+      - pred: "http://www.geneontology.org/formats/oboInOwl#confidence"
+        val: "0.8"
   - representativeNodeId: "http://purl.obolibrary.org/obo/DOID_0001816"
     nodeIds:
     - "http://purl.obolibrary.org/obo/DOID_0001816"
     - "http://purl.obolibrary.org/obo/Orphanet_263413"
+    meta: {}
