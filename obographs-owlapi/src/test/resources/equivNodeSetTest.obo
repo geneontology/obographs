@@ -16,7 +16,7 @@ xref: SCTID:403977003
 xref: UMLS:C0018923
 xref: UMLS:C0854893
 is_a: DOID:1115 ! sarcoma
-equivalent_to: NCIT:C3088 ! Angiosarcoma
+equivalent_to: NCIT:C3088 {confidence="0.8", comments="foo bar"} ! Angiosarcoma
 equivalent_to: Orphanet:263413 ! Angiosarcoma
 
 [Term]
@@ -24,7 +24,7 @@ id: Orphanet:263413
 name: Angiosarcoma
 subset: Orphanet:377788
 xref: MedDRA:10002476
-is_a: Orphanet:3394 ! Soft tissue sarcoma
+is_a: Orphanet:3394 {source="Orphanet", comments="test comments"} ! Soft tissue sarcoma
 
 [Term]
 id: NCIT:C121671

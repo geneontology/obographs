@@ -157,7 +157,7 @@ public class FromOwl {
                                     untranslatedAxioms.add(sca);
                                 }
                                 else {
-                                    Edge e = getEdge(subj, r.getPropertyId(), r.getFillerId());
+                                    Edge e = getEdge(subj, r.getPropertyId(), r.getFillerId(), nullIfEmpty(meta));
                                     edges.add(e);
                                 }
                             }
@@ -171,7 +171,8 @@ public class FromOwl {
                                     Edge e = getEdge(subj,
                                             //TODO CHECK!!!
                                             b.build().getPredicateId(),
-                                            getClassId(avf.getFiller().asOWLClass()));
+                                            getClassId(avf.getFiller().asOWLClass()),
+                                            nullIfEmpty(meta));
                                     b.addAllValuesFromEdge(e);
                                 }
                             }
@@ -180,7 +181,7 @@ public class FromOwl {
                             }
                         }
                         else {
-                            edges.add(getEdge(subj, SUBCLASS_OF, getClassId((OWLClass) supc)));
+                            edges.add(getEdge(subj, SUBCLASS_OF, getClassId((OWLClass) supc), nullIfEmpty(meta)));
                         }
                     }
                     else {
@@ -201,7 +202,7 @@ public class FromOwl {
                     else {
                         obj = getClassId(cx.asOWLClass());
                     }
-                    edges.add(getEdge(subj, pred, obj));
+                    edges.add(getEdge(subj, pred, obj, meta));
                     nodeIds.add(subj); // always include
                     nodeIds.add(obj); // always include
 
@@ -217,7 +218,7 @@ public class FromOwl {
                     else {
                         String pred = getPropertyId(opa.getProperty().asOWLObjectProperty());
 
-                        edges.add(getEdge(subj, pred, obj));
+                        edges.add(getEdge(subj, pred, obj, meta));
                     }
                     nodeIds.add(subj); // always include subject node of an OPA
 
@@ -240,7 +241,7 @@ public class FromOwl {
                         // TODO: merge pairwise assertions into a clique
                         EquivalentNodesSet enset =
                                 //TODO: EquivalentNodesSet.representativeNodeId() is not set in the production code!!
-                                new EquivalentNodesSet.Builder().nodeIds(xClassIds).build();
+                                new EquivalentNodesSet.Builder().nodeIds(xClassIds).meta(nullIfEmpty(meta)).build();
                         ensets.add(enset);
                     }
                     else {
@@ -307,7 +308,7 @@ public class FromOwl {
                         else {
                             String subj = getPropertyId(spa.getSubProperty().asOWLObjectProperty());
                             String obj = getPropertyId(spa.getSuperProperty().asOWLObjectProperty());
-                            edges.add(getEdge(subj, SUBPROPERTY_OF, obj));
+                            edges.add(getEdge(subj, SUBPROPERTY_OF, obj, meta));
                         }
 
                     }
@@ -321,7 +322,7 @@ public class FromOwl {
                         else {
                             String p1 = getPropertyId(ipa.getFirstProperty().asOWLObjectProperty());
                             String p2 = getPropertyId(ipa.getSecondProperty().asOWLObjectProperty());
-                            edges.add(getEdge(p1, INVERSE_OF, p2));
+                            edges.add(getEdge(p1, INVERSE_OF, p2, meta));
                         }
 
                     }
@@ -481,7 +482,7 @@ public class FromOwl {
                     label(nodeLabelMap.getOrDefault(n, ""));
             if (nodeMetaBuilderMap.containsKey(n)) {
                 Meta meta = nodeMetaBuilderMap.get(n).build();
-                nb.meta(meta);
+                nb.meta(nullIfEmpty(meta));
             }
             if (nodeTypeMap.containsKey(n)) {
                 nb.type(nodeTypeMap.get(n));
@@ -505,7 +506,7 @@ public class FromOwl {
                 domainRangeBuilderMap.values().stream().map(DomainRangeAxiom.Builder::build).collect(Collectors.toList());
         return new Graph.Builder().
                 id(gid).
-                meta(meta).
+                meta(nullIfEmpty(meta)).
                 nodes(nodes).
                 edges(edges).
                 equivalentNodesSets(ensets).
@@ -513,6 +514,11 @@ public class FromOwl {
                 domainRangeAxioms(domainRangeAxioms).
                 propertyChainAxioms(pcas).
                 build();
+    }
+
+    // This method prevents empty 'meta = {}' nodes appearing in the JSON/JYAML output
+    private Meta nullIfEmpty(Meta meta) {
+        return NodeOrEdge.EMPTY_META.equals(meta) ? null : meta;
     }
 
 
@@ -570,6 +576,7 @@ public class FromOwl {
         if (!nodeMetaBuilderMap.containsKey(id))
             nodeMetaBuilderMap.put(id, new Meta.Builder());
         return nodeMetaBuilderMap.get(id);
+//        return nodeMetaBuilderMap.computeIfAbsent(id, v -> new Meta.Builder());
     }
 
     /**
@@ -615,13 +622,16 @@ public class FromOwl {
         return builder.build();
     }
 
-    private Edge getEdge(String subj, String pred, String obj) {
-        return getEdge(subj, pred, obj, null);
+    private Edge getEdge(String subj, String pred, String obj, Meta meta) {
+        return getEdge(subj, pred, obj, meta, null);
     }
 
 
-    private Edge getEdge(String subj, String pred, String obj, List<ExistentialRestrictionExpression> gciQualifiers) {
-        return new Edge.Builder().sub(subj).pred(pred).obj(obj).build();
+    private Edge getEdge(String subj, String pred, String obj, Meta meta, List<ExistentialRestrictionExpression> gciQualifiers) {
+        if (NodeOrEdge.EMPTY_META.equals(meta)) {
+            return new Edge.Builder().sub(subj).pred(pred).obj(obj).build();
+        }
+        return new Edge.Builder().sub(subj).pred(pred).obj(obj).meta(meta).build();
     }
 
     @Nullable
