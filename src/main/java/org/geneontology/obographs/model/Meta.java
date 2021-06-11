@@ -1,18 +1,16 @@
 package org.geneontology.obographs.model;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import org.geneontology.obographs.model.meta.*;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
-
-import org.geneontology.obographs.model.meta.BasicPropertyValue;
-import org.geneontology.obographs.model.meta.DefinitionPropertyValue;
-import org.geneontology.obographs.model.meta.PropertyValue;
-import org.geneontology.obographs.model.meta.SynonymPropertyValue;
-import org.geneontology.obographs.model.meta.XrefPropertyValue;
-
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
  * A holder for metadata
@@ -30,6 +28,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  * @author cjm
  *
  */
+@JsonDeserialize(builder = Meta.Builder.class)
+@JsonInclude(JsonInclude.Include.NON_DEFAULT)
 public class Meta {
 
     private Meta(Builder builder) {
@@ -51,7 +51,6 @@ public class Meta {
     @JsonProperty private final List<BasicPropertyValue> basicPropertyValues;
     @JsonProperty private final String version;
     @JsonProperty private final Boolean deprecated;
-
 
     /**
      * @return the definition
@@ -76,7 +75,7 @@ public class Meta {
 
     @JsonIgnore
     public List<String> getXrefsValues() {
-        return xrefs.stream().map( x -> x.getVal()).collect(Collectors.toList());
+        return xrefs.stream().map(AbstractPropertyValue::getVal).collect(Collectors.toList());
     }
 
     /**
@@ -87,7 +86,7 @@ public class Meta {
     }
 
     /**
-     * @return the deprecated
+     * @return true if deprecated
      */
     public Boolean getDeprecated() {
         return deprecated;
@@ -116,6 +115,23 @@ public class Meta {
         return version;
     }
 
+    public Boolean getDeprecated() {
+        return deprecated;
+    }
+
+    @Override
+    public String toString() {
+        return "Meta{" +
+                "definition=" + definition +
+                ", comments=" + comments +
+                ", subsets=" + subsets +
+                ", xrefs=" + xrefs +
+                ", synonyms=" + synonyms +
+                ", basicPropertyValues=" + basicPropertyValues +
+                ", version='" + version + '\'' +
+                ", deprecated=" + deprecated +
+                '}';
+    }
 
     public static class Builder {
 
@@ -215,6 +231,7 @@ public class Meta {
         }
 
 
+        @JsonCreator
         public Meta build() {
             return new Meta(this);
         }

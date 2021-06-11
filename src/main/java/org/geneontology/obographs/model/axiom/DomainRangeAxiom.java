@@ -1,14 +1,15 @@
 package org.geneontology.obographs.model.axiom;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.HashSet;
-import java.util.Set;
-
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.google.common.collect.ImmutableSortedSet;
 import org.geneontology.obographs.model.Edge;
 import org.geneontology.obographs.model.Meta;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
+import java.util.Set;
+import java.util.SortedSet;
+import java.util.TreeSet;
 
 /**
  * This combined ObjectPropertyDomain, ObjectPropertyRange, and some AllValuesFrom expressions into a single convenience structure
@@ -17,6 +18,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  * @author cjm
  *
  */
+@JsonDeserialize(builder = DomainRangeAxiom.Builder.class)
 public class DomainRangeAxiom extends AbstractAxiom {
 
     private DomainRangeAxiom(Builder builder) {
@@ -28,9 +30,9 @@ public class DomainRangeAxiom extends AbstractAxiom {
     }
 
     private final String predicateId;
-    private final Set<String> domainClassIds;
-    private final Set<String> rangeClassIds;
-    private final Set<Edge> allValuesFromEdges;
+    private final SortedSet<String> domainClassIds;
+    private final SortedSet<String> rangeClassIds;
+    private final SortedSet<Edge> allValuesFromEdges;
 
 
     
@@ -77,7 +79,7 @@ public class DomainRangeAxiom extends AbstractAxiom {
      * 
      * @return the allValuesFromEdges
      */
-    public Set<Edge> getAllValuesFromEdges() {
+    public SortedSet<Edge> getAllValuesFromEdges() {
         return allValuesFromEdges;
     }
 
@@ -86,13 +88,13 @@ public class DomainRangeAxiom extends AbstractAxiom {
         @JsonProperty
         private String predicateId;
         @JsonProperty
-        private Set<String> domainClassIds;
+        private SortedSet<String> domainClassIds;
         @JsonProperty
-        private Set<String> rangeClassIds;
+        private SortedSet<String> rangeClassIds;
         @JsonProperty
         private Meta meta;
         @JsonProperty
-        private Set<Edge> allValuesFromEdges;
+        private SortedSet<Edge> allValuesFromEdges;
 
         public Builder predicateId(String predicateId) {
             this.predicateId = predicateId;
@@ -103,47 +105,47 @@ public class DomainRangeAxiom extends AbstractAxiom {
         }
 
         public Builder domainClassId(Set<String> domainClassId) {
-            this.domainClassIds = domainClassIds;
+            this.domainClassIds = ImmutableSortedSet.copyOf(domainClassIds);
             return this;
         }
         public Builder domainClassId(String domainClassId) {
-            this.domainClassIds = Collections.singleton(domainClassId);
+            this.domainClassIds = ImmutableSortedSet.of(domainClassId);
             return this;
         }
         public Builder addDomainClassId(String domainClassId) {
             if (domainClassIds == null)
-                domainClassIds = new HashSet<>();
+                domainClassIds = new TreeSet<>();
             this.domainClassIds.add(domainClassId);
             return this;
         }
  
         public Builder rangeClassIds(Set<String> rangeClassIds) {
-            this.rangeClassIds = rangeClassIds;
+            this.rangeClassIds = ImmutableSortedSet.copyOf(rangeClassIds);
             return this;
         }
         public Builder rangeClassId(String rangeClassId) {
-            this.rangeClassIds = Collections.singleton(rangeClassId);
+            this.rangeClassIds = ImmutableSortedSet.of(rangeClassId);
             return this;
         }
         public Builder addRangeClassId(String rangeClassId) {
             if (rangeClassIds == null)
-                rangeClassIds = new HashSet<>();
+                rangeClassIds = new TreeSet<>();
             this.rangeClassIds.add(rangeClassId);
             return this;
         }
  
         public Builder addAllValuesFrom(Edge edge) {
             if (allValuesFromEdges == null)
-                allValuesFromEdges = new HashSet<>();
+                allValuesFromEdges = new TreeSet<>();
             this.allValuesFromEdges.add(edge);
             return this;
-           
         }
+
+        @JsonCreator
         public DomainRangeAxiom build() {
             return new DomainRangeAxiom(this);
         }
 
-  
     }
 
 

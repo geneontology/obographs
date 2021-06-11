@@ -6,7 +6,9 @@ import java.util.Map;
 import org.geneontology.obographs.model.meta.SynonymPropertyValue.SCOPES;
 
 public class SynonymVocabulary {
-    
+
+    public static String SYNONYM_TYPE = "http://www.geneontology.org/formats/oboInOwl#hasSynonymType";
+
     Map<String,SCOPES> iriToScopeMap = new HashMap<>();
 
     

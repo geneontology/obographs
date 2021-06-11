@@ -1,11 +1,9 @@
 package org.geneontology.obographs.model.meta;
 
-import java.util.Collection;
-import java.util.List;
-
+import com.fasterxml.jackson.annotation.JsonProperty;
 import org.geneontology.obographs.model.Meta;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
+import java.util.List;
 
 public abstract class AbstractPropertyValue implements PropertyValue {
 	
@@ -18,42 +16,31 @@ public abstract class AbstractPropertyValue implements PropertyValue {
 		xrefs = builder.xrefs;
 	}
 
-	private final String pred;
+    private final String pred;
     private final String val;
     private final List<String> xrefs;
-	private final Meta meta;
-	
-	
-
-
-
+    private final Meta meta;
 
 	/**
 	 * @return the pred
 	 */
-	public String getPred() {
+    public String getPred() {
 		return pred;
 	}
 
+    /**
+	 * @return the val
+	 */
+    public String getVal() {
+		return val;
+	}
 
-
-	/**
+    /**
      * @return the xrefs
      */
     public List<String> getXrefs() {
         return xrefs;
     }
-
-
-
-    /**
-	 * @return the val
-	 */
-	public String getVal() {
-		return val;
-	}
-
-
 
 	/**
 	 * @return the meta
@@ -62,9 +49,17 @@ public abstract class AbstractPropertyValue implements PropertyValue {
 		return meta;
 	}
 
+    @Override
+    public String toString() {
+        return "AbstractPropertyValue{" +
+                "pred='" + pred + '\'' +
+                ", val='" + val + '\'' +
+                ", xrefs=" + xrefs +
+                ", meta=" + meta +
+                '}';
+    }
 
-
-	public static class Builder {
+    public static class Builder {
 
         @JsonProperty
         private String pred;

@@ -1,19 +1,20 @@
 package org.geneontology.obographs.model.meta;
 
-import java.util.List;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 
-import org.geneontology.obographs.model.meta.AbstractPropertyValue.Builder;
+import java.util.List;
 
 
 /**
  * A {@link PropertyValue} that represents a textual definition of an ontology class or
  * property
- * 
- * @author cjm
  *
+ * @author cjm
  */
-public class DefinitionPropertyValue extends AbstractPropertyValue implements PropertyValue {
-    
+@JsonDeserialize(builder = DefinitionPropertyValue.Builder.class)
+public class DefinitionPropertyValue extends AbstractPropertyValue {
+
     private DefinitionPropertyValue(Builder builder) {
         super(builder);
     }
@@ -24,13 +25,15 @@ public class DefinitionPropertyValue extends AbstractPropertyValue implements Pr
         public Builder val(String val) {
             return (Builder) super.val(val);
         }
+
         public Builder xrefs(List<String> xrefs) {
             return (Builder) super.xrefs(xrefs);
         }
-        
+
+        @JsonCreator
         public DefinitionPropertyValue build() {
             return new DefinitionPropertyValue(this);
         }
     }
-    
+
 }

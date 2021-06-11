@@ -1,6 +1,9 @@
 package org.geneontology.obographs.model;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.google.common.collect.ComparisonChain;
 
 /**
  * An edge connects two nodes via a predicate
@@ -8,7 +11,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  * @author cjm
  *
  */
-public class Edge implements NodeOrEdge {
+@JsonDeserialize(builder = Edge.Builder.class)
+public class Edge implements NodeOrEdge, Comparable<Edge> {
 	
 	private Edge(Builder builder) {
 		sub = builder.sub;
@@ -30,16 +34,12 @@ public class Edge implements NodeOrEdge {
 		return sub;
 	}
 
-
-
 	/**
 	 * @return the pred
 	 */
 	public String getPred() {
 		return pred;
 	}
-
-
 
 	/**
 	 * @return the obj
@@ -48,7 +48,15 @@ public class Edge implements NodeOrEdge {
 		return obj;
 	}
 
-
+	@Override
+	public String toString() {
+		return "Edge{" +
+				"sub='" + sub + '\'' +
+				", pred='" + pred + '\'' +
+				", obj='" + obj + '\'' +
+				", meta=" + meta +
+				'}';
+	}
 
 	/**
 	 * @return the meta
@@ -57,20 +65,26 @@ public class Edge implements NodeOrEdge {
 		return meta;
 	}
 
-
+	@Override
+	public int compareTo(Edge other) {
+		return ComparisonChain.start()
+				.compare(this.getSub(), other.getSub())
+				.compare(this.getPred(), other.getPred())
+				.compare(this.getObj(), other.getObj())
+				.result();
+	}
 
 	public static class Builder {
 
-        @JsonProperty
-        private String sub;
-        @JsonProperty
-        private String pred;
-        @JsonProperty
-        private String obj;
-        
-        @JsonProperty
+		@JsonProperty
+		private String sub;
+		@JsonProperty
+		private String pred;
+		@JsonProperty
+		private String obj;
+
         private Meta meta;
-        
+
         public Builder sub(String subj) {
             this.sub = subj;
             return this;
@@ -90,6 +104,7 @@ public class Edge implements NodeOrEdge {
             return this;
         }
 
+        @JsonCreator
         public Edge build() {
         	return new Edge(this);
         }

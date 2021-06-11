@@ -1,70 +1,23 @@
 package org.geneontology.obographs.owlapi;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
-import java.util.stream.Collectors;
-
+import com.github.jsonldjava.core.Context;
+import com.google.common.base.Optional;
+import com.google.common.collect.ImmutableSet;
 import org.geneontology.obographs.io.PrefixHelper;
-import org.geneontology.obographs.model.Edge;
-import org.geneontology.obographs.model.Graph;
-import org.geneontology.obographs.model.GraphDocument;
-import org.geneontology.obographs.model.Meta;
-import org.geneontology.obographs.model.Node;
+import org.geneontology.obographs.model.*;
 import org.geneontology.obographs.model.Node.Builder;
 import org.geneontology.obographs.model.Node.RDFTYPES;
-import org.geneontology.obographs.model.axiom.DomainRangeAxiom;
-import org.geneontology.obographs.model.axiom.EquivalentNodesSet;
-import org.geneontology.obographs.model.axiom.ExistentialRestrictionExpression;
-import org.geneontology.obographs.model.axiom.LogicalDefinitionAxiom;
-import org.geneontology.obographs.model.axiom.PropertyChainAxiom;
+import org.geneontology.obographs.model.axiom.*;
 import org.geneontology.obographs.model.meta.BasicPropertyValue;
 import org.geneontology.obographs.model.meta.DefinitionPropertyValue;
 import org.geneontology.obographs.model.meta.SynonymPropertyValue;
 import org.geneontology.obographs.model.meta.SynonymPropertyValue.SCOPES;
 import org.geneontology.obographs.model.meta.XrefPropertyValue;
-import org.semanticweb.owlapi.model.IRI;
-import org.semanticweb.owlapi.model.OWLAnnotation;
-import org.semanticweb.owlapi.model.OWLAnnotationAssertionAxiom;
-import org.semanticweb.owlapi.model.OWLAnnotationProperty;
-import org.semanticweb.owlapi.model.OWLAnnotationSubject;
-import org.semanticweb.owlapi.model.OWLAnnotationValue;
-import org.semanticweb.owlapi.model.OWLAnonymousIndividual;
-import org.semanticweb.owlapi.model.OWLAxiom;
-import org.semanticweb.owlapi.model.OWLClass;
-import org.semanticweb.owlapi.model.OWLClassAssertionAxiom;
-import org.semanticweb.owlapi.model.OWLClassExpression;
-import org.semanticweb.owlapi.model.OWLDeclarationAxiom;
-import org.semanticweb.owlapi.model.OWLEntity;
-import org.semanticweb.owlapi.model.OWLEquivalentClassesAxiom;
-import org.semanticweb.owlapi.model.OWLIndividual;
-import org.semanticweb.owlapi.model.OWLInverseObjectPropertiesAxiom;
-import org.semanticweb.owlapi.model.OWLLiteral;
-import org.semanticweb.owlapi.model.OWLLogicalAxiom;
-import org.semanticweb.owlapi.model.OWLNamedIndividual;
-import org.semanticweb.owlapi.model.OWLObjectAllValuesFrom;
-import org.semanticweb.owlapi.model.OWLObjectIntersectionOf;
-import org.semanticweb.owlapi.model.OWLObjectProperty;
-import org.semanticweb.owlapi.model.OWLObjectPropertyAssertionAxiom;
-import org.semanticweb.owlapi.model.OWLObjectPropertyAxiom;
-import org.semanticweb.owlapi.model.OWLObjectPropertyDomainAxiom;
-import org.semanticweb.owlapi.model.OWLObjectPropertyExpression;
-import org.semanticweb.owlapi.model.OWLObjectPropertyRangeAxiom;
-import org.semanticweb.owlapi.model.OWLObjectSomeValuesFrom;
-import org.semanticweb.owlapi.model.OWLOntology;
-import org.semanticweb.owlapi.model.OWLOntologyID;
-import org.semanticweb.owlapi.model.OWLProperty;
-import org.semanticweb.owlapi.model.OWLPropertyExpression;
-import org.semanticweb.owlapi.model.OWLSubClassOfAxiom;
-import org.semanticweb.owlapi.model.OWLSubObjectPropertyOfAxiom;
-import org.semanticweb.owlapi.model.OWLSubPropertyChainOfAxiom;
+import org.semanticweb.owlapi.model.*;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.github.jsonldjava.core.Context;
-import com.google.common.base.Optional;
+import javax.annotation.Nullable;
+import java.util.*;
+import java.util.stream.Collectors;
 
 
 /**
@@ -126,20 +79,20 @@ public class FromOwl {
         List<Node> nodes = new ArrayList<>();
         List<EquivalentNodesSet> ensets = new ArrayList<>();
         List<LogicalDefinitionAxiom> ldas = new ArrayList<>();
-        Set<String> nodeIds = new HashSet<>();
-        Map<String,RDFTYPES> nodeTypeMap = new HashMap<>();
-        Map<String,String> nodeLabelMap = new HashMap<>();
-        Map<String,DomainRangeAxiom.Builder> domainRangeBuilderMap = new HashMap<>();
+        Set<String> nodeIds = new LinkedHashSet<>();
+        Map<String, RDFTYPES> nodeTypeMap = new LinkedHashMap<>();
+        Map<String, String> nodeLabelMap = new LinkedHashMap<>();
+        Map<String, DomainRangeAxiom.Builder> domainRangeBuilderMap = new LinkedHashMap<>();
         List<PropertyChainAxiom> pcas = new ArrayList<>();
 
         // Each node can be built from multiple axioms; use a builder for each nodeId
-        Map<String,Meta.Builder> nodeMetaBuilderMap = new HashMap<>();
+        Map<String, Meta.Builder> nodeMetaBuilderMap = new LinkedHashMap<>();
 
+        Set<OWLAxiom> untranslatedAxioms = new LinkedHashSet<>();
 
-        Set<OWLAxiom> untranslatedAxioms = new HashSet<>();
-
+        List<OWLAxiom> sortedAxioms = ontology.getAxioms().parallelStream().sorted().collect(Collectors.toList());
         // iterate over all axioms and push to relevant builders
-        for (OWLAxiom ax : ontology.getAxioms()) {
+        for (OWLAxiom ax : sortedAxioms) {
 
             Meta meta = getAnnotations(ax);
 
@@ -278,8 +231,8 @@ public class FromOwl {
                     List<OWLClassExpression> namedXs = 
                             xs.stream().filter(x -> !x.isAnonymous()).collect(Collectors.toList());
                     Set<String> xClassIds = 
-                            namedXs.stream().map(x -> getClassId((OWLClass)x)).collect(Collectors.toSet());
-                    if (anonXs.size() == 0) {
+                            namedXs.stream().map(x -> getClassId((OWLClass)x)).collect(ImmutableSet.toImmutableSet());
+                    if (anonXs.isEmpty()) {
                         // EquivalentNodesSet
 
                         // all classes in equivalence axiom are named
@@ -474,8 +427,18 @@ public class FromOwl {
                         else if (synonymVocabulary.contains(pIRI.toString())) {
                             SCOPES scope = synonymVocabulary.get(pIRI.toString());
                             if (lv != null) {
+                                String synonymType = "";
+                                for (OWLAnnotation a : aaa.getAnnotations()) {
+                                    if (a.getProperty().getIRI().toString().equals(SynonymVocabulary.SYNONYM_TYPE)) {
+                                        synonymType = a.getValue().toString();
+                                    }
+                                    else {
+                                        // TODO: capture these in meta
+                                    }
+                                }
                                 SynonymPropertyValue syn = new SynonymPropertyValue.Builder().
                                         scope(scope).
+                                        synonymType(synonymType).
                                         val(lv).
                                         xrefs(meta.getXrefsValues()).
                                         build();
@@ -519,7 +482,7 @@ public class FromOwl {
         for (String n : nodeIds) {
             Builder nb = new Node.Builder().
                     id(n).
-                    label(nodeLabelMap.get(n));
+                    label(nodeLabelMap.getOrDefault(n, ""));
             if (nodeMetaBuilderMap.containsKey(n)) {
                 Meta meta = nodeMetaBuilderMap.get(n).build();
                 nb.meta(meta);
@@ -543,7 +506,7 @@ public class FromOwl {
 
         Meta meta = getAnnotations(ontology.getAnnotations(), version);
         List<DomainRangeAxiom> domainRangeAxioms = 
-                domainRangeBuilderMap.values().stream().map(b -> b.build()).collect(Collectors.toList());
+                domainRangeBuilderMap.values().stream().map(DomainRangeAxiom.Builder::build).collect(Collectors.toList());
         return new Graph.Builder().
                 id(gid).
                 meta(meta).
@@ -620,7 +583,7 @@ public class FromOwl {
      * @return
      */
     private Meta getAnnotations(OWLAxiom ax) {
-        return(getAnnotations(ax.getAnnotations()));
+        return getAnnotations(ax.getAnnotations());
     }
     private Meta getAnnotations(Set<OWLAnnotation> anns) {
         return getAnnotations(anns, null);
@@ -643,10 +606,10 @@ public class FromOwl {
                 xrefs.add(new XrefPropertyValue.Builder().val(val).build());
             }
             else if (isInSubsetProperty(p.getIRI())) {
-                inSubsets.add(new String(val));
+                inSubsets.add(val);
             }
             else if (isHasSynonymTypeProperty(p.getIRI())) {
-                inSubsets.add(new String(val));
+                inSubsets.add(val);
             }
             else {
                 bpvs.add(new BasicPropertyValue.Builder().
@@ -678,14 +641,13 @@ public class FromOwl {
         return new Edge.Builder().sub(subj).pred(pred).obj(obj).build();
     }
 
-    private ExistentialRestrictionExpression getRestriction(
-            OWLClassExpression x) {
+    @Nullable
+    private ExistentialRestrictionExpression getRestriction(OWLClassExpression x) {
         if (x instanceof OWLObjectSomeValuesFrom) {
             OWLObjectSomeValuesFrom r = (OWLObjectSomeValuesFrom)x;
             OWLPropertyExpression p = r.getProperty();
             OWLClassExpression f = r.getFiller();
             if (p instanceof OWLObjectProperty && !f.isAnonymous()) {
-
                 return new ExistentialRestrictionExpression.Builder()
                 .propertyId(getPropertyId((OWLObjectProperty) p))
                 .fillerId(getClassId((OWLClass) f))
@@ -695,22 +657,23 @@ public class FromOwl {
         return null;
     }
 
+    @Nullable
     private OBOClassDef getClassDef(Set<OWLClassExpression> ixs) {
         OBOClassDef def = new OBOClassDef();
         boolean isLDA = true;
         for (OWLClassExpression ix : ixs) {
             if (!ix.isAnonymous()) {
-                def.genusClassIds.add(getClassId((OWLClass)ix));
-            }
-            else if (ix instanceof OWLObjectSomeValuesFrom) {
-                def.restrs.add(getRestriction(ix));
-            }
-            else {
+                def.genusClassIds.add(getClassId((OWLClass) ix));
+            } else if (ix instanceof OWLObjectSomeValuesFrom) {
+                ExistentialRestrictionExpression restriction = getRestriction(ix);
+                if (restriction != null) {
+                    def.restrs.add(restriction);
+                }
+            } else {
                 isLDA = false;
                 break;
             }
-
-        } 
+        }
         if (!isLDA) {
             return null;
         }

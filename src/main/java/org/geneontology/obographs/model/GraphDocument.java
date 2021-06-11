@@ -1,8 +1,10 @@
 package org.geneontology.obographs.model;
 
-import java.util.List;
-
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+
+import java.util.List;
 
 /**
  * Holds a collection of graphs, plus document-level metadata
@@ -23,6 +25,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  * @author cjm
  *
  */
+@JsonDeserialize(builder = GraphDocument.Builder.class)
 public class GraphDocument {
 
     private GraphDocument(Builder builder) {
@@ -61,9 +64,14 @@ public class GraphDocument {
     }
 
 
-
-
-
+    @Override
+    public String toString() {
+        return "GraphDocument{" +
+                "graphs=" + graphs +
+                ", meta=" + meta +
+                ", context=" + context +
+                '}';
+    }
 
     public static class Builder {
 
@@ -71,10 +79,8 @@ public class GraphDocument {
         private Meta meta;
         @JsonProperty
         private List<Graph> graphs;
-        @JsonProperty
+        @JsonProperty("@context")
         private Object context;
-
-
 
         public Builder meta(Meta meta) {
             this.meta = meta;
@@ -89,6 +95,7 @@ public class GraphDocument {
             return this;
         }
 
+        @JsonCreator
         public GraphDocument build() {
             return new GraphDocument(this);
         }

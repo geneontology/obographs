@@ -1,6 +1,9 @@
 package org.geneontology.obographs.model;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.google.common.collect.ComparisonChain;
 
 /**
  * A graph node corresponds to a class, individual or property
@@ -19,7 +22,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  * @author cjm
  *
  */
-public class Node implements NodeOrEdge {
+@JsonDeserialize(builder = Node.Builder.class)
+public class Node implements NodeOrEdge, Comparable<Node> {
 	
     public enum RDFTYPES { CLASS, INDIVIDUAL, PROPERTY };
     
@@ -30,51 +34,67 @@ public class Node implements NodeOrEdge {
 		type = builder.type;
 	}
 
-	private final String id;
-	
-	@JsonProperty("lbl")
-	private final String label;
-
-	@JsonProperty
-	private final Meta meta;
-    
-	@JsonProperty
+    private final Meta meta;
+    private final String id;
+    private final String label;
 	private final RDFTYPES type;
-	
-	
-	
+
+    /**
+     * @return the meta
+     */
+    public Meta getMeta() {
+        return meta;
+    }
+
     /**
 	 * @return the id
 	 */
-	public String getId() {
+    @JsonProperty
+    public String getId() {
 		return id;
 	}
-
-
 
 	/**
 	 * @return the lbl
 	 */
-	public String getLabel() {
+    @JsonProperty("lbl")
+    public String getLabel() {
 		return label;
 	}
 
-
-
 	/**
-	 * @return the meta
-	 */
-	public Meta getMeta() {
-		return meta;
-	}
+     * @return the type
+     */
+    @JsonProperty
+    public RDFTYPES getType() {
+        return type;
+    }
 
 
+    @Override
+    public int compareTo(Node other) {
+        return ComparisonChain.start()
+                .compare(this.getId(), other.getId())
+                .compare(this.getLabel(), other.getLabel())
+                .compare(this.getType(), other.getType())
+                .result();
+    }
 
-	public static class Builder {
+    @Override
+    public String toString() {
+        return "Node{" +
+                "id='" + id + '\'' +
+                ", label='" + label + '\'' +
+                ", meta=" + meta +
+                ", type=" + type +
+                '}';
+    }
+
+    public static class Builder {
 
         @JsonProperty
         private String id;
-        @JsonProperty
+        @JsonProperty("lbl")
         private String label;
         @JsonProperty
         private Meta meta;
@@ -101,6 +121,7 @@ public class Node implements NodeOrEdge {
             return this;
         }
 
+        @JsonCreator
         public Node build() {
         	return new Node(this);
         }

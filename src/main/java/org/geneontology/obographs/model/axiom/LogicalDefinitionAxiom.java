@@ -1,11 +1,11 @@
 package org.geneontology.obographs.model.axiom;
 
-import java.util.List;
-import java.util.Set;
-
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import org.geneontology.obographs.model.Meta;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
+import java.util.List;
 
 /**
  * Corresponds to an axiom of the form C = X1 and ... and Xn,
@@ -15,6 +15,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  * @author cjm
  *
  */
+@JsonDeserialize(builder = LogicalDefinitionAxiom.Builder.class)
 public class LogicalDefinitionAxiom extends AbstractAxiom {
 
     private LogicalDefinitionAxiom(Builder builder) {
@@ -81,7 +82,8 @@ public class LogicalDefinitionAxiom extends AbstractAxiom {
             this.restrictions = restrictions;
             return this;
         }
-        
+
+        @JsonCreator
         public LogicalDefinitionAxiom build() {
             return new LogicalDefinitionAxiom(this);
         }

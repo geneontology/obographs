@@ -8,9 +8,6 @@
         "type" : "object",
         "id" : "urn:jsonschema:org:geneontology:obographs:model:Node",
         "properties" : {
-          "id" : {
-            "type" : "string"
-          },
           "meta" : {
             "type" : "object",
             "id" : "urn:jsonschema:org:geneontology:obographs:model:Meta",
@@ -98,6 +95,9 @@
                     "meta" : {
                       "type" : "object",
                       "$ref" : "urn:jsonschema:org:geneontology:obographs:model:Meta"
+                    },
+                    "synonymType" : {
+                      "type" : "string"
                     }
                   }
                 }
@@ -134,6 +134,9 @@
                 "type" : "boolean"
               }
             }
+          },
+          "id" : {
+            "type" : "string"
           },
           "type" : {
             "type" : "string",

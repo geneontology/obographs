@@ -1,10 +1,8 @@
 package org.geneontology.obographs.model.axiom;
 
-import java.util.Set;
-
-import org.geneontology.obographs.model.Meta;
-
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 
 /**
  * Corresponds to an axiom of the form C = X1 and ... and Xn,
@@ -14,6 +12,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  * @author cjm
  *
  */
+@JsonDeserialize(builder = ExistentialRestrictionExpression.Builder.class)
 public class ExistentialRestrictionExpression extends AbstractExpression {
 
     private ExistentialRestrictionExpression(Builder builder) {
@@ -64,6 +63,7 @@ public class ExistentialRestrictionExpression extends AbstractExpression {
             return this;
         }
 
+        @JsonCreator
         public ExistentialRestrictionExpression build() {
             return new ExistentialRestrictionExpression(this);
         }
