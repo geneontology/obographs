@@ -86,6 +86,13 @@ public class Meta {
     }
 
     /**
+     * @return true if deprecated
+     */
+    public Boolean getDeprecated() {
+        return deprecated;
+    }
+
+    /**
      * @return the synonymPropertyValues
      */
     public List<SynonymPropertyValue> getSynonyms() {
