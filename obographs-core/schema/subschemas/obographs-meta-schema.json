@@ -1,0 +1,127 @@
+{
+  "type" : "object",
+  "id" : "urn:jsonschema:org:geneontology:obographs:core:model:Meta",
+  "properties" : {
+    "definition" : {
+      "type" : "object",
+      "id" : "urn:jsonschema:org:geneontology:obographs:core:model:meta:DefinitionPropertyValue",
+      "properties" : {
+        "pred" : {
+          "type" : "string"
+        },
+        "val" : {
+          "type" : "string"
+        },
+        "xrefs" : {
+          "type" : "array",
+          "items" : {
+            "type" : "string"
+          }
+        },
+        "meta" : {
+          "type" : "object",
+          "$ref" : "urn:jsonschema:org:geneontology:obographs:core:model:Meta"
+        }
+      }
+    },
+    "comments" : {
+      "type" : "array",
+      "items" : {
+        "type" : "string"
+      }
+    },
+    "subsets" : {
+      "type" : "array",
+      "items" : {
+        "type" : "string"
+      }
+    },
+    "synonyms" : {
+      "type" : "array",
+      "items" : {
+        "type" : "object",
+        "id" : "urn:jsonschema:org:geneontology:obographs:core:model:meta:SynonymPropertyValue",
+        "properties" : {
+          "synonymType" : {
+            "type" : "string"
+          },
+          "pred" : {
+            "type" : "string"
+          },
+          "val" : {
+            "type" : "string"
+          },
+          "xrefs" : {
+            "type" : "array",
+            "items" : {
+              "type" : "string"
+            }
+          },
+          "meta" : {
+            "type" : "object",
+            "$ref" : "urn:jsonschema:org:geneontology:obographs:core:model:Meta"
+          }
+        }
+      }
+    },
+    "xrefs" : {
+      "type" : "array",
+      "items" : {
+        "type" : "object",
+        "id" : "urn:jsonschema:org:geneontology:obographs:core:model:meta:XrefPropertyValue",
+        "properties" : {
+          "lbl" : {
+            "type" : "string"
+          },
+          "pred" : {
+            "type" : "string"
+          },
+          "val" : {
+            "type" : "string"
+          },
+          "xrefs" : {
+            "type" : "array",
+            "items" : {
+              "type" : "string"
+            }
+          },
+          "meta" : {
+            "type" : "object",
+            "$ref" : "urn:jsonschema:org:geneontology:obographs:core:model:Meta"
+          }
+        }
+      }
+    },
+    "basicPropertyValues" : {
+      "type" : "array",
+      "items" : {
+        "type" : "object",
+        "id" : "urn:jsonschema:org:geneontology:obographs:core:model:meta:BasicPropertyValue",
+        "properties" : {
+          "pred" : {
+            "type" : "string"
+          },
+          "val" : {
+            "type" : "string"
+          },
+          "xrefs" : {
+            "type" : "array",
+            "items" : {
+              "type" : "string"
+            }
+          },
+          "meta" : {
+            "type" : "object",
+            "$ref" : "urn:jsonschema:org:geneontology:obographs:core:model:Meta"
+          }
+        }
+      }
+    },
+    "version" : {
+      "type" : "string"
+    },
+    "deprecated" : {
+      "type" : "boolean"
+    }
+  }
+}
