@@ -22,7 +22,7 @@ public class OgSchemaGeneratorTest {
 	protected void writeSchema(Class c, String fn) throws IOException {
         String s = OgSchemaGenerator.makeSchema(c);
         FileUtils.writeStringToFile(new File("target/"+fn), s);
-        FileUtils.writeStringToFile(new File("schema/"+fn), s);
+        FileUtils.writeStringToFile(new File("../schema/"+fn), s);
 	}
 
 }

@@ -1,10 +1,10 @@
 {
   "type" : "object",
-  "id" : "urn:jsonschema:org:geneontology:obographs:model:Meta",
+  "id" : "urn:jsonschema:org:geneontology:obographs:core:model:Meta",
   "properties" : {
     "definition" : {
       "type" : "object",
-      "id" : "urn:jsonschema:org:geneontology:obographs:model:meta:DefinitionPropertyValue",
+      "id" : "urn:jsonschema:org:geneontology:obographs:core:model:meta:DefinitionPropertyValue",
       "properties" : {
         "pred" : {
           "type" : "string"
@@ -20,7 +20,7 @@
         },
         "meta" : {
           "type" : "object",
-          "$ref" : "urn:jsonschema:org:geneontology:obographs:model:Meta"
+          "$ref" : "urn:jsonschema:org:geneontology:obographs:core:model:Meta"
         }
       }
     },
@@ -40,7 +40,7 @@
       "type" : "array",
       "items" : {
         "type" : "object",
-        "id" : "urn:jsonschema:org:geneontology:obographs:model:meta:SynonymPropertyValue",
+        "id" : "urn:jsonschema:org:geneontology:obographs:core:model:meta:SynonymPropertyValue",
         "properties" : {
           "synonymType" : {
             "type" : "string"
@@ -59,7 +59,7 @@
           },
           "meta" : {
             "type" : "object",
-            "$ref" : "urn:jsonschema:org:geneontology:obographs:model:Meta"
+            "$ref" : "urn:jsonschema:org:geneontology:obographs:core:model:Meta"
           }
         }
       }
@@ -68,7 +68,7 @@
       "type" : "array",
       "items" : {
         "type" : "object",
-        "id" : "urn:jsonschema:org:geneontology:obographs:model:meta:XrefPropertyValue",
+        "id" : "urn:jsonschema:org:geneontology:obographs:core:model:meta:XrefPropertyValue",
         "properties" : {
           "lbl" : {
             "type" : "string"
@@ -87,7 +87,7 @@
           },
           "meta" : {
             "type" : "object",
-            "$ref" : "urn:jsonschema:org:geneontology:obographs:model:Meta"
+            "$ref" : "urn:jsonschema:org:geneontology:obographs:core:model:Meta"
           }
         }
       }
@@ -96,7 +96,7 @@
       "type" : "array",
       "items" : {
         "type" : "object",
-        "id" : "urn:jsonschema:org:geneontology:obographs:model:meta:BasicPropertyValue",
+        "id" : "urn:jsonschema:org:geneontology:obographs:core:model:meta:BasicPropertyValue",
         "properties" : {
           "pred" : {
             "type" : "string"
@@ -112,7 +112,7 @@
           },
           "meta" : {
             "type" : "object",
-            "$ref" : "urn:jsonschema:org:geneontology:obographs:model:Meta"
+            "$ref" : "urn:jsonschema:org:geneontology:obographs:core:model:Meta"
           }
         }
       }
