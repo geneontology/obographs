@@ -9,6 +9,7 @@
         <module>obographs-owlapi</module>
     </modules>
     <packaging>pom</packaging>
+    <name>obographs</name>
     <description>Reference implementation for Obo Graphs</description>
     <url>http://geneontology.org</url>
     <inceptionYear>2016</inceptionYear>
