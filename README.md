@@ -244,18 +244,22 @@ obviating the need for this. We can also make it such that the JSON is available
 
 ## Including obographs in your code:
 
+The library is split into two modules - `obographs-core` which contains the model and code for reading and writing JSON
+and YAML graphs. The `obographs-owlapi` requires `obographs-core` and includes the owlapi and code for converting OWL to
+obographs.
+
 ### Maven
 ```xml
 <dependency>
-    <groupId>org.geneontology</groupId>
-    <artifactId>obographs</artifactId>
+    <groupId>org.geneontology.obographs</groupId>
+    <artifactId>obographs-core</artifactId>
     <version>${project.version}</version>
 </dependency>
 ```
 
 ### Gradle
 ```groovy
-compile 'org.geneontology:obographs:${project.version}'
+compile 'org.geneontology.obographs:obographs-core:${project.version}'
 ```
 
 ### Installing a development snapshot
@@ -263,8 +267,23 @@ compile 'org.geneontology:obographs:${project.version}'
 When developing against an unreleased snapshot version of the API, you can use Maven to install it in your local m2 repository:
 
 ```
-mvn -Dgpg.skip install
+mvn clean install
 ```
+
+### Developing obographs
+
+If you find that your IDE cannot load any of the concrete classes e.g. `Graph` or `GraphDocument` you should check that 
+your IDE has *Annotation Processing* enabled. Obographs uses the [*immutables*](http://immutables.org) library which
+requires annotation processing in the IDE. See https://immutables.github.io/apt.html for how to enable this in your IDE.
+You might need to restart your IDE or re-import the maven projects for this to work fully. It is not required for projects
+using *obographs* as a pre-built library. 
+
+### Releasing to Central
+
+```
+mvn clean deploy -P release
+```
+
 
 ## Javascript
 
