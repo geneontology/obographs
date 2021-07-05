@@ -1,6 +1,7 @@
 ---
 graphs:
-- nodes:
+- id: "http://purl.obolibrary.org/obo/T"
+  nodes:
   - id: "http://purl.obolibrary.org/obo/T/f1"
     type: "INDIVIDUAL"
   - id: "http://purl.obolibrary.org/obo/T/Male"
@@ -84,8 +85,6 @@ graphs:
   - sub: "http://purl.obolibrary.org/obo/T/child-of"
     pred: "inverseOf"
     obj: "http://purl.obolibrary.org/obo/T/parent-of"
-  id: "http://purl.obolibrary.org/obo/T"
-  meta: {}
   domainRangeAxioms:
   - predicateId: "http://purl.obolibrary.org/obo/T/brother-of"
     domainClassIds:

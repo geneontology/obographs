@@ -1,0 +1,50 @@
+[Term]
+id: DOID:0001816
+name: angiosarcoma
+alt_id: DOID:267
+alt_id: DOID:4508
+def: "A malignant Vascular tumor that results_in rapidly proliferating, extensively infiltrating anaplastic cells derived_from blood vessels and derived_from the lining of irregular blood-filled spaces." [url:http\://emedicine.medscape.com/article/276512-overview, url:http\://en.wikipedia.org/wiki/Hemangiosarcoma, url:http\://www.ncbi.nlm.nih.gov/pubmed/23327728]
+subset: NCIthesaurus
+synonym: "hemangiosarcoma" EXACT []
+xref: MESH:D006394
+xref: NCIT:C3088
+xref: NCIT:C9275
+xref: Orphanet:263413
+xref: SCTID:33176006
+xref: SCTID:39000009
+xref: SCTID:403977003
+xref: UMLS:C0018923
+xref: UMLS:C0854893
+is_a: DOID:1115 ! sarcoma
+equivalent_to: NCIT:C3088 {confidence="0.8", comments="foo bar"} ! Angiosarcoma
+equivalent_to: Orphanet:263413 ! Angiosarcoma
+
+[Term]
+id: Orphanet:263413
+name: Angiosarcoma
+subset: Orphanet:377788
+xref: MedDRA:10002476
+is_a: Orphanet:3394 {source="Orphanet", comments="test comments"} ! Soft tissue sarcoma
+
+[Term]
+id: NCIT:C121671
+name: Angiosarcoma of Soft Tissue
+def: "An angiosarcoma that arises from the soft tissues, usually in the deep muscles of the lower extremities, retroperitoneum, mediastinum, and mesentery." [] {http://purl.obolibrary.org/obo/IAO_0000119="NCI"}
+synonym: "Angiosarcoma of Soft Tissue" EXACT [] {http://purl.obolibrary.org/obo/IAO_0000117="NCI"}
+is_a: NCIT:C3088 ! Angiosarcoma
+is_a: NCIT:C9306 ! Soft Tissue Sarcoma
+
+[Term]
+id: NCIT:C3088
+name: Angiosarcoma
+def: "A malignant tumor arising from the endothelial cells of the blood vessels.  Microscopically, it is characterized by frequently open vascular anastomosing and branching channels.  The malignant cells that line the vascular channels are spindle or epithelioid and often display hyperchromatic nuclei.  Angiosarcomas most frequently occur in the skin and breast.  Patients with long-standing lymphedema are at increased risk of developing angiosarcoma." [] {http://purl.obolibrary.org/obo/IAO_0000119="NCI"}
+synonym: "Angiosarcoma" EXACT [] {http://purl.obolibrary.org/obo/IAO_0000117="NCI"}
+synonym: "angiosarcoma" EXACT [] {http://purl.obolibrary.org/obo/IAO_0000117="NCI-GLOSS"}
+synonym: "Hemangiosarcoma" EXACT [] {http://purl.obolibrary.org/obo/IAO_0000117="NCI"}
+synonym: "Hemangiosarcoma" EXACT [] {http://purl.obolibrary.org/obo/IAO_0000117="CDISC"}
+synonym: "hemangiosarcoma" EXACT [] {http://purl.obolibrary.org/obo/IAO_0000117="NCI-GLOSS"}
+synonym: "HEMANGIOSARCOMA, MALIGNANT" EXACT [] {http://purl.obolibrary.org/obo/IAO_0000117="CDISC"}
+synonym: "Malignant Angioendothelioma" EXACT [] {http://purl.obolibrary.org/obo/IAO_0000117="NCI"}
+synonym: "Malignant Hemangioendothelioma" EXACT [] {http://purl.obolibrary.org/obo/IAO_0000117="NCI"}
+is_a: NCIT:C8538 ! Malignant Blood Vessel Neoplasm   
+is_a: NCIT:C9118 ! Sarcoma
