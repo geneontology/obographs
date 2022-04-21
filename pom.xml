@@ -7,6 +7,7 @@
     <modules>
         <module>obographs-core</module>
         <module>obographs-owlapi</module>
+        <module>obographs-cli</module>
     </modules>
     <packaging>pom</packaging>
     <name>obographs</name>
