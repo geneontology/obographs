@@ -1,7 +1,6 @@
-[![Build Status](https://travis-ci.org/geneontology/obographs.svg?branch=master)](https://travis-ci.org/geneontology/obographs)
-[![Maven Central](https://maven-badges.herokuapp.com/maven-central/org.geneontology/obographs/badge.svg)](https://maven-badges.herokuapp.com/maven-central/org.geneontology/obographs)
-[![Javadoc](https://javadoc-emblem.rhcloud.com/doc/org.geneontology/obographs/badge.svg)](http://www.javadoc.io/doc/org.geneontology/obographs)
-
+[![Build Status](https://travis-ci.com/geneontology/obographs.svg?branch=master)](https://app.travis-ci.com/github/geneontology/obographs)
+[![Maven Central](https://maven-badges.herokuapp.com/maven-central/org.geneontology.obographs/obographs/badge.svg)](https://maven-badges.herokuapp.com/maven-central/org.geneontology.obographs/obographs)
+[![javadoc](https://javadoc.io/badge2/org.geneontology.obographs/obographs-core/javadoc.svg)](https://javadoc.io/doc/org.geneontology.obographs/obographs-core)
 # OBO Graphs : Developer-friendly graph-oriented ontology JSON/YAML
 
 This repo contains both a specification for a JSON/YAML format for
