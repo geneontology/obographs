@@ -24,11 +24,13 @@ import javax.annotation.Nullable;
  * @author cjm
  *
  */
-@JsonPropertyOrder({"id", "lbl", "type", "meta"})
+@JsonPropertyOrder({"id", "lbl", "type", "propertyType", "meta"})
 @Value.Immutable
 public abstract class AbstractNode implements NodeOrEdge, Comparable<AbstractNode> {
 	
-    public enum RDFTYPES { CLASS, INDIVIDUAL, PROPERTY };
+    public enum RDFTYPES { CLASS, INDIVIDUAL, PROPERTY }
+
+	public enum PropertyType { ANNOTATION, OBJECT, DATA }
 
 	@JsonProperty
 	@Value.Default
@@ -46,11 +48,16 @@ public abstract class AbstractNode implements NodeOrEdge, Comparable<AbstractNod
 	@Nullable
 	public abstract RDFTYPES getType();
 
+	@JsonProperty
+	@Nullable
+	public abstract PropertyType getPropertyType();
+
 	public int compareTo(AbstractNode other) {
 		return ComparisonChain.start()
 				.compare(this.getId(), other.getId())
 				.compare(this.getLabel(), other.getLabel())
 				.compare(this.getType(), other.getType())
+				.compare(this.getPropertyType(), other.getPropertyType())
 				.result();
 	}
 }
