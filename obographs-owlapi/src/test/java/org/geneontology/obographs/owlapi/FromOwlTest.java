@@ -9,7 +9,7 @@ import org.geneontology.obographs.core.io.OgYamlReader;
 import org.geneontology.obographs.core.model.*;
 import org.geneontology.obographs.core.model.AbstractNode.PropertyType;
 import org.geneontology.obographs.core.model.meta.BasicPropertyValue;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import org.semanticweb.owlapi.apibinding.OWLManager;
 import org.semanticweb.owlapi.model.IRI;
 import org.semanticweb.owlapi.model.OWLOntology;
@@ -28,8 +28,8 @@ import java.util.List;
 
 import static org.geneontology.obographs.core.model.AbstractNode.RDFTYPES.*;
 import static org.hamcrest.CoreMatchers.equalTo;
-import static org.junit.Assert.assertThat;
-import static org.junit.Assert.fail;
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.junit.jupiter.api.Assertions.fail;
 
 /**
  * Generates json from OWL and tests the content returned for equality.

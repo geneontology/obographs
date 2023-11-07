@@ -3,13 +3,13 @@ package org.geneontology.obographs.core.model;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import org.geneontology.obographs.core.io.OgJsonGenerator;
 import org.geneontology.obographs.core.io.OgYamlGenerator;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class GraphTest {
 

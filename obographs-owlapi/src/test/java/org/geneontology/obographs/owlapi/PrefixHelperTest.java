@@ -1,14 +1,14 @@
 package org.geneontology.obographs.owlapi;
 
 import com.github.jsonldjava.core.Context;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import org.semanticweb.owlapi.util.DefaultPrefixManager;
 
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class PrefixHelperTest {
 
@@ -22,9 +22,9 @@ public class PrefixHelperTest {
         PrefixHelper ioh = new PrefixHelper();
         Context context = ioh.getContext();
 
-        assertEquals("Check GO prefix",
+        assertEquals(
                 "http://purl.obolibrary.org/obo/GO_",
-                context.getPrefixes(false).get("GO"));
+                context.getPrefixes(false).get("GO"), "Check GO prefix");
     }
 
     /**
@@ -51,7 +51,7 @@ public class PrefixHelperTest {
         Map<String, String> expected = new HashMap<String, String>();
         expected.put("foo", "http://example.com#");
         expected.put("bar", "http://example.com#");
-        assertEquals("Check JSON prefixes", expected, ioh.getPrefixes());
+        assertEquals(expected, ioh.getPrefixes(), "Check JSON prefixes");
     }
 
     /**
@@ -63,22 +63,22 @@ public class PrefixHelperTest {
     public void testPrefixHandling() throws IOException {
         PrefixHelper ioh = new PrefixHelper(false);
         Map<String, String> expected = new HashMap<String, String>();
-        assertEquals("Check no prefixes", expected, ioh.getPrefixes());
+        assertEquals(expected, ioh.getPrefixes(), "Check no prefixes");
 
         ioh.addPrefix("foo", "http://example.com#");
         expected.put("foo", "http://example.com#");
-        assertEquals("Check foo prefix", expected, ioh.getPrefixes());
+        assertEquals(expected, ioh.getPrefixes(), "Check foo prefix");
 
         String json = String.format("{%n"
                     + "  \"@context\" : {%n"
                     + "    \"foo\" : \"http://example.com#\"%n"
                     + "  }%n"
                     + "}");
-        assertEquals("Check JSON-LD", json, ioh.getContextString());
+        assertEquals(json, ioh.getContextString(), "Check JSON-LD");
 
         ioh.addPrefix("bar: http://example.com#");
         expected.put("bar", "http://example.com#");
-        assertEquals("Check no prefixes", expected, ioh.getPrefixes());
+        assertEquals(expected, ioh.getPrefixes(), "Check no prefixes");
     }
 
     /**
@@ -91,9 +91,9 @@ public class PrefixHelperTest {
         PrefixHelper ioh = new PrefixHelper();
         DefaultPrefixManager pm = ioh.getPrefixManager();
 
-        assertEquals("Check GO CURIE",
-                "http://purl.obolibrary.org/obo/GO_12345",
-                pm.getIRI("GO:12345").toString());
+        assertEquals("http://purl.obolibrary.org/obo/GO_12345",
+                pm.getIRI("GO:12345").toString(),
+                "Check GO CURIE");
     }
 
 }

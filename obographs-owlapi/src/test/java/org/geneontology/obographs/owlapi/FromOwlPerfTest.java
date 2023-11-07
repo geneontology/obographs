@@ -4,7 +4,7 @@ import org.apache.commons.io.FileUtils;
 import org.geneontology.obographs.core.io.OgJsonGenerator;
 import org.geneontology.obographs.core.io.OgYamlGenerator;
 import org.geneontology.obographs.core.model.GraphDocument;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import org.semanticweb.owlapi.apibinding.OWLManager;
 import org.semanticweb.owlapi.model.IRI;
 import org.semanticweb.owlapi.model.OWLOntology;

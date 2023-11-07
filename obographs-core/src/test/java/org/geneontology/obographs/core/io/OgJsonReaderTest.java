@@ -2,7 +2,7 @@ package org.geneontology.obographs.core.io;
 
 import org.geneontology.obographs.core.model.GraphDocument;
 import org.geneontology.obographs.core.model.Node;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;

@@ -1,9 +1,11 @@
 package org.geneontology.obographs.core.model;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNull;
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.equalTo;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
 
 public class NodeTest {
 
@@ -37,4 +39,13 @@ public class NodeTest {
         return new Node.Builder().id(parent_id).label(parent_lbl).build();
     }
 
+    @Test
+    public void testComparator() {
+        Node aa = new Node.Builder().id("a").label("a").build();
+        Node ab = new Node.Builder().id("a").label("b").build();
+
+        assertThat(aa.compareTo(ab), equalTo(-1));
+        assertThat(aa.compareTo(aa), equalTo(0));
+        assertThat(ab.compareTo(aa), equalTo(1));
+    }
 }
