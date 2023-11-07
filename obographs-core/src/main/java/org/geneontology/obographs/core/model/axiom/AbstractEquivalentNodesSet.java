@@ -2,14 +2,14 @@ package org.geneontology.obographs.core.model.axiom;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.google.common.collect.ComparisonChain;
 import org.immutables.value.Value;
 
+import java.util.Comparator;
 import java.util.Set;
 
 /**
  * A set of nodes that all stand in a mutual equivalence or identity relationship to one another
- * 
+ * <p>
  * Corresponds to Node in the OWLAPI
  * 
  * 
@@ -19,6 +19,9 @@ import java.util.Set;
 @JsonPropertyOrder({"representativeNodeId", "nodeIds", "meta"})
 @Value.Immutable
 public abstract class AbstractEquivalentNodesSet implements Axiom, Comparable<AbstractEquivalentNodesSet> {
+
+    private static final Comparator<AbstractEquivalentNodesSet> COMPARATOR =
+            Comparator.comparing(AbstractEquivalentNodesSet::getRepresentativeNodeId);
 
     /**
      * @return the representativeNodeId
@@ -39,9 +42,6 @@ public abstract class AbstractEquivalentNodesSet implements Axiom, Comparable<Ab
 
     @Override
     public int compareTo(AbstractEquivalentNodesSet o) {
-        return ComparisonChain.start()
-                .compare(this.getRepresentativeNodeId(), o.getRepresentativeNodeId())
-//                .compare(this.getNodeIds(), o.getNodeIds())
-                .result();
+        return COMPARATOR.compare(this, o);
     }
 }

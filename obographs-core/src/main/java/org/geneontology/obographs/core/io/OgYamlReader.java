@@ -2,7 +2,6 @@ package org.geneontology.obographs.core.io;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.dataformat.yaml.YAMLFactory;
-import com.fasterxml.jackson.datatype.guava.GuavaModule;
 import org.geneontology.obographs.core.model.GraphDocument;
 
 import java.io.File;
@@ -36,8 +35,6 @@ public class OgYamlReader {
 	}
 
 	private static ObjectMapper newObjectMapper() {
-		ObjectMapper objectMapper = new ObjectMapper(new YAMLFactory());
-		objectMapper.registerModule(new GuavaModule());
-		return objectMapper;
+		return new ObjectMapper(new YAMLFactory());
 	}
 }

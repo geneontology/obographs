@@ -2,10 +2,10 @@ package org.geneontology.obographs.core.model.axiom;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.google.common.collect.ComparisonChain;
 import org.geneontology.obographs.core.model.Edge;
 import org.immutables.value.Value;
 
+import java.util.Comparator;
 import java.util.Set;
 
 /**
@@ -16,6 +16,9 @@ import java.util.Set;
 @JsonPropertyOrder({"predicateId", "domainClassIds", "rangeClassIds", "allValuesFromEdges", "meta"})
 @Value.Immutable
 public abstract class AbstractDomainRangeAxiom implements Axiom, Comparable<AbstractDomainRangeAxiom> {
+
+    private static final Comparator<AbstractDomainRangeAxiom> COMPARATOR =
+            Comparator.comparing(AbstractDomainRangeAxiom::getPredicateId);
 
     /**
      * @return the predicateId
@@ -56,8 +59,6 @@ public abstract class AbstractDomainRangeAxiom implements Axiom, Comparable<Abst
 
     @Override
     public int compareTo(AbstractDomainRangeAxiom o) {
-        return ComparisonChain.start()
-                .compare(this.getPredicateId(), o.getPredicateId())
-                .result();
+        return COMPARATOR.compare(this, o);
     }
 }

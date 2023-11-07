@@ -3,11 +3,11 @@ package org.geneontology.obographs.core.model.meta;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.google.common.collect.ComparisonChain;
 import org.geneontology.obographs.core.model.Meta;
 import org.immutables.value.Value;
 
 import javax.annotation.Nullable;
+import java.util.Comparator;
 import java.util.List;
 
 /**
@@ -33,6 +33,10 @@ import java.util.List;
 @JsonPropertyOrder({"pred", "val", "xrefs", "meta"})
 @JsonInclude(JsonInclude.Include.NON_DEFAULT)
 public interface PropertyValue extends Comparable<PropertyValue> {
+
+    static final Comparator<PropertyValue> COMPARATOR =
+       Comparator.comparing(PropertyValue::getPred)
+            .thenComparing(PropertyValue::getVal);
 
     /**
      * Predicates correspond to OWL properties. Like all preds in this datamodel,
@@ -71,9 +75,6 @@ public interface PropertyValue extends Comparable<PropertyValue> {
 
     @Override
     default int compareTo(PropertyValue o) {
-        return ComparisonChain.start()
-                .compare(this.getPred(), o.getPred())
-                .compare(this.getVal(), o.getVal())
-                .result();
+        return COMPARATOR.compare(this, o);
     }
 }

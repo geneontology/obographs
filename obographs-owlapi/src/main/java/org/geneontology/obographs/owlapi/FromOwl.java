@@ -1,7 +1,6 @@
 package org.geneontology.obographs.owlapi;
 
 import com.github.jsonldjava.core.Context;
-import com.google.common.collect.ImmutableSet;
 import org.geneontology.obographs.core.model.AbstractNode.RDFTYPES;
 import org.geneontology.obographs.core.model.*;
 import org.geneontology.obographs.core.model.Node.Builder;
@@ -224,10 +223,10 @@ public class FromOwl {
                     List<OWLClassExpression> namedXs = xs.stream()
                             .filter(IsAnonymous::isNamed)
                             .collect(Collectors.toUnmodifiableList());
-                    Set<String> xClassIds = namedXs.stream()
-                            .map(x -> getClassId((OWLClass) x))
-                            .collect(ImmutableSet.toImmutableSet());
                     if (anonXs.isEmpty()) {
+                        Set<String> xClassIds = namedXs.stream()
+                                .map(x -> getClassId((OWLClass) x))
+                                .collect(Collectors.toCollection(LinkedHashSet::new));
                         // EquivalentNodesSet
                         // all classes in equivalence axiom are named
                         // TODO: merge pairwise assertions into a clique

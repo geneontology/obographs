@@ -2,9 +2,9 @@ package org.geneontology.obographs.core.model.axiom;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.google.common.collect.ComparisonChain;
 import org.immutables.value.Value;
 
+import java.util.Comparator;
 import java.util.List;
 
 /**
@@ -17,6 +17,10 @@ import java.util.List;
 @JsonPropertyOrder({"predicateId", "chainPredicateIds", "meta"})
 @Value.Immutable
 public abstract class AbstractPropertyChainAxiom implements Axiom, Comparable<AbstractPropertyChainAxiom> {
+
+
+    private static final Comparator<AbstractPropertyChainAxiom> COMPARATOR =
+            Comparator.comparing(AbstractPropertyChainAxiom::getPredicateId);
 
     /**
      * @return the predicateId
@@ -32,8 +36,6 @@ public abstract class AbstractPropertyChainAxiom implements Axiom, Comparable<Ab
 
     @Override
     public int compareTo(AbstractPropertyChainAxiom o) {
-        return ComparisonChain.start()
-                .compare(this.getPredicateId(), o.getPredicateId())
-                .result();
+        return COMPARATOR.compare(this, o);
     }
 }
