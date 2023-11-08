@@ -21,6 +21,8 @@ import java.lang.annotation.Target;
         typeImmutable = "*", // No prefix or suffix for generated immutable type
         builder = "new", // construct builder using 'new' instead of factory method
         visibility = Value.Style.ImplementationVisibility.SAME // Generated class will be always public
+        // Do NOT enable jdk9Collections = true as this will use the inherently unordered Set.of which will destroy the
+        // reproducible output of the library when writing to JSON/YAML
 )
 @JsonSerialize
 public @interface OboGraph {

@@ -151,6 +151,10 @@
             "type" : "string",
             "enum" : [ "CLASS", "INDIVIDUAL", "PROPERTY" ]
           },
+          "propertyType" : {
+            "type" : "string",
+            "enum" : [ "ANNOTATION", "OBJECT", "DATA" ]
+          },
           "meta" : {
             "type" : "object",
             "$ref" : "urn:jsonschema:org:geneontology:obographs:core:model:Meta"

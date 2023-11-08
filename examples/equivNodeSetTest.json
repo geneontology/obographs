@@ -69,10 +69,6 @@
         "deprecated" : true
       }
     }, {
-      "id" : "http://purl.obolibrary.org/obo/IAO_0000115",
-      "lbl" : "definition",
-      "type" : "PROPERTY"
-    }, {
       "id" : "http://purl.obolibrary.org/obo/NCIT_C121671",
       "lbl" : "Angiosarcoma of Soft Tissue",
       "type" : "CLASS",
@@ -130,21 +126,58 @@
         } ]
       }
     }, {
+      "id" : "http://purl.obolibrary.org/obo/IAO_0000115",
+      "lbl" : "definition",
+      "type" : "PROPERTY",
+      "propertyType" : "ANNOTATION"
+    }, {
+      "id" : "http://www.geneontology.org/formats/oboInOwl#comments",
+      "type" : "PROPERTY",
+      "propertyType" : "ANNOTATION"
+    }, {
+      "id" : "http://www.geneontology.org/formats/oboInOwl#confidence",
+      "type" : "PROPERTY",
+      "propertyType" : "ANNOTATION"
+    }, {
       "id" : "http://www.geneontology.org/formats/oboInOwl#hasAlternativeId",
       "lbl" : "has_alternative_id",
-      "type" : "PROPERTY"
+      "type" : "PROPERTY",
+      "propertyType" : "ANNOTATION"
     }, {
       "id" : "http://www.geneontology.org/formats/oboInOwl#hasDbXref",
       "lbl" : "database_cross_reference",
-      "type" : "PROPERTY"
+      "type" : "PROPERTY",
+      "propertyType" : "ANNOTATION"
     }, {
       "id" : "http://www.geneontology.org/formats/oboInOwl#hasExactSynonym",
       "lbl" : "has_exact_synonym",
-      "type" : "PROPERTY"
+      "type" : "PROPERTY",
+      "propertyType" : "ANNOTATION"
+    }, {
+      "id" : "http://www.geneontology.org/formats/oboInOwl#id",
+      "type" : "PROPERTY",
+      "propertyType" : "ANNOTATION"
     }, {
       "id" : "http://www.geneontology.org/formats/oboInOwl#inSubset",
       "lbl" : "in_subset",
-      "type" : "PROPERTY"
+      "type" : "PROPERTY",
+      "propertyType" : "ANNOTATION"
+    }, {
+      "id" : "http://www.geneontology.org/formats/oboInOwl#source",
+      "type" : "PROPERTY",
+      "propertyType" : "ANNOTATION"
+    }, {
+      "id" : "http://www.geneontology.org/formats/oboInOwl#http://purl.obolibrary.org/obo/IAO_0000117",
+      "type" : "PROPERTY",
+      "propertyType" : "ANNOTATION"
+    }, {
+      "id" : "http://www.geneontology.org/formats/oboInOwl#http://purl.obolibrary.org/obo/IAO_0000119",
+      "type" : "PROPERTY",
+      "propertyType" : "ANNOTATION"
+    }, {
+      "id" : "http://www.w3.org/2000/01/rdf-schema#label",
+      "type" : "PROPERTY",
+      "propertyType" : "ANNOTATION"
     } ],
     "edges" : [ {
       "sub" : "http://purl.obolibrary.org/obo/DOID_0001816",

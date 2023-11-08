@@ -7,7 +7,7 @@ import java.util.Map;
 
 public class SynonymVocabulary {
 
-    public static String SYNONYM_TYPE = "http://www.geneontology.org/formats/oboInOwl#hasSynonymType";
+    public static final String SYNONYM_TYPE = "http://www.geneontology.org/formats/oboInOwl#hasSynonymType";
 
     Map<String,SCOPES> iriToScopeMap = new HashMap<>();
 

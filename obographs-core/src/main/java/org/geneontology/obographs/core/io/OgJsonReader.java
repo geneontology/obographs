@@ -2,7 +2,6 @@ package org.geneontology.obographs.core.io;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.datatype.guava.GuavaModule;
 import org.geneontology.obographs.core.model.GraphDocument;
 
 import java.io.File;
@@ -22,19 +21,16 @@ public class OgJsonReader {
 
 	public static GraphDocument readFile(File file) throws IOException {
 		ObjectMapper objectMapper = new ObjectMapper();
-		objectMapper.registerModule(new GuavaModule());
 		return objectMapper.readValue(file, GraphDocument.class);
 	}
 
 	public static GraphDocument readInputStream(InputStream stream) throws IOException {
 		ObjectMapper objectMapper = new ObjectMapper();
-		objectMapper.registerModule(new GuavaModule());
 		return objectMapper.readValue(stream, GraphDocument.class);
 	}
 
 	public static GraphDocument read(Reader reader) throws IOException {
 		ObjectMapper objectMapper = new ObjectMapper();
-		objectMapper.registerModule(new GuavaModule());
 		objectMapper.setSerializationInclusion(JsonInclude.Include.NON_NULL);
 		objectMapper.setSerializationInclusion(JsonInclude.Include.NON_EMPTY);
 		objectMapper.setSerializationInclusion(JsonInclude.Include.NON_DEFAULT);

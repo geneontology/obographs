@@ -1,13 +1,13 @@
 package org.geneontology.obographs.core.model;
 
 import org.geneontology.obographs.core.model.meta.*;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
 import java.util.Collections;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 
 public class MetaTest {
 

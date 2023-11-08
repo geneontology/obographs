@@ -6,17 +6,6 @@ graphs:
     - pred: "http://www.geneontology.org/formats/oboInOwl#id"
       val: "logical_definition_test"
   nodes:
-  - id: "http://purl.obolibrary.org/obo/BFO_0000050"
-    type: "PROPERTY"
-    meta:
-      xrefs:
-      - val: "BFO:0000050"
-      basicPropertyValues:
-      - pred: "http://www.geneontology.org/formats/oboInOwl#shorthand"
-        val: "part_of"
-  - id: "http://purl.obolibrary.org/obo/IAO_0000115"
-    lbl: "definition"
-    type: "PROPERTY"
   - id: "http://purl.obolibrary.org/obo/UBERON_0002101"
     lbl: "limb"
     type: "CLASS"
@@ -32,12 +21,33 @@ graphs:
   - id: "http://purl.obolibrary.org/obo/UBERON_0002470"
     lbl: "autopod region"
     type: "CLASS"
+  - id: "http://purl.obolibrary.org/obo/BFO_0000050"
+    type: "PROPERTY"
+    propertyType: "OBJECT"
+    meta:
+      xrefs:
+      - val: "BFO:0000050"
+      basicPropertyValues:
+      - pred: "http://www.geneontology.org/formats/oboInOwl#shorthand"
+        val: "part_of"
+  - id: "http://purl.obolibrary.org/obo/IAO_0000115"
+    lbl: "definition"
+    type: "PROPERTY"
+    propertyType: "ANNOTATION"
   - id: "http://www.geneontology.org/formats/oboInOwl#hasDbXref"
     lbl: "database_cross_reference"
     type: "PROPERTY"
+    propertyType: "ANNOTATION"
+  - id: "http://www.geneontology.org/formats/oboInOwl#id"
+    type: "PROPERTY"
+    propertyType: "ANNOTATION"
   - id: "http://www.geneontology.org/formats/oboInOwl#shorthand"
     lbl: "shorthand"
     type: "PROPERTY"
+    propertyType: "ANNOTATION"
+  - id: "http://www.w3.org/2000/01/rdf-schema#label"
+    type: "PROPERTY"
+    propertyType: "ANNOTATION"
   edges:
   - sub: "http://purl.obolibrary.org/obo/UBERON_0002102"
     pred: "is_a"

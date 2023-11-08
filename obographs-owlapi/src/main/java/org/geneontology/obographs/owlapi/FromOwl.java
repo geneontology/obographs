@@ -1,8 +1,6 @@
 package org.geneontology.obographs.owlapi;
 
 import com.github.jsonldjava.core.Context;
-import com.google.common.base.Optional;
-import com.google.common.collect.ImmutableSet;
 import org.geneontology.obographs.core.model.AbstractNode.RDFTYPES;
 import org.geneontology.obographs.core.model.*;
 import org.geneontology.obographs.core.model.Node.Builder;
@@ -13,39 +11,43 @@ import org.geneontology.obographs.core.model.meta.DefinitionPropertyValue;
 import org.geneontology.obographs.core.model.meta.SynonymPropertyValue;
 import org.geneontology.obographs.core.model.meta.XrefPropertyValue;
 import org.semanticweb.owlapi.model.*;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import javax.annotation.Nullable;
 import java.util.*;
 import java.util.stream.Collectors;
 
+import org.geneontology.obographs.core.model.AbstractNode.PropertyType;
+
 /**
  * Implements OWL to OG translation
  * ===
- * 
+ * <p>
  * See <a href="https://github.com/geneontology/obographs/blob/master/README-owlmapping.md">OWL Mapping spec</a>
- * 
- * @see "[SPEC](https://github.com/geneontology/obographs/blob/master/README-owlmapping.md)"
- * 
- * 
- * @author cjm
  *
+ * @author cjm
+ * @see "[SPEC](https://github.com/geneontology/obographs/blob/master/README-owlmapping.md)"
  */
 public class FromOwl {
+
+    private static final Logger LOGGER = LoggerFactory.getLogger(FromOwl.class);
 
     public static final String SUBCLASS_OF = "is_a";
     public static final String SUBPROPERTY_OF = "subPropertyOf";
     public static final String INVERSE_OF = "inverseOf";
+    public static final String TYPE = "type";
 
-    private PrefixHelper prefixHelper;
-    private Context context;
+    private final PrefixHelper prefixHelper;
+    private final Context context;
 
     static class OBOClassDef {
-        List<String> genusClassIds = new ArrayList<>();
-        List<ExistentialRestrictionExpression> restrs = new ArrayList<>();
+        final List<String> genusClassIds = new ArrayList<>();
+        final List<ExistentialRestrictionExpression> restrs = new ArrayList<>();
     }
 
     /**
-     * 
+     *
      */
     public FromOwl() {
         prefixHelper = new PrefixHelper();
@@ -60,7 +62,7 @@ public class FromOwl {
     public GraphDocument generateGraphDocument(OWLOntology baseOntology) {
         List<Graph> graphs = new ArrayList<>();
         for (OWLOntology ont : baseOntology.getImportsClosure()) {
-            graphs.add( generateGraph(ont));
+            graphs.add(generateGraph(ont));
         }
         return new GraphDocument.Builder().graphs(graphs).build();
     }
@@ -73,20 +75,13 @@ public class FromOwl {
 
         SynonymVocabulary synonymVocabulary = new SynonymVocabulary();
 
-        List<Edge> edges = new ArrayList<>();
-        List<Node> nodes = new ArrayList<>();
-        List<EquivalentNodesSet> ensets = new ArrayList<>();
-        List<LogicalDefinitionAxiom> ldas = new ArrayList<>();
-        Set<String> nodeIds = new LinkedHashSet<>();
-        Map<String, RDFTYPES> nodeTypeMap = new LinkedHashMap<>();
-        Map<String, String> nodeLabelMap = new LinkedHashMap<>();
-        Map<String, DomainRangeAxiom.Builder> domainRangeBuilderMap = new LinkedHashMap<>();
-        List<PropertyChainAxiom> pcas = new ArrayList<>();
 
-        // Each node can be built from multiple axioms; use a builder for each nodeId
-        Map<String, Meta.Builder> nodeMetaBuilderMap = new LinkedHashMap<>();
-
-        Set<OWLAxiom> untranslatedAxioms = new LinkedHashSet<>();
+        OWLOntologyID ontId = ontology.getOntologyID();
+        String graphId = ontId.getOntologyIRI().isPresent() ? getNodeId(ontId.getOntologyIRI().get()) : "";
+        String version = ontId.getVersionIRI().isPresent() ? getNodeId(ontId.getVersionIRI().get()) : "";
+        Meta graphAnnotationsMeta = buildMeta(ontology.getAnnotations(), version);
+        // The oboGraphBuilder is where all the OboGraphs stuff is put as it is translated from the OWLOntology
+        OboGraphBuilder oboGraphBuilder = new OboGraphBuilder(graphId, graphAnnotationsMeta);
 
         // Ensure axioms are sorted for reproducible objects and output
         List<OWLAxiom> sortedAxioms = new ArrayList<>(ontology.getAxioms());
@@ -95,32 +90,33 @@ public class FromOwl {
         // iterate over all axioms and push to relevant builders
         for (OWLAxiom ax : sortedAxioms) {
 
-            Meta meta = getAnnotations(ax);
+            Meta meta = buildMeta(ax);
 
             if (ax instanceof OWLDeclarationAxiom) {
-                OWLDeclarationAxiom dax = ((OWLDeclarationAxiom)ax);
+                OWLDeclarationAxiom dax = ((OWLDeclarationAxiom) ax);
                 OWLEntity e = dax.getEntity();
+                String id = e.getIRI().toString();
                 if (e instanceof OWLClass) {
-                    setNodeType(getClassId((OWLClass) e), RDFTYPES.CLASS, nodeTypeMap);
+                    oboGraphBuilder.addNodeType(id, RDFTYPES.CLASS);
+                } else if (e instanceof OWLDataProperty) {
+                    oboGraphBuilder.addNodeType(id, PropertyType.DATA);
+                } else if (e instanceof OWLObjectProperty) {
+                    oboGraphBuilder.addNodeType(id, PropertyType.OBJECT);
+                } else if (e instanceof OWLAnnotationProperty) {
+                    oboGraphBuilder.addNodeType(id, PropertyType.ANNOTATION);
+                } else if (e instanceof OWLNamedIndividual) {
+                    oboGraphBuilder.addNodeType(id, RDFTYPES.INDIVIDUAL);
                 }
-                else if (e instanceof OWLProperty) {
-                    setNodeType(getPropertyId((OWLProperty) e), RDFTYPES.PROPERTY, nodeTypeMap);
-                }
-                else if (e instanceof OWLNamedIndividual) {
-                    setNodeType(getIndividualId((OWLNamedIndividual) e), RDFTYPES.INDIVIDUAL, nodeTypeMap);
-                }
-            }
-            else if (ax instanceof OWLLogicalAxiom) {
+            } else if (ax instanceof OWLLogicalAxiom) {
                 // LOGICAL AXIOMS
 
                 if (ax instanceof OWLSubClassOfAxiom) {
                     // SUBCLASS
 
-                    OWLSubClassOfAxiom sca = (OWLSubClassOfAxiom)ax;
+                    OWLSubClassOfAxiom sca = (OWLSubClassOfAxiom) ax;
                     OWLClassExpression subc = sca.getSubClass();
                     OWLClassExpression supc = sca.getSuperClass();
 
-                    String subj = null;
                     if (subc.isAnonymous()) {
                         // GCI
 
@@ -140,111 +136,104 @@ public class FromOwl {
                         }
                          */
 
-                    }
-                    else {
+                    } else if (subc.isNamed()) {
                         // SUBJECT IS NAMED CLASS (non-GCI)
-                        subj = getClassId((OWLClass) subc);
-                    }
+                        String subj = getClassId((OWLClass) subc);
 
-                    if (subj != null) {
-
-                        setNodeType(subj, RDFTYPES.CLASS, nodeTypeMap);
+                        oboGraphBuilder.addNodeType(subj, RDFTYPES.CLASS);
 
                         if (supc.isAnonymous()) {
                             if (supc instanceof OWLObjectSomeValuesFrom) {
                                 ExistentialRestrictionExpression r = getRestriction(supc);
                                 if (r == null) {
-                                    untranslatedAxioms.add(sca);
+                                    oboGraphBuilder.addUntranslatedAxiom(sca);
+                                } else {
+                                    oboGraphBuilder.addEdge(subj, r.getPropertyId(), r.getFillerId(), meta);
                                 }
-                                else {
-                                    Edge e = getEdge(subj, r.getPropertyId(), r.getFillerId(), nullIfEmpty(meta));
-                                    edges.add(e);
+                            } else if (supc instanceof OWLObjectAllValuesFrom) {
+                                OWLObjectAllValuesFrom avf = (OWLObjectAllValuesFrom) supc;
+                                OWLObjectPropertyExpression property = avf.getProperty();
+                                if (property instanceof OWLObjectProperty) {
+                                    if (avf.getFiller().isNamed()) {
+                                        String propertyId = getPropertyId(property);
+                                        DomainRangeAxiom domainRangeAxiom = oboGraphBuilder.getDomainRangeAxiomBuilder(propertyId).build();
+                                        Edge edge = buildEdge(subj,
+                                                //TODO CHECK!!!
+                                                domainRangeAxiom.getPredicateId(),
+                                                getClassId(avf.getFiller().asOWLClass()),
+                                                meta);
+                                        oboGraphBuilder.addPropertyEdgeDefinitions(propertyId, edge);
+                                    } else {
+                                        oboGraphBuilder.addUntranslatedAxiom(sca);
+                                    }
+                                } else if (property instanceof OWLObjectInverseOf) {
+                                    OWLObjectInverseOf iop = (OWLObjectInverseOf) property;
+                                    if (avf.getFiller().isNamed() && iop.isNamed()) {
+                                        String pid = getPropertyId(iop.getInverse());
+                                        Edge edge = buildEdge(subj, INVERSE_OF, pid, meta);
+                                        oboGraphBuilder.addPropertyEdgeDefinitions(pid, edge);
+                                    } else {
+                                        oboGraphBuilder.addUntranslatedAxiom(sca);
+                                    }
                                 }
                             }
-                            else if (supc instanceof OWLObjectAllValuesFrom) {
-                                OWLObjectAllValuesFrom avf = (OWLObjectAllValuesFrom)supc;
-                                DomainRangeAxiom.Builder b = getDRBuilder(avf.getProperty(), domainRangeBuilderMap);
-                                if (avf.getFiller().isAnonymous()) {
-
-                                }
-                                else {
-                                    Edge e = getEdge(subj,
-                                            //TODO CHECK!!!
-                                            b.build().getPredicateId(),
-                                            getClassId(avf.getFiller().asOWLClass()),
-                                            nullIfEmpty(meta));
-                                    b.addAllValuesFromEdge(e);
-                                }
-                            }
-                            else {
-
-                            }
+                        } else {
+                            oboGraphBuilder.addEdge(subj, SUBCLASS_OF, getClassId((OWLClass) supc), meta);
                         }
-                        else {
-                            edges.add(getEdge(subj, SUBCLASS_OF, getClassId((OWLClass) supc), nullIfEmpty(meta)));
-                        }
+                    } else {
+                        // Logically impossible to reach this? subj is either named or anonymous
+                        oboGraphBuilder.addUntranslatedAxiom(sca);
                     }
-                    else {
-                        untranslatedAxioms.add(sca);
-                    }
-                }
-                else if (ax instanceof OWLClassAssertionAxiom) {
-                    OWLClassAssertionAxiom ca = (OWLClassAssertionAxiom)ax;
+                } else if (ax instanceof OWLClassAssertionAxiom) {
+                    OWLClassAssertionAxiom ca = (OWLClassAssertionAxiom) ax;
 
                     String subj = getIndividualId(ca.getIndividual());
-                    String pred = "type";
                     String obj;
                     OWLClassExpression cx = ca.getClassExpression();
                     if (cx.isAnonymous()) {
-                        untranslatedAxioms.add(ca);
+                        oboGraphBuilder.addUntranslatedAxiom(ca);
                         continue;
-                    }
-                    else {
+                    } else {
                         obj = getClassId(cx.asOWLClass());
                     }
-                    edges.add(getEdge(subj, pred, obj, meta));
-                    nodeIds.add(subj); // always include
-                    nodeIds.add(obj); // always include
+                    oboGraphBuilder.addEdge(subj, TYPE, obj, meta);
+                    oboGraphBuilder.addNodeId(subj); // always include
+                    oboGraphBuilder.addNodeId(obj); // always include
 
-                }
-                 else if (ax instanceof OWLObjectPropertyAssertionAxiom) {
-                    OWLObjectPropertyAssertionAxiom opa = (OWLObjectPropertyAssertionAxiom)ax;
+                } else if (ax instanceof OWLObjectPropertyAssertionAxiom) {
+                    OWLObjectPropertyAssertionAxiom opa = (OWLObjectPropertyAssertionAxiom) ax;
 
                     String subj = getIndividualId(opa.getSubject());
                     String obj = getIndividualId(opa.getObject());
                     if (opa.getProperty().isAnonymous()) {
-                        untranslatedAxioms.add(opa);
+                        oboGraphBuilder.addUntranslatedAxiom(opa);
+                    } else {
+                        String pred = getPropertyId(opa.getProperty());
+                        oboGraphBuilder.addEdge(subj, pred, obj, meta);
                     }
-                    else {
-                        String pred = getPropertyId(opa.getProperty().asOWLObjectProperty());
-
-                        edges.add(getEdge(subj, pred, obj, meta));
-                    }
-                    nodeIds.add(subj); // always include subject node of an OPA
-
-                }
-                else if (ax instanceof OWLEquivalentClassesAxiom) {
+                    // always include subject node of an OPA
+                    oboGraphBuilder.addNodeId(subj);
+                } else if (ax instanceof OWLEquivalentClassesAxiom) {
                     // EQUIVALENT
-
-                    OWLEquivalentClassesAxiom eca = (OWLEquivalentClassesAxiom)ax;
+                    OWLEquivalentClassesAxiom eca = (OWLEquivalentClassesAxiom) ax;
                     List<OWLClassExpression> xs = eca.getClassExpressionsAsList();
-                    List<OWLClassExpression> anonXs = 
-                            xs.stream().filter(x -> x.isAnonymous()).collect(Collectors.toList());
-                    List<OWLClassExpression> namedXs = 
-                            xs.stream().filter(x -> !x.isAnonymous()).collect(Collectors.toList());
-                    Set<String> xClassIds = 
-                            namedXs.stream().map(x -> getClassId((OWLClass)x)).collect(ImmutableSet.toImmutableSet());
+                    List<OWLClassExpression> anonXs = xs.stream()
+                            .filter(IsAnonymous::isAnonymous)
+                            .collect(Collectors.toUnmodifiableList());
+                    List<OWLClassExpression> namedXs = xs.stream()
+                            .filter(IsAnonymous::isNamed)
+                            .collect(Collectors.toUnmodifiableList());
                     if (anonXs.isEmpty()) {
+                        Set<String> xClassIds = namedXs.stream()
+                                .map(x -> getClassId((OWLClass) x))
+                                .collect(Collectors.toCollection(LinkedHashSet::new));
                         // EquivalentNodesSet
-
                         // all classes in equivalence axiom are named
                         // TODO: merge pairwise assertions into a clique
-                        EquivalentNodesSet enset =
-                                //TODO: EquivalentNodesSet.representativeNodeId() is not set in the production code!!
-                                new EquivalentNodesSet.Builder().nodeIds(xClassIds).meta(nullIfEmpty(meta)).build();
-                        ensets.add(enset);
-                    }
-                    else {
+                        //TODO: EquivalentNodesSet.representativeNodeId() is not set in the production code!!
+                        EquivalentNodesSet enset = new EquivalentNodesSet.Builder().nodeIds(xClassIds).meta(nullIfEmpty(meta)).build();
+                        oboGraphBuilder.addEquivalentNodesSet(enset);
+                    } else {
                         // possibilities are:
                         //  - LogicalDefinitionAxiom
                         //  - TBD
@@ -254,344 +243,372 @@ public class FromOwl {
                             OWLClassExpression anonX = anonXs.get(0);
                             if (anonX instanceof OWLObjectIntersectionOf) {
 
-                                Set<OWLClassExpression> ixs =
-                                        ((OWLObjectIntersectionOf)anonX).getOperands();
+                                Set<OWLClassExpression> ixs = ((OWLObjectIntersectionOf) anonX).getOperands();
 
                                 OBOClassDef classDef = getClassDef(ixs);
-
-                                //                                List<String> genusClassIds = new ArrayList<>();
-                                //                                List<ExistentialRestrictionExpression> restrs = new ArrayList<>();
-                                //                                boolean isLDA = true;
-                                //                                for (OWLClassExpression ix : ixs) {
-                                //                                    if (!ix.isAnonymous()) {
-                                //                                        genusClassIds.add(getClassId((OWLClass)ix));
-                                //                                    }
-                                //                                    else if (ix instanceof OWLObjectSomeValuesFrom) {
-                                //                                        restrs.add(getRestriction(ix));
-                                //                                    }
-                                //                                    else {
-                                //                                        isLDA = false;
-                                //                                        break;
-                                //                                    }
-                                //
-                                //                                }
-
                                 if (classDef != null && !classDef.restrs.contains(null)) {
-                                    LogicalDefinitionAxiom lda =
-                                            new LogicalDefinitionAxiom.Builder().
-                                            definedClassId(getClassId((OWLClass) namedXs.get(0))).
-                                            genusIds(classDef.genusClassIds).
-                                            restrictions(classDef.restrs).
-                                            build();
-                                    ldas.add(lda);
-                                }
-                                else {
-                                    untranslatedAxioms.add(eca);
+                                    LogicalDefinitionAxiom lda = new LogicalDefinitionAxiom.Builder()
+                                            .definedClassId(getClassId((OWLClass) namedXs.get(0)))
+                                            .genusIds(classDef.genusClassIds)
+                                            .restrictions(classDef.restrs)
+                                            .build();
+                                    oboGraphBuilder.addLogicalDefinitionAxiom(lda);
+                                } else {
+                                    oboGraphBuilder.addUntranslatedAxiom(eca);
                                 }
                             }
                         }
-                        else {
-
-                        }
                     }
-                }
-
-                else if (ax instanceof OWLObjectPropertyAxiom) {
-
+                } else if (ax instanceof OWLObjectPropertyAxiom) {
                     if (ax instanceof OWLSubObjectPropertyOfAxiom) {
-                        OWLSubObjectPropertyOfAxiom spa = (OWLSubObjectPropertyOfAxiom)ax;
-                        if (spa.getSubProperty().isAnonymous()) {
-
-                        }
-                        else if (spa.getSuperProperty().isAnonymous()) {
-                        }
-                        else {
-                            String subj = getPropertyId(spa.getSubProperty().asOWLObjectProperty());
-                            String obj = getPropertyId(spa.getSuperProperty().asOWLObjectProperty());
-                            edges.add(getEdge(subj, SUBPROPERTY_OF, obj, meta));
+                        OWLSubObjectPropertyOfAxiom spa = (OWLSubObjectPropertyOfAxiom) ax;
+                        if (spa.getSubProperty().isNamed() && spa.getSuperProperty().isNamed()) {
+                            String subj = getPropertyId(spa.getSubProperty());
+                            String obj = getPropertyId(spa.getSuperProperty());
+                            oboGraphBuilder.addEdge(subj, SUBPROPERTY_OF, obj, meta);
                         }
 
-                    }
-                    else if (ax instanceof OWLInverseObjectPropertiesAxiom) {
-                        OWLInverseObjectPropertiesAxiom ipa = (OWLInverseObjectPropertiesAxiom)ax;
-                        if (ipa.getFirstProperty().isAnonymous()) {
-
+                    } else if (ax instanceof OWLInverseObjectPropertiesAxiom) {
+                        OWLInverseObjectPropertiesAxiom ipa = (OWLInverseObjectPropertiesAxiom) ax;
+                        if (ipa.getFirstProperty().isNamed() && ipa.getSecondProperty().isNamed()) {
+                            String p1 = getPropertyId(ipa.getFirstProperty());
+                            String p2 = getPropertyId(ipa.getSecondProperty());
+                            oboGraphBuilder.addEdge(p1, INVERSE_OF, p2, meta);
                         }
-                        else if (ipa.getSecondProperty().isAnonymous()) {
-                        }
-                        else {
-                            String p1 = getPropertyId(ipa.getFirstProperty().asOWLObjectProperty());
-                            String p2 = getPropertyId(ipa.getSecondProperty().asOWLObjectProperty());
-                            edges.add(getEdge(p1, INVERSE_OF, p2, meta));
-                        }
-
-                    }
-                    else if (ax instanceof OWLSubPropertyChainOfAxiom) {
-                        OWLSubPropertyChainOfAxiom spc = (OWLSubPropertyChainOfAxiom)ax;
-                        if (spc.getSuperProperty().isAnonymous()) {
-
-                        }
-                        else {
-                            String p = getPropertyId(spc.getSuperProperty().asOWLObjectProperty());
-                            List<String> cpids = spc.getPropertyChain().stream().map(
-                                    cp -> cp.isAnonymous() ? null : getPropertyId(cp.asOWLObjectProperty())).
-                                    collect(Collectors.toList());
-                            if (cpids.stream().filter(pid -> pid == null).collect(Collectors.toList()).size() == 0) {
-                                pcas.add(new PropertyChainAxiom.Builder().predicateId(p).chainPredicateIds(cpids).build());
+                    } else if (ax instanceof OWLSubPropertyChainOfAxiom) {
+                        OWLSubPropertyChainOfAxiom spc = (OWLSubPropertyChainOfAxiom) ax;
+                        if (spc.getSuperProperty().isNamed()) {
+                            String p = getPropertyId(spc.getSuperProperty());
+                            List<String> cpids = spc.getPropertyChain().stream()
+                                    .map(cp -> cp.isAnonymous() ? null : getPropertyId(cp))
+                                    .collect(Collectors.toList());
+                            if (cpids.stream().noneMatch(Objects::isNull)) {
+                                oboGraphBuilder.addPropertyChainAxiom(new PropertyChainAxiom.Builder().predicateId(p).chainPredicateIds(cpids).build());
                             }
-
                         }
-
+                    } else if (ax instanceof OWLObjectPropertyRangeAxiom) {
+                        OWLObjectPropertyRangeAxiom rax = (OWLObjectPropertyRangeAxiom) ax;
+                        OWLClassExpression rc = rax.getRange();
+                        if (rc.isNamed()) {
+                            String propertyId = getPropertyId(rax.getProperty());
+                            oboGraphBuilder.addPropertyRangeClassId(propertyId, getClassId(rc.asOWLClass()));
+                        }
+                    } else if (ax instanceof OWLObjectPropertyDomainAxiom) {
+                        OWLObjectPropertyDomainAxiom rax = (OWLObjectPropertyDomainAxiom) ax;
+                        OWLClassExpression rc = rax.getDomain();
+                        if (rc.isNamed()) {
+                            String propertyId = getPropertyId(rax.getProperty());
+                            oboGraphBuilder.addPropertyDomainClassId(propertyId, getClassId(rc.asOWLClass()));
+                        }
                     }
-                    else {
-                        translateObjectPropertyAxiom(ax, domainRangeBuilderMap);
-                    }
-
+                } else {
+                    oboGraphBuilder.addUntranslatedAxiom(ax);
                 }
-
-                else {
-                    untranslatedAxioms.add(ax);
-                }
-            }
-            else {
+            } else {
                 // NON-LOGICAL AXIOMS
                 if (ax instanceof OWLAnnotationAssertionAxiom) {
-                    OWLAnnotationAssertionAxiom aaa = (OWLAnnotationAssertionAxiom)ax;
+                    OWLAnnotationAssertionAxiom aaa = (OWLAnnotationAssertionAxiom) ax;
                     OWLAnnotationProperty p = aaa.getProperty();
                     OWLAnnotationSubject s = aaa.getSubject();
 
                     // non-blank nodes
                     if (s instanceof IRI) {
-
-                        String subj = getNodeId((IRI)s);
+                        IRI pIRI = p.getIRI();
+                        String subj = getNodeId((IRI) s);
 
                         OWLAnnotationValue v = aaa.getValue();
                         String lv = null;
                         if (v instanceof OWLLiteral) {
-                            lv = ((OWLLiteral)v).getLiteral();
+                            lv = ((OWLLiteral) v).getLiteral();
                         }
-                        IRI pIRI = p.getIRI();
-                        if (p.isLabel()) {
-                            if (lv != null) {
-                                nodeIds.add(subj);
-                                nodeLabelMap.put(subj, lv);
-                            }
-                        }
-                        else if (isDefinitionProperty(pIRI)) {
-                            if (lv != null) {
-                                DefinitionPropertyValue def = 
-                                        new DefinitionPropertyValue.Builder().
-                                        val(lv).
-                                        xrefs(meta.getXrefsValues()).
-                                        build();
-
-                                Meta.Builder nb = getMetaBuilder(nodeMetaBuilderMap, subj);
-                                nb.definition(def);
-                                nodeIds.add(subj);
-                            }
-                        }
-                        else if (isHasXrefProperty(pIRI)) {
-                            if (lv != null) {
-                                XrefPropertyValue xref = 
-                                        new XrefPropertyValue.Builder().
-                                        val(lv).build();
-
-                                Meta.Builder nb = getMetaBuilder(nodeMetaBuilderMap, subj);
-                                nb.addXref(xref);
-                                nodeIds.add(subj);
-                            }
-                        }
-                        else if (p.isDeprecated()) {
-                            if (aaa.isDeprecatedIRIAssertion()) {
-                                Meta.Builder nb = getMetaBuilder(nodeMetaBuilderMap, subj);
-                                nb.deprecated(true);
-                            }
-                        }
-                        else if (p.isComment()) {
-                            Meta.Builder nb = getMetaBuilder(nodeMetaBuilderMap, subj);
-                            nb.addComment(lv.toString());
-                        }
-                        else if (isOboInOwlIdProperty(pIRI)) {
-
+                        if (p.isLabel() && lv != null) {
+                            oboGraphBuilder.addNodeLabel(subj, lv);
+                        } else if (isDefinitionProperty(pIRI) && lv != null) {
+                            DefinitionPropertyValue def = new DefinitionPropertyValue.Builder()
+                                    .val(lv)
+                                    .xrefs(meta.getXrefsValues())
+                                    .build();
+                            oboGraphBuilder.addNodeDefinitionPropertyValue(subj, def);
+                        } else if (isHasXrefProperty(pIRI) && lv != null) {
+                            XrefPropertyValue xref = new XrefPropertyValue.Builder()
+                                    .val(lv)
+                                    .build();
+                            oboGraphBuilder.addNodeXrefPropertyValue(subj, xref);
+                        } else if (p.isDeprecated() && aaa.isDeprecatedIRIAssertion()) {
+                            oboGraphBuilder.setNodeDeprecated(subj, true);
+                        } else if (p.isComment() && lv != null) {
+                            oboGraphBuilder.addNodeComment(subj, lv);
+                        } else if (isOboInOwlIdProperty(pIRI)) {
                             // skip
-
-                        }
-                        else if (isInSubsetProperty(pIRI)) {
-                            Meta.Builder nb = getMetaBuilder(nodeMetaBuilderMap, subj);
-                            nb.addSubset(v.toString());
-                            nodeIds.add(subj);
-                        }
-                        else if (synonymVocabulary.contains(pIRI.toString())) {
+                        } else if (isInSubsetProperty(pIRI)) {
+                            oboGraphBuilder.addNodeSubset(subj, v.toString());
+                        } else if (synonymVocabulary.contains(pIRI.toString()) && lv != null) {
                             SCOPES scope = synonymVocabulary.get(pIRI.toString());
-                            if (lv != null) {
-                                String synonymType = "";
-                                for (OWLAnnotation a : aaa.getAnnotations()) {
-                                    if (a.getProperty().getIRI().toString().equals(SynonymVocabulary.SYNONYM_TYPE)) {
-                                        synonymType = a.getValue().toString();
-                                    }
-                                    else {
-                                        // TODO: capture these in meta
-                                    }
+                            String synonymType = "";
+                            for (OWLAnnotation a : aaa.getAnnotations()) {
+                                if (a.getProperty().getIRI().toString().equals(SynonymVocabulary.SYNONYM_TYPE)) {
+                                    synonymType = a.getValue().toString();
+                                } else {
+                                    // TODO: capture these in meta
                                 }
-
-                                SynonymPropertyValue syn = new SynonymPropertyValue.Builder().
-                                        pred(scope.pred()).
-                                        synonymType(synonymType).
-                                        val(lv).
-                                        xrefs(meta.getXrefsValues()).
-                                        build();
-                                Meta.Builder nb = getMetaBuilder(nodeMetaBuilderMap, subj);
-                                nb.addSynonym(syn);
-                                nodeIds.add(subj);
                             }
-                        }
-                        else {
-                            Meta.Builder nb = getMetaBuilder(nodeMetaBuilderMap, subj);
+
+                            SynonymPropertyValue syn = new SynonymPropertyValue.Builder()
+                                    .pred(scope.pred())
+                                    .synonymType(synonymType)
+                                    .val(lv)
+                                    .xrefs(meta.getXrefsValues())
+                                    .build();
+                            oboGraphBuilder.addNodeSynonymPropertyValue(subj, syn);
+                        } else {
                             String val;
-                            if (v instanceof IRI)
-                                val = ((IRI)v).toString();
-                            else if (v instanceof OWLLiteral)
-                                val = ((OWLLiteral)v).getLiteral();
-                            else if (v instanceof OWLAnonymousIndividual)
-                                val = ((OWLAnonymousIndividual)v).getID().toString();
-                            else
+                            if (v instanceof IRI) {
+                                val = ((IRI) v).toString();
+                            } else if (v instanceof OWLLiteral) {
+                                val = ((OWLLiteral) v).getLiteral();
+                            } else if (v instanceof OWLAnonymousIndividual) {
+                                val = ((OWLAnonymousIndividual) v).getID().toString();
+                            } else {
                                 val = "";
+                            }
 
-                            BasicPropertyValue pv = new BasicPropertyValue.Builder().
-                                    pred(getPropertyId(p)).
-                                    val(val).
-                                    build();
-                            
-                            nb.addBasicPropertyValue(pv);
-                            nodeIds.add(subj);
+                            BasicPropertyValue basicPropertyValue = new BasicPropertyValue.Builder()
+                                    .pred(getPropertyId(p))
+                                    .val(val)
+                                    .build();
+
+                            oboGraphBuilder.addNodeBasicPropertyValue(subj, basicPropertyValue);
                         }
 
-                    }
-                    else {
+                    } else {
                         // subject is anonymous
-                        untranslatedAxioms.add(aaa);
+                        oboGraphBuilder.addUntranslatedAxiom(aaa);
                     }
-
                 }
             }
         }
 
-        for (String n : nodeIds) {
-            Builder nb = new Node.Builder().
-                    id(n).
-                    label(nodeLabelMap.getOrDefault(n, ""));
-            if (nodeMetaBuilderMap.containsKey(n)) {
-                Meta meta = nodeMetaBuilderMap.get(n).build();
-                nb.meta(nullIfEmpty(meta));
-            }
-            if (nodeTypeMap.containsKey(n)) {
-                nb.type(nodeTypeMap.get(n));
-            }
-            nodes.add(nb.build());
-        }
-        String gid = null;
-        String version = null;
-        OWLOntologyID ontId = ontology.getOntologyID();
-        if (ontId != null) {
-            Optional<IRI> iri = ontId.getOntologyIRI();
-            if (iri.isPresent()) {
-                gid = getNodeId(iri.orNull());
-                if (ontId.getVersionIRI().isPresent())
-                    version = getNodeId(ontId.getVersionIRI().orNull());
-            }
+        List<OWLAxiom> untranslatedAxioms = oboGraphBuilder.untranslatedAxioms();
+        if (!untranslatedAxioms.isEmpty()) {
+            LOGGER.warn("{} contains {} untranslated axioms:", graphId, untranslatedAxioms.size());
+            untranslatedAxioms.forEach(axiom -> LOGGER.warn("{}", axiom));
         }
 
-        Meta meta = getAnnotations(ontology.getAnnotations(), version);
-        List<DomainRangeAxiom> domainRangeAxioms = 
-                domainRangeBuilderMap.values().stream().map(DomainRangeAxiom.Builder::build).collect(Collectors.toList());
-        return new Graph.Builder().
-                id(gid).
-                meta(nullIfEmpty(meta)).
-                nodes(nodes).
-                edges(edges).
-                equivalentNodesSets(ensets).
-                logicalDefinitionAxioms(ldas).
-                domainRangeAxioms(domainRangeAxioms).
-                propertyChainAxioms(pcas).
-                build();
+        // build the OboGraph
+        return oboGraphBuilder.buildGraph();
     }
 
-    // This method prevents empty 'meta = {}' nodes appearing in the JSON/JYAML output
-    private Meta nullIfEmpty(Meta meta) {
-        return NodeOrEdge.EMPTY_META.equals(meta) ? null : meta;
-    }
+    static class OboGraphBuilder {
 
+        private final String graphId;
+        private final Meta meta;
 
-    private void translateObjectPropertyAxiom(
-            OWLAxiom ax,
-            Map<String, DomainRangeAxiom.Builder> domainRangeBuilderMap) {
+        private final List<Edge> edges = new ArrayList<>();
+        private final List<EquivalentNodesSet> ensets = new ArrayList<>();
+        private final List<LogicalDefinitionAxiom> ldas = new ArrayList<>();
+        private final Set<String> nodeIds = new LinkedHashSet<>();
+        private final Map<String, RDFTYPES> nodeTypeMap = new LinkedHashMap<>();
+        private final Map<String, String> nodeLabelMap = new LinkedHashMap<>();
+        private final Map<String, DomainRangeAxiom.Builder> domainRangeBuilderMap = new LinkedHashMap<>();
+        private final List<PropertyChainAxiom> pcas = new ArrayList<>();
 
-        if (ax instanceof OWLObjectPropertyRangeAxiom) {
-            OWLObjectPropertyRangeAxiom rax = (OWLObjectPropertyRangeAxiom)ax;
-            OWLObjectPropertyExpression p = rax.getProperty();
-            OWLClassExpression rc = rax.getRange();
-            if (rc.isAnonymous()) {
+        // Each node can be built from multiple axioms; use a builder for each nodeId
+        private final Map<String, Meta.Builder> nodeMetaBuilderMap = new LinkedHashMap<>();
 
-            }
-            else {
-                DomainRangeAxiom.Builder b = getDRBuilder(p, domainRangeBuilderMap);
-                b.addRangeClassId(getClassId(rc.asOWLClass()));
+        private final Set<OWLAxiom> untranslatedAxioms = new LinkedHashSet<>();
+        private final LinkedHashMap<String, PropertyType> nodePropertyTypeMap = new LinkedHashMap<>();
 
+        public OboGraphBuilder(String graphId, @Nullable Meta graphMeta) {
+            this.graphId = graphId == null ? "" : graphId;
+            this.meta = nullIfEmpty(graphMeta);
+        }
+
+        // This method prevents empty 'meta = {}' nodes appearing in the JSON/JYAML output
+        private @Nullable Meta nullIfEmpty(@Nullable Meta meta) {
+            return NodeOrEdge.EMPTY_META.equals(meta) ? null : meta;
+        }
+
+        public void addNodeId(String nodeId) {
+            nodeIds.add(nodeId);
+        }
+
+        public void addNodeType(String nodeId, RDFTYPES rdftypes) {
+            // ensure all nodes are added, even if they lack a label
+            nodeIds.add(nodeId);
+            nodeTypeMap.put(nodeId, rdftypes);
+        }
+
+        public void addNodeType(String nodeId, PropertyType propertyType) {
+            nodeIds.add(nodeId);
+            nodeTypeMap.put(nodeId, RDFTYPES.PROPERTY);
+            nodePropertyTypeMap.put(nodeId, propertyType);
+        }
+
+        public void addNodeLabel(String nodeId, String label) {
+            nodeIds.add(nodeId);
+            nodeLabelMap.put(nodeId, label);
+        }
+
+        public void addEdge(Edge edge) {
+            if (edge != null) {
+                edges.add(edge);
             }
         }
-        else if (ax instanceof OWLObjectPropertyDomainAxiom) {
-            OWLObjectPropertyDomainAxiom rax = (OWLObjectPropertyDomainAxiom)ax;
-            OWLObjectPropertyExpression p = rax.getProperty();
-            OWLClassExpression rc = rax.getDomain();
-            if (rc.isAnonymous()) {
 
+        public void addEdge(String subj, String pred, String obj, @Nullable Meta meta) {
+            edges.add(buildEdge(subj, pred, obj, meta));
+        }
+
+        private Edge buildEdge(String subj, String pred, String obj, @Nullable Meta meta) {
+            if (meta == null || NodeOrEdge.EMPTY_META.equals(meta)) {
+                return new Edge.Builder().sub(subj).pred(pred).obj(obj).build();
             }
-            else {
-                DomainRangeAxiom.Builder b = getDRBuilder(p, domainRangeBuilderMap);
-                b.addDomainClassId(getClassId(rc.asOWLClass()));
+            return new Edge.Builder().sub(subj).pred(pred).obj(obj).meta(meta).build();
+        }
 
+        public void addNodeDefinitionPropertyValue(String nodeId, DefinitionPropertyValue def) {
+            Meta.Builder nb = getMetaBuilderForId(nodeId);
+            nb.definition(def);
+            nodeIds.add(nodeId);
+        }
+
+        public void addNodeXrefPropertyValue(String nodeId, XrefPropertyValue xrefPropertyValue) {
+            Meta.Builder nb = getMetaBuilderForId(nodeId);
+            nb.addXref(xrefPropertyValue);
+            nodeIds.add(nodeId);
+        }
+
+        public void setNodeDeprecated(String nodeId, boolean isDeprecated) {
+            Meta.Builder nb = getMetaBuilderForId(nodeId);
+            nb.deprecated(isDeprecated);
+            nodeIds.add(nodeId); // TODO: CHECK!! NEW ADDITION in 0.3.1
+        }
+
+        public void addNodeComment(String nodeId, String comment) {
+            Meta.Builder nb = getMetaBuilderForId(nodeId);
+            nb.addComment(comment);
+            nodeIds.add(nodeId); // TODO: CHECK!! NEW ADDITION in 0.3.1
+        }
+
+        public void addNodeSubset(String nodeId, String subset) {
+            Meta.Builder nb = getMetaBuilderForId(nodeId);
+            nb.addSubset(subset);
+            nodeIds.add(nodeId);
+        }
+
+        public void addNodeSynonymPropertyValue(String nodeId, SynonymPropertyValue syn) {
+            Meta.Builder nb = getMetaBuilderForId(nodeId);
+            nb.addSynonym(syn);
+            nodeIds.add(nodeId);
+        }
+
+        public void addNodeBasicPropertyValue(String nodeId, BasicPropertyValue basicPropertyValue) {
+            Meta.Builder nb = getMetaBuilderForId(nodeId);
+            nb.addBasicPropertyValue(basicPropertyValue);
+            nodeIds.add(nodeId);
+        }
+
+        private Meta.Builder getMetaBuilderForId(String id) {
+            return nodeMetaBuilderMap.computeIfAbsent(id, k -> new Meta.Builder());
+        }
+
+        public void addUntranslatedAxiom(OWLAxiom owlAxiom) {
+            untranslatedAxioms.add(owlAxiom);
+        }
+
+        public void addPropertyEdgeDefinitions(String propertyId, Edge edge) {
+            DomainRangeAxiom.Builder b = getDomainRangeAxiomBuilder(propertyId);
+            b.addAllValuesFromEdge(edge);
+        }
+
+        public void addPropertyDomainClassId(String propertyId, String domainClassId) {
+            DomainRangeAxiom.Builder b = getDomainRangeAxiomBuilder(propertyId);
+            b.addDomainClassId(domainClassId);
+        }
+
+
+        public void addPropertyRangeClassId(String propertyId, String rangeClassId) {
+            DomainRangeAxiom.Builder b = getDomainRangeAxiomBuilder(propertyId);
+            b.addRangeClassId(rangeClassId);
+        }
+
+        private DomainRangeAxiom.Builder getDomainRangeAxiomBuilder(String propertyId) {
+            return domainRangeBuilderMap.computeIfAbsent(propertyId, id -> new DomainRangeAxiom.Builder().predicateId(id));
+        }
+
+        public void addLogicalDefinitionAxiom(LogicalDefinitionAxiom logicalDefinitionAxiom) {
+            ldas.add(logicalDefinitionAxiom);
+        }
+
+        public void addPropertyChainAxiom(PropertyChainAxiom propertyChainAxiom) {
+            pcas.add(propertyChainAxiom);
+        }
+
+        public void addEquivalentNodesSet(EquivalentNodesSet equivalentNodesSet) {
+            ensets.add(equivalentNodesSet);
+        }
+
+        public List<OWLAxiom> untranslatedAxioms() {
+            return List.copyOf(untranslatedAxioms);
+        }
+
+        public Graph buildGraph() {
+            List<Node> nodes = new ArrayList<>();
+            for (String n : nodeIds) {
+                Builder nb = new Node.Builder()
+                        .id(n)
+                        .label(nodeLabelMap.getOrDefault(n, ""));
+                if (nodeMetaBuilderMap.containsKey(n)) {
+                    Meta nodeMeta = nodeMetaBuilderMap.get(n).build();
+                    nb.meta(nullIfEmpty(nodeMeta));
+                }
+                if (nodeTypeMap.containsKey(n)) {
+                    RDFTYPES type = nodeTypeMap.get(n);
+                    nb.type(type);
+                    if (type == RDFTYPES.PROPERTY) {
+                        // Change for https://github.com/geneontology/obographs/issues/65
+                        PropertyType propertyType = nodePropertyTypeMap.get(n);
+                        nb.propertyType(propertyType);
+                    }
+                }
+                nodes.add(nb.build());
             }
+
+            List<DomainRangeAxiom> domainRangeAxioms = domainRangeBuilderMap.values()
+                    .stream()
+                    .map(DomainRangeAxiom.Builder::build)
+                    .collect(Collectors.toList());
+
+            return new Graph.Builder()
+                    .id(graphId)
+                    .meta(meta)
+                    .nodes(nodes)
+                    .edges(edges)
+                    .equivalentNodesSets(ensets)
+                    .logicalDefinitionAxioms(ldas)
+                    .domainRangeAxioms(domainRangeAxioms)
+                    .propertyChainAxioms(pcas)
+                    .build();
         }
-    }
-
-    private DomainRangeAxiom.Builder getDRBuilder(OWLObjectPropertyExpression p, Map<String, DomainRangeAxiom.Builder> domainRangeBuilderMap) {
-        String pid;
-        if (p.isAnonymous()) {
-            //untranslatedAxioms.add(rax);
-        }
-        pid = getPropertyId((OWLObjectProperty) p);
-        if (!domainRangeBuilderMap.containsKey(pid)) {
-            domainRangeBuilderMap.put(pid, new DomainRangeAxiom.Builder().predicateId(pid));
-        }
-        return domainRangeBuilderMap.get(pid);
 
     }
 
-    private void setNodeType(String id, RDFTYPES t,
-            Map<String, RDFTYPES> nodeTypeMap) {
-        nodeTypeMap.put(id, t);
-    }
-
-    private Meta.Builder getMetaBuilder(Map<String, Meta.Builder> nodeMetaBuilderMap, String id) {
-        if (!nodeMetaBuilderMap.containsKey(id))
-            nodeMetaBuilderMap.put(id, new Meta.Builder());
-        return nodeMetaBuilderMap.get(id);
-//        return nodeMetaBuilderMap.computeIfAbsent(id, v -> new Meta.Builder());
-    }
 
     /**
      * Translate all axiom annotations into a Meta object
-     * 
+     *
      * @param ax
      * @return
      */
-    private Meta getAnnotations(OWLAxiom ax) {
-        return getAnnotations(ax.getAnnotations());
+    private Meta buildMeta(OWLAxiom ax) {
+        return buildMeta(ax.getAnnotations());
     }
-    private Meta getAnnotations(Set<OWLAnnotation> anns) {
-        return getAnnotations(anns, null);
+
+    private Meta buildMeta(Set<OWLAnnotation> anns) {
+        return buildMeta(anns, null);
     }
-    private Meta getAnnotations(Set<OWLAnnotation> anns, String version) {
+
+    private Meta buildMeta(Set<OWLAnnotation> anns, @Nullable String version) {
         Meta.Builder builder = new Meta.Builder();
         for (OWLAnnotation ann : anns) {
             OWLAnnotationProperty p = ann.getProperty();
@@ -599,17 +616,13 @@ public class FromOwl {
             String val = v instanceof IRI ? ((IRI) v).toString() : ((OWLLiteral) v).getLiteral();
             if (ann.isDeprecatedIRIAnnotation()) {
                 builder.deprecated(true);
-            }
-            else if (isHasXrefProperty(p.getIRI())) {
+            } else if (isHasXrefProperty(p.getIRI())) {
                 builder.addXref(new XrefPropertyValue.Builder().val(val).build());
-            }
-            else if (isInSubsetProperty(p.getIRI())) {
+            } else if (isInSubsetProperty(p.getIRI())) {
                 builder.addSubset(val);
-            }
-            else if (isHasSynonymTypeProperty(p.getIRI())) {
+            } else if (isHasSynonymTypeProperty(p.getIRI())) {
                 builder.addSubset(val);
-            }
-            else {
+            } else {
                 builder.addBasicPropertyValue(new BasicPropertyValue.Builder()
                         .pred(getPropertyId(p))
                         .val(val)
@@ -622,12 +635,17 @@ public class FromOwl {
         return builder.build();
     }
 
-    private Edge getEdge(String subj, String pred, String obj, Meta meta) {
-        return getEdge(subj, pred, obj, meta, null);
+    private Meta nullIfEmpty(Meta meta) {
+        return NodeOrEdge.EMPTY_META.equals(meta) ? null : meta;
     }
 
 
-    private Edge getEdge(String subj, String pred, String obj, Meta meta, List<ExistentialRestrictionExpression> gciQualifiers) {
+    private Edge buildEdge(String subj, String pred, String obj, @Nullable Meta meta) {
+        return buildEdge(subj, pred, obj, meta, null);
+    }
+
+
+    private Edge buildEdge(String subj, String pred, String obj, @Nullable Meta meta, List<ExistentialRestrictionExpression> gciQualifiers) {
         if (NodeOrEdge.EMPTY_META.equals(meta)) {
             return new Edge.Builder().sub(subj).pred(pred).obj(obj).build();
         }
@@ -646,6 +664,13 @@ public class FromOwl {
                         .fillerId(getClassId((OWLClass) f))
                         .build();
             }
+//            if (p instanceof OWLObjectProperty && f instanceof OWLObjectSomeValuesFrom) {
+//                System.out.println("Nested OWLObjectSomeValuesFrom " + x);
+//                return new ExistentialRestrictionExpression.Builder()
+//                        .propertyId(getPropertyId((OWLObjectProperty) p))
+//                        .fillerId(getClassId(((OWLObjectSomeValuesFrom) f).getFiller().asOWLClass()))
+//                        .build();
+//            }
             // n.b nested OWLObjectSomeValuesFrom will be removed from the output. These can be found by testing that
             //  f instanceof OWLObjectSomeValuesFrom
         }
@@ -673,22 +698,22 @@ public class FromOwl {
         return isLDA && !def.restrs.contains(null) ? def : null;
     }
 
-    //    private String shortenIRI(IRI iri) {
-    //        prefixHelper
-    //    }
+    private String getPropertyId(OWLObjectPropertyExpression owlObjectPropertyExpression) {
+        return getPropertyId(owlObjectPropertyExpression.asOWLObjectProperty());
+    }
 
     private String getPropertyId(OWLObjectProperty p) {
         return p.getIRI().toString();
     }
-    private String getPropertyId(OWLAnnotationProperty p) {
-        return p.getIRI().toString();
-    }
-    private String getClassId(OWLClass c) {
-        return c.getIRI().toString();
-    }
+
     private String getPropertyId(OWLProperty p) {
         return p.getIRI().toString();
     }
+
+    private String getClassId(OWLClass c) {
+        return c.getIRI().toString();
+    }
+
     private String getIndividualId(OWLIndividual owlIndividual) {
         if (owlIndividual instanceof OWLNamedIndividual)
             return owlIndividual.asOWLNamedIndividual().getIRI().toString();
@@ -698,7 +723,7 @@ public class FromOwl {
 
     /**
      * TODO: optionally compact the IRI using a prefix map
-     * 
+     *
      * @param s
      * @return Id or IRI
      */
@@ -721,7 +746,7 @@ public class FromOwl {
     public boolean isHasSynonymTypeProperty(IRI iri) {
         return iri.toString().equals("http://www.geneontology.org/formats/oboInOwl#hasSynonymType");
     }
-    
+
     public boolean isOboInOwlIdProperty(IRI iri) {
         return iri.toString().equals("http://www.geneontology.org/formats/oboInOwl#id");
     }

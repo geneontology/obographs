@@ -4,7 +4,7 @@ import org.apache.commons.io.FileUtils;
 import org.geneontology.obographs.core.model.*;
 import org.geneontology.obographs.core.model.meta.SynonymPropertyValue;
 import org.geneontology.obographs.core.model.meta.XrefPropertyValue;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.io.File;
 import java.io.IOException;
@@ -12,7 +12,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.Arrays;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class OgJsonGeneratorTest {
 

@@ -4,7 +4,7 @@ import org.apache.commons.io.FileUtils;
 import org.geneontology.obographs.core.model.Graph;
 import org.geneontology.obographs.core.model.GraphDocument;
 import org.geneontology.obographs.core.model.Meta;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.io.File;
 import java.io.IOException;

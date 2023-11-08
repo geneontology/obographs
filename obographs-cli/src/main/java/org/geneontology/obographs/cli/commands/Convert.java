@@ -101,8 +101,10 @@ public class Convert implements Callable<Integer> {
             return fileName.replace(".obo", "." + format);
         } else if (fileName.endsWith(".owl")) {
             return fileName.replace(".owl", "." + format);
+        } else if (fileName.endsWith(".ttl")) {
+            return fileName.replace(".ttl", "." + format);
         }
-        throw new IllegalArgumentException("Input file " + inputFile + " must be in OWL or OBO format");
+        throw new IllegalArgumentException("Input file " + inputFile + " must be in OWL, OBO or TTL format");
     }
 
     private Path createDirectoryIfNotPresent(Path dir) throws IOException {

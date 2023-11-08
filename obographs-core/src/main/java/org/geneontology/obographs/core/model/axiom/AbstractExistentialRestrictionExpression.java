@@ -2,8 +2,9 @@ package org.geneontology.obographs.core.model.axiom;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.google.common.collect.ComparisonChain;
 import org.immutables.value.Value;
+
+import java.util.Comparator;
 
 /**
  * Corresponds to an axiom of the form C = X1 and ... and Xn,
@@ -17,6 +18,9 @@ import org.immutables.value.Value;
 @Value.Immutable
 public abstract class AbstractExistentialRestrictionExpression implements Expression, Comparable<AbstractExistentialRestrictionExpression> {
 
+    private static final Comparator<AbstractExistentialRestrictionExpression> COMPARATOR =
+            Comparator.comparing(AbstractExistentialRestrictionExpression::getPropertyId)
+                    .thenComparing(AbstractExistentialRestrictionExpression::getFillerId);
     /**
      * @return the propertyId
      */
@@ -31,9 +35,6 @@ public abstract class AbstractExistentialRestrictionExpression implements Expres
 
     @Override
     public int compareTo(AbstractExistentialRestrictionExpression o) {
-        return ComparisonChain.start()
-                .compare(this.getPropertyId(), o.getPropertyId())
-                .compare(this.getFillerId(), o.getFillerId())
-                .result();
+        return COMPARATOR.compare(this, o);
     }
 }
