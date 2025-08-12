@@ -326,6 +326,7 @@ public class FromOwl {
                         } else if (isDefinitionProperty(pIRI) && lv != null) {
                             DefinitionPropertyValue def = new DefinitionPropertyValue.Builder()
                                     .val(lv)
+                                    .meta(buildBPVMeta(meta))
                                     .xrefs(meta.getXrefsValues())
                                     .build();
                             oboGraphBuilder.addNodeDefinitionPropertyValue(subj, def);
@@ -358,6 +359,7 @@ public class FromOwl {
                                     .synonymType(synonymType)
                                     .val(lv)
                                     .xrefs(meta.getXrefsValues())
+                                    .meta(buildBPVMeta(meta))
                                     .build();
                             oboGraphBuilder.addNodeSynonymPropertyValue(subj, syn);
                         } else {
@@ -375,6 +377,7 @@ public class FromOwl {
                             BasicPropertyValue basicPropertyValue = new BasicPropertyValue.Builder()
                                     .pred(getPropertyId(p))
                                     .val(val)
+                                    .meta(buildBPVMeta(meta))
                                     .build();
 
                             oboGraphBuilder.addNodeBasicPropertyValue(subj, basicPropertyValue);
@@ -632,6 +635,21 @@ public class FromOwl {
         if (version != null) {
             builder.version(version);
         }
+        return builder.build();
+    }
+
+    private Meta buildBPVMeta(Meta existingMeta) {
+        Meta.Builder builder = new Meta.Builder();
+        List<BasicPropertyValue> basicPropertyValues = existingMeta.getBasicPropertyValues();
+
+        if (basicPropertyValues.isEmpty()) {
+            return null;
+        }
+
+        for (BasicPropertyValue bpv : basicPropertyValues) {
+            builder.addBasicPropertyValue(bpv);
+        }
+
         return builder.build();
     }
 
