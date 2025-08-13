@@ -333,6 +333,7 @@ public class FromOwl {
                         } else if (isHasXrefProperty(pIRI) && lv != null) {
                             XrefPropertyValue xref = new XrefPropertyValue.Builder()
                                     .val(lv)
+                                    .meta(buildBPVMeta(meta))
                                     .build();
                             oboGraphBuilder.addNodeXrefPropertyValue(subj, xref);
                         } else if (p.isDeprecated() && aaa.isDeprecatedIRIAssertion()) {
