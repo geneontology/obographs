@@ -59,9 +59,17 @@ graphs:
       definition:
         val: "An angiosarcoma that arises from the soft tissues, usually in the deep\
           \ muscles of the lower extremities, retroperitoneum, mediastinum, and mesentery."
+        meta:
+          basicPropertyValues:
+          - pred: "http://www.geneontology.org/formats/oboInOwl#http://purl.obolibrary.org/obo/IAO_0000119"
+            val: "NCI"
       synonyms:
       - pred: "hasExactSynonym"
         val: "Angiosarcoma of Soft Tissue"
+        meta:
+          basicPropertyValues:
+          - pred: "http://www.geneontology.org/formats/oboInOwl#http://purl.obolibrary.org/obo/IAO_0000117"
+            val: "NCI"
   - id: "http://purl.obolibrary.org/obo/NCIT_C3088"
     lbl: "Angiosarcoma"
     type: "CLASS"
@@ -73,23 +81,59 @@ graphs:
           \ are spindle or epithelioid and often display hyperchromatic nuclei.  Angiosarcomas\
           \ most frequently occur in the skin and breast.  Patients with long-standing\
           \ lymphedema are at increased risk of developing angiosarcoma."
+        meta:
+          basicPropertyValues:
+          - pred: "http://www.geneontology.org/formats/oboInOwl#http://purl.obolibrary.org/obo/IAO_0000119"
+            val: "NCI"
       synonyms:
       - pred: "hasExactSynonym"
         val: "Angiosarcoma"
+        meta:
+          basicPropertyValues:
+          - pred: "http://www.geneontology.org/formats/oboInOwl#http://purl.obolibrary.org/obo/IAO_0000117"
+            val: "NCI"
       - pred: "hasExactSynonym"
         val: "HEMANGIOSARCOMA, MALIGNANT"
+        meta:
+          basicPropertyValues:
+          - pred: "http://www.geneontology.org/formats/oboInOwl#http://purl.obolibrary.org/obo/IAO_0000117"
+            val: "CDISC"
       - pred: "hasExactSynonym"
         val: "Hemangiosarcoma"
+        meta:
+          basicPropertyValues:
+          - pred: "http://www.geneontology.org/formats/oboInOwl#http://purl.obolibrary.org/obo/IAO_0000117"
+            val: "CDISC"
       - pred: "hasExactSynonym"
         val: "Hemangiosarcoma"
+        meta:
+          basicPropertyValues:
+          - pred: "http://www.geneontology.org/formats/oboInOwl#http://purl.obolibrary.org/obo/IAO_0000117"
+            val: "NCI"
       - pred: "hasExactSynonym"
         val: "Malignant Angioendothelioma"
+        meta:
+          basicPropertyValues:
+          - pred: "http://www.geneontology.org/formats/oboInOwl#http://purl.obolibrary.org/obo/IAO_0000117"
+            val: "NCI"
       - pred: "hasExactSynonym"
         val: "Malignant Hemangioendothelioma"
+        meta:
+          basicPropertyValues:
+          - pred: "http://www.geneontology.org/formats/oboInOwl#http://purl.obolibrary.org/obo/IAO_0000117"
+            val: "NCI"
       - pred: "hasExactSynonym"
         val: "angiosarcoma"
+        meta:
+          basicPropertyValues:
+          - pred: "http://www.geneontology.org/formats/oboInOwl#http://purl.obolibrary.org/obo/IAO_0000117"
+            val: "NCI-GLOSS"
       - pred: "hasExactSynonym"
         val: "hemangiosarcoma"
+        meta:
+          basicPropertyValues:
+          - pred: "http://www.geneontology.org/formats/oboInOwl#http://purl.obolibrary.org/obo/IAO_0000117"
+            val: "NCI-GLOSS"
   - id: "http://purl.obolibrary.org/obo/Orphanet_263413"
     lbl: "Angiosarcoma"
     type: "CLASS"
