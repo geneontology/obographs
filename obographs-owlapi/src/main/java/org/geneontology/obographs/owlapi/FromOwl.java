@@ -326,14 +326,14 @@ public class FromOwl {
                         } else if (isDefinitionProperty(pIRI) && lv != null) {
                             DefinitionPropertyValue def = new DefinitionPropertyValue.Builder()
                                     .val(lv)
-                                    .meta(buildBPVMeta(meta))
                                     .xrefs(meta.getXrefsValues())
+                                    .meta(buildBasicPropertyValueMeta(meta))
                                     .build();
                             oboGraphBuilder.addNodeDefinitionPropertyValue(subj, def);
                         } else if (isHasXrefProperty(pIRI) && lv != null) {
                             XrefPropertyValue xref = new XrefPropertyValue.Builder()
                                     .val(lv)
-                                    .meta(buildBPVMeta(meta))
+                                    .meta(buildBasicPropertyValueMeta(meta))
                                     .build();
                             oboGraphBuilder.addNodeXrefPropertyValue(subj, xref);
                         } else if (p.isDeprecated() && aaa.isDeprecatedIRIAssertion()) {
@@ -360,7 +360,7 @@ public class FromOwl {
                                     .synonymType(synonymType)
                                     .val(lv)
                                     .xrefs(meta.getXrefsValues())
-                                    .meta(buildBPVMeta(meta))
+                                    .meta(buildBasicPropertyValueMeta(meta))
                                     .build();
                             oboGraphBuilder.addNodeSynonymPropertyValue(subj, syn);
                         } else {
@@ -378,7 +378,7 @@ public class FromOwl {
                             BasicPropertyValue basicPropertyValue = new BasicPropertyValue.Builder()
                                     .pred(getPropertyId(p))
                                     .val(val)
-                                    .meta(buildBPVMeta(meta))
+                                    .meta(buildBasicPropertyValueMeta(meta))
                                     .build();
 
                             oboGraphBuilder.addNodeBasicPropertyValue(subj, basicPropertyValue);
@@ -639,19 +639,11 @@ public class FromOwl {
         return builder.build();
     }
 
-    private Meta buildBPVMeta(Meta existingMeta) {
-        Meta.Builder builder = new Meta.Builder();
+    private Meta buildBasicPropertyValueMeta(Meta existingMeta) {
         List<BasicPropertyValue> basicPropertyValues = existingMeta.getBasicPropertyValues();
-
-        if (basicPropertyValues.isEmpty()) {
-            return null;
-        }
-
-        for (BasicPropertyValue bpv : basicPropertyValues) {
-            builder.addBasicPropertyValue(bpv);
-        }
-
-        return builder.build();
+        return basicPropertyValues.isEmpty() ? null : new Meta.Builder()
+                .addAllBasicPropertyValues(basicPropertyValues)
+                .build();
     }
 
     private Meta nullIfEmpty(Meta meta) {
