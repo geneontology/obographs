@@ -74,11 +74,23 @@
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "An angiosarcoma that arises from the soft tissues, usually in the deep muscles of the lower extremities, retroperitoneum, mediastinum, and mesentery."
+          "val" : "An angiosarcoma that arises from the soft tissues, usually in the deep muscles of the lower extremities, retroperitoneum, mediastinum, and mesentery.",
+          "meta" : {
+            "basicPropertyValues" : [ {
+              "pred" : "http://www.geneontology.org/formats/oboInOwl#http://purl.obolibrary.org/obo/IAO_0000119",
+              "val" : "NCI"
+            } ]
+          }
         },
         "synonyms" : [ {
           "pred" : "hasExactSynonym",
-          "val" : "Angiosarcoma of Soft Tissue"
+          "val" : "Angiosarcoma of Soft Tissue",
+          "meta" : {
+            "basicPropertyValues" : [ {
+              "pred" : "http://www.geneontology.org/formats/oboInOwl#http://purl.obolibrary.org/obo/IAO_0000117",
+              "val" : "NCI"
+            } ]
+          }
         } ]
       }
     }, {
@@ -87,32 +99,86 @@
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "A malignant tumor arising from the endothelial cells of the blood vessels.  Microscopically, it is characterized by frequently open vascular anastomosing and branching channels.  The malignant cells that line the vascular channels are spindle or epithelioid and often display hyperchromatic nuclei.  Angiosarcomas most frequently occur in the skin and breast.  Patients with long-standing lymphedema are at increased risk of developing angiosarcoma."
+          "val" : "A malignant tumor arising from the endothelial cells of the blood vessels.  Microscopically, it is characterized by frequently open vascular anastomosing and branching channels.  The malignant cells that line the vascular channels are spindle or epithelioid and often display hyperchromatic nuclei.  Angiosarcomas most frequently occur in the skin and breast.  Patients with long-standing lymphedema are at increased risk of developing angiosarcoma.",
+          "meta" : {
+            "basicPropertyValues" : [ {
+              "pred" : "http://www.geneontology.org/formats/oboInOwl#http://purl.obolibrary.org/obo/IAO_0000119",
+              "val" : "NCI"
+            } ]
+          }
         },
         "synonyms" : [ {
           "pred" : "hasExactSynonym",
-          "val" : "Angiosarcoma"
+          "val" : "Angiosarcoma",
+          "meta" : {
+            "basicPropertyValues" : [ {
+              "pred" : "http://www.geneontology.org/formats/oboInOwl#http://purl.obolibrary.org/obo/IAO_0000117",
+              "val" : "NCI"
+            } ]
+          }
         }, {
           "pred" : "hasExactSynonym",
-          "val" : "HEMANGIOSARCOMA, MALIGNANT"
+          "val" : "HEMANGIOSARCOMA, MALIGNANT",
+          "meta" : {
+            "basicPropertyValues" : [ {
+              "pred" : "http://www.geneontology.org/formats/oboInOwl#http://purl.obolibrary.org/obo/IAO_0000117",
+              "val" : "CDISC"
+            } ]
+          }
         }, {
           "pred" : "hasExactSynonym",
-          "val" : "Hemangiosarcoma"
+          "val" : "Hemangiosarcoma",
+          "meta" : {
+            "basicPropertyValues" : [ {
+              "pred" : "http://www.geneontology.org/formats/oboInOwl#http://purl.obolibrary.org/obo/IAO_0000117",
+              "val" : "CDISC"
+            } ]
+          }
         }, {
           "pred" : "hasExactSynonym",
-          "val" : "Hemangiosarcoma"
+          "val" : "Hemangiosarcoma",
+          "meta" : {
+            "basicPropertyValues" : [ {
+              "pred" : "http://www.geneontology.org/formats/oboInOwl#http://purl.obolibrary.org/obo/IAO_0000117",
+              "val" : "NCI"
+            } ]
+          }
         }, {
           "pred" : "hasExactSynonym",
-          "val" : "Malignant Angioendothelioma"
+          "val" : "Malignant Angioendothelioma",
+          "meta" : {
+            "basicPropertyValues" : [ {
+              "pred" : "http://www.geneontology.org/formats/oboInOwl#http://purl.obolibrary.org/obo/IAO_0000117",
+              "val" : "NCI"
+            } ]
+          }
         }, {
           "pred" : "hasExactSynonym",
-          "val" : "Malignant Hemangioendothelioma"
+          "val" : "Malignant Hemangioendothelioma",
+          "meta" : {
+            "basicPropertyValues" : [ {
+              "pred" : "http://www.geneontology.org/formats/oboInOwl#http://purl.obolibrary.org/obo/IAO_0000117",
+              "val" : "NCI"
+            } ]
+          }
         }, {
           "pred" : "hasExactSynonym",
-          "val" : "angiosarcoma"
+          "val" : "angiosarcoma",
+          "meta" : {
+            "basicPropertyValues" : [ {
+              "pred" : "http://www.geneontology.org/formats/oboInOwl#http://purl.obolibrary.org/obo/IAO_0000117",
+              "val" : "NCI-GLOSS"
+            } ]
+          }
         }, {
           "pred" : "hasExactSynonym",
-          "val" : "hemangiosarcoma"
+          "val" : "hemangiosarcoma",
+          "meta" : {
+            "basicPropertyValues" : [ {
+              "pred" : "http://www.geneontology.org/formats/oboInOwl#http://purl.obolibrary.org/obo/IAO_0000117",
+              "val" : "NCI-GLOSS"
+            } ]
+          }
         } ]
       }
     }, {

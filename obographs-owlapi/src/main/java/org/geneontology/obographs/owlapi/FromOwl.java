@@ -327,11 +327,13 @@ public class FromOwl {
                             DefinitionPropertyValue def = new DefinitionPropertyValue.Builder()
                                     .val(lv)
                                     .xrefs(meta.getXrefsValues())
+                                    .meta(buildBasicPropertyValueMeta(meta))
                                     .build();
                             oboGraphBuilder.addNodeDefinitionPropertyValue(subj, def);
                         } else if (isHasXrefProperty(pIRI) && lv != null) {
                             XrefPropertyValue xref = new XrefPropertyValue.Builder()
                                     .val(lv)
+                                    .meta(buildBasicPropertyValueMeta(meta))
                                     .build();
                             oboGraphBuilder.addNodeXrefPropertyValue(subj, xref);
                         } else if (p.isDeprecated() && aaa.isDeprecatedIRIAssertion()) {
@@ -358,6 +360,7 @@ public class FromOwl {
                                     .synonymType(synonymType)
                                     .val(lv)
                                     .xrefs(meta.getXrefsValues())
+                                    .meta(buildBasicPropertyValueMeta(meta))
                                     .build();
                             oboGraphBuilder.addNodeSynonymPropertyValue(subj, syn);
                         } else {
@@ -375,6 +378,7 @@ public class FromOwl {
                             BasicPropertyValue basicPropertyValue = new BasicPropertyValue.Builder()
                                     .pred(getPropertyId(p))
                                     .val(val)
+                                    .meta(buildBasicPropertyValueMeta(meta))
                                     .build();
 
                             oboGraphBuilder.addNodeBasicPropertyValue(subj, basicPropertyValue);
@@ -633,6 +637,13 @@ public class FromOwl {
             builder.version(version);
         }
         return builder.build();
+    }
+
+    private Meta buildBasicPropertyValueMeta(Meta existingMeta) {
+        List<BasicPropertyValue> basicPropertyValues = existingMeta.getBasicPropertyValues();
+        return basicPropertyValues.isEmpty() ? null : new Meta.Builder()
+                .addAllBasicPropertyValues(basicPropertyValues)
+                .build();
     }
 
     private Meta nullIfEmpty(Meta meta) {

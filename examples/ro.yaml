@@ -2878,6 +2878,10 @@ graphs:
           \ if one of the caterpillar appendages is touching the leaf. In contrast,\
           \ a butterfly flying close to a flower is not considered adjacent, unless\
           \ there are any touching parts."
+        meta:
+          basicPropertyValues:
+          - pred: "http://www.w3.org/2000/01/rdf-schema#seeAlso"
+            val: "https://github.com/jhpoelen/eol-globi-data/issues/225#issuecomment-218584934"
       - pred: "http://purl.obolibrary.org/obo/IAO_0000112"
         val: "The epidermis layer of a vertebrate is adjacent to the dermis."
       - pred: "http://purl.obolibrary.org/obo/IAO_0000112"
@@ -6874,6 +6878,11 @@ graphs:
         val: "pazopanib -> pathological angiogenesis"
       - pred: "http://purl.obolibrary.org/obo/IAO_0000118"
         val: "treats"
+        meta:
+          basicPropertyValues:
+          - pred: "http://www.w3.org/2000/01/rdf-schema#comment"
+            val: "Usage of the term 'treats' applies when we believe there to be a\
+              \ an inhibitory relationship"
       - pred: "http://purl.obolibrary.org/obo/IAO_0000119"
         val: "http://purl.obolibrary.org/obo/ro/docs/causal-relations"
       - pred: "http://purl.obolibrary.org/obo/IAO_0000232"
@@ -9760,6 +9769,10 @@ graphs:
       basicPropertyValues:
       - pred: "http://purl.obolibrary.org/obo/IAO_0000589"
         val: "is defined by"
+        meta:
+          basicPropertyValues:
+          - pred: "http://www.w3.org/2000/01/rdf-schema#comment"
+            val: "This is an experimental annotation"
   edges:
   - sub: "http://purl.obolibrary.org/obo/BFO_0000004"
     pred: "is_a"
