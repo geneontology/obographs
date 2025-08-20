@@ -3,8 +3,7 @@ package org.geneontology.obographs.core.model;
 import org.geneontology.obographs.core.model.meta.*;
 import org.junit.jupiter.api.Test;
 
-import java.util.Arrays;
-import java.util.Collections;
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
@@ -23,13 +22,13 @@ public class MetaTest {
     }
 
     public static void testMeta(Meta m) {
-        assertEquals(defval, m.getDefinition().getVal());       
-        assertEquals(1, m.getDefinition().getXrefs().size());       
-        assertEquals(2, m.getSubsets().size());   
-        assertEquals(1, m.getXrefs().size());   
-        assertEquals(XrefPropertyValueTest.val, m.getXrefs().get(0).getVal());
-        assertEquals(XrefPropertyValueTest.lbl, m.getXrefs().get(0).getLbl());
-        assertFalse(m.getDeprecated());
+        assertEquals(defval, m.definition().val());
+        assertEquals(1, m.definition().xrefs().size());
+        assertEquals(2, m.subsets().size());
+        assertEquals(1, m.xrefs().size());
+        assertEquals(XrefPropertyValueTest.val, m.xrefs().get(0).val());
+        assertEquals(XrefPropertyValueTest.lbl, m.xrefs().get(0).lbl());
+        assertFalse(m.isDeprecated());
     }
 
     public static Meta build() {
@@ -39,14 +38,14 @@ public class MetaTest {
         DefinitionPropertyValue def = new DefinitionPropertyValue.
                 Builder().
                 val(defval).
-                xrefs(Arrays.asList(defXrefs)).
+                xrefs(List.of(defXrefs)).
                 build();
 
         return new Meta.Builder().
                 definition(def).
-                synonyms(Collections.singletonList(s)).
-                xrefs(Collections.singletonList(xref)).
-                subsets(Arrays.asList(subsets))
+                synonyms(List.of(s)).
+                xrefs(List.of(xref)).
+                subsets(List.of(subsets))
                 .deprecated(false)
                 .build();
     }

@@ -21,15 +21,15 @@ import java.util.Set;
 public abstract class AbstractEquivalentNodesSet implements Axiom, Comparable<AbstractEquivalentNodesSet> {
 
     private static final Comparator<AbstractEquivalentNodesSet> COMPARATOR =
-            Comparator.comparing(AbstractEquivalentNodesSet::getRepresentativeNodeId);
+            Comparator.comparing(AbstractEquivalentNodesSet::representativeNodeId);
 
     /**
      * @return the representativeNodeId
      */
     @JsonProperty
     @Value.Default
-    public String getRepresentativeNodeId() {
-        String representative = getNodeIds().iterator().next();
+    public String representativeNodeId() {
+        String representative = nodeIds().iterator().next();
         return representative == null ? "" : representative;
     }
 
@@ -38,7 +38,7 @@ public abstract class AbstractEquivalentNodesSet implements Axiom, Comparable<Ab
      */
     @JsonProperty
 //    @Value.NaturalOrder
-    public abstract Set<String> getNodeIds();
+    public abstract Set<String> nodeIds();
 
     @Override
     public int compareTo(AbstractEquivalentNodesSet o) {

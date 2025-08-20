@@ -35,8 +35,8 @@ import java.util.List;
 public interface PropertyValue extends Comparable<PropertyValue> {
 
     static final Comparator<PropertyValue> COMPARATOR =
-       Comparator.comparing(PropertyValue::getPred)
-            .thenComparing(PropertyValue::getVal);
+       Comparator.comparing(PropertyValue::pred)
+            .thenComparing(PropertyValue::val);
 
     /**
      * Predicates correspond to OWL properties. Like all preds in this datamodel,
@@ -46,7 +46,7 @@ public interface PropertyValue extends Comparable<PropertyValue> {
      */
     @JsonProperty
     @Value.Default
-    default String getPred() {
+    default String pred() {
         return "";
     }
 
@@ -57,7 +57,7 @@ public interface PropertyValue extends Comparable<PropertyValue> {
      */
     @JsonProperty
     @Value.Default
-    default String getVal() {
+    default String val() {
         return "";
     }
 
@@ -67,11 +67,11 @@ public interface PropertyValue extends Comparable<PropertyValue> {
      * @return the xrefs
      */
     @JsonProperty
-    public List<String> getXrefs();
+    public List<String> xrefs();
 
     @JsonProperty
     @Nullable
-    public Meta getMeta();
+    public Meta meta();
 
     @Override
     default int compareTo(PropertyValue o) {

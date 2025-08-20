@@ -3257,7 +3257,13 @@
         },
         "basicPropertyValues" : [ {
           "pred" : "http://purl.obolibrary.org/obo/IAO_0000112",
-          "val" : "A caterpillar walking on the surface of a leaf is adjacent_to the leaf, if one of the caterpillar appendages is touching the leaf. In contrast, a butterfly flying close to a flower is not considered adjacent, unless there are any touching parts."
+          "val" : "A caterpillar walking on the surface of a leaf is adjacent_to the leaf, if one of the caterpillar appendages is touching the leaf. In contrast, a butterfly flying close to a flower is not considered adjacent, unless there are any touching parts.",
+          "meta" : {
+            "basicPropertyValues" : [ {
+              "pred" : "http://www.w3.org/2000/01/rdf-schema#seeAlso",
+              "val" : "https://github.com/jhpoelen/eol-globi-data/issues/225#issuecomment-218584934"
+            } ]
+          }
         }, {
           "pred" : "http://purl.obolibrary.org/obo/IAO_0000112",
           "val" : "The epidermis layer of a vertebrate is adjacent to the dermis."
@@ -5799,10 +5805,10 @@
         } ],
         "basicPropertyValues" : [ {
           "pred" : "http://purl.obolibrary.org/obo/IAO_0000116",
-          "val" : "Considering relabeling as 'pairwise interacts with'"
+          "val" : "This relation and all sub-relations can be applied to either (1) pairs of entities that are interacting at any moment of time (2) populations or species of entity whose members have the disposition to interact (3) classes whose members have the disposition to interact."
         }, {
           "pred" : "http://purl.obolibrary.org/obo/IAO_0000116",
-          "val" : "This relation and all sub-relations can be applied to either (1) pairs of entities that are interacting at any moment of time (2) populations or species of entity whose members have the disposition to interact (3) classes whose members have the disposition to interact."
+          "val" : "Considering relabeling as 'pairwise interacts with'"
         }, {
           "pred" : "http://purl.obolibrary.org/obo/IAO_0000117",
           "val" : "Chris Mungall"
@@ -8071,7 +8077,13 @@
           "val" : "pazopanib -> pathological angiogenesis"
         }, {
           "pred" : "http://purl.obolibrary.org/obo/IAO_0000118",
-          "val" : "treats"
+          "val" : "treats",
+          "meta" : {
+            "basicPropertyValues" : [ {
+              "pred" : "http://www.w3.org/2000/01/rdf-schema#comment",
+              "val" : "Usage of the term 'treats' applies when we believe there to be a an inhibitory relationship"
+            } ]
+          }
         }, {
           "pred" : "http://purl.obolibrary.org/obo/IAO_0000119",
           "val" : "http://purl.obolibrary.org/obo/ro/docs/causal-relations"
@@ -11432,7 +11444,13 @@
       "meta" : {
         "basicPropertyValues" : [ {
           "pred" : "http://purl.obolibrary.org/obo/IAO_0000589",
-          "val" : "is defined by"
+          "val" : "is defined by",
+          "meta" : {
+            "basicPropertyValues" : [ {
+              "pred" : "http://www.w3.org/2000/01/rdf-schema#comment",
+              "val" : "This is an experimental annotation"
+            } ]
+          }
         } ]
       }
     } ],

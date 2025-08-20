@@ -14,7 +14,7 @@ public abstract class AbstractXrefPropertyValue implements PropertyValue {
      */
     @JsonProperty
     @Value.Default
-    public String getLbl() {
+    public String lbl() {
         return "";
     }
 

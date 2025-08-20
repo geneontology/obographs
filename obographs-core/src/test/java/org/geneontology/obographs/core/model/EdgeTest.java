@@ -9,11 +9,11 @@ public class EdgeTest {
 	static String pred = "part_of";
 
 	@Test
-	public void test() {
+	void test() {
 		Edge e = build();
-		assertEquals(NodeTest.id, e.getSub());
-		assertEquals(pred, e.getPred());
-		assertEquals(NodeTest.parent_id, e.getObj());
+		assertEquals(NodeTest.id, e.sub());
+		assertEquals(pred, e.pred());
+		assertEquals(NodeTest.parent_id, e.obj());
 	}
 	
 	public static Edge build() {

@@ -18,13 +18,13 @@ import java.util.Set;
 public abstract class AbstractDomainRangeAxiom implements Axiom, Comparable<AbstractDomainRangeAxiom> {
 
     private static final Comparator<AbstractDomainRangeAxiom> COMPARATOR =
-            Comparator.comparing(AbstractDomainRangeAxiom::getPredicateId);
+            Comparator.comparing(AbstractDomainRangeAxiom::predicateId);
 
     /**
      * @return the predicateId
      */
     @JsonProperty
-    public abstract String getPredicateId();
+    public abstract String predicateId();
 
     /**
      * For multiple domains, this is treated as intersection
@@ -33,7 +33,7 @@ public abstract class AbstractDomainRangeAxiom implements Axiom, Comparable<Abst
      */
     @JsonProperty
 //    @Value.NaturalOrder
-    public abstract Set<String> getDomainClassIds();
+    public abstract Set<String> domainClassIds();
 
     /**
      * For multiple ranges, this is treated as intersection
@@ -42,7 +42,7 @@ public abstract class AbstractDomainRangeAxiom implements Axiom, Comparable<Abst
      */
     @JsonProperty
 //    @Value.NaturalOrder
-    public abstract Set<String> getRangeClassIds();
+    public abstract Set<String> rangeClassIds();
 
     /**
      * Set of edges representing `X SubClassOf P only Y` axioms.
@@ -55,7 +55,7 @@ public abstract class AbstractDomainRangeAxiom implements Axiom, Comparable<Abst
      */
     @JsonProperty
 //    @Value.NaturalOrder
-    public abstract Set<Edge> getAllValuesFromEdges();
+    public abstract Set<Edge> allValuesFromEdges();
 
     @Override
     public int compareTo(AbstractDomainRangeAxiom o) {

@@ -20,25 +20,25 @@ import java.util.List;
 public abstract class AbstractLogicalDefinitionAxiom implements Axiom, Comparable<AbstractLogicalDefinitionAxiom> {
 
     private static final Comparator<AbstractLogicalDefinitionAxiom> COMPARATOR =
-            Comparator.comparing(AbstractLogicalDefinitionAxiom::getDefinedClassId);
+            Comparator.comparing(AbstractLogicalDefinitionAxiom::definedClassId);
 
     /**
      * @return the representativeNodeId
      */
     @JsonProperty
-    public abstract String getDefinedClassId();
+    public abstract String definedClassId();
 
     /**
      * @return the nodeIds
      */
     @JsonProperty
-    public abstract List<String> getGenusIds();
+    public abstract List<String> genusIds();
 
     /**
      * @return the restrictions
      */
     @JsonProperty
-    public abstract List<ExistentialRestrictionExpression> getRestrictions();
+    public abstract List<ExistentialRestrictionExpression> restrictions();
 
     @Override
     public int compareTo(AbstractLogicalDefinitionAxiom o) {

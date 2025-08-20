@@ -40,19 +40,19 @@ public abstract class AbstractGraphDocument {
      */
     @JsonProperty("@context")
     @Nullable
-    public abstract Object getContext();
+    public abstract Object context();
 
     /**
      * @return the meta
      */
     @JsonProperty
     @Nullable
-    public abstract Meta getMeta() ;
+    public abstract Meta meta() ;
 
     /**
      * @return the graphs
      */
     @JsonProperty
-    public abstract List<Graph> getGraphs();
+    public abstract List<Graph> graphs();
 
 }

@@ -62,11 +62,10 @@ public class Convert implements Callable<Integer> {
                 GraphDocument graphDocument = fromOwl.generateGraphDocument(owlOntology);
                 for (Format format : formats) {
                     Path outFile = outFile(inputFile, format);
-                    if (format == Format.json) {
-                        OgJsonGenerator.write(outFile.toFile(), graphDocument);
-                    }
-                    if (format == Format.yaml) {
-                        OgYamlGenerator.write(outFile.toFile(), graphDocument);
+                    switch (format) {
+                        case json -> OgJsonGenerator.write(outFile.toFile(), graphDocument);
+                        case yaml -> OgYamlGenerator.write(outFile.toFile(), graphDocument);
+                        default -> throw new IllegalStateException("Unexpected format value: " + format);
                     }
                     System.err.println("Written " + outFile.toAbsolutePath());
                 }

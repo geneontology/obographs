@@ -1,43 +1,29 @@
 package org.geneontology.obographs.owlapi;
 
-import org.geneontology.obographs.core.model.meta.AbstractSynonymPropertyValue.SCOPES;
+import org.geneontology.obographs.core.model.meta.AbstractSynonymPropertyValue.Scope;
 
-import java.util.HashMap;
 import java.util.Map;
 
 public class SynonymVocabulary {
 
     public static final String SYNONYM_TYPE = "http://www.geneontology.org/formats/oboInOwl#hasSynonymType";
 
-    Map<String,SCOPES> iriToScopeMap = new HashMap<>();
+    private static final Map<String, Scope> iriToScopeMap = Map.of(
+            "http://www.geneontology.org/formats/oboInOwl#hasExactSynonym", Scope.EXACT,
+            "http://www.geneontology.org/formats/oboInOwl#hasRelatedSynonym", Scope.RELATED,
+            "http://www.geneontology.org/formats/oboInOwl#hasNarrowSynonym", Scope.NARROW,
+            "http://www.geneontology.org/formats/oboInOwl#hasBroadSynonym", Scope.BROAD
+    );
 
-    
-    public SynonymVocabulary() {
-        super();
-        setDefaults();
-    }
-
-    public void setDefaults() {
-        set("http://www.geneontology.org/formats/oboInOwl#hasExactSynonym", SCOPES.EXACT);
-        set("http://www.geneontology.org/formats/oboInOwl#hasRelatedSynonym", SCOPES.RELATED);
-        set("http://www.geneontology.org/formats/oboInOwl#hasNarrowSynonym", SCOPES.NARROW);
-        set("http://www.geneontology.org/formats/oboInOwl#hasBroadSynonym", SCOPES.BROAD);
+    private SynonymVocabulary() {
+        // utility class
     }
 
-    /**
-     * @return the iriToScopeMap
-     */
-    public Map<String, SCOPES> getIriToScopeMap() {
-        return iriToScopeMap;
-    }
-    
-    public void set(String iri, SCOPES scope) {
-        iriToScopeMap.put(iri, scope);
-    }
-    public SCOPES get(String iri) {
+    public static Scope getScope(String iri) {
         return iriToScopeMap.get(iri);
     }
-    public boolean contains(String iri) {
+
+    public static boolean containsIri(String iri) {
         return iriToScopeMap.containsKey(iri);
     }
 

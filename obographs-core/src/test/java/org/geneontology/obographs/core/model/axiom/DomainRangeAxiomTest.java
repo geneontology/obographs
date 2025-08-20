@@ -11,9 +11,9 @@ public class DomainRangeAxiomTest {
     static String range = "X:1";
     
     @Test
-    public void test() {
+    void test() {
         DomainRangeAxiom a = build();
-        assertEquals(pred, a.getPredicateId());
+        assertEquals(pred, a.predicateId());
     }
 
     public static DomainRangeAxiom build() {

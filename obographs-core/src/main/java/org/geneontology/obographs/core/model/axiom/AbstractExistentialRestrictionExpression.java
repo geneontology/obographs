@@ -19,19 +19,19 @@ import java.util.Comparator;
 public abstract class AbstractExistentialRestrictionExpression implements Expression, Comparable<AbstractExistentialRestrictionExpression> {
 
     private static final Comparator<AbstractExistentialRestrictionExpression> COMPARATOR =
-            Comparator.comparing(AbstractExistentialRestrictionExpression::getPropertyId)
-                    .thenComparing(AbstractExistentialRestrictionExpression::getFillerId);
+            Comparator.comparing(AbstractExistentialRestrictionExpression::propertyId)
+                    .thenComparing(AbstractExistentialRestrictionExpression::fillerId);
     /**
      * @return the propertyId
      */
     @JsonProperty
-    public abstract String getPropertyId();
+    public abstract String propertyId();
 
     /**
      * @return the representativeNodeId
      */
     @JsonProperty
-    public abstract String getFillerId();
+    public abstract String fillerId();
 
     @Override
     public int compareTo(AbstractExistentialRestrictionExpression o) {

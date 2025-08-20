@@ -10,13 +10,10 @@ public class XrefPropertyValueTest {
     public static String lbl = "foo disease";
     
     @Test
-    public void test() {
+    void test() {
         XrefPropertyValue spv = build();
-        testSyn(spv);
-    }
-
-    public void testSyn(XrefPropertyValue spv) {
-        assertEquals(val, spv.getVal());
+        assertEquals(val, spv.val());
+        assertEquals(lbl, spv.lbl());
     }
 
     public static XrefPropertyValue build() {

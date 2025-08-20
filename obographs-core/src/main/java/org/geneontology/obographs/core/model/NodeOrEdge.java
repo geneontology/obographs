@@ -15,5 +15,5 @@ public interface NodeOrEdge {
      */
     @JsonProperty
     @Nullable
-    public Meta getMeta();
+    public Meta meta();
 }
