@@ -32,34 +32,30 @@ import static java.util.Comparator.nullsLast;
 public abstract class AbstractNode implements NodeOrEdge, Comparable<AbstractNode> {
 
     private static final Comparator<AbstractNode> COMPARATOR =
-            Comparator.comparing(AbstractNode::getId)
-                    .thenComparing(AbstractNode::getLabel)
-                    .thenComparing(AbstractNode::getType, nullsLast(naturalOrder()))
-                    .thenComparing(AbstractNode::getPropertyType, nullsLast(naturalOrder()));
-
-    public enum RDFTYPES {CLASS, INDIVIDUAL, PROPERTY}
-
-    public enum PropertyType {ANNOTATION, OBJECT, DATA}
+            Comparator.comparing(AbstractNode::id)
+                    .thenComparing(AbstractNode::label)
+                    .thenComparing(AbstractNode::rdfType, nullsLast(naturalOrder()))
+                    .thenComparing(AbstractNode::propertyType, nullsLast(naturalOrder()));
 
     @JsonProperty
     @Value.Default
-    public String getId() {
+    public String id() {
         return "";
     }
 
     @JsonProperty("lbl")
     @Value.Default
-    public String getLabel() {
+    public String label() {
         return "";
     }
 
-    @JsonProperty
+    @JsonProperty("type")
     @Nullable
-    public abstract RDFTYPES getType();
+    public abstract RdfType rdfType();
 
     @JsonProperty
     @Nullable
-    public abstract PropertyType getPropertyType();
+    public abstract PropertyType propertyType();
 
     @Override
     public int compareTo(AbstractNode other) {

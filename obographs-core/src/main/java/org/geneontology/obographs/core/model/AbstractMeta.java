@@ -35,38 +35,38 @@ public abstract class AbstractMeta {
 
     @JsonProperty
     @Nullable
-    public abstract DefinitionPropertyValue getDefinition();
+    public abstract DefinitionPropertyValue definition();
 
     @JsonProperty
-    public abstract List<String> getComments();
+    public abstract List<String> comments();
 
     @JsonProperty
-    public abstract List<String> getSubsets();
+    public abstract List<String> subsets();
 
     @JsonProperty
-    public abstract List<SynonymPropertyValue> getSynonyms();
+    public abstract List<SynonymPropertyValue> synonyms();
 
     @JsonProperty
-    public abstract List<XrefPropertyValue> getXrefs();
+    public abstract List<XrefPropertyValue> xrefs();
 
     @JsonIgnore
     @Value.Default
-    public List<String> getXrefsValues() {
-        return getXrefs().stream().map(XrefPropertyValue::getVal).collect(Collectors.toList());
+    public List<String> xrefsValues() {
+        return xrefs().stream().map(XrefPropertyValue::val).toList();
     }
 
     @JsonProperty
-    public abstract List<BasicPropertyValue> getBasicPropertyValues();
+    public abstract List<BasicPropertyValue> basicPropertyValues();
 
     @JsonProperty
     @Value.Default
-    public String getVersion(){
+    public String version(){
         return "";
     }
 
     @JsonProperty
     @Value.Default
-    public boolean getDeprecated() {
+    public boolean isDeprecated() {
         return false;
     }
 

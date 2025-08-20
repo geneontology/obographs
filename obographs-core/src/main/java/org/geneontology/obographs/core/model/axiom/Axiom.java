@@ -14,5 +14,5 @@ public interface Axiom {
      */
     @JsonProperty
     @Nullable
-    public Meta getMeta();
+    public Meta meta();
 }

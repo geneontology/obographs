@@ -5,8 +5,6 @@ import org.geneontology.obographs.core.io.OgJsonGenerator;
 import org.geneontology.obographs.core.io.OgYamlGenerator;
 import org.junit.jupiter.api.Test;
 
-import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -16,8 +14,8 @@ public class GraphTest {
 	@Test
 	public void test() throws JsonProcessingException {
 	    Graph g = build();
-		assertEquals(2, g.getNodes().size());
-		assertEquals(1, g.getEdges().size());
+		assertEquals(2, g.nodes().size());
+		assertEquals(1, g.edges().size());
 		
 		System.out.println(OgJsonGenerator.render(g));
 		System.out.println(OgYamlGenerator.render(g));
@@ -28,12 +26,9 @@ public class GraphTest {
         Node p = NodeTest.buildParent();
         Edge e = EdgeTest.build();
         
-        List<Node> nodes = new ArrayList<>();
-        nodes.add(n);
-        nodes.add(p);
-        List<Edge> edges = (List<Edge>) Collections.singletonList(e);
-        Graph g = new Graph.Builder().nodes(nodes).edges(edges).build();
-	    return g;
+        List<Node> nodes = List.of(n, p);
+        List<Edge> edges = List.of(e);
+		return new Graph.Builder().nodes(nodes).edges(edges).build();
 	}
 	
 	

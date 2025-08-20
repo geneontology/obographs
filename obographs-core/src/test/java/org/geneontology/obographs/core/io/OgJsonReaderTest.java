@@ -24,7 +24,7 @@ public class OgJsonReaderTest {
         GraphDocument graphDocument = OgJsonReader.readFile(ontologyPath.toFile());
         Instant end = Instant.now();
         System.out.printf("Read %s in %dms%n", ontologyPath, Duration.between(start, end).toMillis());
-        Node node = graphDocument.getGraphs().get(0).getNodes().get(0);
+        Node node = graphDocument.graphs().get(0).nodes().get(0);
         System.out.println(node);
         System.out.println(OgJsonGenerator.render(node));
     }
@@ -36,7 +36,7 @@ public class OgJsonReaderTest {
         GraphDocument graphDocument = OgJsonReader.readInputStream(Files.newInputStream(ontologyPath));
         Instant end = Instant.now();
         System.out.printf("Read %s in %dms%n", ontologyPath, Duration.between(start, end).toMillis());
-        Node node = graphDocument.getGraphs().get(0).getNodes().get(0);
+        Node node = graphDocument.graphs().get(0).nodes().get(0);
         System.out.println(node);
         System.out.println(OgJsonGenerator.render(node));
     }
@@ -48,7 +48,7 @@ public class OgJsonReaderTest {
         GraphDocument graphDocument = OgJsonReader.read(Files.newBufferedReader(ontologyPath, StandardCharsets.UTF_8));
         Instant end = Instant.now();
         System.out.printf("Read %s in %dms%n", ontologyPath, Duration.between(start, end).toMillis());
-        Node node = graphDocument.getGraphs().get(0).getNodes().get(0);
+        Node node = graphDocument.graphs().get(0).nodes().get(0);
         System.out.println(node);
         System.out.println(OgJsonGenerator.render(node));
     }

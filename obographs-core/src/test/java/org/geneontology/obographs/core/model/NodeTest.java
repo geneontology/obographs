@@ -19,14 +19,14 @@ public class NodeTest {
 	public void test() {
         Node n = build();
         Node p = buildParent();
-        assertEquals(id, n.getId());
-        assertEquals(lbl, n.getLabel());
-        assertEquals(parent_id, p.getId());
-        assertEquals(parent_lbl, p.getLabel());
+        assertEquals(id, n.id());
+        assertEquals(lbl, n.label());
+        assertEquals(parent_id, p.id());
+        assertEquals(parent_lbl, p.label());
 		
 		Meta m = MetaTest.build();
 		MetaTest.testMeta(m);
-		assertNull(p.getMeta());
+		assertNull(p.meta());
 	}
 	
     public static Node build() {

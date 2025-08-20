@@ -1,8 +1,11 @@
 package org.geneontology.obographs.core.io;
 
+import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.dataformat.yaml.YAMLFactory;
+import com.fasterxml.jackson.dataformat.yaml.YAMLFactoryBuilder;
 import org.geneontology.obographs.core.model.GraphDocument;
+import org.yaml.snakeyaml.LoaderOptions;
 
 import java.io.File;
 import java.io.IOException;
@@ -21,6 +24,7 @@ public class OgYamlReader {
 
 	public static GraphDocument readFile(File file) throws IOException {
 		ObjectMapper objectMapper = newObjectMapper();
+		objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
 		return objectMapper.readValue(file, GraphDocument.class);
 	}
 
@@ -35,6 +39,10 @@ public class OgYamlReader {
 	}
 
 	private static ObjectMapper newObjectMapper() {
-		return new ObjectMapper(new YAMLFactory());
+		// This needs to be set way above the default of 3 * 1024 * 1024; (3 MB) as hp.yaml is too large with the
+		// addition of the BasicPropertyValueMeta
+		LoaderOptions loaderOptions = new LoaderOptions();
+		loaderOptions.setCodePointLimit(100 * 1024 * 1024); // 100MB
+		return new ObjectMapper(new YAMLFactoryBuilder(new YAMLFactory()).loaderOptions(loaderOptions).build());
 	}
 }

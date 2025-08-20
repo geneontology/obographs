@@ -36,39 +36,39 @@ public class OgJsonGeneratorTest {
 
         assertEquals(testGraphDocument, graphDocument);
 
-        assertEquals(1, graphDocument.getGraphs().size());
-        Graph graph = graphDocument.getGraphs().get(0);
-        assertEquals(2, graph.getNodes().size());
+        assertEquals(1, graphDocument.graphs().size());
+        Graph graph = graphDocument.graphs().get(0);
+        assertEquals(2, graph.nodes().size());
 
-        Node node1 = graph.getNodes().get(0);
-        assertEquals("GO:0005634", node1.getId());
-        assertEquals("nucleus", node1.getLabel());
-        Meta node1Meta = node1.getMeta();
+        Node node1 = graph.nodes().get(0);
+        assertEquals("GO:0005634", node1.id());
+        assertEquals("nucleus", node1.label());
+        Meta node1Meta = node1.meta();
         assertEquals("A membrane-bounded organelle of eukaryotic cells in which chromosomes are housed and " +
                 "replicated. In most cells, the nucleus contains all of the cell's chromosomes except the organellar " +
                 "chromosomes, and is the site of RNA synthesis and processing. In some species, or in specialized cell" +
-                " types, RNA metabolism or DNA replication may be absent.", node1Meta.getDefinition().getVal());
-        assertEquals(Arrays.asList("GOC:go_curators"), node1Meta.getDefinition().getXrefs());
-        assertEquals(Arrays.asList("goslim_yeast", "goslim_plant"), node1Meta.getSubsets());
+                " types, RNA metabolism or DNA replication may be absent.", node1Meta.definition().val());
+        assertEquals(Arrays.asList("GOC:go_curators"), node1Meta.definition().xrefs());
+        assertEquals(Arrays.asList("goslim_yeast", "goslim_plant"), node1Meta.subsets());
 
-        XrefPropertyValue xrefPropertyValue = node1Meta.getXrefs().get(0);
-        assertEquals("ICD10:111", xrefPropertyValue.getVal());
-        assertEquals("foo disease", xrefPropertyValue.getLbl());
+        XrefPropertyValue xrefPropertyValue = node1Meta.xrefs().get(0);
+        assertEquals("ICD10:111", xrefPropertyValue.val());
+        assertEquals("foo disease", xrefPropertyValue.lbl());
 
-        SynonymPropertyValue synonymPropertyValue = node1Meta.getSynonyms().get(0);
-        assertEquals("cell nucleus", synonymPropertyValue.getVal());
-        assertEquals("hasExactSynonym", synonymPropertyValue.getPred());
-        assertEquals(Arrays.asList("GOC:go_curators"), synonymPropertyValue.getXrefs());
+        SynonymPropertyValue synonymPropertyValue = node1Meta.synonyms().get(0);
+        assertEquals("cell nucleus", synonymPropertyValue.val());
+        assertEquals("hasExactSynonym", synonymPropertyValue.pred());
+        assertEquals(Arrays.asList("GOC:go_curators"), synonymPropertyValue.xrefs());
 
-        Node node2 = graph.getNodes().get(1);
-        assertEquals("GO:0005623", node2.getId());
-        assertEquals("cell", node2.getLabel());
+        Node node2 = graph.nodes().get(1);
+        assertEquals("GO:0005623", node2.id());
+        assertEquals("cell", node2.label());
 
-        assertEquals(1, graph.getEdges().size());
-        Edge edge = graph.getEdges().get(0);
-        assertEquals("GO:0005634", edge.getSub());
-        assertEquals("part_of", edge.getPred());
-        assertEquals("GO:0005623", edge.getObj());
+        assertEquals(1, graph.edges().size());
+        Edge edge = graph.edges().get(0);
+        assertEquals("GO:0005634", edge.sub());
+        assertEquals("part_of", edge.pred());
+        assertEquals("GO:0005623", edge.obj());
     }
 
 }

@@ -23,32 +23,25 @@ public abstract class AbstractSynonymPropertyValue implements PropertyValue {
      *
      * @author cjm
      */
-    public enum SCOPES {
+    public enum Scope {
         EXACT,
         NARROW,
         BROAD,
         RELATED;
 
-        //TODO: use this as an enum or remove it and just use the pred()
         public String pred() {
-            switch (this) {
-                case EXACT:
-                    return "hasExactSynonym";
-                case RELATED:
-                    return "hasRelatedSynonym";
-                case BROAD:
-                    return "hasBroadSynonym";
-                case NARROW:
-                    return "hasNarrowSynonym";
-                default:
-                    return "hasRelatedSynonym";
-            }
+            return switch (this) {
+                case EXACT -> "hasExactSynonym";
+                case NARROW -> "hasNarrowSynonym";
+                case BROAD -> "hasBroadSynonym";
+                case RELATED -> "hasRelatedSynonym";
+            };
         }
     }
 
     @JsonProperty
     @Value.Default
-    public String getSynonymType() {
+    public String synonymType() {
         return "";
     }
 
@@ -57,38 +50,29 @@ public abstract class AbstractSynonymPropertyValue implements PropertyValue {
      */
     @JsonIgnore
     public boolean isExact() {
-        return getPred().equals("hasExactSynonym");
+        return Scope.EXACT.pred().equals(pred());
     }
 
     @JsonIgnore
     public boolean isRelated() {
-        return getPred().equals("hasRelatedSynonym");
+        return Scope.RELATED.pred().equals(pred());
     }
 
     @JsonIgnore
     public boolean isBroad() {
-        return getPred().equals("hasBroadSynonym");
+        return Scope.BROAD.pred().equals(pred());
     }
 
     @JsonIgnore
     public boolean isNarrow() {
-        return getPred().equals("hasNarrowSynonym");
+        return Scope.NARROW.pred().equals(pred());
     }
 
     @JsonIgnore
-    public List<String> getTypes() {
-        if (getMeta() != null) {
-            return getMeta().getSubsets();
+    public List<String> types() {
+        if (meta() != null) {
+            return meta().subsets();
         }
         return Collections.emptyList();
     }
-
-    // n.b. this was never used in any production code. Left it here for audit purposed, but this should be handled by
-    // the FromOwl class adding to the SynonymPropertyValue.Meta.
-//        public Builder addType(String type) {
-//            // TODO: decide on pattern for nested builders
-//            super.meta(new Meta.Builder().subsets(Collections.singletonList(type)).build());
-//            return this;
-//        }
-
 }

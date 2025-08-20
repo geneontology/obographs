@@ -1,6 +1,6 @@
 package org.geneontology.obographs.core.model.meta;
 
-import org.geneontology.obographs.core.model.meta.AbstractSynonymPropertyValue.SCOPES;
+import org.geneontology.obographs.core.model.meta.AbstractSynonymPropertyValue.Scope;
 import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
@@ -12,21 +12,17 @@ public class SynonymPropertyValueTest {
 
     static String[] synXrefs = {"GOC:go_curators"};
     static String val = "cell nucleus";
-    static SCOPES scope = SynonymPropertyValue.SCOPES.EXACT;
+    static Scope scope = Scope.EXACT;
     static String synonymType = "special_synonym";
 
     @Test
-    public void test() {
+    void test() {
         SynonymPropertyValue spv = build();
-        testSyn(spv);
-    }
-
-    public void testSyn(SynonymPropertyValue spv) {
-        assertEquals(synonymType, spv.getSynonymType());
-        assertEquals(val, spv.getVal());
+        assertEquals(synonymType, spv.synonymType());
+        assertEquals(val, spv.val());
         assertTrue(spv.isExact());
-        assertEquals(1, spv.getXrefs().size());
-        assertEquals(synXrefs[0], spv.getXrefs().get(0));
+        assertEquals(1, spv.xrefs().size());
+        assertEquals(synXrefs[0], spv.xrefs().get(0));
     }
 
     public static SynonymPropertyValue build() {

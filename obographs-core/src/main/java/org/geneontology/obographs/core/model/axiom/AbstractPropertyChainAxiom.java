@@ -20,19 +20,19 @@ public abstract class AbstractPropertyChainAxiom implements Axiom, Comparable<Ab
 
 
     private static final Comparator<AbstractPropertyChainAxiom> COMPARATOR =
-            Comparator.comparing(AbstractPropertyChainAxiom::getPredicateId);
+            Comparator.comparing(AbstractPropertyChainAxiom::predicateId);
 
     /**
      * @return the predicateId
      */
     @JsonProperty
-    public abstract String getPredicateId();
+    public abstract String predicateId();
     
     /**
      * @return the chainPredicateIds
      */
     @JsonProperty
-    public abstract List<String> getChainPredicateIds();
+    public abstract List<String> chainPredicateIds();
 
     @Override
     public int compareTo(AbstractPropertyChainAxiom o) {

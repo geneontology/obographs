@@ -25,16 +25,17 @@ public class Validate implements Callable<Integer> {
             try {
                 var fileType = detectFileType(inputFile);
                 System.err.print(inputFile);
-                if ("json".equals(fileType)) {
-                    OgJsonReader.readFile(inputFile.toFile());
-                    System.err.print(" - OK\n");
-                } else if ("yaml".equals(fileType)) {
-                    OgYamlReader.readFile(inputFile.toFile());
-                    System.err.print(" - OK\n");
-                } else if ("dir".equals(fileType)) {
-                    System.err.println(" - is directory");
-                } else {
-                    System.err.println(" - invalid file type");
+                switch (fileType) {
+                    case "json" -> {
+                        OgJsonReader.readFile(inputFile.toFile());
+                        System.err.print(" - OK\n");
+                    }
+                    case "yaml" -> {
+                        OgYamlReader.readFile(inputFile.toFile());
+                        System.err.print(" - OK\n");
+                    }
+                    case "dir" -> System.err.println(" - is directory");
+                    default -> System.err.println(" - invalid file type");
                 }
             } catch (Exception e) {
                 System.err.print(" - ERROR: ");

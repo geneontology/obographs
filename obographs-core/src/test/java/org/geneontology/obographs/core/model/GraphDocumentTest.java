@@ -17,10 +17,10 @@ public class GraphDocumentTest {
     @Test
     public void test() throws JsonProcessingException {
         GraphDocument d = build();
-        Graph g = d.getGraphs().get(0);
-        assertEquals(2, g.getNodes().size());
-        assertEquals(1, g.getEdges().size());
-        assertEquals(1, d.getGraphs().size());
+        Graph g = d.graphs().get(0);
+        assertEquals(2, g.nodes().size());
+        assertEquals(1, g.edges().size());
+        assertEquals(1, d.graphs().size());
 
         System.out.println(OgJsonGenerator.render(d));
         System.out.println(OgYamlGenerator.render(d));
@@ -28,15 +28,14 @@ public class GraphDocumentTest {
     
     public static GraphDocument build() {
         Graph g = GraphTest.build();
-        List<Graph> graphs =  (List<Graph>) Collections.singletonList(g);
+        List<Graph> graphs = List.of(g);
 
-        Map<Object,Object> context = new HashMap<>();
-        context.put("GO", "http://purl.obolibrary.org/obo/GO_");
+        Map<Object,Object> context = Map.of("GO", "http://purl.obolibrary.org/obo/GO_");
 
-        GraphDocument d = new GraphDocument.Builder().
-                context(context).
-                graphs(graphs).build();
-        return d;
+        return new GraphDocument.Builder()
+                .context(context)
+                .graphs(graphs)
+                .build();
     }
 
 

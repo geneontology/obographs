@@ -46,7 +46,7 @@ public abstract class AbstractGraph {
      */
     @JsonProperty
     @Value.Default
-    public String getId() {
+    public String id() {
         return "";
     }
 
@@ -55,7 +55,7 @@ public abstract class AbstractGraph {
      */
     @JsonProperty
     @Value.Default
-    public String getLbl() {
+    public String lbl() {
         return "";
     }
 
@@ -64,42 +64,42 @@ public abstract class AbstractGraph {
      */
     @JsonProperty
     @Nullable
-    public abstract Meta getMeta();
+    public abstract Meta meta();
 
     /**
      * @return the nodes
      */
     @JsonProperty
-    public abstract List<Node> getNodes();
+    public abstract List<Node> nodes();
 
     /**
      * @return the edges
      */
     @JsonProperty
-    public abstract List<Edge> getEdges();
+    public abstract List<Edge> edges();
 
     /**
      * @return the equivalentNodesSet
      */
     @JsonProperty
-    public abstract List<EquivalentNodesSet> getEquivalentNodesSets();
+    public abstract List<EquivalentNodesSet> equivalentNodesSets();
 
     /**
      * @return the logicalDefinitionAxioms
      */
     @JsonProperty
-    public abstract List<LogicalDefinitionAxiom> getLogicalDefinitionAxioms();
+    public abstract List<LogicalDefinitionAxiom> logicalDefinitionAxioms();
 
     /**
      * @return the domainRangeAxioms
      */
     @JsonProperty
-    public abstract List<DomainRangeAxiom> getDomainRangeAxioms();
+    public abstract List<DomainRangeAxiom> domainRangeAxioms();
 
     /**
      * @return the propertyChainAxioms
      */
     @JsonProperty
-    public abstract List<PropertyChainAxiom> getPropertyChainAxioms();
+    public abstract List<PropertyChainAxiom> propertyChainAxioms();
 
 }
