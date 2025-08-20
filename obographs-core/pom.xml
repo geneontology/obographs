@@ -10,6 +10,8 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>obographs-core</artifactId>
+    <packaging>jar</packaging>
+    <name>OBO Graphs core library</name>
 
     <properties>
         <maven.compiler.source>11</maven.compiler.source>
