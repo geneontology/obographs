@@ -270,9 +270,18 @@ public class FromOwl {
 
                     } else if (ax instanceof OWLInverseObjectPropertiesAxiom) {
                         OWLInverseObjectPropertiesAxiom ipa = (OWLInverseObjectPropertiesAxiom) ax;
-                        if (ipa.getFirstProperty().isNamed() && ipa.getSecondProperty().isNamed()) {
-                            String p1 = getPropertyId(ipa.getFirstProperty());
-                            String p2 = getPropertyId(ipa.getSecondProperty());
+                        OWLObjectPropertyExpression first = ipa.getFirstProperty();
+                        OWLObjectPropertyExpression second = ipa.getSecondProperty();
+                        if (first.isNamed() && second.isNamed()) {
+                            // OWL API 5 keeps the asserted operand order, OWL API 4 sorted it. inverseOf is symmetric,
+                            // so sort here to keep the output stable regardless of how the axiom was written.
+                            if (first.compareTo(second) > 0) {
+                                OWLObjectPropertyExpression tmp = first;
+                                first = second;
+                                second = tmp;
+                            }
+                            String p1 = getPropertyId(first);
+                            String p2 = getPropertyId(second);
                             oboGraphBuilder.addEdge(p1, INVERSE_OF, p2, meta);
                         }
                     } else if (ax instanceof OWLSubPropertyChainOfAxiom) {
@@ -343,13 +352,13 @@ public class FromOwl {
                         } else if (isOboInOwlIdProperty(pIRI)) {
                             // skip
                         } else if (isInSubsetProperty(pIRI)) {
-                            oboGraphBuilder.addNodeSubset(subj, v.toString());
+                            oboGraphBuilder.addNodeSubset(subj, getAnnotationValueString(v));
                         } else if (synonymVocabulary.contains(pIRI.toString()) && lv != null) {
                             SCOPES scope = synonymVocabulary.get(pIRI.toString());
                             String synonymType = "";
                             for (OWLAnnotation a : aaa.getAnnotations()) {
                                 if (a.getProperty().getIRI().toString().equals(SynonymVocabulary.SYNONYM_TYPE)) {
-                                    synonymType = a.getValue().toString();
+                                    synonymType = getAnnotationValueString(a.getValue());
                                 } else {
                                     // TODO: capture these in meta
                                 }
@@ -364,20 +373,9 @@ public class FromOwl {
                                     .build();
                             oboGraphBuilder.addNodeSynonymPropertyValue(subj, syn);
                         } else {
-                            String val;
-                            if (v instanceof IRI) {
-                                val = ((IRI) v).toString();
-                            } else if (v instanceof OWLLiteral) {
-                                val = ((OWLLiteral) v).getLiteral();
-                            } else if (v instanceof OWLAnonymousIndividual) {
-                                val = ((OWLAnonymousIndividual) v).getID().toString();
-                            } else {
-                                val = "";
-                            }
-
                             BasicPropertyValue basicPropertyValue = new BasicPropertyValue.Builder()
                                     .pred(getPropertyId(p))
-                                    .val(val)
+                                    .val(getAnnotationValueString(v))
                                     .meta(buildBasicPropertyValueMeta(meta))
                                     .build();
 
@@ -730,6 +728,24 @@ public class FromOwl {
             return owlIndividual.asOWLNamedIndividual().getIRI().toString();
         else
             return owlIndividual.asOWLAnonymousIndividual().getID().toString(); // TODO - document blank nodes
+    }
+
+    /**
+     * Renders an annotation value without OWL API syntax decoration. OWLLiteral.toString() changed between OWL API
+     * 4 and 5 (e.g. it now appends ^^xsd:string), so it must not be used for output.
+     *
+     * @param v
+     * @return the IRI, the lexical form of a literal or the id of an anonymous individual
+     */
+    private String getAnnotationValueString(OWLAnnotationValue v) {
+        if (v instanceof IRI) {
+            return v.toString();
+        } else if (v instanceof OWLLiteral) {
+            return ((OWLLiteral) v).getLiteral();
+        } else if (v instanceof OWLAnonymousIndividual) {
+            return ((OWLAnonymousIndividual) v).getID().toString();
+        }
+        return "";
     }
 
     /**

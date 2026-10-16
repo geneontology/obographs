@@ -53,6 +53,7 @@
       "propertyType" : "ANNOTATION"
     }, {
       "id" : "http://www.geneontology.org/formats/oboInOwl#id",
+      "lbl" : "id",
       "type" : "PROPERTY",
       "propertyType" : "ANNOTATION"
     }, {

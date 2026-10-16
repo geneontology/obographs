@@ -113536,7 +113536,7 @@ graphs:
         val: "cellular_component"
       deprecated: true
   - id: "http://purl.obolibrary.org/obo/GO_0044456"
-    lbl: "synapse part"
+    lbl: "obsolete synapse part"
     type: "CLASS"
     meta:
       definition:
@@ -314810,7 +314810,7 @@ graphs:
       subsets:
       - "http://purl.obolibrary.org/obo/hp#hposlim_core"
       synonyms:
-      - synonymType: "\"orcid.org/0000-0002-6548-5200\""
+      - synonymType: "orcid.org/0000-0002-6548-5200"
         pred: "hasExactSynonym"
         val: "Redness of skin or mucous membrane"
       xrefs:
@@ -726862,7 +726862,10 @@ graphs:
     propertyType: "OBJECT"
     meta:
       definition:
-        val: "a core relation that holds between a whole and its part"
+        val: "Q1 has_part Q2 if and only if: every instance of Q1 is a quality_of\
+          \ an entity that has_quality some Q2."
+        xrefs:
+        - "PATOC:CJM"
       comments:
       - "We use the has_part relation to relate complex qualities to more primitive\
         \ ones. A complex quality is a collection of qualities. The complex quality\
@@ -726939,10 +726942,7 @@ graphs:
     propertyType: "OBJECT"
     meta:
       definition:
-        val: "x is preceded by y if and only if the time point at which y ends is\
-          \ before or equivalent to the time point at which x starts. Formally: x\
-          \ preceded by y iff ω(y) <= α(x), where α is a function that maps a process\
-          \ to a start point, and ω is a function that maps a process to an end point."
+        val: "X preceded_by Y iff: end(Y) before_or_simultaneous_with start(X)"
       subsets:
       - "http://purl.obolibrary.org/obo/ro/subsets#ro-eco"
       synonyms:
@@ -727940,9 +727940,6 @@ graphs:
       - pred: "http://purl.obolibrary.org/obo/IAO_0000111"
         val: "contained in"
       - pred: "http://purl.obolibrary.org/obo/IAO_0000116"
-        val: "Containment is location not involving parthood, and arises only where\
-          \ some immaterial continuant is involved."
-      - pred: "http://purl.obolibrary.org/obo/IAO_0000116"
         val: "Containment obtains in each case between material and immaterial continuants,\
           \ for instance: lung contained_in thoracic cavity; bladder contained_in\
           \ pelvic cavity. Hence containment is not a transitive relation.    If c\
@@ -727959,6 +727956,9 @@ graphs:
       - pred: "http://purl.obolibrary.org/obo/IAO_0000116"
         val: "Intended meaning:\ndomain: material entity\nrange: spatial region or\
           \ site (immaterial continuant)\n        "
+      - pred: "http://purl.obolibrary.org/obo/IAO_0000116"
+        val: "Containment is location not involving parthood, and arises only where\
+          \ some immaterial continuant is involved."
       - pred: "http://purl.obolibrary.org/obo/IAO_0000118"
         val: "contained_in"
       - pred: "http://purl.obolibrary.org/obo/RO_0001900"
@@ -728436,9 +728436,9 @@ graphs:
       - pred: "http://purl.obolibrary.org/obo/IAO_0000114"
         val: "http://purl.obolibrary.org/obo/IAO_0000125"
       - pred: "http://purl.obolibrary.org/obo/IAO_0000117"
-        val: "Alexander Diehl"
-      - pred: "http://purl.obolibrary.org/obo/IAO_0000117"
         val: "Chris Mungall"
+      - pred: "http://purl.obolibrary.org/obo/IAO_0000117"
+        val: "Alexander Diehl"
       - pred: "http://purl.obolibrary.org/obo/IAO_0000117"
         val: "Lindsay Cowell"
       - pred: "http://purl.obolibrary.org/obo/IAO_0000119"
@@ -728933,9 +728933,9 @@ graphs:
       - pred: "http://purl.obolibrary.org/obo/IAO_0000117"
         val: "David Osumi-Sutherland"
       - pred: "http://purl.obolibrary.org/obo/IAO_0000117"
-        val: "Melissa Haendel"
-      - pred: "http://purl.obolibrary.org/obo/IAO_0000117"
         val: "Terry Meehan"
+      - pred: "http://purl.obolibrary.org/obo/IAO_0000117"
+        val: "Melissa Haendel"
       - pred: "http://www.geneontology.org/formats/oboInOwl#hasOBONamespace"
         val: "uberon"
       - pred: "http://www.geneontology.org/formats/oboInOwl#shorthand"
@@ -729763,13 +729763,13 @@ graphs:
     meta:
       basicPropertyValues:
       - pred: "http://purl.obolibrary.org/obo/IAO_0000112"
+        val: "every \"endocardial cushion formation\" (GO:0003272) results_in_formation_of\
+          \ some \"endocardial cushion\" (UBERON:0002062)"
+      - pred: "http://purl.obolibrary.org/obo/IAO_0000112"
         val: "an annotation of gene X to anatomical structure formation with results_in_formation_of\
           \ UBERON:0000007 (pituitary gland) means that at the beginning of the process\
           \ a pituitary gland does not exist and at the end of the process a pituitary\
           \ gland exists."
-      - pred: "http://purl.obolibrary.org/obo/IAO_0000112"
-        val: "every \"endocardial cushion formation\" (GO:0003272) results_in_formation_of\
-          \ some \"endocardial cushion\" (UBERON:0002062)"
       - pred: "http://purl.obolibrary.org/obo/IAO_0000114"
         val: "http://purl.obolibrary.org/obo/IAO_0000125"
       - pred: "http://purl.obolibrary.org/obo/IAO_0000117"
@@ -730199,6 +730199,8 @@ graphs:
         val: "m has_muscle_insertion s iff m is attaches_to s, and it is the case\
           \ that when m contracts, s moves. Insertions are usually connections of\
           \ muscle via tendon to bone."
+        xrefs:
+        - "http://en.wikipedia.org/wiki/Insertion_(anatomy)"
       comments:
       - "The insertion is the point of attachment of a muscle that moves the most\
         \ when the muscle shortens, or the most distal end of limb muscles"
