@@ -3,6 +3,7 @@ package org.geneontology.obographs.core.io;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.dataformat.yaml.YAMLFactory;
 import org.geneontology.obographs.core.model.GraphDocument;
+import org.yaml.snakeyaml.LoaderOptions;
 
 import java.io.File;
 import java.io.IOException;
@@ -35,6 +36,9 @@ public class OgYamlReader {
 	}
 
 	private static ObjectMapper newObjectMapper() {
-		return new ObjectMapper(new YAMLFactory());
+		// SnakeYAML 2 (Jackson 2.15+) refuses documents over 3 MB by default, which rules out most real ontologies
+		LoaderOptions loaderOptions = new LoaderOptions();
+		loaderOptions.setCodePointLimit(Integer.MAX_VALUE);
+		return new ObjectMapper(YAMLFactory.builder().loaderOptions(loaderOptions).build());
 	}
 }

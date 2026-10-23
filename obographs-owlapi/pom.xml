@@ -32,7 +32,7 @@
         <dependency>
             <groupId>net.sourceforge.owlapi</groupId>
             <artifactId>owlapi-distribution</artifactId>
-            <version>4.5.16</version>
+            <version>5.5.1</version>
         </dependency>
         <dependency>
             <groupId>com.io-informatics.oss</groupId>

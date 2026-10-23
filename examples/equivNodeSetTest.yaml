@@ -61,14 +61,14 @@ graphs:
           \ muscles of the lower extremities, retroperitoneum, mediastinum, and mesentery."
         meta:
           basicPropertyValues:
-          - pred: "http://www.geneontology.org/formats/oboInOwl#http://purl.obolibrary.org/obo/IAO_0000119"
+          - pred: "http://purl.obolibrary.org/obo/IAO_0000119"
             val: "NCI"
       synonyms:
       - pred: "hasExactSynonym"
         val: "Angiosarcoma of Soft Tissue"
         meta:
           basicPropertyValues:
-          - pred: "http://www.geneontology.org/formats/oboInOwl#http://purl.obolibrary.org/obo/IAO_0000117"
+          - pred: "http://purl.obolibrary.org/obo/IAO_0000117"
             val: "NCI"
   - id: "http://purl.obolibrary.org/obo/NCIT_C3088"
     lbl: "Angiosarcoma"
@@ -83,56 +83,56 @@ graphs:
           \ lymphedema are at increased risk of developing angiosarcoma."
         meta:
           basicPropertyValues:
-          - pred: "http://www.geneontology.org/formats/oboInOwl#http://purl.obolibrary.org/obo/IAO_0000119"
+          - pred: "http://purl.obolibrary.org/obo/IAO_0000119"
             val: "NCI"
       synonyms:
       - pred: "hasExactSynonym"
         val: "Angiosarcoma"
         meta:
           basicPropertyValues:
-          - pred: "http://www.geneontology.org/formats/oboInOwl#http://purl.obolibrary.org/obo/IAO_0000117"
+          - pred: "http://purl.obolibrary.org/obo/IAO_0000117"
             val: "NCI"
       - pred: "hasExactSynonym"
         val: "HEMANGIOSARCOMA, MALIGNANT"
         meta:
           basicPropertyValues:
-          - pred: "http://www.geneontology.org/formats/oboInOwl#http://purl.obolibrary.org/obo/IAO_0000117"
+          - pred: "http://purl.obolibrary.org/obo/IAO_0000117"
             val: "CDISC"
       - pred: "hasExactSynonym"
         val: "Hemangiosarcoma"
         meta:
           basicPropertyValues:
-          - pred: "http://www.geneontology.org/formats/oboInOwl#http://purl.obolibrary.org/obo/IAO_0000117"
+          - pred: "http://purl.obolibrary.org/obo/IAO_0000117"
             val: "CDISC"
       - pred: "hasExactSynonym"
         val: "Hemangiosarcoma"
         meta:
           basicPropertyValues:
-          - pred: "http://www.geneontology.org/formats/oboInOwl#http://purl.obolibrary.org/obo/IAO_0000117"
+          - pred: "http://purl.obolibrary.org/obo/IAO_0000117"
             val: "NCI"
       - pred: "hasExactSynonym"
         val: "Malignant Angioendothelioma"
         meta:
           basicPropertyValues:
-          - pred: "http://www.geneontology.org/formats/oboInOwl#http://purl.obolibrary.org/obo/IAO_0000117"
+          - pred: "http://purl.obolibrary.org/obo/IAO_0000117"
             val: "NCI"
       - pred: "hasExactSynonym"
         val: "Malignant Hemangioendothelioma"
         meta:
           basicPropertyValues:
-          - pred: "http://www.geneontology.org/formats/oboInOwl#http://purl.obolibrary.org/obo/IAO_0000117"
+          - pred: "http://purl.obolibrary.org/obo/IAO_0000117"
             val: "NCI"
       - pred: "hasExactSynonym"
         val: "angiosarcoma"
         meta:
           basicPropertyValues:
-          - pred: "http://www.geneontology.org/formats/oboInOwl#http://purl.obolibrary.org/obo/IAO_0000117"
+          - pred: "http://purl.obolibrary.org/obo/IAO_0000117"
             val: "NCI-GLOSS"
       - pred: "hasExactSynonym"
         val: "hemangiosarcoma"
         meta:
           basicPropertyValues:
-          - pred: "http://www.geneontology.org/formats/oboInOwl#http://purl.obolibrary.org/obo/IAO_0000117"
+          - pred: "http://purl.obolibrary.org/obo/IAO_0000117"
             val: "NCI-GLOSS"
   - id: "http://purl.obolibrary.org/obo/Orphanet_263413"
     lbl: "Angiosarcoma"
@@ -144,6 +144,12 @@ graphs:
       - val: "MedDRA:10002476"
   - id: "http://purl.obolibrary.org/obo/IAO_0000115"
     lbl: "definition"
+    type: "PROPERTY"
+    propertyType: "ANNOTATION"
+  - id: "http://purl.obolibrary.org/obo/IAO_0000117"
+    type: "PROPERTY"
+    propertyType: "ANNOTATION"
+  - id: "http://purl.obolibrary.org/obo/IAO_0000119"
     type: "PROPERTY"
     propertyType: "ANNOTATION"
   - id: "http://www.geneontology.org/formats/oboInOwl#comments"
@@ -165,6 +171,7 @@ graphs:
     type: "PROPERTY"
     propertyType: "ANNOTATION"
   - id: "http://www.geneontology.org/formats/oboInOwl#id"
+    lbl: "id"
     type: "PROPERTY"
     propertyType: "ANNOTATION"
   - id: "http://www.geneontology.org/formats/oboInOwl#inSubset"
@@ -172,12 +179,6 @@ graphs:
     type: "PROPERTY"
     propertyType: "ANNOTATION"
   - id: "http://www.geneontology.org/formats/oboInOwl#source"
-    type: "PROPERTY"
-    propertyType: "ANNOTATION"
-  - id: "http://www.geneontology.org/formats/oboInOwl#http://purl.obolibrary.org/obo/IAO_0000117"
-    type: "PROPERTY"
-    propertyType: "ANNOTATION"
-  - id: "http://www.geneontology.org/formats/oboInOwl#http://purl.obolibrary.org/obo/IAO_0000119"
     type: "PROPERTY"
     propertyType: "ANNOTATION"
   - id: "http://www.w3.org/2000/01/rdf-schema#label"

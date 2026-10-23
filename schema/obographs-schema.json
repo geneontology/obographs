@@ -3,7 +3,8 @@
   "id" : "urn:jsonschema:org:geneontology:obographs:core:model:GraphDocument",
   "properties" : {
     "@context" : {
-      "type" : "any"
+      "type" : "object",
+      "id" : "urn:jsonschema:java:lang:Object"
     },
     "meta" : {
       "type" : "object",

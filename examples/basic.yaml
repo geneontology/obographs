@@ -39,6 +39,7 @@ graphs:
     type: "PROPERTY"
     propertyType: "ANNOTATION"
   - id: "http://www.geneontology.org/formats/oboInOwl#id"
+    lbl: "id"
     type: "PROPERTY"
     propertyType: "ANNOTATION"
   - id: "http://www.geneontology.org/formats/oboInOwl#shorthand"
