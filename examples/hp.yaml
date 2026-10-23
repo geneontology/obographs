@@ -91322,13 +91322,15 @@ graphs:
     type: "CLASS"
     meta:
       definition:
-        val: "The part of a cell or its extracellular environment in which a gene\
-          \ product is located. A gene product may be located in one or more parts\
-          \ of a cell and its location may be as specific as a particular macromolecular\
-          \ complex, that is, a stable, persistent association of macromolecules that\
-          \ function together."
+        val: "A location, relative to cellular compartments and structures, occupied\
+          \ by a macromolecular machine when it carries out a molecular function.\
+          \ There are two ways in which the gene ontology describes locations of gene\
+          \ products: (1) relative to cellular structures (e.g., cytoplasmic side\
+          \ of plasma membrane) or compartments (e.g., mitochondrion), and (2) the\
+          \ stable macromolecular complexes of which they are parts (e.g., the ribosome)."
         xrefs:
-        - "GOC:go_curators"
+        - "GOC:pdt"
+        - "NIF_Subcellular:sao1337158144"
       comments:
       - "Note that, in addition to forming the root of the cellular component ontology,\
         \ this term is recommended for use for the annotation of gene products whose\
@@ -107769,12 +107771,12 @@ graphs:
     type: "CLASS"
     meta:
       definition:
-        val: "Any macromolecular complex composed of two or more polypeptide subunits,\
-          \ which may or may not be identical. Protein complexes may have other associated\
-          \ non-protein prosthetic groups, such as nucleotides, metal ions or carbohydrate\
-          \ groups."
+        val: "A stable assembly of two or more macromolecules, i.e. proteins, nucleic\
+          \ acids, carbohydrates or lipids, in which at least one component is a protein\
+          \ and the constituent parts function together."
         xrefs:
-        - "GOC:go_curators"
+        - "GOC:dos"
+        - "GOC:mah"
       comments:
       - "A protein complex in this context is meant as a stable set of interacting\
         \ proteins which can be co-purified by an acceptable method, and where the\
@@ -112987,7 +112989,7 @@ graphs:
       - pred: "http://www.geneontology.org/formats/oboInOwl#hasOBONamespace"
         val: "biological_process"
   - id: "http://purl.obolibrary.org/obo/GO_0044403"
-    lbl: "symbiotic process"
+    lbl: "symbiosis, encompassing mutualism through parasitism"
     type: "CLASS"
     meta:
       definition:
@@ -113613,7 +113615,7 @@ graphs:
         val: "cellular_component"
       deprecated: true
   - id: "http://purl.obolibrary.org/obo/GO_0044464"
-    lbl: "obsolete cell part"
+    lbl: "cell part"
     type: "CLASS"
     meta:
       definition:
@@ -122916,7 +122918,7 @@ graphs:
       - pred: "http://www.geneontology.org/formats/oboInOwl#hasOBONamespace"
         val: "biological_process"
   - id: "http://purl.obolibrary.org/obo/GO_0051705"
-    lbl: "obsolete multi-organism behavior"
+    lbl: "multi-organism behavior"
     type: "CLASS"
     meta:
       definition:
@@ -726779,7 +726781,7 @@ graphs:
       - pred: "http://www.geneontology.org/formats/oboInOwl#hasOBONamespace"
         val: "gene"
   - id: "http://purl.obolibrary.org/obo/BFO_0000050"
-    lbl: "part_of"
+    lbl: "part of"
     type: "PROPERTY"
     propertyType: "OBJECT"
     meta:
@@ -726857,7 +726859,7 @@ graphs:
       - pred: "http://www.w3.org/2000/01/rdf-schema#seeAlso"
         val: "http://www.obofoundry.org/ro/#OBO_REL:part_of"
   - id: "http://purl.obolibrary.org/obo/BFO_0000051"
-    lbl: "has_part"
+    lbl: "has part"
     type: "PROPERTY"
     propertyType: "OBJECT"
     meta:
@@ -726937,7 +726939,7 @@ graphs:
       - pred: "http://www.geneontology.org/formats/oboInOwl#shorthand"
         val: "participates_in"
   - id: "http://purl.obolibrary.org/obo/BFO_0000062"
-    lbl: "preceded_by"
+    lbl: "preceded by"
     type: "PROPERTY"
     propertyType: "OBJECT"
     meta:
@@ -727574,7 +727576,7 @@ graphs:
       - pred: "http://www.geneontology.org/formats/oboInOwl#shorthand"
         val: "bearer_of"
   - id: "http://purl.obolibrary.org/obo/RO_0000056"
-    lbl: "participates_in"
+    lbl: "participates in"
     type: "PROPERTY"
     propertyType: "OBJECT"
     meta:
@@ -727701,7 +727703,7 @@ graphs:
       - pred: "http://purl.obolibrary.org/obo/IAO_0000118"
         val: "has_function"
   - id: "http://purl.obolibrary.org/obo/RO_0000086"
-    lbl: "has_quality"
+    lbl: "has quality"
     type: "PROPERTY"
     propertyType: "OBJECT"
     meta:
@@ -727728,7 +727730,7 @@ graphs:
       - pred: "http://www.geneontology.org/formats/oboInOwl#shorthand"
         val: "has_quality"
   - id: "http://purl.obolibrary.org/obo/RO_0000087"
-    lbl: "has_role"
+    lbl: "has role"
     type: "PROPERTY"
     propertyType: "OBJECT"
     meta:
@@ -727841,7 +727843,7 @@ graphs:
       - pred: "http://purl.org/spar/cito/citesAsAuthority"
         val: "http://www.ncbi.nlm.nih.gov/pubmed/22402613"
   - id: "http://purl.obolibrary.org/obo/RO_0001000"
-    lbl: "derives_from"
+    lbl: "derives from"
     type: "PROPERTY"
     propertyType: "OBJECT"
     meta:
@@ -727902,7 +727904,7 @@ graphs:
       - pred: "http://purl.obolibrary.org/obo/IAO_0000118"
         val: "derives_into"
   - id: "http://purl.obolibrary.org/obo/RO_0001015"
-    lbl: "location_of"
+    lbl: "location of"
     type: "PROPERTY"
     propertyType: "OBJECT"
     meta:
@@ -727982,7 +727984,7 @@ graphs:
       - pred: "http://www.geneontology.org/formats/oboInOwl#shorthand"
         val: "contains"
   - id: "http://purl.obolibrary.org/obo/RO_0001025"
-    lbl: "located_in"
+    lbl: "located in"
     type: "PROPERTY"
     propertyType: "OBJECT"
     meta:
@@ -728028,7 +728030,7 @@ graphs:
       - pred: "http://www.geneontology.org/formats/oboInOwl#shorthand"
         val: "located_in"
   - id: "http://purl.obolibrary.org/obo/RO_0002000"
-    lbl: "boundary of"
+    lbl: "2D boundary of"
     type: "PROPERTY"
     propertyType: "OBJECT"
     meta:
@@ -728061,7 +728063,7 @@ graphs:
       - pred: "http://www.geneontology.org/formats/oboInOwl#shorthand"
         val: "boundary_of"
   - id: "http://purl.obolibrary.org/obo/RO_0002002"
-    lbl: "has boundary"
+    lbl: "has 2D boundary"
     type: "PROPERTY"
     propertyType: "OBJECT"
     meta:
@@ -728336,7 +728338,7 @@ graphs:
       - pred: "http://purl.obolibrary.org/obo/IAO_0000117"
         val: "David Osumi-Sutherland"
   - id: "http://purl.obolibrary.org/obo/RO_0002087"
-    lbl: "immediately_preceded_by"
+    lbl: "immediately preceded by"
     type: "PROPERTY"
     propertyType: "OBJECT"
     meta:
@@ -728483,8 +728485,7 @@ graphs:
     propertyType: "OBJECT"
     meta:
       definition:
-        val: "x overlaps y if and only if there exists some z such that x has part\
-          \ z and z part of y"
+        val: "A overlaps B if they share some part in common."
       subsets:
       - "http://purl.obolibrary.org/obo/ro/subsets#ro-eco"
       xrefs:
@@ -728535,7 +728536,7 @@ graphs:
       - pred: "http://www.geneontology.org/formats/oboInOwl#shorthand"
         val: "innervates"
   - id: "http://purl.obolibrary.org/obo/RO_0002150"
-    lbl: "continuous_with"
+    lbl: "continuous with"
     type: "PROPERTY"
     propertyType: "OBJECT"
     meta:
@@ -728591,7 +728592,7 @@ graphs:
       - pred: "http://purl.obolibrary.org/obo/IAO_0000114"
         val: "http://purl.obolibrary.org/obo/IAO_0000125"
   - id: "http://purl.obolibrary.org/obo/RO_0002158"
-    lbl: "shares ancestor with"
+    lbl: "homologous_to"
     type: "PROPERTY"
     propertyType: "OBJECT"
     meta:
@@ -728614,7 +728615,7 @@ graphs:
       - pred: "http://www.geneontology.org/formats/oboInOwl#shorthand"
         val: "homologous_to"
   - id: "http://purl.obolibrary.org/obo/RO_0002159"
-    lbl: "serially_homologous_to"
+    lbl: "serially homologous to"
     type: "PROPERTY"
     propertyType: "OBJECT"
     meta:
@@ -728628,13 +728629,14 @@ graphs:
       - pred: "http://www.geneontology.org/formats/oboInOwl#shorthand"
         val: "serially_homologous_to"
   - id: "http://purl.obolibrary.org/obo/RO_0002160"
-    lbl: "only_in_taxon"
+    lbl: "only in taxon"
     type: "PROPERTY"
     propertyType: "OBJECT"
     meta:
       definition:
-        val: "x only in taxon y if and only if x is in taxon y, and there is no other\
-          \ organism z such that y!=z a and x is in taxon z."
+        val: "S only_in_taxon T iff: S SubClassOf in_taxon only T"
+        xrefs:
+        - "http://www.ncbi.nlm.nih.gov/pubmed/20973947"
       comments:
       - "Down-propagates. The original name for this in the paper is 'specific_to'.\
         \ Applicable to genes because some genes are lost in sub-species (strains)\
@@ -728746,8 +728748,10 @@ graphs:
     propertyType: "OBJECT"
     meta:
       definition:
-        val: "a is connected to b if and only if a and b are discrete structure, and\
-          \ there exists some connecting structure c, such that c connects a and b"
+        val: "Binary relationship: x connected_to y if and only if there exists some\
+          \ z such that z connects x and y in a ternary connected_to(x,y,z) relationship."
+        xrefs:
+        - "http://purl.obolibrary.org/obo/uberon/docs/Connectivity-Design-Pattern"
       comments:
       - "Connection does not imply overlaps."
       xrefs:
@@ -728774,10 +728778,10 @@ graphs:
     propertyType: "OBJECT"
     meta:
       definition:
-        val: "c connects a if and only if there exist some b such that a and b are\
-          \ similar parts of the same system, and c connects b, specifically, c connects\
-          \ a with b. When one structure connects two others it unites some aspect\
-          \ of the function or role they play within the system."
+        val: "Binary relationship: z connects x if and only if there exists some y\
+          \ such that z connects x and y in a ternary connected_to(x,y,z) relationship."
+        xrefs:
+        - "http://purl.obolibrary.org/obo/uberon/docs/Connectivity-Design-Pattern"
       xrefs:
       - val: "RO:0002176"
       basicPropertyValues:
@@ -728801,7 +728805,7 @@ graphs:
       - pred: "http://xmlns.com/foaf/0.1/page"
         val: "https://github.com/obophenotype/uberon/wiki/Modeling-articulations-Design-Pattern"
   - id: "http://purl.obolibrary.org/obo/RO_0002177"
-    lbl: "attaches_to_part_of"
+    lbl: "attached to part of"
     type: "PROPERTY"
     propertyType: "OBJECT"
     meta:
@@ -728823,7 +728827,9 @@ graphs:
     propertyType: "OBJECT"
     meta:
       definition:
-        val: "relation between an artery and the structure is supplies with blood."
+        val: "Relation between an arterial structure and another structure, where\
+          \ the arterial structure acts as a conduit channeling fluid, substance or\
+          \ energy."
       comments:
       - "source: FMA"
       synonyms:
@@ -728876,7 +728882,7 @@ graphs:
       - pred: "http://www.geneontology.org/formats/oboInOwl#shorthand"
         val: "drains"
   - id: "http://purl.obolibrary.org/obo/RO_0002180"
-    lbl: "has_component"
+    lbl: "has component"
     type: "PROPERTY"
     propertyType: "OBJECT"
     meta:
@@ -728913,7 +728919,7 @@ graphs:
       - pred: "http://www.w3.org/2000/01/rdf-schema#seeAlso"
         val: "http://ontologydesignpatterns.org/wiki/Submissions:Componency"
   - id: "http://purl.obolibrary.org/obo/RO_0002202"
-    lbl: "develops_from"
+    lbl: "develops from"
     type: "PROPERTY"
     propertyType: "OBJECT"
     meta:
@@ -728941,7 +728947,7 @@ graphs:
       - pred: "http://www.geneontology.org/formats/oboInOwl#shorthand"
         val: "develops_from"
   - id: "http://purl.obolibrary.org/obo/RO_0002203"
-    lbl: "develops_into"
+    lbl: "develops into"
     type: "PROPERTY"
     propertyType: "OBJECT"
     meta:
@@ -728965,7 +728971,7 @@ graphs:
       - pred: "http://www.geneontology.org/formats/oboInOwl#shorthand"
         val: "develops_into"
   - id: "http://purl.obolibrary.org/obo/RO_0002207"
-    lbl: "directly_develops_from"
+    lbl: "directly develops from"
     type: "PROPERTY"
     propertyType: "OBJECT"
     meta:
@@ -729099,7 +729105,7 @@ graphs:
       - pred: "http://www.geneontology.org/formats/oboInOwl#shorthand"
         val: "positively_regulates"
   - id: "http://purl.obolibrary.org/obo/RO_0002215"
-    lbl: "capable_of"
+    lbl: "capable of"
     type: "PROPERTY"
     propertyType: "OBJECT"
     meta:
@@ -729162,13 +729168,13 @@ graphs:
       - pred: "http://www.w3.org/2000/01/rdf-schema#seeAlso"
         val: "https://github.com/oborel/obo-relations/wiki/ROGuide#defining-property-chains-involving-reflexivity"
   - id: "http://purl.obolibrary.org/obo/RO_0002217"
-    lbl: "obsolete actively participates in"
+    lbl: "actively participates in"
     type: "PROPERTY"
     propertyType: "OBJECT"
     meta:
       definition:
-        val: "x actively participates in y if and only if x participates in y and\
-          \ x realizes some active role"
+        val: "OBSOLETE x actively participates in y if and only if x participates\
+          \ in y and x realizes some active role"
       comments:
       - "Obsoleted as the inverse property was obsoleted."
       basicPropertyValues:
@@ -729200,15 +729206,14 @@ graphs:
         val: "has agent"
       deprecated: true
   - id: "http://purl.obolibrary.org/obo/RO_0002219"
-    lbl: "surrounded_by"
+    lbl: "surrounded by"
     type: "PROPERTY"
     propertyType: "OBJECT"
     meta:
       definition:
-        val: "x surrounded_by y iff: x is adjacent to y and for every region r adjacent\
-          \ to x, r overlaps y"
-        xrefs:
-        - "https://orcid.org/0000-0002-6601-2165"
+        val: "x surrounded_by y if and only if (1) x is adjacent to y and for every\
+          \ region r that is adjacent to x, r overlaps y (2) the shared boundary between\
+          \ x and y occupies the majority of the outermost boundary of x"
       xrefs:
       - val: "RO:0002219"
       basicPropertyValues:
@@ -729223,12 +729228,12 @@ graphs:
       - pred: "http://www.geneontology.org/formats/oboInOwl#shorthand"
         val: "surrounded_by"
   - id: "http://purl.obolibrary.org/obo/RO_0002220"
-    lbl: "adjacent_to"
+    lbl: "adjacent to"
     type: "PROPERTY"
     propertyType: "OBJECT"
     meta:
       definition:
-        val: "x adjacent_to y iff: x and y share a boundary"
+        val: "x adjacent to y if and only if x and y share a boundary."
       xrefs:
       - val: "RO:0002220"
       basicPropertyValues:
@@ -729268,9 +729273,7 @@ graphs:
     propertyType: "OBJECT"
     meta:
       definition:
-        val: "inverse of surrounded_by"
-        xrefs:
-        - "https://orcid.org/0000-0002-6601-2165"
+        val: "inverse of surrounded by"
       subsets:
       - "http://purl.obolibrary.org/obo/RO_0002259"
       xrefs:
@@ -729314,7 +729317,10 @@ graphs:
     propertyType: "OBJECT"
     meta:
       definition:
-        val: "inverse of starts with"
+        val: "Relation between occurrents, shares a start boundary with."
+        xrefs:
+        - "https://orcid.org/0000-0002-6601-2165"
+        - "Allen:starts"
       subsets:
       - "http://purl.obolibrary.org/obo/ro/subsets#ro-eco"
       xrefs:
@@ -729359,7 +729365,7 @@ graphs:
       - pred: "http://www.geneontology.org/formats/oboInOwl#shorthand"
         val: "starts_with"
   - id: "http://purl.obolibrary.org/obo/RO_0002225"
-    lbl: "develops_from_part_of"
+    lbl: "develops from part of"
     type: "PROPERTY"
     propertyType: "OBJECT"
     meta:
@@ -729378,7 +729384,7 @@ graphs:
       - pred: "http://www.geneontology.org/formats/oboInOwl#shorthand"
         val: "develops_from_part_of"
   - id: "http://purl.obolibrary.org/obo/RO_0002226"
-    lbl: "develops_in"
+    lbl: "develops in"
     type: "PROPERTY"
     propertyType: "OBJECT"
     meta:
@@ -729407,7 +729413,11 @@ graphs:
     propertyType: "OBJECT"
     meta:
       definition:
-        val: "inverse of ends with"
+        val: "Relation between occurrents, shares an end boundary with."
+        xrefs:
+        - "https://orcid.org/0000-0002-6601-2165"
+        - "Allen:starts"
+        - "ZFS:finishes"
       subsets:
       - "http://purl.obolibrary.org/obo/ro/subsets#ro-eco"
       synonyms:
@@ -729542,7 +729552,7 @@ graphs:
       - pred: "http://www.geneontology.org/formats/oboInOwl#shorthand"
         val: "has_developmental_contribution_from"
   - id: "http://purl.obolibrary.org/obo/RO_0002255"
-    lbl: "developmentally_contributes_to"
+    lbl: "developmentally contributes to"
     type: "PROPERTY"
     propertyType: "OBJECT"
     meta:
@@ -729562,15 +729572,17 @@ graphs:
       - pred: "http://www.geneontology.org/formats/oboInOwl#shorthand"
         val: "developmentally_contributes_to"
   - id: "http://purl.obolibrary.org/obo/RO_0002256"
-    lbl: "developmentally_induced_by"
+    lbl: "developmentally induced by"
     type: "PROPERTY"
     propertyType: "OBJECT"
     meta:
       definition:
-        val: "t1 induced_by t2 if there is a process of developmental induction (GO:0031128)\
-          \ with t1 and t2 as interacting participants. t2 causes t1 to change its\
-          \ fate from a precursor anatomical structure type T to T', where T' develops_from\
-          \ T"
+        val: "t1 developmentally_induced_by t2 if there is a process of organ induction\
+          \ (GO:0001759) with t1 and t2 as interacting participants. t2 causes t1\
+          \ to change its fate from a precursor tissue type T to T', where T' develops_from\
+          \ T."
+        xrefs:
+        - "GO:0001759"
       comments:
       - "sources for developmentally_induced_by relationships in Uberon: Developmental\
         \ Biology, Gilbert, 8th edition, figure 6.5(F)"
@@ -729676,7 +729688,7 @@ graphs:
       - pred: "http://www.w3.org/2000/01/rdf-schema#seeAlso"
         val: "http://wiki.geneontology.org/index.php/Acts_upstream_of_or_within"
   - id: "http://purl.obolibrary.org/obo/RO_0002285"
-    lbl: "developmentally_replaces"
+    lbl: "developmentally replaces"
     type: "PROPERTY"
     propertyType: "OBJECT"
     meta:
@@ -729973,7 +729985,7 @@ graphs:
       - pred: "http://www.geneontology.org/formats/oboInOwl#shorthand"
         val: "part_of_structure_that_is_capable_of"
   - id: "http://purl.obolibrary.org/obo/RO_0002331"
-    lbl: "involved_in"
+    lbl: "involved in"
     type: "PROPERTY"
     propertyType: "OBJECT"
     meta:
@@ -730107,7 +730119,7 @@ graphs:
       - pred: "http://www.geneontology.org/formats/oboInOwl#shorthand"
         val: "input_of"
   - id: "http://purl.obolibrary.org/obo/RO_0002353"
-    lbl: "output_of"
+    lbl: "output of"
     type: "PROPERTY"
     propertyType: "OBJECT"
     meta:
@@ -730138,7 +730150,7 @@ graphs:
       - pred: "http://purl.obolibrary.org/obo/IAO_0000117"
         val: "Chris Mungall"
   - id: "http://purl.obolibrary.org/obo/RO_0002371"
-    lbl: "attaches_to"
+    lbl: "attached to"
     type: "PROPERTY"
     propertyType: "OBJECT"
     meta:
@@ -730162,16 +730174,14 @@ graphs:
       - pred: "http://www.w3.org/2000/01/rdf-schema#seeAlso"
         val: "http://purl.obolibrary.org/obo/FMA_85990"
   - id: "http://purl.obolibrary.org/obo/RO_0002372"
-    lbl: "has_muscle_origin"
+    lbl: "has muscle origin"
     type: "PROPERTY"
     propertyType: "OBJECT"
     meta:
       definition:
-        val: "m has_muscle_origin s iff m is attaches_to s, and it is the case that\
+        val: "m has_muscle_origin s iff m is attached_to s, and it is the case that\
           \ when m contracts, s does not move. The site of the origin tends to be\
           \ more proximal and have greater mass than what the other end attaches to."
-        xrefs:
-        - "http://en.wikipedia.org/wiki/Insertion_(anatomy)#Muscles"
       comments:
       - "The origin is the end of a muscle that attaches to the more fixed part of\
         \ the skeleton, which is the proximal end in limb muscles"
@@ -730191,7 +730201,7 @@ graphs:
       - pred: "http://www.w3.org/2000/01/rdf-schema#seeAlso"
         val: "http://purl.obolibrary.org/obo/dbpprop_origin"
   - id: "http://purl.obolibrary.org/obo/RO_0002373"
-    lbl: "has_muscle_insertion"
+    lbl: "has muscle insertion"
     type: "PROPERTY"
     propertyType: "OBJECT"
     meta:
@@ -730199,8 +730209,6 @@ graphs:
         val: "m has_muscle_insertion s iff m is attaches_to s, and it is the case\
           \ that when m contracts, s moves. Insertions are usually connections of\
           \ muscle via tendon to bone."
-        xrefs:
-        - "http://en.wikipedia.org/wiki/Insertion_(anatomy)"
       comments:
       - "The insertion is the point of attachment of a muscle that moves the most\
         \ when the muscle shortens, or the most distal end of limb muscles"
@@ -730220,7 +730228,7 @@ graphs:
       - pred: "http://www.w3.org/2000/01/rdf-schema#seeAlso"
         val: "http://purl.obolibrary.org/obo/dbpprop_insertion"
   - id: "http://purl.obolibrary.org/obo/RO_0002374"
-    lbl: "has_fused_element"
+    lbl: "derived from ancestral fusion of"
     type: "PROPERTY"
     propertyType: "OBJECT"
     meta:
@@ -730284,7 +730292,7 @@ graphs:
       - pred: "http://xmlns.com/foaf/0.1/page"
         val: "https://github.com/obophenotype/uberon/issues/170"
   - id: "http://purl.obolibrary.org/obo/RO_0002376"
-    lbl: "tributary_of"
+    lbl: "tributary of"
     type: "PROPERTY"
     propertyType: "OBJECT"
     meta:
@@ -730349,7 +730357,7 @@ graphs:
         val: "This relation is added for formal completeness. It is unlikely to be\
           \ used in many practical scenarios"
   - id: "http://purl.obolibrary.org/obo/RO_0002380"
-    lbl: "branching_part_of"
+    lbl: "branching part of"
     type: "PROPERTY"
     propertyType: "OBJECT"
     meta:
@@ -730758,16 +730766,15 @@ graphs:
         val: "An interaction relation between x and y in which x catalyzes a reaction\
           \ in which a phosphate group is added to y."
   - id: "http://purl.obolibrary.org/obo/RO_0002448"
-    lbl: "directly regulates activity of"
+    lbl: "activity directly regulates activity of"
     type: "PROPERTY"
     propertyType: "OBJECT"
     meta:
       definition:
-        val: "The entity A, immediately upstream of the entity B, has an activity\
-          \ that regulates an activity performed by B. For example, A and B may be\
-          \ gene products and binding of B by A regulates the kinase activity of B.\n\
-          \nA and B can be physically interacting but not necessarily. Immediately\
-          \ upstream means there are no intermediate entity between A and B."
+        val: "Holds between molecular entities A and B where A can physically interact\
+          \ with B and in doing so regulates a process that B is capable of.  For\
+          \ example, A and B may be gene products and binding of B by A regulates\
+          \ the kinase activity of B."
       synonyms:
       - pred: "hasExactSynonym"
         val: "molecularly controls"
@@ -730777,15 +730784,15 @@ graphs:
       - pred: "http://purl.obolibrary.org/obo/IAO_0000117"
         val: "Vasundra Touré"
   - id: "http://purl.obolibrary.org/obo/RO_0002449"
-    lbl: "directly negatively regulates activity of"
+    lbl: "activity directly negatively regulates activity of"
     type: "PROPERTY"
     propertyType: "OBJECT"
     meta:
       definition:
-        val: "The entity A, immediately upstream of the entity B, has an activity\
-          \ that negatively regulates an activity performed by B. \nFor example, A\
-          \ and B may be gene products and binding of B by A negatively regulates\
-          \ the kinase activity of B."
+        val: "Holds between molecular entities A and B where A can physically interact\
+          \ with B and in doing so negatively regulates a process that B is capable\
+          \ of.  For example, A and B may be gene products and binding of B by A negatively\
+          \ regulates the kinase activity of B."
       synonyms:
       - pred: "hasExactSynonym"
         val: "molecularly decreases activity of"
@@ -730799,15 +730806,15 @@ graphs:
       - pred: "http://purl.obolibrary.org/obo/IAO_0000118"
         val: "inhibits"
   - id: "http://purl.obolibrary.org/obo/RO_0002450"
-    lbl: "directly positively regulates activity of"
+    lbl: "activity directly positively regulates activity of"
     type: "PROPERTY"
     propertyType: "OBJECT"
     meta:
       definition:
-        val: "The entity A, immediately upstream of the entity B, has an activity\
-          \ that positively regulates an activity performed by B. \nFor example, A\
-          \ and B may be gene products and binding of B by A positively regulates\
-          \ the kinase activity of B."
+        val: "Holds between molecular entities A and B where A can physically interact\
+          \ with B and in doing so positively regulates a process that B is capable\
+          \ of.  For example, A and B may be gene products and binding of B by A positively\
+          \ regulates the kinase activity of B."
       synonyms:
       - pred: "hasExactSynonym"
         val: "molecularly increases activity of"
@@ -730845,8 +730852,8 @@ graphs:
     propertyType: "OBJECT"
     meta:
       definition:
-        val: "x composed_primarily_of y iff: more than half of the mass of x is made\
-          \ from parts of y"
+        val: "x composed_primarily_of y if and only if more than half of the mass\
+          \ of x is made from y or units of the same type as y."
       subsets:
       - "http://purl.obolibrary.org/obo/ro/subsets#ro-eco"
       xrefs:
@@ -730903,10 +730910,10 @@ graphs:
     propertyType: "OBJECT"
     meta:
       definition:
-        val: "x existence starts during y if and only if the time point at which x\
-          \ starts is after or equivalent to the time point at which y starts and\
-          \ before or equivalent to the time point at which y ends. Formally: x existence\
-          \ starts during y iff α(x) >= α(y) & α(x) <= ω(y)."
+        val: "Relation between continuant c and occurrent s, such that every instance\
+          \ of c comes into existing during some s."
+        xrefs:
+        - "https://orcid.org/0000-0002-6601-2165"
       synonyms:
       - pred: "hasExactSynonym"
         val: "begins_to_exist_during"
@@ -730925,9 +730932,10 @@ graphs:
     propertyType: "OBJECT"
     meta:
       definition:
-        val: "x starts ends with y if and only if the time point at which x starts\
-          \ is equivalent to the time point at which y starts. Formally: x existence\
-          \ starts with y iff α(x) = α(y)."
+        val: "Relation between continuant and occurrent, such that c comes into existence\
+          \ at the start of p."
+        xrefs:
+        - "https://orcid.org/0000-0002-6601-2165"
       xrefs:
       - val: "RO:0002489"
       basicPropertyValues:
@@ -730960,10 +730968,10 @@ graphs:
     propertyType: "OBJECT"
     meta:
       definition:
-        val: "x existence ends during y if and only if the time point at which x ends\
-          \ is before or equivalent to the time point at which y ends and after or\
-          \ equivalent to the point at which y starts. Formally: x existence ends\
-          \ during y iff ω(x) <= ω(y) and ω(x) >= α(y)."
+        val: "Relation between continuant c and occurrent s, such that every instance\
+          \ of c ceases to exist during some s, if it does not die prematurely."
+        xrefs:
+        - "https://orcid.org/0000-0002-6601-2165"
       comments:
       - "The relations here were created based on work originally by Fabian Neuhaus\
         \ and David Osumi-Sutherland. The work has not yet been vetted and errors\
@@ -730986,9 +730994,10 @@ graphs:
     propertyType: "OBJECT"
     meta:
       definition:
-        val: "x existence ends with y if and only if the time point at which x ends\
-          \ is equivalent to the time point at which y ends. Formally: x existence\
-          \ ends with y iff ω(x) = ω(y)."
+        val: "Relation between continuant and occurrent, such that c ceases to exist\
+          \ at the end of p."
+        xrefs:
+        - "https://orcid.org/0000-0002-6601-2165"
       comments:
       - "The relations here were created based on work originally by Fabian Neuhaus\
         \ and David Osumi-Sutherland. The work has not yet been vetted and errors\
@@ -731161,7 +731170,7 @@ graphs:
       - pred: "http://www.geneontology.org/formats/oboInOwl#shorthand"
         val: "towards"
   - id: "http://purl.obolibrary.org/obo/RO_0002506"
-    lbl: "causal relation between material entities"
+    lbl: "causal relation between entities"
     type: "PROPERTY"
     propertyType: "OBJECT"
     meta:
@@ -731239,10 +731248,9 @@ graphs:
     propertyType: "OBJECT"
     meta:
       definition:
-        val: "A relation between a subdivision of an organism and the single subdivision\
-          \ of skeleton that provides structural support for that subdivision."
-        xrefs:
-        - "http://orcid.org/0000-0002-6601-2165"
+        val: "A relation between a segment or subdivision of an organism and the maximal\
+          \ subdivision of material entities that provides structural support for\
+          \ that segment or subdivision."
       synonyms:
       - pred: "hasRelatedSynonym"
         val: "has sekeletal support"
@@ -731306,11 +731314,9 @@ graphs:
     propertyType: "OBJECT"
     meta:
       definition:
-        val: "The entity or characteristic A is causally upstream of the entity or\
-          \ characteristic B, A having an effect on B. An entity corresponds to any\
-          \ biological type of entity as long as a mass is measurable. A characteristic\
-          \ corresponds to a particular specificity of an entity (e.g., phenotype,\
-          \ shape, size)."
+        val: "Holds between materal entities a and b if the activity of a is causally\
+          \ upstream of the activity of b, or causally upstream of a an activity that\
+          \ modifies b"
       basicPropertyValues:
       - pred: "http://purl.obolibrary.org/obo/IAO_0000117"
         val: "Chris Mungall"
@@ -731337,14 +731343,15 @@ graphs:
         val: "Do not use this relation directly. It is ended as a grouping for a diverse\
           \ set of relations, all involving the biomechanical processes."
   - id: "http://purl.obolibrary.org/obo/RO_0002568"
-    lbl: "has_muscle_antagonist"
+    lbl: "has muscle antagonist"
     type: "PROPERTY"
     propertyType: "OBJECT"
     meta:
       definition:
-        val: "m1 has_muscle_antagonist m2 iff m1 has_muscle_insertion s, m2 has_muscle_insection\
-          \ s, m1 acts in opposition to m2, and m2 is responsible for returning the\
-          \ structure to its initial position."
+        val: "m1 has_muscle_antagonist m2 iff m1 acts in opposition to m2, and m2\
+          \ is responsible for returning the structure to its initial position."
+        xrefs:
+        - "http://en.wikipedia.org/wiki/Antagonist_(muscle)"
       xrefs:
       - val: "RO:0002568"
       basicPropertyValues:
@@ -731641,7 +731648,7 @@ graphs:
       - pred: "http://www.geneontology.org/formats/oboInOwl#shorthand"
         val: "produces"
   - id: "http://purl.obolibrary.org/obo/RO_0003001"
-    lbl: "produced_by"
+    lbl: "produced by"
     type: "PROPERTY"
     propertyType: "OBJECT"
     meta:
@@ -732424,7 +732431,7 @@ graphs:
     type: "PROPERTY"
     propertyType: "ANNOTATION"
   - id: "http://purl.obolibrary.org/obo/IAO_0000232"
-    lbl: "curator notes"
+    lbl: "curator note"
     type: "PROPERTY"
     propertyType: "ANNOTATION"
     meta:
@@ -732495,7 +732502,7 @@ graphs:
     type: "PROPERTY"
     propertyType: "ANNOTATION"
   - id: "http://purl.obolibrary.org/obo/RO_0002173"
-    lbl: "ambiguous_for_taxon"
+    lbl: "ambiguous for taxon"
     type: "PROPERTY"
     propertyType: "ANNOTATION"
     meta:
@@ -732504,7 +732511,9 @@ graphs:
           \ in taxon T. An example would be the class 'manual digit 1', which encompasses\
           \ a homology hypotheses that is accepted for some species (e.g. human and\
           \ mouse), but does not have a clear referent in Aves - the referent is dependent\
-          \ on the hypothesis embraced, and also on the ontogenetic stage.  [PHENOSCPAE:asilomar_mtg]"
+          \ on the hypothesis embraced, and also on the ontogenetic stage."
+        xrefs:
+        - "PHENOSCPAE:asilomar_mtg"
       xrefs:
       - val: "RO:0002173"
       basicPropertyValues:
@@ -732519,7 +732528,7 @@ graphs:
       - pred: "http://www.w3.org/2000/01/rdf-schema#seeAlso"
         val: "https://github.com/obophenotype/uberon/wiki/Taxon-constraints"
   - id: "http://purl.obolibrary.org/obo/RO_0002174"
-    lbl: "dubious_for_taxon"
+    lbl: "dubious for taxon"
     type: "PROPERTY"
     propertyType: "ANNOTATION"
     meta:
@@ -732557,7 +732566,7 @@ graphs:
       - pred: "http://www.w3.org/2000/01/rdf-schema#seeAlso"
         val: "https://github.com/obophenotype/uberon/wiki/Taxon-constraints"
   - id: "http://purl.obolibrary.org/obo/RO_0002175"
-    lbl: "present_in_taxon"
+    lbl: "present in taxon"
     type: "PROPERTY"
     propertyType: "ANNOTATION"
     meta:
@@ -732633,7 +732642,7 @@ graphs:
           \ Q holds and (2) Q is either reflexive or locally reflexive. A corollary\
           \ of this is that P SubPropertyOf R."
   - id: "http://purl.obolibrary.org/obo/RO_0002604"
-    lbl: "is_opposite_of"
+    lbl: "is opposite of"
     type: "PROPERTY"
     propertyType: "ANNOTATION"
     meta:

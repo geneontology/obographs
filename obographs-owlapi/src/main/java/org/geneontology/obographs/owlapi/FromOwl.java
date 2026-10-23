@@ -275,6 +275,7 @@ public class FromOwl {
                         if (first.isNamed() && second.isNamed()) {
                             // OWL API 5 keeps the asserted operand order, OWL API 4 sorted it. inverseOf is symmetric,
                             // so sort here to keep the output stable regardless of how the axiom was written.
+                            // Don't remove the swap: without it inverseOf edges flip direction (see #125).
                             if (first.compareTo(second) > 0) {
                                 OWLObjectPropertyExpression tmp = first;
                                 first = second;
@@ -402,6 +403,11 @@ public class FromOwl {
 
     static class OboGraphBuilder {
 
+        // the same definition text can be asserted twice with different axiom annotations, so break ties on the xrefs
+        private static final Comparator<DefinitionPropertyValue> DEFINITION_ORDER = Comparator
+                .comparing(DefinitionPropertyValue::getVal)
+                .thenComparing(d -> d.getXrefs().toString());
+
         private final String graphId;
         private final Meta meta;
 
@@ -411,6 +417,7 @@ public class FromOwl {
         private final Set<String> nodeIds = new LinkedHashSet<>();
         private final Map<String, RDFTYPES> nodeTypeMap = new LinkedHashMap<>();
         private final Map<String, String> nodeLabelMap = new LinkedHashMap<>();
+        private final Map<String, DefinitionPropertyValue> nodeDefinitionMap = new HashMap<>();
         private final Map<String, DomainRangeAxiom.Builder> domainRangeBuilderMap = new LinkedHashMap<>();
         private final List<PropertyChainAxiom> pcas = new ArrayList<>();
 
@@ -446,9 +453,11 @@ public class FromOwl {
             nodePropertyTypeMap.put(nodeId, propertyType);
         }
 
+        // Nodes with several labels or definitions keep the alphanumerically first one, so the choice doesn't depend on
+        // the OWL API axiom sort order. See https://github.com/geneontology/obographs/issues/107
         public void addNodeLabel(String nodeId, String label) {
             nodeIds.add(nodeId);
-            nodeLabelMap.put(nodeId, label);
+            nodeLabelMap.merge(nodeId, label, (current, candidate) -> candidate.compareTo(current) < 0 ? candidate : current);
         }
 
         public void addEdge(Edge edge) {
@@ -469,8 +478,11 @@ public class FromOwl {
         }
 
         public void addNodeDefinitionPropertyValue(String nodeId, DefinitionPropertyValue def) {
-            Meta.Builder nb = getMetaBuilderForId(nodeId);
-            nb.definition(def);
+            DefinitionPropertyValue current = nodeDefinitionMap.get(nodeId);
+            if (current == null || DEFINITION_ORDER.compare(def, current) < 0) {
+                nodeDefinitionMap.put(nodeId, def);
+                getMetaBuilderForId(nodeId).definition(def);
+            }
             nodeIds.add(nodeId);
         }
 
@@ -615,7 +627,7 @@ public class FromOwl {
         for (OWLAnnotation ann : anns) {
             OWLAnnotationProperty p = ann.getProperty();
             OWLAnnotationValue v = ann.getValue();
-            String val = v instanceof IRI ? ((IRI) v).toString() : ((OWLLiteral) v).getLiteral();
+            String val = getAnnotationValueString(v);
             if (ann.isDeprecatedIRIAnnotation()) {
                 builder.deprecated(true);
             } else if (isHasXrefProperty(p.getIRI())) {
@@ -734,7 +746,7 @@ public class FromOwl {
      * Renders an annotation value without OWL API syntax decoration. OWLLiteral.toString() changed between OWL API
      * 4 and 5 (e.g. it now appends ^^xsd:string), so it must not be used for output.
      *
-     * @param v
+     * @param v the annotation value to render
      * @return the IRI, the lexical form of a literal or the id of an anonymous individual
      */
     private String getAnnotationValueString(OWLAnnotationValue v) {
