@@ -280,7 +280,12 @@ using *obographs* as a pre-built library.
 
 ### Releasing to Central
 
+Releases go to Maven Central through the [Central Portal](https://central.sonatype.com). You need publish rights on the
+`org.geneontology` namespace, a Portal user token in `~/.m2/settings.xml` under server id `central`, and a GPG key
+published to a public keyserver.
+
 ```
+mvn versions:set -DnewVersion=X.Y.Z -DgenerateBackupPoms=false
 mvn clean deploy -P release
 ```
 
