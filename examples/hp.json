@@ -113196,8 +113196,8 @@
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "The part of a cell or its extracellular environment in which a gene product is located. A gene product may be located in one or more parts of a cell and its location may be as specific as a particular macromolecular complex, that is, a stable, persistent association of macromolecules that function together.",
-          "xrefs" : [ "GOC:go_curators" ]
+          "val" : "A location, relative to cellular compartments and structures, occupied by a macromolecular machine when it carries out a molecular function. There are two ways in which the gene ontology describes locations of gene products: (1) relative to cellular structures (e.g., cytoplasmic side of plasma membrane) or compartments (e.g., mitochondrion), and (2) the stable macromolecular complexes of which they are parts (e.g., the ribosome).",
+          "xrefs" : [ "GOC:pdt", "NIF_Subcellular:sao1337158144" ]
         },
         "comments" : [ "Note that, in addition to forming the root of the cellular component ontology, this term is recommended for use for the annotation of gene products whose cellular component is unknown. Note that when this term is used for annotation, it indicates that no information was available about the cellular component of the gene product annotated as of the date the annotation was made; the evidence code ND, no data, is used to indicate this.", "Note that, in addition to forming the root of the cellular component ontology, this term is recommended for use for the annotation of gene products whose cellular component is unknown. When this term is used for annotation, it indicates that no information was available about the cellular component of the gene product annotated as of the date the annotation was made; the evidence code \"no data\" (ND), is used to indicate this." ],
         "subsets" : [ "http://purl.obolibrary.org/obo/go#goslim_aspergillus", "http://purl.obolibrary.org/obo/go#goslim_candida", "http://purl.obolibrary.org/obo/go#goslim_chembl", "http://purl.obolibrary.org/obo/go#goslim_generic", "http://purl.obolibrary.org/obo/go#goslim_metagenomics", "http://purl.obolibrary.org/obo/go#goslim_pir", "http://purl.obolibrary.org/obo/go#goslim_plant", "http://purl.obolibrary.org/obo/go#goslim_yeast" ],
@@ -131167,8 +131167,8 @@
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "Any macromolecular complex composed of two or more polypeptide subunits, which may or may not be identical. Protein complexes may have other associated non-protein prosthetic groups, such as nucleotides, metal ions or carbohydrate groups.",
-          "xrefs" : [ "GOC:go_curators" ]
+          "val" : "A stable assembly of two or more macromolecules, i.e. proteins, nucleic acids, carbohydrates or lipids, in which at least one component is a protein and the constituent parts function together.",
+          "xrefs" : [ "GOC:dos", "GOC:mah" ]
         },
         "comments" : [ "A protein complex in this context is meant as a stable set of interacting proteins which can be co-purified by an acceptable method, and where the complex has been shown to exist as an isolated, functional unit in vivo. Acceptable experimental methods include stringent protein purification followed by detection of protein interaction. The following methods should be considered non-acceptable: simple immunoprecipitation, pull-down experiments from cell extracts without further purification, colocalization and 2-hybrid screening. Interactions that should not be captured as protein complexes include: 1) enzyme/substrate, receptor/ligand or any similar transient interactions, unless these are a critical part of the complex assembly or are required e.g. for the receptor to be functional; 2) proteins associated in a pull-down/co-immunoprecipitation assay with no functional link or any evidence that this is a defined biological entity rather than a loose-affinity complex; 3) any complex where the only evidence is based on genetic interaction data; 4) partial complexes, where some subunits (e.g. transmembrane ones) cannot be expressed as recombinant proteins and are excluded from experiments (in this case, independent evidence is necessary to find out the composition of the full complex, if known). Interactions that may be captured as protein complexes include: 1) enzyme/substrate or receptor/ligand if the complex can only assemble and become functional in the presence of both classes of subunits; 2) complexes where one of the members has not been shown to be physically linked to the other(s), but is a homologue of, and has the same functionality as, a protein that has been experimentally demonstrated to form a complex with the other member(s); 3) complexes whose existence is accepted based on localization and pharmacological studies, but for which experimental evidence is not yet available for the complex as a whole.", "Note that although at some level almost all cellular components can be thought of as protein complexes, this term is intended to exclude structures composed of the same repeating subunit or subunits, for example microtubules. Protein complexes encompassed by this term are generally not structural, and usually have a defined set of subunits." ],
         "subsets" : [ "http://purl.obolibrary.org/obo/go#goslim_agr", "http://purl.obolibrary.org/obo/go#goslim_chembl", "http://purl.obolibrary.org/obo/go#goslim_flybase_ribbon", "http://purl.obolibrary.org/obo/go#goslim_generic", "http://purl.obolibrary.org/obo/go#goslim_pir" ],
@@ -136891,7 +136891,7 @@
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/GO_0044403",
-      "lbl" : "symbiotic process",
+      "lbl" : "symbiosis, encompassing mutualism through parasitism",
       "type" : "CLASS",
       "meta" : {
         "definition" : {
@@ -137403,7 +137403,7 @@
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/GO_0044456",
-      "lbl" : "synapse part",
+      "lbl" : "obsolete synapse part",
       "type" : "CLASS",
       "meta" : {
         "definition" : {
@@ -137474,7 +137474,7 @@
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/GO_0044464",
-      "lbl" : "obsolete cell part",
+      "lbl" : "cell part",
       "type" : "CLASS",
       "meta" : {
         "definition" : {
@@ -148354,7 +148354,7 @@
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/GO_0051705",
-      "lbl" : "obsolete multi-organism behavior",
+      "lbl" : "multi-organism behavior",
       "type" : "CLASS",
       "meta" : {
         "definition" : {
@@ -380187,7 +380187,7 @@
         },
         "subsets" : [ "http://purl.obolibrary.org/obo/hp#hposlim_core" ],
         "synonyms" : [ {
-          "synonymType" : "\"orcid.org/0000-0002-6548-5200\"",
+          "synonymType" : "orcid.org/0000-0002-6548-5200",
           "pred" : "hasExactSynonym",
           "val" : "Redness of skin or mucous membrane"
         } ],
@@ -870410,7 +870410,7 @@
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/BFO_0000050",
-      "lbl" : "part_of",
+      "lbl" : "part of",
       "type" : "PROPERTY",
       "propertyType" : "OBJECT",
       "meta" : {
@@ -870499,12 +870499,13 @@
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/BFO_0000051",
-      "lbl" : "has_part",
+      "lbl" : "has part",
       "type" : "PROPERTY",
       "propertyType" : "OBJECT",
       "meta" : {
         "definition" : {
-          "val" : "a core relation that holds between a whole and its part"
+          "val" : "Q1 has_part Q2 if and only if: every instance of Q1 is a quality_of an entity that has_quality some Q2.",
+          "xrefs" : [ "PATOC:CJM" ]
         },
         "comments" : [ "We use the has_part relation to relate complex qualities to more primitive ones. A complex quality is a collection of qualities. The complex quality cannot exist without the sub-qualities. For example, the quality 'swollen' necessarily comes with the qualities of 'protruding' and 'increased size'." ],
         "xrefs" : [ {
@@ -870579,12 +870580,12 @@
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/BFO_0000062",
-      "lbl" : "preceded_by",
+      "lbl" : "preceded by",
       "type" : "PROPERTY",
       "propertyType" : "OBJECT",
       "meta" : {
         "definition" : {
-          "val" : "x is preceded by y if and only if the time point at which y ends is before or equivalent to the time point at which x starts. Formally: x preceded by y iff ω(y) <= α(x), where α is a function that maps a process to a start point, and ω is a function that maps a process to an end point."
+          "val" : "X preceded_by Y iff: end(Y) before_or_simultaneous_with start(X)"
         },
         "subsets" : [ "http://purl.obolibrary.org/obo/ro/subsets#ro-eco" ],
         "synonyms" : [ {
@@ -871345,7 +871346,7 @@
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/RO_0000056",
-      "lbl" : "participates_in",
+      "lbl" : "participates in",
       "type" : "PROPERTY",
       "propertyType" : "OBJECT",
       "meta" : {
@@ -871504,7 +871505,7 @@
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/RO_0000086",
-      "lbl" : "has_quality",
+      "lbl" : "has quality",
       "type" : "PROPERTY",
       "propertyType" : "OBJECT",
       "meta" : {
@@ -871539,7 +871540,7 @@
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/RO_0000087",
-      "lbl" : "has_role",
+      "lbl" : "has role",
       "type" : "PROPERTY",
       "propertyType" : "OBJECT",
       "meta" : {
@@ -871655,7 +871656,7 @@
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/RO_0001000",
-      "lbl" : "derives_from",
+      "lbl" : "derives from",
       "type" : "PROPERTY",
       "propertyType" : "OBJECT",
       "meta" : {
@@ -871721,7 +871722,7 @@
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/RO_0001015",
-      "lbl" : "location_of",
+      "lbl" : "location of",
       "type" : "PROPERTY",
       "propertyType" : "OBJECT",
       "meta" : {
@@ -871769,13 +871770,13 @@
           "val" : "contained in"
         }, {
           "pred" : "http://purl.obolibrary.org/obo/IAO_0000116",
-          "val" : "Containment is location not involving parthood, and arises only where some immaterial continuant is involved."
-        }, {
-          "pred" : "http://purl.obolibrary.org/obo/IAO_0000116",
           "val" : "Containment obtains in each case between material and immaterial continuants, for instance: lung contained_in thoracic cavity; bladder contained_in pelvic cavity. Hence containment is not a transitive relation.    If c part_of c1 at t then we have also, by our definition and by the axioms of mereology applied to spatial regions, c located_in c1 at t. Thus, many examples of instance-level location relations for continuants are in fact cases of instance-level parthood. For material continuants location and parthood coincide. Containment is location not involving parthood, and arises only where some immaterial continuant is involved. To understand this relation, we first define overlap for continuants as follows:    c1 overlap c2 at t =def for some c, c part_of c1 at t and c part_of c2 at t. The containment relation on the instance level can then be defined (see definition):"
         }, {
           "pred" : "http://purl.obolibrary.org/obo/IAO_0000116",
           "val" : "Intended meaning:\ndomain: material entity\nrange: spatial region or site (immaterial continuant)\n        "
+        }, {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000116",
+          "val" : "Containment is location not involving parthood, and arises only where some immaterial continuant is involved."
         }, {
           "pred" : "http://purl.obolibrary.org/obo/IAO_0000118",
           "val" : "contained_in"
@@ -871810,7 +871811,7 @@
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/RO_0001025",
-      "lbl" : "located_in",
+      "lbl" : "located in",
       "type" : "PROPERTY",
       "propertyType" : "OBJECT",
       "meta" : {
@@ -871857,7 +871858,7 @@
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/RO_0002000",
-      "lbl" : "boundary of",
+      "lbl" : "2D boundary of",
       "type" : "PROPERTY",
       "propertyType" : "OBJECT",
       "meta" : {
@@ -871901,7 +871902,7 @@
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/RO_0002002",
-      "lbl" : "has boundary",
+      "lbl" : "has 2D boundary",
       "type" : "PROPERTY",
       "propertyType" : "OBJECT",
       "meta" : {
@@ -872187,7 +872188,7 @@
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/RO_0002087",
-      "lbl" : "immediately_preceded_by",
+      "lbl" : "immediately preceded by",
       "type" : "PROPERTY",
       "propertyType" : "OBJECT",
       "meta" : {
@@ -872309,10 +872310,10 @@
           "val" : "http://purl.obolibrary.org/obo/IAO_0000125"
         }, {
           "pred" : "http://purl.obolibrary.org/obo/IAO_0000117",
-          "val" : "Alexander Diehl"
+          "val" : "Chris Mungall"
         }, {
           "pred" : "http://purl.obolibrary.org/obo/IAO_0000117",
-          "val" : "Chris Mungall"
+          "val" : "Alexander Diehl"
         }, {
           "pred" : "http://purl.obolibrary.org/obo/IAO_0000117",
           "val" : "Lindsay Cowell"
@@ -872364,7 +872365,7 @@
       "propertyType" : "OBJECT",
       "meta" : {
         "definition" : {
-          "val" : "x overlaps y if and only if there exists some z such that x has part z and z part of y"
+          "val" : "A overlaps B if they share some part in common."
         },
         "subsets" : [ "http://purl.obolibrary.org/obo/ro/subsets#ro-eco" ],
         "xrefs" : [ {
@@ -872428,7 +872429,7 @@
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/RO_0002150",
-      "lbl" : "continuous_with",
+      "lbl" : "continuous with",
       "type" : "PROPERTY",
       "propertyType" : "OBJECT",
       "meta" : {
@@ -872501,7 +872502,7 @@
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/RO_0002158",
-      "lbl" : "shares ancestor with",
+      "lbl" : "homologous_to",
       "type" : "PROPERTY",
       "propertyType" : "OBJECT",
       "meta" : {
@@ -872528,7 +872529,7 @@
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/RO_0002159",
-      "lbl" : "serially_homologous_to",
+      "lbl" : "serially homologous to",
       "type" : "PROPERTY",
       "propertyType" : "OBJECT",
       "meta" : {
@@ -872548,12 +872549,13 @@
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/RO_0002160",
-      "lbl" : "only_in_taxon",
+      "lbl" : "only in taxon",
       "type" : "PROPERTY",
       "propertyType" : "OBJECT",
       "meta" : {
         "definition" : {
-          "val" : "x only in taxon y if and only if x is in taxon y, and there is no other organism z such that y!=z a and x is in taxon z."
+          "val" : "S only_in_taxon T iff: S SubClassOf in_taxon only T",
+          "xrefs" : [ "http://www.ncbi.nlm.nih.gov/pubmed/20973947" ]
         },
         "comments" : [ "Down-propagates. The original name for this in the paper is 'specific_to'. Applicable to genes because some genes are lost in sub-species (strains) of a species." ],
         "synonyms" : [ {
@@ -872687,7 +872689,8 @@
       "propertyType" : "OBJECT",
       "meta" : {
         "definition" : {
-          "val" : "a is connected to b if and only if a and b are discrete structure, and there exists some connecting structure c, such that c connects a and b"
+          "val" : "Binary relationship: x connected_to y if and only if there exists some z such that z connects x and y in a ternary connected_to(x,y,z) relationship.",
+          "xrefs" : [ "http://purl.obolibrary.org/obo/uberon/docs/Connectivity-Design-Pattern" ]
         },
         "comments" : [ "Connection does not imply overlaps." ],
         "xrefs" : [ {
@@ -872723,7 +872726,8 @@
       "propertyType" : "OBJECT",
       "meta" : {
         "definition" : {
-          "val" : "c connects a if and only if there exist some b such that a and b are similar parts of the same system, and c connects b, specifically, c connects a with b. When one structure connects two others it unites some aspect of the function or role they play within the system."
+          "val" : "Binary relationship: z connects x if and only if there exists some y such that z connects x and y in a ternary connected_to(x,y,z) relationship.",
+          "xrefs" : [ "http://purl.obolibrary.org/obo/uberon/docs/Connectivity-Design-Pattern" ]
         },
         "xrefs" : [ {
           "val" : "RO:0002176"
@@ -872756,7 +872760,7 @@
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/RO_0002177",
-      "lbl" : "attaches_to_part_of",
+      "lbl" : "attached to part of",
       "type" : "PROPERTY",
       "propertyType" : "OBJECT",
       "meta" : {
@@ -872784,7 +872788,7 @@
       "propertyType" : "OBJECT",
       "meta" : {
         "definition" : {
-          "val" : "relation between an artery and the structure is supplies with blood."
+          "val" : "Relation between an arterial structure and another structure, where the arterial structure acts as a conduit channeling fluid, substance or energy."
         },
         "comments" : [ "source: FMA" ],
         "synonyms" : [ {
@@ -872848,7 +872852,7 @@
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/RO_0002180",
-      "lbl" : "has_component",
+      "lbl" : "has component",
       "type" : "PROPERTY",
       "propertyType" : "OBJECT",
       "meta" : {
@@ -872890,7 +872894,7 @@
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/RO_0002202",
-      "lbl" : "develops_from",
+      "lbl" : "develops from",
       "type" : "PROPERTY",
       "propertyType" : "OBJECT",
       "meta" : {
@@ -872912,10 +872916,10 @@
           "val" : "David Osumi-Sutherland"
         }, {
           "pred" : "http://purl.obolibrary.org/obo/IAO_0000117",
-          "val" : "Melissa Haendel"
+          "val" : "Terry Meehan"
         }, {
           "pred" : "http://purl.obolibrary.org/obo/IAO_0000117",
-          "val" : "Terry Meehan"
+          "val" : "Melissa Haendel"
         }, {
           "pred" : "http://www.geneontology.org/formats/oboInOwl#hasOBONamespace",
           "val" : "uberon"
@@ -872926,7 +872930,7 @@
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/RO_0002203",
-      "lbl" : "develops_into",
+      "lbl" : "develops into",
       "type" : "PROPERTY",
       "propertyType" : "OBJECT",
       "meta" : {
@@ -872959,7 +872963,7 @@
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/RO_0002207",
-      "lbl" : "directly_develops_from",
+      "lbl" : "directly develops from",
       "type" : "PROPERTY",
       "propertyType" : "OBJECT",
       "meta" : {
@@ -873130,7 +873134,7 @@
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/RO_0002215",
-      "lbl" : "capable_of",
+      "lbl" : "capable of",
       "type" : "PROPERTY",
       "propertyType" : "OBJECT",
       "meta" : {
@@ -873213,12 +873217,12 @@
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/RO_0002217",
-      "lbl" : "obsolete actively participates in",
+      "lbl" : "actively participates in",
       "type" : "PROPERTY",
       "propertyType" : "OBJECT",
       "meta" : {
         "definition" : {
-          "val" : "x actively participates in y if and only if x participates in y and x realizes some active role"
+          "val" : "OBSOLETE x actively participates in y if and only if x participates in y and x realizes some active role"
         },
         "comments" : [ "Obsoleted as the inverse property was obsoleted." ],
         "basicPropertyValues" : [ {
@@ -873260,13 +873264,12 @@
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/RO_0002219",
-      "lbl" : "surrounded_by",
+      "lbl" : "surrounded by",
       "type" : "PROPERTY",
       "propertyType" : "OBJECT",
       "meta" : {
         "definition" : {
-          "val" : "x surrounded_by y iff: x is adjacent to y and for every region r adjacent to x, r overlaps y",
-          "xrefs" : [ "https://orcid.org/0000-0002-6601-2165" ]
+          "val" : "x surrounded_by y if and only if (1) x is adjacent to y and for every region r that is adjacent to x, r overlaps y (2) the shared boundary between x and y occupies the majority of the outermost boundary of x"
         },
         "xrefs" : [ {
           "val" : "RO:0002219"
@@ -873290,12 +873293,12 @@
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/RO_0002220",
-      "lbl" : "adjacent_to",
+      "lbl" : "adjacent to",
       "type" : "PROPERTY",
       "propertyType" : "OBJECT",
       "meta" : {
         "definition" : {
-          "val" : "x adjacent_to y iff: x and y share a boundary"
+          "val" : "x adjacent to y if and only if x and y share a boundary."
         },
         "xrefs" : [ {
           "val" : "RO:0002220"
@@ -873345,8 +873348,7 @@
       "propertyType" : "OBJECT",
       "meta" : {
         "definition" : {
-          "val" : "inverse of surrounded_by",
-          "xrefs" : [ "https://orcid.org/0000-0002-6601-2165" ]
+          "val" : "inverse of surrounded by"
         },
         "subsets" : [ "http://purl.obolibrary.org/obo/RO_0002259" ],
         "xrefs" : [ {
@@ -873401,7 +873403,8 @@
       "propertyType" : "OBJECT",
       "meta" : {
         "definition" : {
-          "val" : "inverse of starts with"
+          "val" : "Relation between occurrents, shares a start boundary with.",
+          "xrefs" : [ "https://orcid.org/0000-0002-6601-2165", "Allen:starts" ]
         },
         "subsets" : [ "http://purl.obolibrary.org/obo/ro/subsets#ro-eco" ],
         "xrefs" : [ {
@@ -873459,7 +873462,7 @@
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/RO_0002225",
-      "lbl" : "develops_from_part_of",
+      "lbl" : "develops from part of",
       "type" : "PROPERTY",
       "propertyType" : "OBJECT",
       "meta" : {
@@ -873485,7 +873488,7 @@
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/RO_0002226",
-      "lbl" : "develops_in",
+      "lbl" : "develops in",
       "type" : "PROPERTY",
       "propertyType" : "OBJECT",
       "meta" : {
@@ -873523,7 +873526,8 @@
       "propertyType" : "OBJECT",
       "meta" : {
         "definition" : {
-          "val" : "inverse of ends with"
+          "val" : "Relation between occurrents, shares an end boundary with.",
+          "xrefs" : [ "https://orcid.org/0000-0002-6601-2165", "Allen:starts", "ZFS:finishes" ]
         },
         "subsets" : [ "http://purl.obolibrary.org/obo/ro/subsets#ro-eco" ],
         "synonyms" : [ {
@@ -873692,7 +873696,7 @@
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/RO_0002255",
-      "lbl" : "developmentally_contributes_to",
+      "lbl" : "developmentally contributes to",
       "type" : "PROPERTY",
       "propertyType" : "OBJECT",
       "meta" : {
@@ -873719,12 +873723,13 @@
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/RO_0002256",
-      "lbl" : "developmentally_induced_by",
+      "lbl" : "developmentally induced by",
       "type" : "PROPERTY",
       "propertyType" : "OBJECT",
       "meta" : {
         "definition" : {
-          "val" : "t1 induced_by t2 if there is a process of developmental induction (GO:0031128) with t1 and t2 as interacting participants. t2 causes t1 to change its fate from a precursor anatomical structure type T to T', where T' develops_from T"
+          "val" : "t1 developmentally_induced_by t2 if there is a process of organ induction (GO:0001759) with t1 and t2 as interacting participants. t2 causes t1 to change its fate from a precursor tissue type T to T', where T' develops_from T.",
+          "xrefs" : [ "GO:0001759" ]
         },
         "comments" : [ "sources for developmentally_induced_by relationships in Uberon: Developmental Biology, Gilbert, 8th edition, figure 6.5(F)" ],
         "xrefs" : [ {
@@ -873855,7 +873860,7 @@
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/RO_0002285",
-      "lbl" : "developmentally_replaces",
+      "lbl" : "developmentally replaces",
       "type" : "PROPERTY",
       "propertyType" : "OBJECT",
       "meta" : {
@@ -873953,10 +873958,10 @@
       "meta" : {
         "basicPropertyValues" : [ {
           "pred" : "http://purl.obolibrary.org/obo/IAO_0000112",
-          "val" : "an annotation of gene X to anatomical structure formation with results_in_formation_of UBERON:0000007 (pituitary gland) means that at the beginning of the process a pituitary gland does not exist and at the end of the process a pituitary gland exists."
+          "val" : "every \"endocardial cushion formation\" (GO:0003272) results_in_formation_of some \"endocardial cushion\" (UBERON:0002062)"
         }, {
           "pred" : "http://purl.obolibrary.org/obo/IAO_0000112",
-          "val" : "every \"endocardial cushion formation\" (GO:0003272) results_in_formation_of some \"endocardial cushion\" (UBERON:0002062)"
+          "val" : "an annotation of gene X to anatomical structure formation with results_in_formation_of UBERON:0000007 (pituitary gland) means that at the beginning of the process a pituitary gland does not exist and at the end of the process a pituitary gland exists."
         }, {
           "pred" : "http://purl.obolibrary.org/obo/IAO_0000114",
           "val" : "http://purl.obolibrary.org/obo/IAO_0000125"
@@ -874205,7 +874210,7 @@
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/RO_0002331",
-      "lbl" : "involved_in",
+      "lbl" : "involved in",
       "type" : "PROPERTY",
       "propertyType" : "OBJECT",
       "meta" : {
@@ -874387,7 +874392,7 @@
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/RO_0002353",
-      "lbl" : "output_of",
+      "lbl" : "output of",
       "type" : "PROPERTY",
       "propertyType" : "OBJECT",
       "meta" : {
@@ -874428,7 +874433,7 @@
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/RO_0002371",
-      "lbl" : "attaches_to",
+      "lbl" : "attached to",
       "type" : "PROPERTY",
       "propertyType" : "OBJECT",
       "meta" : {
@@ -874458,13 +874463,12 @@
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/RO_0002372",
-      "lbl" : "has_muscle_origin",
+      "lbl" : "has muscle origin",
       "type" : "PROPERTY",
       "propertyType" : "OBJECT",
       "meta" : {
         "definition" : {
-          "val" : "m has_muscle_origin s iff m is attaches_to s, and it is the case that when m contracts, s does not move. The site of the origin tends to be more proximal and have greater mass than what the other end attaches to.",
-          "xrefs" : [ "http://en.wikipedia.org/wiki/Insertion_(anatomy)#Muscles" ]
+          "val" : "m has_muscle_origin s iff m is attached_to s, and it is the case that when m contracts, s does not move. The site of the origin tends to be more proximal and have greater mass than what the other end attaches to."
         },
         "comments" : [ "The origin is the end of a muscle that attaches to the more fixed part of the skeleton, which is the proximal end in limb muscles" ],
         "xrefs" : [ {
@@ -874492,7 +874496,7 @@
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/RO_0002373",
-      "lbl" : "has_muscle_insertion",
+      "lbl" : "has muscle insertion",
       "type" : "PROPERTY",
       "propertyType" : "OBJECT",
       "meta" : {
@@ -874525,7 +874529,7 @@
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/RO_0002374",
-      "lbl" : "has_fused_element",
+      "lbl" : "derived from ancestral fusion of",
       "type" : "PROPERTY",
       "propertyType" : "OBJECT",
       "meta" : {
@@ -874594,7 +874598,7 @@
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/RO_0002376",
-      "lbl" : "tributary_of",
+      "lbl" : "tributary of",
       "type" : "PROPERTY",
       "propertyType" : "OBJECT",
       "meta" : {
@@ -874676,7 +874680,7 @@
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/RO_0002380",
-      "lbl" : "branching_part_of",
+      "lbl" : "branching part of",
       "type" : "PROPERTY",
       "propertyType" : "OBJECT",
       "meta" : {
@@ -875151,12 +875155,12 @@
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/RO_0002448",
-      "lbl" : "directly regulates activity of",
+      "lbl" : "activity directly regulates activity of",
       "type" : "PROPERTY",
       "propertyType" : "OBJECT",
       "meta" : {
         "definition" : {
-          "val" : "The entity A, immediately upstream of the entity B, has an activity that regulates an activity performed by B. For example, A and B may be gene products and binding of B by A regulates the kinase activity of B.\n\nA and B can be physically interacting but not necessarily. Immediately upstream means there are no intermediate entity between A and B."
+          "val" : "Holds between molecular entities A and B where A can physically interact with B and in doing so regulates a process that B is capable of.  For example, A and B may be gene products and binding of B by A regulates the kinase activity of B."
         },
         "synonyms" : [ {
           "pred" : "hasExactSynonym",
@@ -875172,12 +875176,12 @@
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/RO_0002449",
-      "lbl" : "directly negatively regulates activity of",
+      "lbl" : "activity directly negatively regulates activity of",
       "type" : "PROPERTY",
       "propertyType" : "OBJECT",
       "meta" : {
         "definition" : {
-          "val" : "The entity A, immediately upstream of the entity B, has an activity that negatively regulates an activity performed by B. \nFor example, A and B may be gene products and binding of B by A negatively regulates the kinase activity of B."
+          "val" : "Holds between molecular entities A and B where A can physically interact with B and in doing so negatively regulates a process that B is capable of.  For example, A and B may be gene products and binding of B by A negatively regulates the kinase activity of B."
         },
         "synonyms" : [ {
           "pred" : "hasExactSynonym",
@@ -875199,12 +875203,12 @@
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/RO_0002450",
-      "lbl" : "directly positively regulates activity of",
+      "lbl" : "activity directly positively regulates activity of",
       "type" : "PROPERTY",
       "propertyType" : "OBJECT",
       "meta" : {
         "definition" : {
-          "val" : "The entity A, immediately upstream of the entity B, has an activity that positively regulates an activity performed by B. \nFor example, A and B may be gene products and binding of B by A positively regulates the kinase activity of B."
+          "val" : "Holds between molecular entities A and B where A can physically interact with B and in doing so positively regulates a process that B is capable of.  For example, A and B may be gene products and binding of B by A positively regulates the kinase activity of B."
         },
         "synonyms" : [ {
           "pred" : "hasExactSynonym",
@@ -875256,7 +875260,7 @@
       "propertyType" : "OBJECT",
       "meta" : {
         "definition" : {
-          "val" : "x composed_primarily_of y iff: more than half of the mass of x is made from parts of y"
+          "val" : "x composed_primarily_of y if and only if more than half of the mass of x is made from y or units of the same type as y."
         },
         "subsets" : [ "http://purl.obolibrary.org/obo/ro/subsets#ro-eco" ],
         "xrefs" : [ {
@@ -875329,7 +875333,8 @@
       "propertyType" : "OBJECT",
       "meta" : {
         "definition" : {
-          "val" : "x existence starts during y if and only if the time point at which x starts is after or equivalent to the time point at which y starts and before or equivalent to the time point at which y ends. Formally: x existence starts during y iff α(x) >= α(y) & α(x) <= ω(y)."
+          "val" : "Relation between continuant c and occurrent s, such that every instance of c comes into existing during some s.",
+          "xrefs" : [ "https://orcid.org/0000-0002-6601-2165" ]
         },
         "synonyms" : [ {
           "pred" : "hasExactSynonym",
@@ -875356,7 +875361,8 @@
       "propertyType" : "OBJECT",
       "meta" : {
         "definition" : {
-          "val" : "x starts ends with y if and only if the time point at which x starts is equivalent to the time point at which y starts. Formally: x existence starts with y iff α(x) = α(y)."
+          "val" : "Relation between continuant and occurrent, such that c comes into existence at the start of p.",
+          "xrefs" : [ "https://orcid.org/0000-0002-6601-2165" ]
         },
         "xrefs" : [ {
           "val" : "RO:0002489"
@@ -875394,7 +875400,8 @@
       "propertyType" : "OBJECT",
       "meta" : {
         "definition" : {
-          "val" : "x existence ends during y if and only if the time point at which x ends is before or equivalent to the time point at which y ends and after or equivalent to the point at which y starts. Formally: x existence ends during y iff ω(x) <= ω(y) and ω(x) >= α(y)."
+          "val" : "Relation between continuant c and occurrent s, such that every instance of c ceases to exist during some s, if it does not die prematurely.",
+          "xrefs" : [ "https://orcid.org/0000-0002-6601-2165" ]
         },
         "comments" : [ "The relations here were created based on work originally by Fabian Neuhaus and David Osumi-Sutherland. The work has not yet been vetted and errors in definitions may have occurred during transcription." ],
         "synonyms" : [ {
@@ -875422,7 +875429,8 @@
       "propertyType" : "OBJECT",
       "meta" : {
         "definition" : {
-          "val" : "x existence ends with y if and only if the time point at which x ends is equivalent to the time point at which y ends. Formally: x existence ends with y iff ω(x) = ω(y)."
+          "val" : "Relation between continuant and occurrent, such that c ceases to exist at the end of p.",
+          "xrefs" : [ "https://orcid.org/0000-0002-6601-2165" ]
         },
         "comments" : [ "The relations here were created based on work originally by Fabian Neuhaus and David Osumi-Sutherland. The work has not yet been vetted and errors in definitions may have occurred during transcription." ],
         "xrefs" : [ {
@@ -875632,7 +875640,7 @@
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/RO_0002506",
-      "lbl" : "causal relation between material entities",
+      "lbl" : "causal relation between entities",
       "type" : "PROPERTY",
       "propertyType" : "OBJECT",
       "meta" : {
@@ -875723,8 +875731,7 @@
       "propertyType" : "OBJECT",
       "meta" : {
         "definition" : {
-          "val" : "A relation between a subdivision of an organism and the single subdivision of skeleton that provides structural support for that subdivision.",
-          "xrefs" : [ "http://orcid.org/0000-0002-6601-2165" ]
+          "val" : "A relation between a segment or subdivision of an organism and the maximal subdivision of material entities that provides structural support for that segment or subdivision."
         },
         "synonyms" : [ {
           "pred" : "hasRelatedSynonym",
@@ -875811,7 +875818,7 @@
       "propertyType" : "OBJECT",
       "meta" : {
         "definition" : {
-          "val" : "The entity or characteristic A is causally upstream of the entity or characteristic B, A having an effect on B. An entity corresponds to any biological type of entity as long as a mass is measurable. A characteristic corresponds to a particular specificity of an entity (e.g., phenotype, shape, size)."
+          "val" : "Holds between materal entities a and b if the activity of a is causally upstream of the activity of b, or causally upstream of a an activity that modifies b"
         },
         "basicPropertyValues" : [ {
           "pred" : "http://purl.obolibrary.org/obo/IAO_0000117",
@@ -875849,12 +875856,13 @@
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/RO_0002568",
-      "lbl" : "has_muscle_antagonist",
+      "lbl" : "has muscle antagonist",
       "type" : "PROPERTY",
       "propertyType" : "OBJECT",
       "meta" : {
         "definition" : {
-          "val" : "m1 has_muscle_antagonist m2 iff m1 has_muscle_insertion s, m2 has_muscle_insection s, m1 acts in opposition to m2, and m2 is responsible for returning the structure to its initial position."
+          "val" : "m1 has_muscle_antagonist m2 iff m1 acts in opposition to m2, and m2 is responsible for returning the structure to its initial position.",
+          "xrefs" : [ "http://en.wikipedia.org/wiki/Antagonist_(muscle)" ]
         },
         "xrefs" : [ {
           "val" : "RO:0002568"
@@ -876210,7 +876218,7 @@
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/RO_0003001",
-      "lbl" : "produced_by",
+      "lbl" : "produced by",
       "type" : "PROPERTY",
       "propertyType" : "OBJECT",
       "meta" : {
@@ -877191,7 +877199,7 @@
       "propertyType" : "ANNOTATION"
     }, {
       "id" : "http://purl.obolibrary.org/obo/IAO_0000232",
-      "lbl" : "curator notes",
+      "lbl" : "curator note",
       "type" : "PROPERTY",
       "propertyType" : "ANNOTATION",
       "meta" : {
@@ -877283,12 +877291,13 @@
       "propertyType" : "ANNOTATION"
     }, {
       "id" : "http://purl.obolibrary.org/obo/RO_0002173",
-      "lbl" : "ambiguous_for_taxon",
+      "lbl" : "ambiguous for taxon",
       "type" : "PROPERTY",
       "propertyType" : "ANNOTATION",
       "meta" : {
         "definition" : {
-          "val" : "S ambiguous_for_taxon T if the class S does not have a clear referent in taxon T. An example would be the class 'manual digit 1', which encompasses a homology hypotheses that is accepted for some species (e.g. human and mouse), but does not have a clear referent in Aves - the referent is dependent on the hypothesis embraced, and also on the ontogenetic stage.  [PHENOSCPAE:asilomar_mtg]"
+          "val" : "S ambiguous_for_taxon T if the class S does not have a clear referent in taxon T. An example would be the class 'manual digit 1', which encompasses a homology hypotheses that is accepted for some species (e.g. human and mouse), but does not have a clear referent in Aves - the referent is dependent on the hypothesis embraced, and also on the ontogenetic stage.",
+          "xrefs" : [ "PHENOSCPAE:asilomar_mtg" ]
         },
         "xrefs" : [ {
           "val" : "RO:0002173"
@@ -877312,7 +877321,7 @@
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/RO_0002174",
-      "lbl" : "dubious_for_taxon",
+      "lbl" : "dubious for taxon",
       "type" : "PROPERTY",
       "propertyType" : "ANNOTATION",
       "meta" : {
@@ -877349,7 +877358,7 @@
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/RO_0002175",
-      "lbl" : "present_in_taxon",
+      "lbl" : "present in taxon",
       "type" : "PROPERTY",
       "propertyType" : "ANNOTATION",
       "meta" : {
@@ -877439,7 +877448,7 @@
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/RO_0002604",
-      "lbl" : "is_opposite_of",
+      "lbl" : "is opposite of",
       "type" : "PROPERTY",
       "propertyType" : "ANNOTATION",
       "meta" : {

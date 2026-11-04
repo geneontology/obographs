@@ -338,4 +338,77 @@ public class FromOwlTest {
                 .build();
         assertThat(graphDocument, equalTo(new GraphDocument.Builder().addGraph(graph).build()));
     }
+
+    /**
+     * OWL API 5 keeps the asserted operand order of InverseObjectProperties, OWL API 4 sorted it. The edge must come out
+     * the same whichever way round the axiom was written.
+     */
+    @Test
+    public void testInverseObjectPropertiesOperandOrderIsStable() throws Exception {
+        String owl = "Prefix(:=<http://example.org/>)\n" +
+                     "Ontology(<http://example.org/inv.owl>\n" +
+                     "Declaration(ObjectProperty(:a_prop))\n" +
+                     "Declaration(ObjectProperty(:z_prop))\n" +
+                     "InverseObjectProperties(:z_prop :a_prop)\n" +
+                     ")";
+        Graph graph = generateGraphDocument(owl).getGraphs().get(0);
+        Edge expected = new Edge.Builder().sub("http://example.org/a_prop").pred(FromOwl.INVERSE_OF).obj("http://example.org/z_prop").build();
+        assertThat(graph.getEdges(), equalTo(List.of(expected)));
+    }
+
+    /**
+     * OWLLiteral.toString() leaked quotes (OWL API 4) or ^^xsd:string (OWL API 5) into the synonym type.
+     */
+    @Test
+    public void testLiteralSynonymTypeIsRenderedWithoutDecoration() throws Exception {
+        String owl = "Prefix(:=<http://example.org/>)\n" +
+                     "Prefix(oboInOwl:=<http://www.geneontology.org/formats/oboInOwl#>)\n" +
+                     "Ontology(<http://example.org/syn.owl>\n" +
+                     "Declaration(Class(:C))\n" +
+                     "AnnotationAssertion(Annotation(oboInOwl:hasSynonymType \"ABBREV\") oboInOwl:hasExactSynonym :C \"cee\")\n" +
+                     ")";
+        Graph graph = generateGraphDocument(owl).getGraphs().get(0);
+        Node node = graph.getNodes().stream().filter(n -> n.getId().equals("http://example.org/C")).findFirst().orElseThrow();
+        assertThat(node.getMeta().getSynonyms().get(0).getSynonymType(), equalTo("ABBREV"));
+    }
+
+    /**
+     * <a href="https://github.com/geneontology/obographs/issues/107">#107</a>: with several labels or definitions the
+     * alphanumerically first one wins, independent of the OWL API axiom order.
+     */
+    @Test
+    public void testAlphanumericallyFirstLabelAndDefinitionWin() throws Exception {
+        String owl = "Prefix(:=<http://example.org/>)\n" +
+                     "Prefix(rdfs:=<http://www.w3.org/2000/01/rdf-schema#>)\n" +
+                     "Prefix(obo:=<http://purl.obolibrary.org/obo/>)\n" +
+                     "Ontology(<http://example.org/multi.owl>\n" +
+                     "Declaration(Class(:C))\n" +
+                     "AnnotationAssertion(rdfs:label :C \"zebra\")\n" +
+                     "AnnotationAssertion(rdfs:label :C \"aardvark\"@en)\n" +
+                     "AnnotationAssertion(rdfs:label :C \"mole\")\n" +
+                     "AnnotationAssertion(obo:IAO_0000115 :C \"Second definition.\")\n" +
+                     "AnnotationAssertion(obo:IAO_0000115 :C \"First definition.\")\n" +
+                     ")";
+        Node node = generateGraphDocument(owl).getGraphs().get(0).getNodes().get(0);
+        assertThat(node.getLabel(), equalTo("aardvark"));
+        assertThat(node.getMeta().getDefinition().getVal(), equalTo("First definition."));
+    }
+
+    /**
+     * Axiom annotations whose value is an anonymous individual used to throw a ClassCastException in buildMeta.
+     */
+    @Test
+    public void testAxiomAnnotationWithAnonymousIndividualValue() throws Exception {
+        String owl = "Prefix(:=<http://example.org/>)\n" +
+                     "Ontology(<http://example.org/anon.owl>\n" +
+                     "Declaration(Class(:A))\n" +
+                     "Declaration(Class(:B))\n" +
+                     "Declaration(AnnotationProperty(:p))\n" +
+                     "SubClassOf(Annotation(:p _:x) :A :B)\n" +
+                     ")";
+        Graph graph = generateGraphDocument(owl).getGraphs().get(0);
+        Edge edge = graph.getEdges().get(0);
+        assertThat(edge.getSub(), equalTo("http://example.org/A"));
+        assertThat(edge.getMeta().getBasicPropertyValues().get(0).getPred(), equalTo("http://example.org/p"));
+    }
 }

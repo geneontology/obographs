@@ -1152,9 +1152,6 @@ graphs:
       - pred: "http://purl.obolibrary.org/obo/IAO_0000111"
         val: "contained in"
       - pred: "http://purl.obolibrary.org/obo/IAO_0000116"
-        val: "Containment is location not involving parthood, and arises only where\
-          \ some immaterial continuant is involved."
-      - pred: "http://purl.obolibrary.org/obo/IAO_0000116"
         val: "Containment obtains in each case between material and immaterial continuants,\
           \ for instance: lung contained_in thoracic cavity; bladder contained_in\
           \ pelvic cavity. Hence containment is not a transitive relation.    If c\
@@ -1171,6 +1168,9 @@ graphs:
       - pred: "http://purl.obolibrary.org/obo/IAO_0000116"
         val: "Intended meaning:\ndomain: material entity\nrange: spatial region or\
           \ site (immaterial continuant)\n        "
+      - pred: "http://purl.obolibrary.org/obo/IAO_0000116"
+        val: "Containment is location not involving parthood, and arises only where\
+          \ some immaterial continuant is involved."
       - pred: "http://purl.obolibrary.org/obo/IAO_0000118"
         val: "contained_in"
       - pred: "http://purl.obolibrary.org/obo/RO_0001900"
@@ -1768,9 +1768,9 @@ graphs:
       - pred: "http://purl.obolibrary.org/obo/IAO_0000114"
         val: "http://purl.obolibrary.org/obo/IAO_0000125"
       - pred: "http://purl.obolibrary.org/obo/IAO_0000117"
-        val: "Alexander Diehl"
-      - pred: "http://purl.obolibrary.org/obo/IAO_0000117"
         val: "Chris Mungall"
+      - pred: "http://purl.obolibrary.org/obo/IAO_0000117"
+        val: "Alexander Diehl"
       - pred: "http://purl.obolibrary.org/obo/IAO_0000117"
         val: "Lindsay Cowell"
       - pred: "http://purl.obolibrary.org/obo/IAO_0000119"
@@ -2531,9 +2531,9 @@ graphs:
       - pred: "http://purl.obolibrary.org/obo/IAO_0000117"
         val: "David Osumi-Sutherland"
       - pred: "http://purl.obolibrary.org/obo/IAO_0000117"
-        val: "Melissa Haendel"
-      - pred: "http://purl.obolibrary.org/obo/IAO_0000117"
         val: "Terry Meehan"
+      - pred: "http://purl.obolibrary.org/obo/IAO_0000117"
+        val: "Melissa Haendel"
   - id: "http://purl.obolibrary.org/obo/RO_0002203"
     lbl: "develops into"
     type: "PROPERTY"
@@ -3540,13 +3540,13 @@ graphs:
     meta:
       basicPropertyValues:
       - pred: "http://purl.obolibrary.org/obo/IAO_0000112"
+        val: "every \"endocardial cushion formation\" (GO:0003272) results_in_formation_of\
+          \ some \"endocardial cushion\" (UBERON:0002062)"
+      - pred: "http://purl.obolibrary.org/obo/IAO_0000112"
         val: "an annotation of gene X to anatomical structure formation with results_in_formation_of\
           \ UBERON:0000007 (pituitary gland) means that at the beginning of the process\
           \ a pituitary gland does not exist and at the end of the process a pituitary\
           \ gland exists."
-      - pred: "http://purl.obolibrary.org/obo/IAO_0000112"
-        val: "every \"endocardial cushion formation\" (GO:0003272) results_in_formation_of\
-          \ some \"endocardial cushion\" (UBERON:0002062)"
       - pred: "http://purl.obolibrary.org/obo/IAO_0000114"
         val: "http://purl.obolibrary.org/obo/IAO_0000125"
       - pred: "http://purl.obolibrary.org/obo/IAO_0000117"
@@ -3566,12 +3566,12 @@ graphs:
           \ to a mature state."
       basicPropertyValues:
       - pred: "http://purl.obolibrary.org/obo/IAO_0000112"
+        val: "tongue morphogenesis (GO:0043587) results in morphogenesis of tongue\
+          \ (UBERON:0001723)"
+      - pred: "http://purl.obolibrary.org/obo/IAO_0000112"
         val: "an annotation of gene X to cell morphogenesis with results_in_morphogenesis_of\
           \ CL:0000540 (neuron) means that at the end of the process an input neuron\
           \ has attained its shape."
-      - pred: "http://purl.obolibrary.org/obo/IAO_0000112"
-        val: "tongue morphogenesis (GO:0043587) results in morphogenesis of tongue\
-          \ (UBERON:0001723)"
       - pred: "http://purl.obolibrary.org/obo/IAO_0000114"
         val: "http://purl.obolibrary.org/obo/IAO_0000125"
       - pred: "http://purl.obolibrary.org/obo/IAO_0000117"
@@ -3591,11 +3591,11 @@ graphs:
           \ in it's shape and results in an end point state of that entity."
       basicPropertyValues:
       - pred: "http://purl.obolibrary.org/obo/IAO_0000112"
+        val: "bone maturation (GO:0070977) results_in_maturation_of bone (UBERON:0001474)"
+      - pred: "http://purl.obolibrary.org/obo/IAO_0000112"
         val: " an annotation of gene X to cell maturation with results_in_maturation_of\
           \ CL:0000057 (fibroblast) means that the fibroblast is mature at the end\
           \ of the process"
-      - pred: "http://purl.obolibrary.org/obo/IAO_0000112"
-        val: "bone maturation (GO:0070977) results_in_maturation_of bone (UBERON:0001474)"
       - pred: "http://purl.obolibrary.org/obo/IAO_0000114"
         val: "http://purl.obolibrary.org/obo/IAO_0000125"
       - pred: "http://purl.obolibrary.org/obo/IAO_0000117"
